@@ -3,197 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>МДК.02.04 «Разработка прикладных приложений» | СДО ИВПЭК (Mirror)</title>
+  <title>МДК.02.04 «Разработка прикладных приложений»</title>
   
-  <!-- Bootstrap 5 CSS & FontAwesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Highlight.js Monokai Sublime Theme -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
 
-  <!-- JSZip & docx-preview for in-browser Word Document Viewing -->
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docx-preview@0.3.3/dist/docx-preview.min.js"></script>
 
   <style>
-    :root {
-      --moodle-primary: #0f6cbf;
-      --moodle-primary-hover: #0b5190;
-      --moodle-bg: #f4f6f9;
-      --moodle-card-bg: #ffffff;
-      --moodle-text: #212529;
-      --moodle-border: #dee2e6;
-      --moodle-nav-text: #495057;
-    }
     body {
-      background-color: var(--moodle-bg);
-      color: var(--moodle-text);
+      background-color: #f8f9fa;
+      color: #212529;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-      padding: 0;
+      padding-top: 20px;
+      padding-bottom: 40px;
     }
-    
-    /* Moodle Authentic Top Navbar */
-    .moodle-navbar {
-      background-color: #ffffff;
-      border-bottom: 1px solid var(--moodle-border);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      padding: 0.5rem 1.5rem;
-    }
-    .moodle-brand {
-      font-weight: 700;
-      color: var(--moodle-primary);
-      text-decoration: none;
-      font-size: 1.15rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .moodle-brand:hover {
-      color: var(--moodle-primary-hover);
-    }
-    .moodle-top-links .nav-link {
-      color: var(--moodle-nav-text);
-      font-weight: 500;
-      padding: 0.5rem 0.8rem;
-      border-radius: 4px;
-      transition: background 0.15s;
-    }
-    .moodle-top-links .nav-link:hover {
-      color: var(--moodle-primary);
-      background-color: #f1f5f9;
-    }
-    .moodle-user-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #4b5563;
-      font-size: 0.9rem;
-      background: #f8fafc;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid var(--moodle-border);
-    }
-
-    /* Moodle Breadcrumb */
-    .moodle-breadcrumb-wrapper {
+    .main-card {
       background: #ffffff;
-      border-bottom: 1px solid var(--moodle-border);
-      padding: 0.5rem 1.5rem;
-    }
-    .breadcrumb {
-      margin-bottom: 0;
-      font-size: 0.875rem;
-    }
-    .breadcrumb-item a {
-      color: var(--moodle-primary);
-      text-decoration: none;
-    }
-    .breadcrumb-item.active {
-      color: #6c757d;
-    }
-
-    /* Course Header Banner (Moodle Course View) */
-    .course-header-banner {
-      background: #ffffff;
-      border-bottom: 1px solid var(--moodle-border);
-      padding: 1.5rem 1.5rem 0 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .course-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 0.25rem;
-    }
-    .course-subtitle {
-      color: #64748b;
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Moodle Boost Secondary Nav Tabs */
-    .moodle-nav-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 2px solid transparent;
-      gap: 4px;
-      margin-bottom: -1px;
-    }
-    .moodle-nav-tabs .nav-link {
-      color: #475569;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: none;
-      border-bottom: 3px solid transparent;
-      padding: 10px 18px;
-      border-radius: 0;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      background: transparent;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .moodle-nav-tabs .nav-link:hover {
-      color: var(--moodle-primary);
-      border-bottom-color: #94a3b8;
-    }
-    .moodle-nav-tabs .nav-link.active {
-      color: var(--moodle-primary);
-      border-bottom: 3px solid var(--moodle-primary);
-      background-color: transparent;
-    }
-
-    /* Moodle Section Main Card */
-    .moodle-card {
-      background: var(--moodle-card-bg);
+      border: 1px solid #dee2e6;
       border-radius: 8px;
-      border: 1px solid var(--moodle-border);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
       padding: 24px;
       margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    
-    .section-title-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: #e0f2fe;
-      color: #0369a1;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+    .nav-tabs .nav-link {
+      color: #495057;
+      font-weight: 500;
+      cursor: pointer;
     }
-
-    /* Tab Content Switcher */
+    .nav-tabs .nav-link.active {
+      color: #0d6efd;
+      font-weight: 600;
+    }
     .tab-pane {
       display: none;
     }
     .tab-pane.active {
       display: block;
-      animation: fadeIn 0.15s ease-in-out;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(3px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Code styling */
     .code-container {
       position: relative;
       margin: 14px 0;
-      border-radius: 6px;
-      overflow: hidden;
     }
     .copy-btn {
       position: absolute;
@@ -207,126 +63,51 @@
       padding: 3px 8px;
       font-size: 11px;
       cursor: pointer;
-      backdrop-filter: blur(4px);
-      transition: background 0.2s;
-    }
-    .copy-btn:hover {
-      background: rgba(255, 255, 255, 0.4);
     }
     pre code.hljs {
       border-radius: 6px;
       padding: 14px;
-      font-family: "Fira Code", Consolas, Monaco, "Courier New", monospace;
+      font-family: Consolas, Monaco, "Courier New", monospace;
       font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* Moodle Footer */
-    .moodle-footer {
-      margin-top: auto;
-      background-color: #1e293b;
-      color: #cbd5e1;
-      padding: 24px 0;
-      font-size: 0.875rem;
-    }
-    .moodle-footer a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
-    .moodle-footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- Moodle Top Navbar -->
-  <header class="moodle-navbar">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center gap-3">
-        <a class="moodle-brand" href="#group301">
-          <i class="fa-solid fa-graduation-cap fs-4"></i>
-          <span>СДО ИВПЭК</span>
-        </a>
-        <nav class="moodle-top-links d-none d-md-flex">
-          <a class="nav-link" href="https://dl.ivpek.ru/" target="_blank">В начало</a>
-          <a class="nav-link" href="https://dl.ivpek.ru/my/" target="_blank">Мои курсы</a>
-          <a class="nav-link text-primary fw-semibold" href="#group301">Этот курс (МДК.02.04)</a>
-        </nav>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0">МДК.02.04 «Разработка прикладных приложений»</h3>
+      <a href="https://github.com/dEN5-tech/java-student-workspace" target="_blank" class="btn btn-sm btn-outline-dark">
+        <i class="fa-brands fa-github me-1"></i> Репозиторий
+      </a>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs mb-4" id="sectionTabs">
+      <li class="nav-item">
+        <button class="nav-link active" data-tab="summary">Материалы и файлы</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-tab="group301">Группа 301 (ООП)</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-tab="group401">Группа 401 (JavaFX)</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-tab="group307">Группа 307 (Тестирование)</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-tab="qr">QR-Утилита</button>
+      </li>
+    </ul>
+
+    <!-- Tab Contents -->
+    <div class="main-card">
+      <div id="tab-summary" class="tab-pane active">
+        <div class="box py-3 generalbox"><div class="no-overflow"><p><strong>Файлообменник, сборник документов и персональные хранилища работ:</strong></p><h4>Дисциплина: Разработка прикладных приложений</h4><p><strong>Группа 401 (4 курс)</strong></p><ul><li><a href="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip">Скачать проект (javafx-starter.zip)</a> — библиотеки JavaFX и скрипты <code>build.bat</code> / <code>run.bat</code></li><li><a href="https://github.com/dEN5-tech/javafx-starter" target="_blank">Репозиторий на GitHub (javafx-starter)</a></li><li><a href="https://dl.ivpek.ru/mod/page/view.php?id=37594">Задание: JavaFX ToDo приложение (Scene Builder 18 + VS Code)</a></li><li><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37598">Личное хранилище работ (JavaFX ToDo List)</a></li></ul><p><strong>Группа 301 (3 курс)</strong></p><ul><li><a href="https://dl.ivpek.ru/mod/page/view.php?id=37593">Задание: Объекты как параметры методов (Класс Fighter и симуляция боя)</a></li><li><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37597">Личное хранилище работ: Группа 301 (Загрузить работу)</a></li></ul><hr/><h4>Дисциплина: Поддержка и тестирование программных модулей (3 курс)</h4><p>Материалы для групп 307, 307а, 308, 308а, 305:</p><ul><li><a href="https://dl.ivpek.ru/mod/page/view.php?id=37595"><strong>Сборник документов и практических заданий по тестированию (3 курс)</strong></a><ul><li>Модульное тестирование NUnit (Практические работы 1–8, LES9)</li><li>Техническая документация ПО (Занятия 11–19, ГОСТ 19, SRS)</li><li>Серверная инфраструктура (VPS, SSH, Gitea)</li><li>Шаблон пояснительной записки курсового проекта</li></ul></li><li><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37599"><strong>Личное хранилище работ: Поддержка и тестирование ПО</strong></a></li></ul></div></div>
       </div>
 
-      <div class="d-flex align-items-center gap-2">
-        <div class="moodle-user-badge d-none d-sm-flex">
-          <i class="fa-solid fa-circle-user text-primary fs-5"></i>
-          <span>Студент (Гостевой доступ)</span>
-        </div>
-        <a href="https://dl.ivpek.ru/course/view.php?id=217" target="_blank" class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          <span>Оригинал Moodle</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Moodle Breadcrumb Bar -->
-  <div class="moodle-breadcrumb-wrapper">
-    <div class="container-fluid">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="https://dl.ivpek.ru/" target="_blank">В начало</a></li>
-          <li class="breadcrumb-item"><a href="https://dl.ivpek.ru/course/index.php" target="_blank">Курсы</a></li>
-          <li class="breadcrumb-item"><a href="https://dl.ivpek.ru/course/index.php?categoryid=2" target="_blank">Очное отделение</a></li>
-          <li class="breadcrumb-item active" aria-current="page">МДК.02.04 «Разработка прикладных приложений»</li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Course Header Banner & Tabs Mirror -->
-  <div class="course-header-banner">
-    <div class="container-fluid">
-      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
-        <div>
-          <h1 class="course-title">МДК.02.04 «Разработка прикладных приложений»</h1>
-          <p class="course-subtitle">Кафедра информационных технологий • ОГБПОУ «Ивановский промышленно-экономический колледж»</p>
-        </div>
-        <div>
-          <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 fs-6">
-            <i class="fa-solid fa-check-circle me-1"></i> Зеркало документов (GitHub Pages)
-          </span>
-        </div>
-      </div>
-
-      <!-- Moodle Tabs Navigation -->
-      <nav class="moodle-nav-tabs" id="moodleCourseTabs">
-        <button type="button" class="nav-link active" data-tab="group301">
-          <i class="fa-solid fa-users text-primary"></i> Группа 301 (ООП &amp; Java)
-        </button>
-        <button type="button" class="nav-link" data-tab="group401">
-          <i class="fa-solid fa-desktop text-success"></i> Группа 401 (JavaFX &amp; GUI)
-        </button>
-        <button type="button" class="nav-link" data-tab="group307">
-          <i class="fa-solid fa-vial-circle-check text-warning"></i> Группа 307 (Тестирование &amp; Документация)
-        </button>
-        <button type="button" class="nav-link" data-tab="summary">
-          <i class="fa-solid fa-folder-tree text-info"></i> Файлообменник &amp; Хранилища
-        </button>
-        <button type="button" class="nav-link" data-tab="qr">
-          <i class="fa-solid fa-qrcode text-secondary"></i> QR-Утилита
-        </button>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Main Moodle Content Container -->
-  <main class="container-fluid px-4 pb-4 flex-grow-1">
-    
-    <!-- Tab 1: Group 301 -->
-    <section id="tab-group301" class="tab-pane active">
-      <div class="moodle-card">
-        <div class="section-title-badge">
-          <i class="fa-solid fa-chalkboard-user"></i> Раздел курса: Группа 301 (3 курс)
-        </div>
+      <div id="tab-group301" class="tab-pane">
         <div class="box py-3 generalbox"><div class="no-overflow"><p><a href="https://dl.ivpek.ru/course/view.php?id=217#section-1">« Назад к Теме 1</a></p><h3>Практическое занятие: Объекты как параметры методов. Межобъектное взаимодействие в Java</h3><p class="text-muted"><em>Дисциплина: Разработка прикладных приложений | Группа 301</em></p><hr/><h4>1. Теоретические сведения: Как объекты передаются в методы</h4><p>В языке Java все параметры передаются в методы <strong>по значению</strong>. Однако важно понимать ключевую разницу между примитивными типами и ссылочными объектами:</p><ul><li><strong>Примитивные типы (int, double, boolean):</strong> в метод передается <em>копия значения</em> переменной. Если метод изменит этот параметр внутри себя, исходная переменная в <code>main</code> останется неизменной.</li><li><strong>Объекты классов (ссылочные типы):</strong> в метод передается <em>копия ссылки</em> на область в памяти (куче), где расположен этот объект. Это означает, что переданный параметр и исходная переменная указывают на <strong>один и тот же объект в памяти</strong>.</li></ul><div class="alert alert-info"><strong>Ключевой вывод:</strong> Когда мы передаем один объект в метод другого объекта (например, <code>hero.attack(monster)</code>), метод получает доступ к реальному объекту <code>monster</code> и может вызывать его методы или изменять его поля (например, уменьшать здоровье).</div><hr/><h4>2. Практический пример: Моделирование боя персонажей</h4><p>Рассмотрим программу, состоящую из двух компонентов: класса персонажа <code>Fighter</code> и главного класса <code>BattleDemo</code>.</p><p><strong>Исходный код программы:</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-fighter-battle', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-fighter-battle" data-monokai-editor="true" data-language="java" data-readonly="false" data-code="// 1. Класс персонажа
 class Fighter {
     String name;
@@ -493,14 +274,8 @@ public class BattleDemo {
     `],{type:"application/javascript"}),a=new Worker(URL.createObjectURL(s));a.onmessage=(i)=>{if(e)e.textContent=`✓ [Worker Result] Успешно обработано за ${i.data.duration} | Строк: ${i.data.lines}, Символов: ${i.data.chars}`;a.terminate()},a.postMessage({code:o})}function l(){document.querySelectorAll("[data-monokai-editor]").forEach((o)=>{let e=o.id;if(e)f(e)})}if(window.MonokaiEditor={instances:t,mount:f,unmount:g,getCode:c,setCode:y,copyCode:p,runWorkerTask:b,initAll:l},document.readyState==="loading")document.addEventListener("DOMContentLoaded",l);else setTimeout(l,50)})();
 </script></div></div>
       </div>
-    </section>
 
-    <!-- Tab 2: Group 401 -->
-    <section id="tab-group401" class="tab-pane">
-      <div class="moodle-card">
-        <div class="section-title-badge">
-          <i class="fa-solid fa-laptop-code"></i> Раздел курса: Группа 401 (4 курс)
-        </div>
+      <div id="tab-group401" class="tab-pane">
         <div class="box py-3 generalbox"><div class="no-overflow"><p><a href="https://dl.ivpek.ru/course/view.php?id=217#section-1">« Назад к Теме 1</a></p><h3>Практическое занятие: Компонент ListView и ObservableList в JavaFX (FXML + Controller)</h3><p class="text-muted"><em>Дисциплина: Разработка прикладных приложений | Группа 401</em></p><hr/><h4>1. Стартовый проект и файлы</h4><p>Для выполнения практической работы скачайте готовый шаблон JavaFX проекта (включает необходимые библиотеки, DLL и скрипты <code>build.bat</code> / <code>run.bat</code>):</p><ul><li><a href="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip"><strong>Скачать готовый архив проекта (javafx-starter.zip)</strong></a></li><li><a href="https://github.com/dEN5-tech/javafx-starter" target="_blank">Репозиторий проекта на GitHub (javafx-starter)</a></li><li><span><a href="assets/javafx-starter-guide.txt"><strong>Инструкция по настройке рабочего места (javafx-starter-guide.txt)</strong></a></span></li></ul><hr/><h4>2. Теоретические сведения: Работа со списками ListView в JavaFX</h4><p>Класс <code>javafx.scene.control.ListView<T></code> позволяет отображать прокручиваемый список элементов. <code>ListView</code> является обобщенным типом, и в нашем приложении для списка задач мы типизируем его строками — <code>ListView<String></code>.</p><p><strong>Динамическое изменение данных через ObservableList:</strong></p><p>В JavaFX графический компонент <code>ListView</code> не хранит данные напрямую, а связывается с коллекцией-наблюдателем — <code>ObservableList<String></code>:</p><pre style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 12px; font-size: 13px;"><code>ObservableList<String> items = FXCollections.observableArrayList();
 taskListView.setItems(items);</code></pre><p>После того, как для <code>ListView</code> установлен источник данных <code>items</code>, все операции по добавлению, удалению или очистке производятся <strong>напрямую с коллекцией</strong> через методы <code>add()</code>, <code>remove()</code> и <code>clear()</code>. При этом компонент <code>ListView</code> на экране автоматически перерисовывается!</p><p><strong>Получение выбранного элемента (SelectionModel):</strong></p><p>Для получения выбранного пользователем элемента в списке используется модель выбора <code>MultipleSelectionModel</code>:</p><pre style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 12px; font-size: 13px;"><code>// Получение текста выделенной строки
 String selected = taskListView.getSelectionModel().getSelectedItem();
@@ -641,14 +416,8 @@ public class PrimaryController {
     `],{type:"application/javascript"}),a=new Worker(URL.createObjectURL(s));a.onmessage=(i)=>{if(e)e.textContent=`✓ [Worker Result] Успешно обработано за ${i.data.duration} | Строк: ${i.data.lines}, Символов: ${i.data.chars}`;a.terminate()},a.postMessage({code:o})}function l(){document.querySelectorAll("[data-monokai-editor]").forEach((o)=>{let e=o.id;if(e)f(e)})}if(window.MonokaiEditor={instances:t,mount:f,unmount:g,getCode:c,setCode:y,copyCode:p,runWorkerTask:b,initAll:l},document.readyState==="loading")document.addEventListener("DOMContentLoaded",l);else setTimeout(l,50)})();
 </script></div></div>
       </div>
-    </section>
 
-    <!-- Tab 3: Group 307 -->
-    <section id="tab-group307" class="tab-pane">
-      <div class="moodle-card">
-        <div class="section-title-badge">
-          <i class="fa-solid fa-file-lines"></i> Раздел курса: Группа 307 (Тестирование и сопровождение ПО)
-        </div>
+      <div id="tab-group307" class="tab-pane">
         <div class="box py-3 generalbox"><div class="no-overflow"><p><a href="https://dl.ivpek.ru/course/view.php?id=217#section-1">« Назад к Теме 1</a></p><h4>1. Модульное и системное тестирование ПО (NUnit, Moq, Playwright, CI/CD)</h4><ul><li><span><a href="assets/les1_test_nunit.docx">Практическая работа 1. «NUnit: Основы модульного тестирования (Класс Calculator)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les1_test_nunit.docx" data-docx-title="Практическая работа 1. «NUnit: Основы модульного тестирования (Класс Calculator)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les2_test_nunit.docx">Практическая работа 2. «Тестирование объектов с состоянием и фикстуры [SetUp] (BankAccount)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les2_test_nunit.docx" data-docx-title="Практическая работа 2. «Тестирование объектов с состоянием и фикстуры [SetUp] (BankAccount)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les3_test_nunit.docx">Практическая работа 3. «Мокирование зависимостей и библиотека Moq (OrderProcessor)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les3_test_nunit.docx" data-docx-title="Практическая работа 3. «Мокирование зависимостей и библиотека Moq (OrderProcessor)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les4_test_nunit.docx">Практическая работа 4. «Организация и документирование тестов (Именование, Assert-сообщения, категории)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les4_test_nunit.docx" data-docx-title="Практическая работа 4. «Организация и документирование тестов (Именование, Assert-сообщения, категории)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les5_test_nunit.docx">Практическая работа 5. «Интеграционное тестирование связки компонентов (ProductRepository + DiscountCalculator)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les5_test_nunit.docx" data-docx-title="Практическая работа 5. «Интеграционное тестирование связки компонентов (ProductRepository + DiscountCalculator)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les6_test_nunit.docx">Практическая работа 6. «Тестирование производительности и ограничений по времени ([MaxTime])»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les6_test_nunit.docx" data-docx-title="Практическая работа 6. «Тестирование производительности и ограничений по времени ([MaxTime])»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les7_test_nunit.docx">Практическая работа 7. «Автоматизация веб-интерфейса и UI-тестирование (Playwright)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les7_test_nunit.docx" data-docx-title="Практическая работа 7. «Автоматизация веб-интерфейса и UI-тестирование (Playwright)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/les8_test_nunit.docx">Практическая работа 8. «Разработка через тестирование (TDD: Red-Green-Refactor)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/les8_test_nunit.docx" data-docx-title="Практическая работа 8. «Разработка через тестирование (TDD: Red-Green-Refactor)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/LES9.MD.docx">Лабораторная работа 9. «Полный цикл разработки и тестирования (CI/CD: GitHub Actions)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/LES9.MD.docx" data-docx-title="Лабораторная работа 9. «Полный цикл разработки и тестирования (CI/CD: GitHub Actions)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li></ul><hr/><h4>2. Техническая документация программных модулей (Docs-as-Code, ЕСПД ГОСТ 19)</h4><ul><li><span><a href="assets/lesson-11.md.docx">Практическое занятие №22. «Инструментарий документирования: Markdown и диаграммы в VS Code (Docs-as-Code)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-11.md.docx" data-docx-title="Практическое занятие №22. «Инструментарий документирования: Markdown и диаграммы в VS Code (Docs-as-Code)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-12.md.docx">Практическое занятие №23. «Технологии разработки документов: Генерация статического сайта (MkDocs Material)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-12.md.docx" data-docx-title="Практическое занятие №23. «Технологии разработки документов: Генерация статического сайта (MkDocs Material)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-13.md.docx">Практическое занятие №24. «Документирование ПО: XML-комментарии и спецификация API в C#»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-13.md.docx" data-docx-title="Практическое занятие №24. «Документирование ПО: XML-комментарии и спецификация API в C#»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-14.md.docx">Практическое занятие №25. «Адаптация документации под ЕСПД (ГОСТ 19.505-79 «Руководство оператора»)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-14.md.docx" data-docx-title="Практическое занятие №25. «Адаптация документации под ЕСПД (ГОСТ 19.505-79 «Руководство оператора»)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-15.md.docx">Практическое занятие №26. «Автоматический конвейер документации (Docs-as-Code Pipeline в GitHub Actions)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-15.md.docx" data-docx-title="Практическое занятие №26. «Автоматический конвейер документации (Docs-as-Code Pipeline в GitHub Actions)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-16.md.docx">Практическое занятие №27. «Автогенерация документации: от XML-комментариев к Markdown»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-16.md.docx" data-docx-title="Практическое занятие №27. «Автогенерация документации: от XML-комментариев к Markdown»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-17.md.docx">Практическое занятие №28. «Порядок оформления релиза, версионирование SemVer и ведение CHANGELOG.md»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-17.md.docx" data-docx-title="Практическое занятие №28. «Порядок оформления релиза, версионирование SemVer и ведение CHANGELOG.md»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-18.md.docx">Практическое занятие №29. «Документирование Desktop-приложения: Инсталляция, конфигурация и руководство»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-18.md.docx" data-docx-title="Практическое занятие №29. «Документирование Desktop-приложения: Инсталляция, конфигурация и руководство»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/lesson-19.md.docx">Практическое занятие №31. «Документирование Mobile App: Жесты, разрешения и публикация в магазины»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/lesson-19.md.docx" data-docx-title="Практическое занятие №31. «Документирование Mobile App: Жесты, разрешения и публикация в магазины»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/doc.md.docx">Практическое занятие. «Оформление документации для Win-Forms приложения (ЕСПД: Описание программы и Руководство пользователя)»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/doc.md.docx" data-docx-title="Практическое занятие. «Оформление документации для Win-Forms приложения (ЕСПД: Описание программы и Руководство пользователя)»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li></ul><hr/><h4>3. Серверная инфраструктура и контроль версий (DevOps)</h4><ul><li><span><a href="assets/vps+git.md.docx">Лабораторная работа. «Начало работы с Git и Gitea на сервере Ubuntu»</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/vps+git.md.docx" data-docx-title="Лабораторная работа. «Начало работы с Git и Gitea на сервере Ubuntu»" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li><li><span><a href="assets/vs-project.zip">Стартовый шаблон решения (Visual Studio Solution .zip)</a></span></li></ul><hr/><h4>4. Курсовое проектирование</h4><ul><li><span><a href="assets/Шаблон_Курсач.docx">Официальный шаблон пояснительной записки курсового проекта (ИВПЭК, спец. 09.02.07)</a><button type="button" class="btn btn-sm btn-outline-info ml-2 py-0 px-2 font-weight-bold" data-docx-url="assets/Шаблон_Курсач.docx" data-docx-title="Официальный шаблон пояснительной записки курсового проекта (ИВПЭК, спец. 09.02.07)" style="font-size: 12px; border-radius: 4px; vertical-align: middle; line-height: 1.5;" title="Открыть документ в браузере"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Просмотр</button></span></li></ul><hr/><h4>5. Личное хранилище работ</h4><p>Загружайте отчеты, таблицы тест-кейсов (.xlsx / .pdf) и исходные коды в личное хранилище:</p><p><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37599"><strong>Открыть личное хранилище (загрузить / скачать работу)</strong></a></p><p><br/><a href="https://dl.ivpek.ru/course/view.php?id=217#section-1">« Назад к Теме 1</a></p><script>var Ye=Object.create;var{getPrototypeOf:Je,defineProperty:Jt,getOwnPropertyNames:Qe}=Object;var tr=Object.prototype.hasOwnProperty;function er(t){return this[t]}var rr,nr,ar=(t,e,r)=>{var n=t!=null&&typeof t==="object";if(n){var a=e?rr??=new WeakMap:nr??=new WeakMap,s=a.get(t);if(s)return s}r=t!=null?Ye(Je(t)):{};let l=e||!t||!t.__esModule?Jt(r,"default",{value:t,enumerable:!0}):r;if(t&&typeof t==="object"||typeof t==="function"){for(let u of Qe(t))if(!tr.call(l,u))Jt(l,u,{get:er.bind(t,u),enumerable:!0})}if(n)a.set(t,l);return l};var sr=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports);var Lt=((t)=>typeof require<"u"?require:typeof Proxy<"u"?new Proxy(t,{get:(e,r)=>(typeof require<"u"?require:e)[r]}):t)(function(t){if(typeof require<"u")return require.apply(this,arguments);throw Error('Dynamic require of "'+t+'" is not supported')});var te=sr(function(Qt,Ot){/*!
 
 JSZip v3.10.2 - A JavaScript class for generating and reading zip files
@@ -730,24 +499,8 @@ section.${t}>footer { z-index: 1; }
       `}}window.openDocxPreview=c,window.closeDocxPreview=v,document.addEventListener("click",(m)=>{let h=m.target.closest("[data-docx-url]");if(h){m.preventDefault();let f=h.getAttribute("data-docx-url")||h.getAttribute("href"),d=h.getAttribute("data-docx-title")||h.innerText.trim();if(f)c(f,d)}})}if(typeof document<"u")if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",Ge);else Ge();
 </script></div></div>
       </div>
-    </section>
 
-    <!-- Tab 4: Summary -->
-    <section id="tab-summary" class="tab-pane">
-      <div class="moodle-card">
-        <div class="section-title-badge">
-          <i class="fa-solid fa-box-archive"></i> Раздел курса: Файлообменник и хранилище работ
-        </div>
-        <div class="box py-3 generalbox"><div class="no-overflow"><p><strong>Файлообменник, сборник документов и персональные хранилища работ:</strong></p><h4>Дисциплина: Разработка прикладных приложений</h4><p><strong>Группа 401 (4 курс)</strong></p><ul><li><a href="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip">Скачать проект (javafx-starter.zip)</a> — библиотеки JavaFX и скрипты <code>build.bat</code> / <code>run.bat</code></li><li><a href="https://github.com/dEN5-tech/javafx-starter" target="_blank">Репозиторий на GitHub (javafx-starter)</a></li><li><a href="https://dl.ivpek.ru/mod/page/view.php?id=37594">Задание: JavaFX ToDo приложение (Scene Builder 18 + VS Code)</a></li><li><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37598">Личное хранилище работ (JavaFX ToDo List)</a></li></ul><p><strong>Группа 301 (3 курс)</strong></p><ul><li><a href="https://dl.ivpek.ru/mod/page/view.php?id=37593">Задание: Объекты как параметры методов (Класс Fighter и симуляция боя)</a></li><li><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37597">Личное хранилище работ: Группа 301 (Загрузить работу)</a></li></ul><hr/><h4>Дисциплина: Поддержка и тестирование программных модулей (3 курс)</h4><p>Материалы для групп 307, 307а, 308, 308а, 305:</p><ul><li><a href="https://dl.ivpek.ru/mod/page/view.php?id=37595"><strong>Сборник документов и практических заданий по тестированию (3 курс)</strong></a><ul><li>Модульное тестирование NUnit (Практические работы 1–8, LES9)</li><li>Техническая документация ПО (Занятия 11–19, ГОСТ 19, SRS)</li><li>Серверная инфраструктура (VPS, SSH, Gitea)</li><li>Шаблон пояснительной записки курсового проекта</li></ul></li><li><a href="https://dl.ivpek.ru/mod/assign/view.php?id=37599"><strong>Личное хранилище работ: Поддержка и тестирование ПО</strong></a></li></ul></div></div>
-      </div>
-    </section>
-
-    <!-- Tab 5: QR Utility -->
-    <section id="tab-qr" class="tab-pane">
-      <div class="moodle-card">
-        <div class="section-title-badge">
-          <i class="fa-solid fa-mobile-screen-button"></i> Интерактивный генератор QR-кодов
-        </div>
+      <div id="tab-qr" class="tab-pane">
         <div id="qr-utility-root" class="box py-3 generalbox"><div class="no-overflow"><div class="d-flex justify-content-between align-items-center mb-3 flex-wrap"><div><h4 class="mb-1 text-primary font-weight-bold"><i class="fa fa-qrcode mr-2" aria-hidden="true"></i>Утилита преподавателя: QR-шеринг, сокращение ссылок и проектор</h4><div class="text-muted small">Генерация QR-кодов для мгновенного доступа студентов с телефонов, демонстрация на проекторе и сокращение длинных URL.</div></div><span class="badge badge-secondary p-2 mt-2 mt-md-0"><i class="fa fa-eye-slash mr-1" aria-hidden="true"></i> Скрыто от студентов</span></div><div class="row"><div class="col-lg-7 mb-3"><div class="card border h-100 shadow-sm"><div class="card-header bg-light font-weight-bold"><i class="fa fa-link mr-1" aria-hidden="true"></i> Настройка ссылки для QR-кода</div><div class="card-body"><div class="form-group mb-3"><label class="font-weight-bold small text-dark mb-1">URL адрес или текст для кодирования:</label><div class="input-group"><input type="text" id="qr-url-input" class="form-control" value="https://dl.ivpek.ru/course/view.php?id=217" placeholder="https://..."/><div class="input-group-append"><button type="button" id="qr-shorten-btn" class="btn btn-outline-primary" title="Сократить ссылку для более простого QR-кода"><i class="fa fa-compress mr-1" aria-hidden="true"></i> Сократить</button></div></div></div><div id="qr-short-url-display" class="alert alert-success d-flex justify-content-between align-items-center p-2 mb-3" style="display: none;"><div class="small"><i class="fa fa-check-circle mr-1" aria-hidden="true"></i>Короткая ссылка: <a id="qr-short-url-link" href="#" target="_blank" class="font-weight-bold text-success"></a></div><button type="button" id="qr-copy-short-btn" class="btn btn-sm btn-light border py-1 px-2"><i class="fa fa-copy" aria-hidden="true"></i> Копировать</button></div><label class="font-weight-bold small text-muted mb-2">Быстрый выбор материалов курса для демонстрации:</label><div class="d-flex flex-wrap" style="gap: 6px;"><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://ej.cennik-nn.ru/student-view">🎓 Электронный журнал</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip">📦 Скачать JavaFX Starter (.zip)</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://github.com/dEN5-tech/javafx-starter">📂 GitHub Репозиторий</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://dl.ivpek.ru/mod/page/view.php?id=37595">🧪 Тестирование ПО (3 курс)</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://dl.ivpek.ru/mod/page/view.php?id=37594">💻 Группа 401 (JavaFX ToDo)</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://dl.ivpek.ru/mod/page/view.php?id=37593">☕ Группа 301 (Менеджер Героев)</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://dl.ivpek.ru/mod/assign/view.php?id=37599">📥 Хранилище работ (3 курс)</button><button type="button" class="btn btn-sm btn-outline-secondary" data-qr-preset="https://dl.ivpek.ru/mod/forum/view.php?id=37587">📢 Форум объявлений</button></div><hr class="my-3"/><div class="small text-muted"><i class="fa fa-info-circle text-info mr-1" aria-hidden="true"></i><strong>Совет:</strong> используйте кнопку <strong>«Показ на проекторе»</strong> во время начала пары, чтобы вывести крупный QR-код на доску/проектор. Студенты сканируют его со своих смартфонов и сразу открывают нужный материал.</div></div></div></div><div class="col-lg-5 mb-3"><div class="card border h-100 shadow-sm text-center"><div class="card-header bg-light font-weight-bold"><i class="fa fa-eye mr-1" aria-hidden="true"></i> Сгенерированный QR-код</div><div class="card-body d-flex flex-column align-items-center justify-content-center p-3"><div style="background: #ffffff; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"><canvas id="qr-canvas" style="display: block; max-width: 100%; height: auto;"></canvas></div><div class="mt-3 w-100 d-flex flex-wrap justify-content-center" style="gap: 8px;"><button type="button" id="qr-fullscreen-btn" class="btn btn-primary btn-sm font-weight-bold"><i class="fa fa-desktop mr-1" aria-hidden="true"></i> Показ на проекторе</button><button type="button" id="qr-download-png-btn" class="btn btn-outline-secondary btn-sm"><i class="fa fa-download mr-1" aria-hidden="true"></i> Скачать PNG (HD)</button></div></div></div></div></div><div id="qr-fullscreen-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0f172a; z-index: 999999; flex-direction: column; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;"><div style="position: absolute; top: 20px; right: 24px;"><button id="qr-fullscreen-close-btn" type="button" class="btn btn-light btn-lg font-weight-bold" style="border-radius: 50px; padding: 8px 24px;"><i class="fa fa-times mr-1" aria-hidden="true"></i> Закрыть (Esc)</button></div><div class="text-center text-white mb-4"><h2 class="font-weight-bold mb-2" style="font-size: 28px; letter-spacing: -0.5px;">Отсканируйте камерой телефона для перехода</h2><div id="qr-fullscreen-title" class="text-info font-weight-bold" style="font-size: 18px; word-break: break-all; max-width: 800px; margin: 0 auto;">https://...</div></div><div style="background: #ffffff; padding: 24px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;"><canvas id="qr-fullscreen-canvas"></canvas></div><div class="text-muted mt-4 small">Нажмите <strong>Esc</strong> или кнопку Закрыть для возврата к курсу</div></div><script>var Ue=Object.create;var{getPrototypeOf:De,defineProperty:Lt,getOwnPropertyNames:Fe}=Object;var He=Object.prototype.hasOwnProperty;function ze(n){return this[n]}var ve,Ve,Ke=(n,t,e)=>{var r=n!=null&&typeof n==="object";if(r){var o=t?ve??=new WeakMap:Ve??=new WeakMap,i=o.get(n);if(i)return i}e=n!=null?Ue(De(n)):{};let s=t||!n||!n.__esModule?Lt(e,"default",{value:n,enumerable:!0}):e;if(n&&typeof n==="object"||typeof n==="function"){for(let u of Fe(n))if(!He.call(s,u))Lt(s,u,{get:ze.bind(n,u),enumerable:!0})}if(r)o.set(n,s);return s};var d=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports);var bt=d(function(jr,St){St.exports=function(){return typeof Promise==="function"&&Promise.prototype&&Promise.prototype.then}});var N=d(function(Oe){var X,Je=[0,26,44,70,100,134,172,196,242,292,346,404,466,532,581,655,733,815,901,991,1085,1156,1258,1364,1474,1588,1706,1828,1921,2051,2185,2323,2465,2611,2761,2876,3034,3196,3362,3532,3706];Oe.getSymbolSize=function(t){if(!t)throw Error('"version" cannot be null or undefined');if(t<1||t>40)throw Error('"version" should be in range from 1 to 40');return t*4+17};Oe.getSymbolTotalCodewords=function(t){return Je[t]};Oe.getBCHDigit=function(n){let t=0;while(n!==0)t++,n>>>=1;return t};Oe.setToSJISFunction=function(t){if(typeof t!=="function")throw Error('"toSJISFunc" is not a valid function.');X=t};Oe.isKanjiModeEnabled=function(){return typeof X<"u"};Oe.toSJIS=function(t){return X(t)}});var K=d(function(Xe){Xe.L={bit:1};Xe.M={bit:0};Xe.Q={bit:3};Xe.H={bit:2};function Ze(n){if(typeof n!=="string")throw Error("Param is not a string");switch(n.toLowerCase()){case"l":case"low":return Xe.L;case"m":case"medium":return Xe.M;case"q":case"quartile":return Xe.Q;case"h":case"high":return Xe.H;default:throw Error("Unknown EC Level: "+n)}}Xe.isValid=function(t){return t&&typeof t.bit<"u"&&t.bit>=0&&t.bit<4};Xe.from=function(t,e){if(Xe.isValid(t))return t;try{return Ze(t)}catch(r){return e}}});var Ft=d(function(Xr,Dt){function Ut(){this.buffer=[],this.length=0}Ut.prototype={get:function(n){let t=Math.floor(n/8);return(this.buffer[t]>>>7-n%8&1)===1},put:function(n,t){for(let e=0;e<t;e++)this.putBit((n>>>t-e-1&1)===1)},getLengthInBits:function(){return this.length},putBit:function(n){let t=Math.floor(this.length/8);if(this.buffer.length<=t)this.buffer.push(0);if(n)this.buffer[t]|=128>>>this.length%8;this.length++}};Dt.exports=Ut});var zt=d(function(to,Ht){function D(n){if(!n||n<1)throw Error("BitMatrix size must be defined and greater than 0");this.size=n,this.data=new Uint8Array(n*n),this.reservedBit=new Uint8Array(n*n)}D.prototype.set=function(n,t,e,r){let o=n*this.size+t;if(this.data[o]=e,r)this.reservedBit[o]=!0};D.prototype.get=function(n,t){return this.data[n*this.size+t]};D.prototype.xor=function(n,t,e){this.data[n*this.size+t]^=e};D.prototype.isReserved=function(n,t){return this.reservedBit[n*this.size+t]};Ht.exports=D});var Vt=d(function(nn){var en=N().getSymbolSize;nn.getRowColCoords=function(t){if(t===1)return[];let e=Math.floor(t/7)+2,r=en(t),o=r===145?26:Math.ceil((r-13)/(2*e-2))*2,i=[r-7];for(let s=1;s<e-1;s++)i[s]=i[s-1]-o;return i.push(6),i.reverse()};nn.getPositions=function(t){let e=[],r=nn.getRowColCoords(t),o=r.length;for(let i=0;i<o;i++)for(let s=0;s<o;s++){if(i===0&&s===0||i===0&&s===o-1||i===o-1&&s===0)continue;e.push([r[i],r[s]])}return e}});var Kt=d(function(sn){var on=N().getSymbolSize;sn.getPositions=function(t){let e=on(t);return[[0,0],[e-7,0],[0,e-7]]}});var $t=d(function(ln){ln.Patterns={PATTERN000:0,PATTERN001:1,PATTERN010:2,PATTERN011:3,PATTERN100:4,PATTERN101:5,PATTERN110:6,PATTERN111:7};var R={N1:3,N2:3,N3:40,N4:10};ln.isValid=function(t){return t!=null&&t!==""&&!isNaN(t)&&t>=0&&t<=7};ln.from=function(t){return ln.isValid(t)?parseInt(t,10):void 0};ln.getPenaltyN1=function(t){let e=t.size,r=0,o=0,i=0,s=null,u=null;for(let c=0;c<e;c++){o=i=0,s=u=null;for(let l=0;l<e;l++){let a=t.get(c,l);if(a===s)o++;else{if(o>=5)r+=R.N1+(o-5);s=a,o=1}if(a=t.get(l,c),a===u)i++;else{if(i>=5)r+=R.N1+(i-5);u=a,i=1}}if(o>=5)r+=R.N1+(o-5);if(i>=5)r+=R.N1+(i-5)}return r};ln.getPenaltyN2=function(t){let e=t.size,r=0;for(let o=0;o<e-1;o++)for(let i=0;i<e-1;i++){let s=t.get(o,i)+t.get(o,i+1)+t.get(o+1,i)+t.get(o+1,i+1);if(s===4||s===0)r++}return r*R.N2};ln.getPenaltyN3=function(t){let e=t.size,r=0,o=0,i=0;for(let s=0;s<e;s++){o=i=0;for(let u=0;u<e;u++){if(o=o<<1&2047|t.get(s,u),u>=10&&(o===1488||o===93))r++;if(i=i<<1&2047|t.get(u,s),u>=10&&(i===1488||i===93))r++}}return r*R.N3};ln.getPenaltyN4=function(t){let e=0,r=t.data.length;for(let i=0;i<r;i++)e+=t.data[i];return Math.abs(Math.ceil(e*100/r/5)-10)*R.N4};function cn(n,t,e){switch(n){case ln.Patterns.PATTERN000:return(t+e)%2===0;case ln.Patterns.PATTERN001:return t%2===0;case ln.Patterns.PATTERN010:return e%3===0;case ln.Patterns.PATTERN011:return(t+e)%3===0;case ln.Patterns.PATTERN100:return(Math.floor(t/2)+Math.floor(e/3))%2===0;case ln.Patterns.PATTERN101:return t*e%2+t*e%3===0;case ln.Patterns.PATTERN110:return(t*e%2+t*e%3)%2===0;case ln.Patterns.PATTERN111:return(t*e%3+(t+e)%2)%2===0;default:throw Error("bad maskPattern:"+n)}}ln.applyMask=function(t,e){let r=e.size;for(let o=0;o<r;o++)for(let i=0;i<r;i++){if(e.isReserved(i,o))continue;e.xor(i,o,cn(t,i,o))}};ln.getBestMask=function(t,e){let r=Object.keys(ln.Patterns).length,o=0,i=1/0;for(let s=0;s<r;s++){e(s),ln.applyMask(s,t);let u=ln.getPenaltyN1(t)+ln.getPenaltyN2(t)+ln.getPenaltyN3(t)+ln.getPenaltyN4(t);if(ln.applyMask(s,t),u<i)i=u,o=s}return o}});var et=d(function(dn){var L=K(),J=[1,1,1,1,1,1,1,1,1,1,2,2,1,2,2,4,1,2,4,4,2,4,4,4,2,4,6,5,2,4,6,6,2,5,8,8,4,5,8,8,4,5,8,11,4,8,10,11,4,9,12,16,4,9,16,16,6,10,12,18,6,10,17,16,6,11,16,19,6,13,18,21,7,14,21,25,8,16,20,25,8,17,23,25,9,17,23,34,9,18,25,30,10,20,27,32,12,21,29,35,12,23,34,37,12,25,34,40,13,26,35,42,14,28,38,45,15,29,40,48,16,31,43,51,17,33,45,54,18,35,48,57,19,37,51,60,19,38,53,63,20,40,56,66,21,43,59,70,22,45,62,74,24,47,65,77,25,49,68,81],O=[7,10,13,17,10,16,22,28,15,26,36,44,20,36,52,64,26,48,72,88,36,64,96,112,40,72,108,130,48,88,132,156,60,110,160,192,72,130,192,224,80,150,224,264,96,176,260,308,104,198,288,352,120,216,320,384,132,240,360,432,144,280,408,480,168,308,448,532,180,338,504,588,196,364,546,650,224,416,600,700,224,442,644,750,252,476,690,816,270,504,750,900,300,560,810,960,312,588,870,1050,336,644,952,1110,360,700,1020,1200,390,728,1050,1260,420,784,1140,1350,450,812,1200,1440,480,868,1290,1530,510,924,1350,1620,540,980,1440,1710,570,1036,1530,1800,570,1064,1590,1890,600,1120,1680,1980,630,1204,1770,2100,660,1260,1860,2220,720,1316,1950,2310,750,1372,2040,2430];dn.getBlocksCount=function(t,e){switch(e){case L.L:return J[(t-1)*4+0];case L.M:return J[(t-1)*4+1];case L.Q:return J[(t-1)*4+2];case L.H:return J[(t-1)*4+3];default:return}};dn.getTotalCodewordsCount=function(t,e){switch(e){case L.L:return O[(t-1)*4+0];case L.M:return O[(t-1)*4+1];case L.Q:return O[(t-1)*4+2];case L.H:return O[(t-1)*4+3];default:return}}});var jt=d(function(pn){var F=new Uint8Array(512),Y=new Uint8Array(256);(function(){let t=1;for(let e=0;e<255;e++)if(F[e]=t,Y[t]=e,t<<=1,t&256)t^=285;for(let e=255;e<512;e++)F[e]=F[e-255]})();pn.log=function(t){if(t<1)throw Error("log("+t+")");return Y[t]};pn.exp=function(t){return F[t]};pn.mul=function(t,e){if(t===0||e===0)return 0;return F[Y[t]+Y[e]]}});var Zt=d(function(En){var nt=jt();En.mul=function(t,e){let r=new Uint8Array(t.length+e.length-1);for(let o=0;o<t.length;o++)for(let i=0;i<e.length;i++)r[o+i]^=nt.mul(t[o],e[i]);return r};En.mod=function(t,e){let r=new Uint8Array(t);while(r.length-e.length>=0){let o=r[0];for(let s=0;s<e.length;s++)r[s]^=nt.mul(e[s],o);let i=0;while(i<r.length&&r[i]===0)i++;r=r.slice(i)}return r};En.generateECPolynomial=function(t){let e=new Uint8Array([1]);for(let r=0;r<t;r++)e=En.mul(e,new Uint8Array([1,nt.exp(r)]));return e}});var ee=d(function(uo,te){var Xt=Zt();function rt(n){if(this.genPoly=void 0,this.degree=n,this.degree)this.initialize(this.degree)}rt.prototype.initialize=function(t){this.degree=t,this.genPoly=Xt.generateECPolynomial(this.degree)};rt.prototype.encode=function(t){if(!this.genPoly)throw Error("Encoder not initialized");let e=new Uint8Array(t.length+this.degree);e.set(t);let r=Xt.mod(e,this.genPoly),o=this.degree-r.length;if(o>0){let i=new Uint8Array(this.degree);return i.set(r,o),i}return r};te.exports=rt});var ot=d(function(Bn){Bn.isValid=function(t){return!isNaN(t)&&t>=1&&t<=40}});var it=d(function(Ln){var H="(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+";H=H.replace(/u/g,"\\u");var Tn="(?:(?![A-Z0-9 $%*+\\-./:]|"+H+`)(?:.|[\r
 ]))+`;Ln.KANJI=new RegExp(H,"g");Ln.BYTE_KANJI=new RegExp("[^A-Z0-9 $%*+\\-./:]+","g");Ln.BYTE=new RegExp(Tn,"g");Ln.NUMERIC=new RegExp("[0-9]+","g");Ln.ALPHANUMERIC=new RegExp("[A-Z $%*+\\-./:]+","g");var An=new RegExp("^"+H+"$"),Mn=new RegExp("^[0-9]+$"),Nn=new RegExp("^[A-Z0-9 $%*+\\-./:]+$");Ln.testKanji=function(t){return An.test(t)};Ln.testNumeric=function(t){return Mn.test(t)};Ln.testAlphanumeric=function(t){return Nn.test(t)}});var S=d(function(Hn){var Dn=ot(),st=it();Hn.NUMERIC={id:"Numeric",bit:1,ccBits:[10,12,14]};Hn.ALPHANUMERIC={id:"Alphanumeric",bit:2,ccBits:[9,11,13]};Hn.BYTE={id:"Byte",bit:4,ccBits:[8,16,16]};Hn.KANJI={id:"Kanji",bit:8,ccBits:[8,10,12]};Hn.MIXED={bit:-1};Hn.getCharCountIndicator=function(t,e){if(!t.ccBits)throw Error("Invalid mode: "+t);if(!Dn.isValid(e))throw Error("Invalid version: "+e);if(e>=1&&e<10)return t.ccBits[0];else if(e<27)return t.ccBits[1];return t.ccBits[2]};Hn.getBestModeForData=function(t){if(st.testNumeric(t))return Hn.NUMERIC;else if(st.testAlphanumeric(t))return Hn.ALPHANUMERIC;else if(st.testKanji(t))return Hn.KANJI;else return Hn.BYTE};Hn.toString=function(t){if(t&&t.id)return t.id;throw Error("Invalid mode")};Hn.isValid=function(t){return t&&t.bit&&t.ccBits};function Fn(n){if(typeof n!=="string")throw Error("Param is not a string");switch(n.toLowerCase()){case"numeric":return Hn.NUMERIC;case"alphanumeric":return Hn.ALPHANUMERIC;case"kanji":return Hn.KANJI;case"byte":return Hn.BYTE;default:throw Error("Unknown mode: "+n)}}Hn.from=function(t,e){if(Hn.isValid(t))return t;try{return Fn(t)}catch(r){return e}}});var ue=d(function($n){var G=N(),On=et(),re=K(),b=S(),ft=ot(),oe=G.getBCHDigit(7973);function Yn(n,t,e){for(let r=1;r<=40;r++)if(t<=$n.getCapacity(r,e,n))return r;return}function ie(n,t){return b.getCharCountIndicator(n,t)+4}function Gn(n,t){let e=0;return n.forEach(function(r){let o=ie(r.mode,t);e+=o+r.getBitsLength()}),e}function Qn(n,t){for(let e=1;e<=40;e++)if(Gn(n,e)<=$n.getCapacity(e,t,b.MIXED))return e;return}$n.from=function(t,e){if(ft.isValid(t))return parseInt(t,10);return e};$n.getCapacity=function(t,e,r){if(!ft.isValid(t))throw Error("Invalid QR Code version");if(typeof r>"u")r=b.BYTE;let o=G.getSymbolTotalCodewords(t),i=On.getTotalCodewordsCount(t,e),s=(o-i)*8;if(r===b.MIXED)return s;let u=s-ie(r,t);switch(r){case b.NUMERIC:return Math.floor(u/10*3);case b.ALPHANUMERIC:return Math.floor(u/11*2);case b.KANJI:return Math.floor(u/13);case b.BYTE:default:return Math.floor(u/8)}};$n.getBestVersionForData=function(t,e){let r,o=re.from(e,re.M);if(Array.isArray(t)){if(t.length>1)return Qn(t,o);if(t.length===0)return 1;r=t[0]}else r=t;return Yn(r.mode,r.getLength(),o)};$n.getEncodedBits=function(t){if(!ft.isValid(t)||t<7)throw Error("Invalid QR Code version");let e=t<<12;while(G.getBCHDigit(e)-oe>=0)e^=7973<<G.getBCHDigit(e)-oe;return t<<12|e}});var le=d(function(Xn){var dt=N(),ce=dt.getBCHDigit(1335);Xn.getEncodedBits=function(t,e){let r=t.bit<<3|e,o=r<<10;while(dt.getBCHDigit(o)-ce>=0)o^=1335<<dt.getBCHDigit(o)-ce;return(r<<10|o)^21522}});var fe=d(function(ho,ae){var er=S();function q(n){this.mode=er.NUMERIC,this.data=n.toString()}q.getBitsLength=function(t){return 10*Math.floor(t/3)+(t%3?t%3*3+1:0)};q.prototype.getLength=function(){return this.data.length};q.prototype.getBitsLength=function(){return q.getBitsLength(this.data.length)};q.prototype.write=function(t){let e,r,o;for(e=0;e+3<=this.data.length;e+=3)r=this.data.substr(e,3),o=parseInt(r,10),t.put(o,10);let i=this.data.length-e;if(i>0)r=this.data.substr(e),o=parseInt(r,10),t.put(o,i*3+1)};ae.exports=q});var ge=d(function(po,de){var nr=S(),gt=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"," ","$","%","*","+","-",".","/",":"];function _(n){this.mode=nr.ALPHANUMERIC,this.data=n}_.getBitsLength=function(t){return 11*Math.floor(t/2)+6*(t%2)};_.prototype.getLength=function(){return this.data.length};_.prototype.getBitsLength=function(){return _.getBitsLength(this.data.length)};_.prototype.write=function(t){let e;for(e=0;e+2<=this.data.length;e+=2){let r=gt.indexOf(this.data[e])*45;r+=gt.indexOf(this.data[e+1]),t.put(r,11)}if(this.data.length%2)t.put(gt.indexOf(this.data[e]),6)};de.exports=_});var pe=d(function(mo,he){var rr=S();function k(n){if(this.mode=rr.BYTE,typeof n==="string")this.data=new TextEncoder().encode(n);else this.data=new Uint8Array(n)}k.getBitsLength=function(t){return t*8};k.prototype.getLength=function(){return this.data.length};k.prototype.getBitsLength=function(){return k.getBitsLength(this.data.length)};k.prototype.write=function(n){for(let t=0,e=this.data.length;t<e;t++)n.put(this.data[t],8)};he.exports=k});var we=d(function(wo,me){var or=S(),ir=N();function U(n){this.mode=or.KANJI,this.data=n}U.getBitsLength=function(t){return t*13};U.prototype.getLength=function(){return this.data.length};U.prototype.getBitsLength=function(){return U.getBitsLength(this.data.length)};U.prototype.write=function(n){let t;for(t=0;t<this.data.length;t++){let e=ir.toSJIS(this.data[t]);if(e>=33088&&e<=40956)e-=33088;else if(e>=57408&&e<=60351)e-=49472;else throw Error("Invalid SJIS character: "+this.data[t]+`
 Make sure your charset is UTF-8`);e=(e>>>8&255)*192+(e&255),n.put(e,13)}};me.exports=U});var ye=d(function(yo,ht){var z={single_source_shortest_paths:function(n,t,e){var r={},o={};o[t]=0;var i=z.PriorityQueue.make();i.push(t,0);var s,u,c,l,a,y,g,m,C;while(!i.empty()){s=i.pop(),u=s.value,l=s.cost,a=n[u]||{};for(c in a)if(a.hasOwnProperty(c)){if(y=a[c],g=l+y,m=o[c],C=typeof o[c]>"u",C||m>g)o[c]=g,i.push(c,g),r[c]=u}}if(typeof e<"u"&&typeof o[e]>"u"){var I=["Could not find a path from ",t," to ",e,"."].join("");throw Error(I)}return r},extract_shortest_path_from_predecessor_list:function(n,t){var e=[],r=t,o;while(r)e.push(r),o=n[r],r=n[r];return e.reverse(),e},find_path:function(n,t,e){var r=z.single_source_shortest_paths(n,t,e);return z.extract_shortest_path_from_predecessor_list(r,e)},PriorityQueue:{make:function(n){var t=z.PriorityQueue,e={},r;n=n||{};for(r in t)if(t.hasOwnProperty(r))e[r]=t[r];return e.queue=[],e.sorter=n.sorter||t.default_sorter,e},default_sorter:function(n,t){return n.cost-t.cost},push:function(n,t){var e={value:n,cost:t};this.queue.push(e),this.queue.sort(this.sorter)},pop:function(){return this.queue.shift()},empty:function(){return this.queue.length===0}}};if(typeof ht<"u")ht.exports=z});var Me=d(function(ar){var f=S(),Ce=fe(),Be=ge(),Ie=pe(),Te=we(),v=it(),Q=N(),sr=ye();function Ee(n){return unescape(encodeURIComponent(n)).length}function V(n,t,e){let r=[],o;while((o=n.exec(e))!==null)r.push({data:o[0],index:o.index,mode:t,length:o[0].length});return r}function Ae(n){let t=V(v.NUMERIC,f.NUMERIC,n),e=V(v.ALPHANUMERIC,f.ALPHANUMERIC,n),r,o;if(Q.isKanjiModeEnabled())r=V(v.BYTE,f.BYTE,n),o=V(v.KANJI,f.KANJI,n);else r=V(v.BYTE_KANJI,f.BYTE,n),o=[];return t.concat(e,r,o).sort(function(s,u){return s.index-u.index}).map(function(s){return{data:s.data,mode:s.mode,length:s.length}})}function pt(n,t){switch(t){case f.NUMERIC:return Ce.getBitsLength(n);case f.ALPHANUMERIC:return Be.getBitsLength(n);case f.KANJI:return Te.getBitsLength(n);case f.BYTE:return Ie.getBitsLength(n)}}function ur(n){return n.reduce(function(t,e){let r=t.length-1>=0?t[t.length-1]:null;if(r&&r.mode===e.mode)return t[t.length-1].data+=e.data,t;return t.push(e),t},[])}function cr(n){let t=[];for(let e=0;e<n.length;e++){let r=n[e];switch(r.mode){case f.NUMERIC:t.push([r,{data:r.data,mode:f.ALPHANUMERIC,length:r.length},{data:r.data,mode:f.BYTE,length:r.length}]);break;case f.ALPHANUMERIC:t.push([r,{data:r.data,mode:f.BYTE,length:r.length}]);break;case f.KANJI:t.push([r,{data:r.data,mode:f.BYTE,length:Ee(r.data)}]);break;case f.BYTE:t.push([{data:r.data,mode:f.BYTE,length:Ee(r.data)}])}}return t}function lr(n,t){let e={},r={start:{}},o=["start"];for(let i=0;i<n.length;i++){let s=n[i],u=[];for(let c=0;c<s.length;c++){let l=s[c],a=""+i+c;u.push(a),e[a]={node:l,lastCount:0},r[a]={};for(let y=0;y<o.length;y++){let g=o[y];if(e[g]&&e[g].node.mode===l.mode)r[g][a]=pt(e[g].lastCount+l.length,l.mode)-pt(e[g].lastCount,l.mode),e[g].lastCount+=l.length;else{if(e[g])e[g].lastCount=l.length;r[g][a]=pt(l.length,l.mode)+4+f.getCharCountIndicator(l.mode,t)}}}o=u}for(let i=0;i<o.length;i++)r[o[i]].end=0;return{map:r,table:e}}function xe(n,t){let e,r=f.getBestModeForData(n);if(e=f.from(t,r),e!==f.BYTE&&e.bit<r.bit)throw Error('"'+n+'" cannot be encoded with mode '+f.toString(e)+`.
@@ -760,30 +513,9 @@ Minimum version required to store current data is: `+i+`.
 `+"Сгенерирован прямой QR-код для исходного URL."),C(m)}),i?.addEventListener("click",()=>{let h=document.getElementById("qr-short-url-link");if(h&&h.textContent){navigator.clipboard.writeText(h.textContent);let p=i.innerHTML;i.innerHTML='<i class="fa fa-check text-success"></i> Скопировано!',setTimeout(()=>{i.innerHTML=p},2000)}}),u?.addEventListener("click",()=>{if(!m)return;let h=document.createElement("canvas");Z.default.toCanvas(h,m,{width:1024,margin:2,color:{dark:"#0f172a",light:"#ffffff"},errorCorrectionLevel:"H"},(p)=>{if(!p){let x=document.createElement("a");x.download=`qrcode-${Date.now()}.png`,x.href=h.toDataURL("image/png"),x.click()}})}),c?.addEventListener("click",()=>{if(!l||!a)return;if(y)y.textContent=m;l.style.display="flex";let h=Math.min(window.innerWidth*0.7,window.innerHeight*0.7,560);Z.default.toCanvas(a,m,{width:h,margin:2,color:{dark:"#0f172a",light:"#ffffff"},errorCorrectionLevel:"H"},(p)=>{if(p)console.error(p)})});function P(){if(l)l.style.display="none"}g?.addEventListener("click",P),l?.addEventListener("click",(h)=>{if(h.target===l)P()}),document.addEventListener("keydown",(h)=>{if(h.key==="Escape"&&l&&l.style.display!=="none")P()})}if(typeof document<"u")if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",ke);else ke();
 </script></div></div>
       </div>
-    </section>
-
-  </main>
-
-  <!-- Moodle Authentic Footer -->
-  <footer class="moodle-footer">
-    <div class="container-fluid px-4">
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-        <div>
-          <p class="mb-1 fw-semibold">ОГБПОУ «Ивановский промышленно-экономический колледж»</p>
-          <p class="mb-0 text-secondary small">МДК.02.04 «Разработка прикладных приложений» • Специальность 09.02.07</p>
-        </div>
-        <div class="text-sm-end small">
-          <p class="mb-1">Вы используете зеркало документов для студентов (GitHub Pages)</p>
-          <p class="mb-0">
-            <a href="https://dl.ivpek.ru/course/view.php?id=217" target="_blank">Перейти в официальный Moodle ИВПЭК</a> • 
-            <a href="https://github.com/dEN5-tech/java-student-workspace" target="_blank">Репозиторий GitHub</a>
-          </p>
-        </div>
-      </div>
     </div>
-  </footer>
+  </div>
 
-  <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Inlined DOCX Viewer Script -->
@@ -870,15 +602,13 @@ section.${t}>footer { z-index: 1; }
 
   </script>
 
-  <!-- Client-side Router & Code Highlighter -->
+  <!-- Router & Code Highlighter -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Highlight all code blocks
       document.querySelectorAll('pre code, .monokai-code-view').forEach((el) => {
         hljs.highlightElement(el);
       });
 
-      // 2. Add copy buttons to code blocks
       document.querySelectorAll('pre').forEach((pre) => {
         if (!pre.parentElement.classList.contains('code-container')) {
           const wrapper = document.createElement('div');
@@ -890,8 +620,7 @@ section.${t}>footer { z-index: 1; }
           copyBtn.className = 'copy-btn';
           copyBtn.innerHTML = '<i class="fa-regular fa-copy me-1"></i> Копировать';
           copyBtn.onclick = () => {
-            const text = pre.innerText;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(pre.innerText).then(() => {
               copyBtn.innerHTML = '<i class="fa-solid fa-check text-success me-1"></i> Скопировано!';
               setTimeout(() => {
                 copyBtn.innerHTML = '<i class="fa-regular fa-copy me-1"></i> Копировать';
@@ -902,22 +631,20 @@ section.${t}>footer { z-index: 1; }
         }
       });
 
-      // 3. Tab Navigation & Hash Routing
       function switchTab(tabId) {
         document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('#moodleCourseTabs .nav-link').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('#sectionTabs .nav-link').forEach(l => l.classList.remove('active'));
 
         const targetPane = document.getElementById('tab-' + tabId);
-        const targetLink = document.querySelector('#moodleCourseTabs .nav-link[data-tab="' + tabId + '"]');
+        const targetLink = document.querySelector('#sectionTabs .nav-link[data-tab="' + tabId + '"]');
 
         if (targetPane && targetLink) {
           targetPane.classList.add('active');
           targetLink.classList.add('active');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
 
-      document.querySelectorAll('#moodleCourseTabs .nav-link').forEach(link => {
+      document.querySelectorAll('#sectionTabs .nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           const tabId = link.getAttribute('data-tab');
@@ -926,7 +653,6 @@ section.${t}>footer { z-index: 1; }
         });
       });
 
-      // Handle direct hash navigation
       function handleHash() {
         const hash = location.hash.replace('#', '');
         if (hash) {
