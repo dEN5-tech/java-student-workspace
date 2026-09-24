@@ -1,0 +1,3 @@
+# JavaFX Starter Guide (Группа 401)
+Инструкция по установке и сборке JavaFX ToDo приложения на Visual Studio Code и Scene Builder 18.
+Преподаватель: Карташов Д. Г.
