@@ -97,7 +97,7 @@
     <!-- Tab Contents -->
     <div class="main-card">
       <div id="tab-summary" class="tab-pane active">
-        <div class="box py-3 generalbox"><div class="no-overflow"><p><strong>Файлообменник, сборник документов и персональные хранилища работ:</strong></p><h4>Дисциплина: Разработка прикладных приложений</h4><p><strong>Группа 401 (4 курс)</strong></p><ul><li><a href="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip">Скачать проект (javafx-starter.zip)</a> — библиотеки JavaFX и скрипты <code>build.bat</code> / <code>run.bat</code></li><li><a href="https://github.com/dEN5-tech/javafx-starter" target="_blank">Репозиторий на GitHub (javafx-starter)</a></li><li><a href="#group401-task4"><strong>Практическое занятие №4: Архитектура MVC (Блокнот заметок с TextArea + ListView)</strong></a></li><li><a href="#group401-task3">Практическое занятие №3: Создание 2D-игры «Раннер» (Анимации, физика, враги, коллизии)</a></li><li><a href="#group401-task2">Практическое занятие №2: Игра «Крестики-Нолики» (GridPane + Scene Builder + CSS)</a></li><li><a href="#group401-task1">Практическое занятие №1: JavaFX ToDo приложение (ListView + ObservableList)</a></li><li><a href="https://github.com/dEN5-tech/java-student-workspace">Репозиторий / Личное хранилище работ (Загрузить работу)</a></li></ul><p><strong>Группа 301 (3 курс)</strong></p><ul><li><a href="#group301"><strong>Лабораторная работа: Консольный калькулятор (Оператор switch)</strong></a></li><li><a href="#group301">Практическое занятие: Объекты как параметры методов (Класс Fighter и симуляция боя)</a></li><li><a href="https://github.com/dEN5-tech/java-student-workspace">Репозиторий / Личное хранилище работ: Группа 301</a></li></ul><hr/><h4>Дисциплина: Поддержка и тестирование программных модулей (3 курс)</h4><p>Материалы для групп 307, 307а, 308, 308а, 305:</p><ul><li><a href="#group307"><strong>Сборник документов и практических заданий по тестированию (3 курс)</strong></a><ul><li>Модульное тестирование NUnit (Практические работы 1–8, LES9)</li><li>Техническая документация ПО (Занятия 11–19, ГОСТ 19, SRS)</li><li>Серверная инфраструктура (VPS, SSH, Gitea)</li><li>Шаблон пояснительной записки курсового проекта</li></ul></li><li><a href="https://github.com/dEN5-tech/java-student-workspace"><strong>Репозиторий / Личное хранилище работ: Поддержка и тестирование ПО</strong></a></li></ul></div></div>
+        <div class="box py-3 generalbox"><div class="no-overflow"><p><strong>Файлообменник, сборник документов и персональные хранилища работ:</strong></p><h4>Дисциплина: Разработка прикладных приложений</h4><p><strong>Группа 401 (4 курс)</strong></p><ul><li><a href="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip">Скачать проект (javafx-starter.zip)</a> — библиотеки JavaFX и скрипты <code>build.bat</code> / <code>run.bat</code></li><li><a href="https://github.com/dEN5-tech/javafx-starter" target="_blank">Репозиторий на GitHub (javafx-starter)</a></li><li><a href="#group401-task4"><strong>Практическое занятие №4: Архитектура MVC (Блокнот заметок с TextArea + ListView)</strong></a></li><li><a href="#group401-task3">Практическое занятие №3: Создание 2D-игры «Раннер» (Анимации, физика, враги, коллизии)</a></li><li><a href="#group401-task2">Практическое занятие №2: Игра «Крестики-Нолики» (GridPane + Scene Builder + CSS)</a></li><li><a href="#group401-task1">Практическое занятие №1: JavaFX ToDo приложение (ListView + ObservableList)</a></li><li><a href="https://github.com/dEN5-tech/java-student-workspace">Репозиторий / Личное хранилище работ (Загрузить работу)</a></li></ul><p><strong>Группа 301 (3 курс)</strong></p><ul><li><a href="#group301-calc"><strong>Лабораторная работа: Консольный калькулятор (Оператор switch)</strong></a></li><li><a href="#group301-fighter">Практическое занятие: Объекты как параметры методов (Класс Fighter и симуляция боя)</a></li><li><a href="https://github.com/dEN5-tech/java-student-workspace">Репозиторий / Личное хранилище работ: Группа 301</a></li></ul><hr/><h4>Дисциплина: Поддержка и тестирование программных модулей (3 курс)</h4><p>Материалы для групп 307, 307а, 308, 308а, 305:</p><ul><li><a href="#group307"><strong>Сборник документов и практических заданий по тестированию (3 курс)</strong></a><ul><li>Модульное тестирование NUnit (Практические работы 1–8, LES9)</li><li>Техническая документация ПО (Занятия 11–19, ГОСТ 19, SRS)</li><li>Серверная инфраструктура (VPS, SSH, Gitea)</li><li>Шаблон пояснительной записки курсового проекта</li></ul></li><li><a href="https://github.com/dEN5-tech/java-student-workspace"><strong>Репозиторий / Личное хранилище работ: Поддержка и тестирование ПО</strong></a></li></ul></div></div>
       </div>
 
       <div id="tab-group301" class="tab-pane">
@@ -1682,54 +1682,115 @@ section.${t}>footer { z-index: 1; }
       });
 
       function switchTab(tabId) {
+        if (!tabId) tabId = 'summary';
         let mainTab = tabId;
         let subTab = null;
 
         if (tabId.includes('-')) {
           const parts = tabId.split('-');
           mainTab = parts[0];
-          subTab = parts[1];
+          subTab = parts.slice(1).join('-');
         }
 
-        document.querySelectorAll('.main-card > .tab-pane').forEach(p => p.classList.remove('active'));
+        // 1. Скрываем все главные вкладки и снимаем активность с кнопок навигации
+        document.querySelectorAll('.main-card > .tab-pane').forEach(p => {
+          p.classList.remove('active');
+          p.style.display = 'none';
+        });
         document.querySelectorAll('#sectionTabs .nav-link').forEach(l => l.classList.remove('active'));
 
         const targetPane = document.getElementById('tab-' + mainTab);
         const targetLink = document.querySelector('#sectionTabs .nav-link[data-tab="' + mainTab + '"]');
 
-        if (targetPane && targetLink) {
+        if (targetPane) {
           targetPane.classList.add('active');
+          targetPane.style.display = 'block';
+        }
+        if (targetLink) {
           targetLink.classList.add('active');
         }
 
-        if (subTab) {
-          const subBtn = document.querySelector('[data-subtab="' + subTab + '"]');
-          if (subBtn) {
-            subBtn.click();
+        // 2. Управление подвкладками внутри выбранной страницы
+        if (targetPane) {
+          const subtabButtons = targetPane.querySelectorAll('[data-subtab]');
+          const subtabPanes = targetPane.querySelectorAll('.subtab-pane');
+
+          if (subtabButtons.length > 0) {
+            let activeSub = subTab;
+            if (!activeSub || !targetPane.querySelector('[data-subtab="' + activeSub + '"]')) {
+              const currentActiveBtn = targetPane.querySelector('[data-subtab].active');
+              activeSub = currentActiveBtn ? currentActiveBtn.getAttribute('data-subtab') : subtabButtons[0].getAttribute('data-subtab');
+            }
+
+            subtabButtons.forEach(b => {
+              if (b.getAttribute('data-subtab') === activeSub) {
+                b.classList.add('active');
+              } else {
+                b.classList.remove('active');
+              }
+            });
+
+            subtabPanes.forEach(p => {
+              if (p.id === 'subtab-pane-' + activeSub) {
+                p.style.display = 'block';
+              } else {
+                p.style.display = 'none';
+              }
+            });
           }
         }
       }
 
-      document.querySelectorAll('#sectionTabs .nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
+      // Глобальный перехват кликов по ссылкам с хэшем и кнопкам подвкладок
+      document.addEventListener('click', (e) => {
+        // Подвкладки (data-subtab)
+        const subBtn = e.target.closest('[data-subtab]');
+        if (subBtn) {
           e.preventDefault();
-          const tabId = link.getAttribute('data-tab');
+          const subtabId = subBtn.getAttribute('data-subtab');
+          const parentPane = subBtn.closest('.tab-pane');
+          const mainTabId = parentPane ? parentPane.id.replace('tab-', '') : 'group401';
+          const newHash = mainTabId + '-' + subtabId;
+          location.hash = newHash;
+          switchTab(newHash);
+          return;
+        }
+
+        // Навигационные ссылки главного меню (#sectionTabs)
+        const navLink = e.target.closest('#sectionTabs .nav-link');
+        if (navLink) {
+          e.preventDefault();
+          const tabId = navLink.getAttribute('data-tab');
           location.hash = tabId;
           switchTab(tabId);
-        });
+          return;
+        }
+
+        // Любые ссылки внутри контента, начинающиеся с # (<a href="#...">)
+        const hashLink = e.target.closest('a[href^="#"]');
+        if (hashLink) {
+          const href = hashLink.getAttribute('href');
+          if (href && href.startsWith('#') && href.length > 1) {
+            e.preventDefault();
+            const targetHash = href.substring(1);
+            location.hash = targetHash;
+            switchTab(targetHash);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
       });
 
       function handleHash() {
         const hash = location.hash.replace('#', '');
         if (hash) {
           switchTab(hash);
+        } else {
+          switchTab('summary');
         }
       }
 
       window.addEventListener('hashchange', handleHash);
-      if (location.hash) {
-        handleHash();
-      }
+      handleHash();
     });
   </script>
 </body>
