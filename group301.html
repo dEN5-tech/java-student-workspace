@@ -301,7 +301,7 @@ public class BattleDemo {
             System.out.println("☠️ Победил " + monster.name + "!");
         }
     }
-}</code></pre></div></div><hr/><h4>3. Задания для самостоятельной работы</h4><ol><li><strong>Метод исцеления:</strong> добавить <code>public void heal(int amount)</code>.</li><li><strong>Механика защиты (Броня):</strong> добавить поле <code>int defense</code> и учет защиты при получении урона.</li><li><strong>Интерактивное меню:</strong> выбор действий игрока в консоли через <code>Scanner</code>.</li></ol></div></div></div><div id="subtab-pane-oop" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-cubes me-2 text-primary"></i>Тема 4.5: Основные принципы ООП в Java. Классы и объекты (Игровой практикум)</h4><span class="badge bg-success">Задание 3</span></div><div class="card-body"><div class="alert alert-primary d-flex align-items-center justify-content-between mb-4 shadow-sm"><div><h5 class="alert-heading mb-1"><i class="fa-solid fa-download me-2"></i>Шаг 0. Скачайте и запустите стартовый шаблон</h5><p class="mb-0">Работа выполняется в готовом воркспейсе <strong>college-game-vsc-starter</strong>. Распакуйте архив, откройте файл <code>college-game.code-workspace</code> в VS Code и нажмите клавишу <strong>F5</strong> (или <code>Ctrl + Shift + B</code>).</p></div><div class="ms-3"><span><a href="assets/college-game-vsc-starter.zip" class="btn btn-primary text-white text-nowrap fw-bold shadow-sm"><i class="fa-solid fa-file-zipper me-2"></i>Скачать стартер (.zip)</a></span></div></div><h4>1. Теория ООП простыми словами</h4><p>В игре каждый персонаж, враг или монетка на экране — это <strong>объект</strong>. Чтобы создавать объекты, программист сначала описывает их «чертеж» — <strong>класс</strong>.</p><div class="table-responsive mb-4"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th style="width: 25%;">Принцип ООП</th><th style="width: 35%;">Что это значит в реальной жизни?</th><th style="width: 40%;">Как это работает в нашей игре?</th></tr></thead><tbody><tr><td><strong>Класс и Объект</strong></td><td>Класс — это чертеж автомобиля. Объект — это конкретная машина, собранная по чертежу (свои номера, цвет, бензин).</td><td>Класс <code>Moneta</code> — это чертеж. Объекты <code>m1, m2, m3</code> — конкретные монеты со своими координатами <code>x, y</code>.</td></tr><tr><td><strong>Инкапсуляция</strong></td><td>Защита внутренних механизмов (педаль газа не дает напрямую лезть руками в цилиндр двигателя).</td><td>Поле <code>private int zhizni = 3;</code> закрыто. Урон наносится строго через метод <code>poluchitUron(1)</code> с проверкой на 0.</td></tr><tr><td><strong>Наследование</strong></td><td>Легковой автомобиль и грузовик имеют общего предка «Транспорт» (колеса, руль, мотор).</td><td>Классы <code>Igrok</code> и <code>Vrag</code> наследуют <code>GameObject</code> (уже имеют координаты <code>x, y</code> и хитбокс).</td></tr><tr><td><strong>Полиморфизм</strong></td><td>Команда «Двигаться вперед»: собака бежит, птица летит, рыба плывет.</td><td>В методе <code>update()</code> игрок слушает стрелки клавиатуры, а враг автономно патрулирует слева направо.</td></tr></tbody></table></div><hr/><h4>2. Пошаговое руководство по написанию кода</h4><h5 class="mt-3 text-primary">Шаг 1: Создаем класс игрока <code>Igrok.java</code></h5><p>Создайте файл <code>src/ru/college/game/Igrok.java</code>. В нем инкапсулируем жизни, очки и скорость персонажа:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-igrok', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-igrok" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 390px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
+}</code></pre></div></div><hr/><h4>3. Задания для самостоятельной работы</h4><ol><li><strong>Метод исцеления:</strong> добавить <code>public void heal(int amount)</code>.</li><li><strong>Механика защиты (Броня):</strong> добавить поле <code>int defense</code> и учет защиты при получении урона.</li><li><strong>Интерактивное меню:</strong> выбор действий игрока в консоли через <code>Scanner</code>.</li></ol></div></div></div><div id="subtab-pane-oop" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-cubes me-2 text-primary"></i>Тема 4.5: Основные принципы ООП в Java. Классы и объекты (Игровой практикум)</h4><span class="badge bg-success">Задание 3</span></div><div class="card-body"><div class="alert alert-primary d-flex align-items-center justify-content-between mb-4 shadow-sm"><div><h5 class="alert-heading mb-1"><i class="fa-solid fa-download me-2"></i>Шаг 0. Скачайте и запустите стартовый шаблон</h5><p class="mb-0">Работа выполняется в готовом воркспейсе <strong>college-game-vsc-starter</strong>. Распакуйте архив, откройте файл <code>college-game.code-workspace</code> в VS Code и нажмите клавишу <strong>F5</strong> (или <code>Ctrl + Shift + B</code>).</p></div><div class="ms-3"><span><a href="assets/college-game-vsc-starter.zip" class="btn btn-primary text-white text-nowrap fw-bold shadow-sm"><i class="fa-solid fa-file-zipper me-2"></i>Скачать стартер (.zip)</a></span></div></div><h4>1. Теория ООП простыми словами</h4><p>В игре каждый персонаж, враг или монетка на экране — это <strong>объект</strong>. Чтобы создавать объекты, программист сначала описывает их «чертеж» — <strong>класс</strong>.</p><div class="table-responsive mb-4"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th style="width: 25%;">Принцип ООП</th><th style="width: 35%;">Что это значит в реальной жизни?</th><th style="width: 40%;">Как это работает в нашей игре?</th></tr></thead><tbody><tr><td><strong>Класс и Объект</strong></td><td>Класс — это чертеж автомобиля. Объект — это конкретная машина, собранная по чертежу (свои номера, цвет, бензин).</td><td>Класс <code>Coin</code> — это чертеж. Объекты <code>c1, c2, c3</code> — конкретные монеты со своими координатами <code>x, y</code>.</td></tr><tr><td><strong>Инкапсуляция</strong></td><td>Защита внутренних механизмов (педаль газа не дает напрямую лезть руками в цилиндр двигателя).</td><td>Поле <code>private int lives = 3;</code> закрыто. Урон наносится строго через метод <code>takeDamage(1)</code> с проверкой на 0.</td></tr><tr><td><strong>Наследование</strong></td><td>Легковой автомобиль и грузовик имеют общего предка «Транспорт» (колеса, руль, мотор).</td><td>Классы <code>Player</code> и <code>Enemy</code> наследуют <code>GameObject</code> (уже имеют координаты <code>x, y</code> и хитбокс).</td></tr><tr><td><strong>Полиморфизм</strong></td><td>Команда «Двигаться вперед»: собака бежит, птица летит, рыба плывет.</td><td>В методе <code>update()</code> игрок слушает стрелки клавиатуры, а враг автономно патрулирует слева направо.</td></tr></tbody></table></div><hr/><h4>2. Пошаговое руководство по написанию кода</h4><h5 class="mt-3 text-primary">Шаг 1: Создаем класс игрока <code>Player.java</code></h5><p>Создайте файл <code>src/ru/college/game/Player.java</code>. В нем инкапсулируем жизни, очки и скорость персонажа:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-player', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-player" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 390px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
 
 import ru.college.engine.Color;
 import ru.college.engine.GameObject;
@@ -309,43 +309,43 @@ import ru.college.engine.GameObject;
 /**
  * 🧑 Класс Игрока (Принцип: Инкапсуляция + Наследование от GameObject)
  */
-public class Igrok extends GameObject {
+public class Player extends GameObject {
 
     // 1. Закрытые переменные состояния (Инкапсуляция)
-    private int zhizni = 3;
-    private int ochki = 0;
-    private double skorost = 220.0;
+    private int lives = 3;
+    private int score = 0;
+    private double speed = 220.0;
 
     // 2. Конструктор: задает начальную позицию x, y и размер 40x40
-    public Igrok(double startX, double startY) {
+    public Player(double startX, double startY) {
         super(startX, startY, 40, 40, Color.CYAN);
     }
 
     // 3. Метод движения персонажа
-    public void dvigatsya(double dx, double dy, double delta) {
-        this.x += dx * skorost * delta;
-        this.y += dy * skorost * delta;
+    public void move(double dx, double dy, double delta) {
+        this.x += dx * speed * delta;
+        this.y += dy * speed * delta;
     }
 
-    // 4. Безопасное получение урона
-    public void poluchitUron(int uron) {
-        if (uron > 0) {
-            this.zhizni -= uron;
-            if (this.zhizni < 0) {
-                this.zhizni = 0;
+    // 4. Безопасное получение урона с проверкой
+    public void takeDamage(int damage) {
+        if (damage > 0) {
+            this.lives -= damage;
+            if (this.lives < 0) {
+                this.lives = 0;
             }
         }
     }
 
     // 5. Начисление очков
-    public void dobavitOchki(int pribavka) {
-        this.ochki += pribavka;
+    public void addScore(int points) {
+        this.score += points;
     }
 
-    // Геттеры для чтения данных
-    public int getZhizni() { return this.zhizni; }
-    public int getOchki() { return this.ochki; }
-    public boolean isZhiv() { return this.zhizni > 0; }
+    // Геттеры для чтения закрытых полей
+    public int getLives() { return this.lives; }
+    public int getScore() { return this.score; }
+    public boolean isAlive() { return this.lives > 0; }
 }</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package ru.college.game;
 
 import ru.college.engine.Color;
@@ -354,44 +354,44 @@ import ru.college.engine.GameObject;
 /**
  * 🧑 Класс Игрока (Принцип: Инкапсуляция + Наследование от GameObject)
  */
-public class Igrok extends GameObject {
+public class Player extends GameObject {
 
     // 1. Закрытые переменные состояния (Инкапсуляция)
-    private int zhizni = 3;
-    private int ochki = 0;
-    private double skorost = 220.0;
+    private int lives = 3;
+    private int score = 0;
+    private double speed = 220.0;
 
     // 2. Конструктор: задает начальную позицию x, y и размер 40x40
-    public Igrok(double startX, double startY) {
+    public Player(double startX, double startY) {
         super(startX, startY, 40, 40, Color.CYAN);
     }
 
     // 3. Метод движения персонажа
-    public void dvigatsya(double dx, double dy, double delta) {
-        this.x += dx * skorost * delta;
-        this.y += dy * skorost * delta;
+    public void move(double dx, double dy, double delta) {
+        this.x += dx * speed * delta;
+        this.y += dy * speed * delta;
     }
 
-    // 4. Безопасное получение урона
-    public void poluchitUron(int uron) {
-        if (uron > 0) {
-            this.zhizni -= uron;
-            if (this.zhizni < 0) {
-                this.zhizni = 0;
+    // 4. Безопасное получение урона с проверкой
+    public void takeDamage(int damage) {
+        if (damage > 0) {
+            this.lives -= damage;
+            if (this.lives < 0) {
+                this.lives = 0;
             }
         }
     }
 
     // 5. Начисление очков
-    public void dobavitOchki(int pribavka) {
-        this.ochki += pribavka;
+    public void addScore(int points) {
+        this.score += points;
     }
 
-    // Геттеры для чтения данных
-    public int getZhizni() { return this.zhizni; }
-    public int getOchki() { return this.ochki; }
-    public boolean isZhiv() { return this.zhizni > 0; }
-}</code></pre></div></div><h5 class="mt-4 text-primary">Шаг 2: Создаем класс противника <code>Vrag.java</code></h5><p>Создайте файл <code>src/ru/college/game/Vrag.java</code>. Противник автономно патрулирует между левой и правой границей (Полиморфизм через переопределение <code>update</code>):</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-vrag', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-vrag" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 340px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
+    // Геттеры для чтения закрытых полей
+    public int getLives() { return this.lives; }
+    public int getScore() { return this.score; }
+    public boolean isAlive() { return this.lives > 0; }
+}</code></pre></div></div><h5 class="mt-4 text-primary">Шаг 2: Создаем класс противника <code>Enemy.java</code></h5><p>Создайте файл <code>src/ru/college/game/Enemy.java</code>. Противник автономно патрулирует между левой и правой границей (Полиморфизм через переопределение <code>update</code>):</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-enemy', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-enemy" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 340px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
 
 import ru.college.engine.Color;
 import ru.college.engine.GameObject;
@@ -399,27 +399,27 @@ import ru.college.engine.GameObject;
 /**
  * 👾 Класс Противника (Принцип: Полиморфизм метода update)
  */
-public class Vrag extends GameObject {
+public class Enemy extends GameObject {
 
-    private double skorost = 140.0;
-    private int napravlenie = 1; // 1 = вправо, -1 = влево
-    private double granicaLevo = 120.0;
-    private double granicaPravo = 680.0;
+    private double speed = 140.0;
+    private int direction = 1; // 1 = вправо, -1 = влево
+    private double leftLimit = 120.0;
+    private double rightLimit = 680.0;
 
-    public Vrag(double x, double y) {
+    public Enemy(double x, double y) {
         super(x, y, 36, 36, Color.RED);
     }
 
     // Переопределяем метод обновления логики для автономного патрулирования
     @Override
     public void update(double delta) {
-        this.x += napravlenie * skorost * delta;
+        this.x += direction * speed * delta;
 
-        // Разворот при касании границ патруля
-        if (this.x > granicaPravo) {
-            this.napravlenie = -1;
-        } else if (this.x < granicaLevo) {
-            this.napravlenie = 1;
+        // Разворот при касании границ зоны патруля
+        if (this.x > rightLimit) {
+            this.direction = -1;
+        } else if (this.x < leftLimit) {
+            this.direction = 1;
         }
     }
 }</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package ru.college.game;
@@ -430,30 +430,30 @@ import ru.college.engine.GameObject;
 /**
  * 👾 Класс Противника (Принцип: Полиморфизм метода update)
  */
-public class Vrag extends GameObject {
+public class Enemy extends GameObject {
 
-    private double skorost = 140.0;
-    private int napravlenie = 1; // 1 = вправо, -1 = влево
-    private double granicaLevo = 120.0;
-    private double granicaPravo = 680.0;
+    private double speed = 140.0;
+    private int direction = 1; // 1 = вправо, -1 = влево
+    private double leftLimit = 120.0;
+    private double rightLimit = 680.0;
 
-    public Vrag(double x, double y) {
+    public Enemy(double x, double y) {
         super(x, y, 36, 36, Color.RED);
     }
 
     // Переопределяем метод обновления логики для автономного патрулирования
     @Override
     public void update(double delta) {
-        this.x += napravlenie * skorost * delta;
+        this.x += direction * speed * delta;
 
-        // Разворот при касании границ патруля
-        if (this.x > granicaPravo) {
-            this.napravlenie = -1;
-        } else if (this.x < granicaLevo) {
-            this.napravlenie = 1;
+        // Разворот при касании границ зоны патруля
+        if (this.x > rightLimit) {
+            this.direction = -1;
+        } else if (this.x < leftLimit) {
+            this.direction = 1;
         }
     }
-}</code></pre></div></div><h5 class="mt-4 text-primary">Шаг 3: Создаем класс монеты <code>Moneta.java</code></h5><p>Создайте файл <code>src/ru/college/game/Moneta.java</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-moneta', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-moneta" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 280px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
+}</code></pre></div></div><h5 class="mt-4 text-primary">Шаг 3: Создаем класс монеты <code>Coin.java</code></h5><p>Создайте файл <code>src/ru/college/game/Coin.java</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-coin', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-coin" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 280px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
 
 import ru.college.engine.Color;
 import ru.college.engine.GameObject;
@@ -461,22 +461,22 @@ import ru.college.engine.GameObject;
 /**
  * 🪙 Класс Монеты (Принцип: Состояние объекта и уничтожение)
  */
-public class Moneta extends GameObject {
+public class Coin extends GameObject {
 
-    private int stoimost = 10;
-    private boolean sobrana = false;
+    private int value = 10;
+    private boolean collected = false;
 
-    public Moneta(double x, double y) {
+    public Coin(double x, double y) {
         super(x, y, 22, 22, Color.YELLOW);
     }
 
-    public int sobrat() {
-        this.sobrana = true;
+    public int collect() {
+        this.collected = true;
         this.destroy(); // Удаляет монетку с игрового экрана
-        return this.stoimost;
+        return this.value;
     }
 
-    public boolean isSobrana() { return this.sobrana; }
+    public boolean isCollected() { return this.collected; }
 }</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package ru.college.game;
 
 import ru.college.engine.Color;
@@ -485,22 +485,22 @@ import ru.college.engine.GameObject;
 /**
  * 🪙 Класс Монеты (Принцип: Состояние объекта и уничтожение)
  */
-public class Moneta extends GameObject {
+public class Coin extends GameObject {
 
-    private int stoimost = 10;
-    private boolean sobrana = false;
+    private int value = 10;
+    private boolean collected = false;
 
-    public Moneta(double x, double y) {
+    public Coin(double x, double y) {
         super(x, y, 22, 22, Color.YELLOW);
     }
 
-    public int sobrat() {
-        this.sobrana = true;
+    public int collect() {
+        this.collected = true;
         this.destroy(); // Удаляет монетку с игрового экрана
-        return this.stoimost;
+        return this.value;
     }
 
-    public boolean isSobrana() { return this.sobrana; }
+    public boolean isCollected() { return this.collected; }
 }</code></pre></div></div><h5 class="mt-4 text-primary">Шаг 4: Собираем все объекты вместе в <code>MyGame.java</code></h5><p>Откройте <code>src/ru/college/game/MyGame.java</code>. В методе <code>init()</code> создаем экземпляры классов через оператор <code>new</code>, а в <code>update()</code> управляем их взаимодействием:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-oop-mygame', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-oop-mygame" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 580px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
 
 import ru.college.engine.*;
@@ -513,10 +513,10 @@ import java.util.List;
 public class MyGame extends Game {
 
     // Ссылки на объекты классов (ООП)
-    private Igrok igrok;
-    private Vrag vrag1;
-    private Vrag vrag2;
-    private List<Moneta> monety = new ArrayList<>();
+    private Player player;
+    private Enemy enemy1;
+    private Enemy enemy2;
+    private List<Coin> coins = new ArrayList<>();
 
     public MyGame() {
         super(800, 600);
@@ -527,26 +527,26 @@ public class MyGame extends Game {
         setBackgroundColor(new Color(24, 28, 36));
 
         // 1. Создание объекта игрока (вызов конструктора)
-        igrok = new Igrok(80, 280);
-        add(igrok);
+        player = new Player(80, 280);
+        add(player);
 
         // 2. Создание врагов с разными координатами
-        vrag1 = new Vrag(180, 160);
-        vrag2 = new Vrag(450, 420);
-        add(vrag1);
-        add(vrag2);
+        enemy1 = new Enemy(180, 160);
+        enemy2 = new Enemy(450, 420);
+        add(enemy1);
+        add(enemy2);
 
         // 3. Создание группы монет в цикле
         for (int i = 0; i < 6; i++) {
-            Moneta m = new Moneta(160 + (i * 90), 290);
-            monety.add(m);
-            add(m);
+            Coin coin = new Coin(160 + (i * 90), 290);
+            coins.add(coin);
+            add(coin);
         }
     }
 
     @Override
     public void update(double delta) {
-        if (!igrok.isZhiv()) return;
+        if (!player.isAlive()) return;
 
         // Управление игроком (Стрелки клавиатуры)
         double dx = 0;
@@ -556,19 +556,19 @@ public class MyGame extends Game {
         if (isKeyPressed(Key.UP))    dy -= 1;
         if (isKeyPressed(Key.DOWN))  dy += 1;
 
-        igrok.dvigatsya(dx, dy, delta);
+        player.move(dx, dy, delta);
 
         // Проверка столкновения игрока с врагами (Коллизии)
-        if (igrok.collidesWith(vrag1) || igrok.collidesWith(vrag2)) {
-            igrok.poluchitUron(1);
-            igrok.setPosition(80, 280); // Сброс позиции игрока
+        if (player.collidesWith(enemy1) || player.collidesWith(enemy2)) {
+            player.takeDamage(1);
+            player.setPosition(80, 280); // Сброс позиции игрока
         }
 
         // Проверка сбора монет
-        for (Moneta m : monety) {
-            if (!m.isSobrana() && igrok.collidesWith(m)) {
-                int nagrada = m.sobrat();
-                igrok.dobavitOchki(nagrada);
+        for (Coin coin : coins) {
+            if (!coin.isCollected() && player.collidesWith(coin)) {
+                int points = coin.collect();
+                player.addScore(points);
             }
         }
     }
@@ -577,13 +577,13 @@ public class MyGame extends Game {
     public void render(Graphics g) {
         // Отрисовка интерфейса (HUD)
         g.drawRect(15, 15, 200, 85, new Color(0, 0, 0, 0.75));
-        g.drawText("Жизни: " + igrok.getZhizni(), 30, 45, 18, Color.RED);
-        g.drawText("Очки: " + igrok.getOchki(), 30, 78, 18, Color.YELLOW);
+        g.drawText("Жизни: " + player.getLives(), 30, 45, 18, Color.RED);
+        g.drawText("Очки: " + player.getScore(), 30, 78, 18, Color.YELLOW);
 
         // Экран окончания игры
-        if (!igrok.isZhiv()) {
+        if (!player.isAlive()) {
             g.drawRect(200, 220, 400, 120, new Color(0, 0, 0, 0.9));
-            g.drawText("ИГРА ОКОНЧЕНА", 280, 275, 26, Color.RED);
+            g.drawText("GAME OVER", 310, 275, 26, Color.RED);
             g.drawText("Закончились жизни персонажа", 255, 315, 16, Color.WHITE);
         }
     }
@@ -603,10 +603,10 @@ import java.util.List;
 public class MyGame extends Game {
 
     // Ссылки на объекты классов (ООП)
-    private Igrok igrok;
-    private Vrag vrag1;
-    private Vrag vrag2;
-    private List<Moneta> monety = new ArrayList<>();
+    private Player player;
+    private Enemy enemy1;
+    private Enemy enemy2;
+    private List<Coin> coins = new ArrayList<>();
 
     public MyGame() {
         super(800, 600);
@@ -617,26 +617,26 @@ public class MyGame extends Game {
         setBackgroundColor(new Color(24, 28, 36));
 
         // 1. Создание объекта игрока (вызов конструктора)
-        igrok = new Igrok(80, 280);
-        add(igrok);
+        player = new Player(80, 280);
+        add(player);
 
         // 2. Создание врагов с разными координатами
-        vrag1 = new Vrag(180, 160);
-        vrag2 = new Vrag(450, 420);
-        add(vrag1);
-        add(vrag2);
+        enemy1 = new Enemy(180, 160);
+        enemy2 = new Enemy(450, 420);
+        add(enemy1);
+        add(enemy2);
 
         // 3. Создание группы монет в цикле
         for (int i = 0; i < 6; i++) {
-            Moneta m = new Moneta(160 + (i * 90), 290);
-            monety.add(m);
-            add(m);
+            Coin coin = new Coin(160 + (i * 90), 290);
+            coins.add(coin);
+            add(coin);
         }
     }
 
     @Override
     public void update(double delta) {
-        if (!igrok.isZhiv()) return;
+        if (!player.isAlive()) return;
 
         // Управление игроком (Стрелки клавиатуры)
         double dx = 0;
@@ -646,19 +646,19 @@ public class MyGame extends Game {
         if (isKeyPressed(Key.UP))    dy -= 1;
         if (isKeyPressed(Key.DOWN))  dy += 1;
 
-        igrok.dvigatsya(dx, dy, delta);
+        player.move(dx, dy, delta);
 
         // Проверка столкновения игрока с врагами (Коллизии)
-        if (igrok.collidesWith(vrag1) || igrok.collidesWith(vrag2)) {
-            igrok.poluchitUron(1);
-            igrok.setPosition(80, 280); // Сброс позиции игрока
+        if (player.collidesWith(enemy1) || player.collidesWith(enemy2)) {
+            player.takeDamage(1);
+            player.setPosition(80, 280); // Сброс позиции игрока
         }
 
         // Проверка сбора монет
-        for (Moneta m : monety) {
-            if (!m.isSobrana() && igrok.collidesWith(m)) {
-                int nagrada = m.sobrat();
-                igrok.dobavitOchki(nagrada);
+        for (Coin coin : coins) {
+            if (!coin.isCollected() && player.collidesWith(coin)) {
+                int points = coin.collect();
+                player.addScore(points);
             }
         }
     }
@@ -667,13 +667,13 @@ public class MyGame extends Game {
     public void render(Graphics g) {
         // Отрисовка интерфейса (HUD)
         g.drawRect(15, 15, 200, 85, new Color(0, 0, 0, 0.75));
-        g.drawText("Жизни: " + igrok.getZhizni(), 30, 45, 18, Color.RED);
-        g.drawText("Очки: " + igrok.getOchki(), 30, 78, 18, Color.YELLOW);
+        g.drawText("Жизни: " + player.getLives(), 30, 45, 18, Color.RED);
+        g.drawText("Очки: " + player.getScore(), 30, 78, 18, Color.YELLOW);
 
         // Экран окончания игры
-        if (!igrok.isZhiv()) {
+        if (!player.isAlive()) {
             g.drawRect(200, 220, 400, 120, new Color(0, 0, 0, 0.9));
-            g.drawText("ИГРА ОКОНЧЕНА", 280, 275, 26, Color.RED);
+            g.drawText("GAME OVER", 310, 275, 26, Color.RED);
             g.drawText("Закончились жизни персонажа", 255, 315, 16, Color.WHITE);
         }
     }
@@ -681,7 +681,7 @@ public class MyGame extends Game {
     public static void main(String[] args) {
         launch(new MyGame());
     }
-}</code></pre></div></div><hr/><h4>3. Задания для самостоятельной работы</h4><ol><li><strong>На оценку «4»:</strong> Добавьте 3-го врага (<code>vrag3</code>), который патрулирует вертикально (по оси Y между <code>granicaVerh = 80</code> и <code>granicaNiz = 500</code>).</li><li><strong>На оценку «5»:</strong> Создайте новый класс <code>Aptechka.java</code> (зеленый квадрат), который при столкновении с игроком восстанавливает +1 жизнь и удаляется с экрана через <code>destroy()</code>.</li></ol></div></div></div><hr/><h4>Личное хранилище работы (Группа 301)</h4><p><a href="https://github.com/dEN5-tech/java-student-workspace" class="btn btn-primary text-white"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Репозиторий / Личное хранилище группы 301</a></p><p><br/><a href="index.html">« Назад к Теме 1</a></p><script>(function(){let a=new Map,u={base:"vs-dark",inherit:!0,rules:[{background:"272822",token:""},{token:"comment",foreground:"75715e",fontStyle:"italic"},{token:"keyword",foreground:"f92672",fontStyle:"bold"},{token:"identifier",foreground:"f8f8f2"},{token:"type",foreground:"66d9ef",fontStyle:"italic"},{token:"type.identifier",foreground:"66d9ef",fontStyle:"italic"},{token:"storage",foreground:"f92672"},{token:"storage.type",foreground:"66d9ef",fontStyle:"italic"},{token:"string",foreground:"e6db74"},{token:"number",foreground:"ae81ff"},{token:"constant",foreground:"ae81ff"},{token:"function",foreground:"a6e22e"},{token:"variable",foreground:"f8f8f2"},{token:"variable.predefined",foreground:"fd971f"},{token:"operator",foreground:"f92672"},{token:"delimiter",foreground:"f8f8f2"}],colors:{"editor.background":"#272822","editor.foreground":"#f8f8f2","editorCursor.foreground":"#f8f8f0","editor.lineHighlightBackground":"#3e3d32","editorLineNumber.foreground":"#90908a","editorLineNumber.activeForeground":"#c4c4be","editor.selectionBackground":"#49483e","editor.inactiveSelectionBackground":"#383830","editorWidget.background":"#1e1f1c","editorWidget.border":"#3e3d32","scrollbarSlider.background":"#49483e80","scrollbarSlider.hoverBackground":"#75715e80","scrollbarSlider.activeBackground":"#a6a59b80"}};function w(){if(window.MonacoEnvironment)return;let o=new Blob([`
+}</code></pre></div></div><hr/><h4>3. Задания для самостоятельной работы</h4><ol><li><strong>На оценку «4»:</strong> Добавьте 3-го врага (<code>enemy3</code>), который патрулирует вертикально (по оси Y между <code>topLimit = 80</code> и <code>bottomLimit = 500</code>).</li><li><strong>На оценку «5»:</strong> Создайте новый класс <code>Medkit.java</code> (зеленый квадрат 25x25), который при столкновении с игроком восстанавливает +1 жизнь и удаляется с экрана через <code>destroy()</code>.</li></ol></div></div></div><hr/><h4>Личное хранилище работы (Группа 301)</h4><p><a href="https://github.com/dEN5-tech/java-student-workspace" class="btn btn-primary text-white"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Репозиторий / Личное хранилище группы 301</a></p><p><br/><a href="index.html">« Назад к Теме 1</a></p><script>(function(){let a=new Map,u={base:"vs-dark",inherit:!0,rules:[{background:"272822",token:""},{token:"comment",foreground:"75715e",fontStyle:"italic"},{token:"keyword",foreground:"f92672",fontStyle:"bold"},{token:"identifier",foreground:"f8f8f2"},{token:"type",foreground:"66d9ef",fontStyle:"italic"},{token:"type.identifier",foreground:"66d9ef",fontStyle:"italic"},{token:"storage",foreground:"f92672"},{token:"storage.type",foreground:"66d9ef",fontStyle:"italic"},{token:"string",foreground:"e6db74"},{token:"number",foreground:"ae81ff"},{token:"constant",foreground:"ae81ff"},{token:"function",foreground:"a6e22e"},{token:"variable",foreground:"f8f8f2"},{token:"variable.predefined",foreground:"fd971f"},{token:"operator",foreground:"f92672"},{token:"delimiter",foreground:"f8f8f2"}],colors:{"editor.background":"#272822","editor.foreground":"#f8f8f2","editorCursor.foreground":"#f8f8f0","editor.lineHighlightBackground":"#3e3d32","editorLineNumber.foreground":"#90908a","editorLineNumber.activeForeground":"#c4c4be","editor.selectionBackground":"#49483e","editor.inactiveSelectionBackground":"#383830","editorWidget.background":"#1e1f1c","editorWidget.border":"#3e3d32","scrollbarSlider.background":"#49483e80","scrollbarSlider.hoverBackground":"#75715e80","scrollbarSlider.activeBackground":"#a6a59b80"}};function w(){if(window.MonacoEnvironment)return;let o=new Blob([`
       self.MonacoEnvironment = { baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/' };
       importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/base/worker/workerMain.js');
     `],{type:"application/javascript"}),e=URL.createObjectURL(o);window.MonacoEnvironment={getWorkerUrl:function(t,r){return e}}}let s=null;function y(){if(window.monaco)return Promise.resolve(window.monaco);if(s)return s;return s=new Promise((n,o)=>{if(w(),window.require&&window.require.config){window.require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs"}}),window.require(["vs/editor/editor.main"],()=>{window.monaco.editor.defineTheme("monokai",u),n(window.monaco)});return}let e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.js",e.onload=()=>{window.require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs"}}),window.require(["vs/editor/editor.main"],()=>{window.monaco.editor.defineTheme("monokai",u),n(window.monaco)})},e.onerror=o,document.head.appendChild(e)}),s}async function f(n,o={}){let e=document.getElementById(n);if(!e)return null;if(a.has(n))g(n);let t=e.querySelector(".monokai-raw-code"),r=e.querySelector("pre code"),i="";if(o.code!==void 0)i=o.code;else if(t&&t.value)i=t.value;else if(r&&r.textContent)i=r.textContent;else i=e.getAttribute("data-code")||e.textContent||"";let d=o.language||e.getAttribute("data-language")||"java",h=o.readOnly!==void 0?o.readOnly:e.getAttribute("data-readonly")==="true";e.innerHTML="";try{let k=(await y()).editor.create(e,{value:i.trim(),language:d,theme:"monokai",automaticLayout:!0,readOnly:h,fontSize:13,fontFamily:'Consolas, "Fira Code", "Courier New", monospace',minimap:{enabled:o.minimap??!1},scrollBeyondLastLine:!1,lineNumbers:"on",renderLineHighlight:"all",tabSize:4,padding:{top:10,bottom:10},scrollbar:{verticalScrollbarSize:8,horizontalScrollbarSize:8},...o});return a.set(n,{editor:k,container:e}),k}catch(m){return console.error("[MonokaiEditor] Mount failed:",m),e.innerHTML=`<pre style="background:#272822;color:#f8f8f2;padding:12px;margin:0;overflow:auto;"><code>${i}</code></pre>`,null}}function g(n){let o=a.get(n);if(o){if(o.worker)o.worker.terminate();if(o.editor&&o.editor.dispose)o.editor.dispose();a.delete(n)}}function c(n){let o=a.get(n);if(o&&o.editor)return o.editor.getValue();let e=document.getElementById(n);if(!e)return"";let t=e.querySelector(".monokai-raw-code");if(t&&t.value)return t.value;let r=e.querySelector("pre code");if(r&&r.textContent)return r.textContent;return e.getAttribute("data-code")||e.textContent||""}function p(n,o){let e=a.get(n);if(e&&e.editor)e.editor.setValue(o)}function b(n,o){let e=c(n);if(navigator.clipboard)navigator.clipboard.writeText(e).then(()=>{if(o){let t=o.innerHTML;o.innerHTML='<i class="fa fa-check text-success"></i> Скопировано!',setTimeout(()=>{o.innerHTML=t},2000)}})}function v(n){let o=c(n),e=document.getElementById(n+"-output");if(e)e.style.display="block",e.textContent="[Background Worker] Запуск вычислений в изолированном потоке...";let r=new Blob([`
