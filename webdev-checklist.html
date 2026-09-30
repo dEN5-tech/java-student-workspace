@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Группа 401 — Задание 1: ToDo Список (ListView) | МДК.02.04 «Разработка прикладных приложений»</title>
+  <title>Веб-дизайн — Чек-лист проверки (Модуль А) | МДК.02.04 «Разработка прикладных приложений»</title>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -126,7 +126,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="group401.html">
+        <a class="nav-link " href="group401.html">
           <i class="fa-brands fa-java me-1"></i> Группа 401 (JavaFX)
         </a>
       </li>
@@ -136,7 +136,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="webdev.html">
+        <a class="nav-link active" href="webdev.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1 align-text-bottom">
             <path d="M 6.5 4 A 9 9 0 0 1 17.5 4" />
             <path d="M 20 6.5 A 9 9 0 0 1 20 17.5" />
@@ -186,1167 +186,344 @@
       .subtab-pane.active {
         display: block;
       }
-    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3">Дисциплина: Разработка прикладных приложений (Группа 401, 4 курс)</h2><ul class="nav nav-pills mb-4 border-bottom pb-3" id="group401SubTabs"><li class="nav-item me-2"><a class="nav-link active" id="subtab-btn-task1" href="group401-task1.html"><i class="fa-solid fa-list-check me-2"></i>Задание 1: ToDo Список (ListView)</a></li><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-task2" href="group401-task2.html"><i class="fa-solid fa-gamepad me-2"></i>Задание 2: Игра «Крестики-Нолики» (GridPane)</a></li><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-task3" href="group401-task3.html"><i class="fa-solid fa-person-running me-2"></i>Задание 3: 2D-Игра «Раннер»</a></li><li class="nav-item"><a class="nav-link " id="subtab-btn-task4" href="group401-task4.html"><i class="fa-solid fa-book me-2"></i>Задание 4: Блокнот заметок (MVC)</a></li></ul><div id="subtab-pane-task1" class="subtab-pane active" style="display: block;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-list-check me-2 text-primary"></i>Практическое занятие №1. Компонент ListView и ObservableList в JavaFX (ToDo приложение)</h4><span class="badge bg-secondary">Задание 1</span></div><div class="card-body"><h5>1. Стартовый проект и файлы</h5><p>Для выполнения работы скачайте готовый шаблон JavaFX проекта (включает необходимые библиотеки, DLL и скрипты <code>build.bat</code> / <code>run.bat</code>):</p><ul><li><a href="https://github.com/dEN5-tech/javafx-starter/archive/refs/heads/main.zip"><strong>Скачать готовый архив проекта (javafx-starter.zip)</strong></a></li><li><a href="https://github.com/dEN5-tech/javafx-starter" target="_blank">Репозиторий проекта на GitHub (javafx-starter)</a></li><li><span><a href="assets/javafx-starter-guide.txt"><strong>Инструкция по настройке рабочего места (javafx-starter-guide.txt)</strong></a></span></li></ul><hr/><h5>2. Теоретические сведения: Работа со списками ListView</h5><p>Класс <code>javafx.scene.control.ListView<T></code> отображает прокручиваемый список элементов. В приложении список типизируется строками — <code>ListView<String></code>.</p><p>Компонент связывается с коллекцией-наблюдателем — <code>ObservableList<String></code>:</p><pre style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 4px; padding: 12px; font-size: 13px;"><code>ObservableList<String> items = FXCollections.observableArrayList();
-taskListView.setItems(items);</code></pre><hr/><h5>3. Исходный код контроллера списка (<code>src/com/example/PrimaryController.java</code>)</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-todo-controller', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-todo-controller" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 350px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example;
+    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3 d-flex align-items-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1 align-text-bottom"><path d="M 6.5 4 A 9 9 0 0 1 17.5 4"></path><path d="M 20 6.5 A 9 9 0 0 1 20 17.5"></path><path d="M 17.5 20 A 9 9 0 0 1 6.5 20"></path><path d="M 4 17.5 A 9 9 0 0 1 4 6.5"></path><path d="M 7.5 16.5 V 8.5 L 12 13 L 16.5 8.5 V 16.5" stroke-width="2.2"></path></svg><span>Веб-дизайн и разработка: Чемпионат «Профессионалы» (Модуль А)</span></h2><div class="card mb-4 border-primary shadow-sm bg-light"><div class="card-body"><h5 class="card-title text-primary mb-2"><i class="fa-solid fa-gamepad me-2"></i>Проект: Маркетплейс видеоигр «BestGames»</h5><p class="card-text mb-0 text-muted">Интерактивная методичка для подготовки к чемпионату. Стек: <strong>HTML5, CSS3, чистый Vanilla JavaScript</strong> без сторонних библиотек и фреймворков. Все материалы синхронизированы со справочником <a href="https://doka.guide/" target="_blank" class="fw-bold text-decoration-none">Doka.guide</a>.</p></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="webdevSubTabs"><li class="nav-item me-2"><a class="nav-link " href="webdev-step1.html"><i class="fa-solid fa-code me-1"></i>Шаг 1: Семантика и БЭМ</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step2.html"><i class="fa-solid fa-palette me-1"></i>Шаг 2: Темы и Grid/Flex</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step3.html"><i class="fa-solid fa-mobile-screen me-1"></i>Шаг 3: Адаптивность и Бургер</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step4.html"><i class="fa-brands fa-js me-1"></i>Шаг 4: JS Слайдер и Фильтры</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step5.html"><i class="fa-solid fa-check-to-slot me-1"></i>Шаг 5: Формы и ОПД</a></li><li class="nav-item"><a class="nav-link active" href="webdev-checklist.html"><i class="fa-solid fa-list-check me-1"></i>Шаг 6: Чек-лист проверки</a></li></ul><div class="subtab-pane " id="subtab-content-step1"><h4>Шаг 1. Семантическая разметка HTML5 и именование классов по БЭМ</h4><p>В соответствии со стандартами <a href="https://doka.guide/html/semantics/" target="_blank">Doka: Семантика</a>, верстка должна строиться на структурных ориентирах: <code><header></code>, <code><nav></code>, <code><main></code>, <code><section></code>, <code><article></code>, <code><aside></code>, <code><footer></code>.</p><div class="row mb-3"><div class="col-md-6"><div class="card h-100 border-info"><div class="card-header bg-info text-white fw-bold">Правильные имена файлов</div><div class="card-body"><ul class="mb-0"><li><code>index.html</code> — главная страница (темная тема)</li><li><code>index_light.html</code> — светлая тема главной страницы</li><li><code>catalog.html</code> — каталог игр с фильтрами</li><li><code>login.html</code> — авторизация</li><li><code>register.html</code> — регистрация с чекбоксом ОПД</li><li><code>profile.html</code> — личный кабинет и история покупок</li><li><code>admin.html</code> — добавление новой игры</li></ul></div></div></div><div class="col-md-6"><div class="card h-100 border-success"><div class="card-header bg-success text-white fw-bold">Методология БЭМ</div><div class="card-body"><p class="mb-1"><strong>Блок:</strong> независимый компонент (<code>.game-card</code>, <code>.slider</code>)</p><p class="mb-1"><strong>Элемент:</strong> составная часть через <code>__</code> (<code>.game-card__title</code>, <code>.slider__track</code>)</p><p class="mb-0"><strong>Модификатор:</strong> состояние через <code>--</code> (<code>.btn--primary</code>, <code>.theme--light</code>)</p></div></div></div></div><h5 class="mt-4 mb-2">Пример разметки семантической карточки игры по БЭМ:</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-html-card', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-html-card" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 260px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><article class="game-card" data-genre="Action" data-link="catalog.html">
+  <div class="game-card__image-box" style="background-image: url('game.jpg');">
+    <span class="game-card__genre-badge">Action</span>
+  </div>
+  <div class="game-card__body">
+    <h3 class="game-card__title">Cyber Storm</h3>
+    <p class="game-card__dev">CD Studio</p>
+    <div class="game-card__rating">★★★★★</div>
+    <div class="game-card__footer">
+      <span class="game-card__price">1 999 ₽</span>
+      <a href="catalog.html" class="btn btn--primary btn--sm">В каталог</a>
+    </div>
+  </div>
+</article></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><article class="game-card" data-genre="Action" data-link="catalog.html">
+  <div class="game-card__image-box" style="background-image: url('game.jpg');">
+    <span class="game-card__genre-badge">Action</span>
+  </div>
+  <div class="game-card__body">
+    <h3 class="game-card__title">Cyber Storm</h3>
+    <p class="game-card__dev">CD Studio</p>
+    <div class="game-card__rating">★★★★★</div>
+    <div class="game-card__footer">
+      <span class="game-card__price">1 999 ₽</span>
+      <a href="catalog.html" class="btn btn--primary btn--sm">В каталог</a>
+    </div>
+  </div>
+</article></code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step2"><h4>Шаг 2. CSS-переменные, Темы оформления и Сетки Grid/Flexbox</h4><p>Сайт использует ровно 2 шрифта (<code>Inter</code> и <code>Russo One</code>) и переключается между темами благодаря <a href="https://doka.guide/css/custom-properties/" target="_blank">кастомным свойствам CSS</a>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-css-themes', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-css-themes" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>@import url('https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap');
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-
-public class PrimaryController {
-
-    @FXML private TextField taskInput;
-    @FXML private ListView<String> taskListView;
-    @FXML private Button addButton;
-    @FXML private Button deleteButton;
-    @FXML private Button clearButton;
-
-    private ObservableList<String> tasks = FXCollections.observableArrayList();
-
-    @FXML
-    public void initialize() {
-        taskListView.setItems(tasks);
-    }
-
-    @FXML
-    void onAddClick(ActionEvent event) {
-        String text = taskInput.getText().trim();
-        if (!text.isEmpty()) {
-            tasks.add(text);
-            taskInput.clear();
-        }
-    }
-
-    @FXML
-    void onDeleteClick(ActionEvent event) {
-        String selected = taskListView.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            tasks.remove(selected);
-        }
-    }
-
-    @FXML
-    void onClearClick(ActionEvent event) {
-        tasks.clear();
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-
-public class PrimaryController {
-
-    @FXML private TextField taskInput;
-    @FXML private ListView<String> taskListView;
-    @FXML private Button addButton;
-    @FXML private Button deleteButton;
-    @FXML private Button clearButton;
-
-    private ObservableList<String> tasks = FXCollections.observableArrayList();
-
-    @FXML
-    public void initialize() {
-        taskListView.setItems(tasks);
-    }
-
-    @FXML
-    void onAddClick(ActionEvent event) {
-        String text = taskInput.getText().trim();
-        if (!text.isEmpty()) {
-            tasks.add(text);
-            taskInput.clear();
-        }
-    }
-
-    @FXML
-    void onDeleteClick(ActionEvent event) {
-        String selected = taskListView.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            tasks.remove(selected);
-        }
-    }
-
-    @FXML
-    void onClearClick(ActionEvent event) {
-        tasks.clear();
-    }
-}</code></pre></div></div><hr/><h5>4. Задания на самостоятельную работу</h5><ul><li>Добавьте проверку на дубликаты перед добавлением задачи в список.</li><li>Реализуйте кнопку редактирования выбранной задачи.</li><li>Добавьте счетчик общего количества оставшихся задач в интерфейсе (компонент <code>Label</code>).</li></ul></div></div></div><div id="subtab-pane-task2" class="subtab-pane " style="display: none;"><div class="card mb-4 border-primary shadow-sm"><div class="card-header bg-primary text-white d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-gamepad me-2"></i>Практическое занятие №2. Создание игры «Крестики-Нолики» на JavaFX (Scene Builder + FXML + CSS)</h4><span class="badge bg-light text-primary fw-bold">Задание 2</span></div><div class="card-body"><h5>1. Цель работы</h5><p>Освоить визуальную верстку игрового поля 3x3 в Scene Builder с использованием контейнера <code>GridPane</code>, научиться связывать элементы с контроллером через <code>fx:id</code> и один общий обработчик событий <code>#btnClick</code>, а также реализовать проверку условий победы и визуальные CSS-стили.</p><hr/><h5>2. Пошаговая верстка в Scene Builder</h5><ol><li>Откройте <code>MainView.fxml</code> в Scene Builder.</li><li>Установите размер корневого <code>AnchorPane</code>: <strong>350x400</strong>.</li><li>Перетащите контейнер <strong><code>GridPane</code></strong> (3 строки x 3 колонки) размером <strong>300x300</strong> (Layout X: 25, Layout Y: 50).</li><li>Перетащите компонент <strong><code>Button</code></strong> в каждую из 9 ячеек (Pref Width: 100, Pref Height: 100, поле Text оставьте пустым).</li><li>В панели <strong>Inspector -> Code</strong> назначьте кнопкам идентификаторы:<ul><li><code>btn1</code>, <code>btn2</code>, <code>btn3</code> (верхний ряд);</li><li><code>btn4</code>, <code>btn5</code>, <code>btn6</code> (средний ряд);</li><li><code>btn7</code>, <code>btn8</code>, <code>btn9</code> (нижний ряд).</li></ul></li><li>Для <strong>всех 9 кнопок</strong> укажите одинаковый метод события: <code>On Action = #btnClick</code>.</li><li>В панели <strong>Inspector -> Properties -> Stylesheets</strong> подключите <code>style.css</code>, а в <strong>Style Class</strong> укажите <code>game-btn</code>.</li></ol><hr/><h5>3. Файл стилей (<code>src/com/example/style.css</code>)</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-tictactoe-css', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-tictactoe-css" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 260px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>/* Базовый стиль ячеек сетки */
-.game-btn {
-    -fx-font-size: 36px;
-    -fx-font-weight: bold;
-    -fx-background-color: #f1f2f6;
-    -fx-background-radius: 8px;
-    -fx-border-color: #ced6e0;
-    -fx-border-radius: 8px;
-    -fx-cursor: hand;
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #6366f1;
 }
 
-/* Красный цвет для крестика */
-.symbol-x {
-    -fx-text-fill: #e74c3c;
+body.theme--light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
 }
 
-/* Синий цвет для нолика */
-.symbol-o {
-    -fx-text-fill: #3498db;
+/* Группировка карточек для экономии кода */
+.game-card, .advantage-card, .form-card, .profile-card, .filter-sidebar {
+  background: var(--card);
+  padding: 15px;
+  border-radius: 6px;
 }
 
-/* Зеленая подсветка победной линии */
-.winner-line {
-    -fx-background-color: #2ecc71 !important;
-    -fx-text-fill: #ffffff !important;
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">/* Базовый стиль ячеек сетки */
-.game-btn {
-    -fx-font-size: 36px;
-    -fx-font-weight: bold;
-    -fx-background-color: #f1f2f6;
-    -fx-background-radius: 8px;
-    -fx-border-color: #ced6e0;
-    -fx-border-radius: 8px;
-    -fx-cursor: hand;
+/* Сетка каталога на CSS Grid */
+.games-grid, .advantages__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap');
+
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #6366f1;
 }
 
-/* Красный цвет для крестика */
-.symbol-x {
-    -fx-text-fill: #e74c3c;
+body.theme--light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
 }
 
-/* Синий цвет для нолика */
-.symbol-o {
-    -fx-text-fill: #3498db;
+/* Группировка карточек для экономии кода */
+.game-card, .advantage-card, .form-card, .profile-card, .filter-sidebar {
+  background: var(--card);
+  padding: 15px;
+  border-radius: 6px;
 }
 
-/* Зеленая подсветка победной линии */
-.winner-line {
-    -fx-background-color: #2ecc71 !important;
-    -fx-text-fill: #ffffff !important;
-}</code></pre></div></div><hr/><h5>4. Исходный код контроллера (<code>src/com/example/MainController.java</code>)</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-tictactoe-controller', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-tictactoe-controller" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 450px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example;
+/* Сетка каталога на CSS Grid */
+.games-grid, .advantages__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step3"><h4>Шаг 3. Адаптивность: 4 обязательных структурных брейкпоинта</h4><p>По критериям оценивается не просто изменение цвета, а <strong>структурные изменения сетки</strong> при переходе от десктопа к мобильному устройству (<a href="https://doka.guide/css/media/" target="_blank">Doka: @media</a>).</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-css-media', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-css-media" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 350px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>/* 1. До 1200px (Ноутбук): сетки перестраиваются с 4 колонок на 2 */
+@media (max-width: 1200px) {
+  .advantages__grid, .games-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+}
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+/* 2. До 992px (Планшет): скрываем меню, показываем бургер, сайдбар под кнопку */
+@media (max-width: 992px) {
+  .header__nav { display: none; }
+  .header__burger { display: block; }
+  .header__nav.header__nav--open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 60px; left: 0; width: 100%; background: var(--card); padding: 15px;
+  }
+  .catalog-layout, .profile-grid { grid-template-columns: 1fr; }
+  .filter-sidebar { display: none; }
+  .filter-sidebar.filter-sidebar--open { display: block; }
+  .filter-toggle-btn { display: block; }
+}
 
-public class MainController {
+/* 3. До 768px (Планшет книжный): поиск в колонку, футер 2 колонки */
+@media (max-width: 768px) {
+  .quick-search__box { flex-direction: column; }
+  .advantages__grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
 
-    // 9 кнопок игрового поля FXML
-    @FXML private Button btn1, btn2, btn3;
-    @FXML private Button btn4, btn5, btn6;
-    @FXML private Button btn7, btn8, btn9;
+/* 4. До 480px (Мобилка): сетки карточек в 1 колонку */
+@media (max-width: 480px) {
+  .games-grid, .footer__grid { grid-template-columns: 1fr; }
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">/* 1. До 1200px (Ноутбук): сетки перестраиваются с 4 колонок на 2 */
+@media (max-width: 1200px) {
+  .advantages__grid, .games-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+}
 
-    // Текущий символ (первым ходит "X")
-    private String symbol = "X";
+/* 2. До 992px (Планшет): скрываем меню, показываем бургер, сайдбар под кнопку */
+@media (max-width: 992px) {
+  .header__nav { display: none; }
+  .header__burger { display: block; }
+  .header__nav.header__nav--open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 60px; left: 0; width: 100%; background: var(--card); padding: 15px;
+  }
+  .catalog-layout, .profile-grid { grid-template-columns: 1fr; }
+  .filter-sidebar { display: none; }
+  .filter-sidebar.filter-sidebar--open { display: block; }
+  .filter-toggle-btn { display: block; }
+}
 
-    @FXML
-    void btnClick(ActionEvent event) {
-        Button btn = (Button) event.getSource();
+/* 3. До 768px (Планшет книжный): поиск в колонку, футер 2 колонки */
+@media (max-width: 768px) {
+  .quick-search__box { flex-direction: column; }
+  .advantages__grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
 
-        // Если клетка уже занята — выходим
-        if (!btn.getText().isEmpty()) {
-            return;
-        }
+/* 4. До 480px (Мобилка): сетки карточек в 1 колонку */
+@media (max-width: 480px) {
+  .games-grid, .footer__grid { grid-template-columns: 1fr; }
+}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step4"><h4>Шаг 4. Нативный JavaScript: Слайдер, Поиск, Фильтры и Тема</h4><p>Чистый код без библиотек. Используются <a href="https://doka.guide/js/setinterval/" target="_blank">setInterval</a> для автопрокрутки слайдов, <a href="https://doka.guide/js/local-storage/" target="_blank">localStorage</a> для сохранения темы и <a href="https://doka.guide/js/window-location/" target="_blank">window.location</a> для фильтрации.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-js-logic', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-js-logic" data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 360px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>document.addEventListener('DOMContentLoaded', () => {
+  // 1. Бургер-меню
+  const burger = document.querySelector('.header__burger');
+  const nav = document.querySelector('.header__nav');
+  if (burger && nav) burger.addEventListener('click', () => nav.classList.toggle('header__nav--open'));
 
-        // Ставим символ и применяем цветной CSS-класс
-        btn.setText(symbol);
-        if (symbol.equals("X")) {
-            btn.getStyleClass().add("symbol-x");
+  // 2. Слайдер с автосменой
+  const track = document.querySelector('.slider__track');
+  const slides = document.querySelectorAll('.slider__slide');
+  const dots = document.querySelectorAll('.slider__dot');
+  let currentSlide = 0;
+
+  function showSlide(idx) {
+    if (!track || slides.length === 0) return;
+    currentSlide = (idx + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('slider__dot--active', i === currentSlide));
+  }
+
+  document.querySelector('.slider__nav-btn--prev')?.addEventListener('click', () => showSlide(currentSlide - 1));
+  document.querySelector('.slider__nav-btn--next')?.addEventListener('click', () => showSlide(currentSlide + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
+  if (slides.length > 0) setInterval(() => showSlide(currentSlide + 1), 5000);
+
+  // 3. Тема оформления + localStorage
+  const themeBtn = document.querySelector('.header__theme-toggle');
+  const savedTheme = localStorage.getItem('bestgames_theme');
+  if (document.body.classList.contains('theme--light') || savedTheme === 'light') {
+    document.body.classList.add('theme--light');
+  }
+  themeBtn?.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('theme--light');
+    localStorage.setItem('bestgames_theme', isLight ? 'light' : 'dark');
+  });
+});</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">document.addEventListener('DOMContentLoaded', () => {
+  // 1. Бургер-меню
+  const burger = document.querySelector('.header__burger');
+  const nav = document.querySelector('.header__nav');
+  if (burger && nav) burger.addEventListener('click', () => nav.classList.toggle('header__nav--open'));
+
+  // 2. Слайдер с автосменой
+  const track = document.querySelector('.slider__track');
+  const slides = document.querySelectorAll('.slider__slide');
+  const dots = document.querySelectorAll('.slider__dot');
+  let currentSlide = 0;
+
+  function showSlide(idx) {
+    if (!track || slides.length === 0) return;
+    currentSlide = (idx + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('slider__dot--active', i === currentSlide));
+  }
+
+  document.querySelector('.slider__nav-btn--prev')?.addEventListener('click', () => showSlide(currentSlide - 1));
+  document.querySelector('.slider__nav-btn--next')?.addEventListener('click', () => showSlide(currentSlide + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
+  if (slides.length > 0) setInterval(() => showSlide(currentSlide + 1), 5000);
+
+  // 3. Тема оформления + localStorage
+  const themeBtn = document.querySelector('.header__theme-toggle');
+  const savedTheme = localStorage.getItem('bestgames_theme');
+  if (document.body.classList.contains('theme--light') || savedTheme === 'light') {
+    document.body.classList.add('theme--light');
+  }
+  themeBtn?.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('theme--light');
+    localStorage.setItem('bestgames_theme', isLight ? 'light' : 'dark');
+  });
+});</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step5"><h4>Шаг 5. Формы: Вход, Регистрация с ОПД и Таблица в Личном кабинете</h4><p>Особое внимание уделяется обязательному чекбоксу согласия на обработку персональных данных (ОПД) и семантической таблице <a href="https://doka.guide/html/tables/" target="_blank">таблиц в HTML</a>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-html-forms', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-html-forms" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><!-- Регистрация с обязательным чекбоксом ОПД -->
+<form action="profile.html" method="POST">
+  <div class="form-group">
+    <label for="lastName">Фамилия *</label>
+    <input type="text" id="lastName" name="last_name" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="email">E-mail *</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+  
+  <!-- ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС ОПД ПО КРИТЕРИЯМ -->
+  <div class="checkbox-group">
+    <input type="checkbox" id="opd" name="opd" required>
+    <label for="opd">Согласие на обработку персональных данных (ОПД) *</label>
+  </div>
+  <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
+</form></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><!-- Регистрация с обязательным чекбоксом ОПД -->
+<form action="profile.html" method="POST">
+  <div class="form-group">
+    <label for="lastName">Фамилия *</label>
+    <input type="text" id="lastName" name="last_name" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="email">E-mail *</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+  
+  <!-- ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС ОПД ПО КРИТЕРИЯМ -->
+  <div class="checkbox-group">
+    <input type="checkbox" id="opd" name="opd" required>
+    <label for="opd">Согласие на обработку персональных данных (ОПД) *</label>
+  </div>
+  <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
+</form></code></pre></div></div></div><div class="subtab-pane active" id="subtab-content-checklist"><h4>Шаг 6. Итоговый чек-лист экспертной оценки Модуля А</h4><div class="alert alert-warning"><strong>Внимание!</strong> Эксперты проверяют строго загруженную на сервер версию без использования сторонних CSS/JS библиотек.</div><div class="table-responsive"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th style="width: 25%;">Критерий оценки</th><th style="width: 45%;">Что проверяют эксперты</th><th style="width: 30%;">Статус в коде</th></tr></thead><tbody><tr><td><strong>Имена файлов</strong></td><td>Строго index.html, index_light.html, catalog.html, login.html, register.html, profile.html, admin.html</td><td><span class="badge bg-success">100% Соответствие</span></td></tr><tr><td><strong>Запрет фреймворков</strong></td><td>Отсутствие Bootstrap, Tailwind, jQuery и сторонних CDN</td><td><span class="badge bg-success">Чистый HTML5/CSS3/JS</span></td></tr><tr><td><strong>Шрифты</strong></td><td>Не менее 2 шрифтов (Inter для текста, Russo One для заголовков)</td><td><span class="badge bg-success">2 шрифта подключены</span></td></tr><tr><td><strong>Адаптивность</strong></td><td>4 структурных брейкпоинта (1200px, 992px, 768px, 480px) и бургер-меню</td><td><span class="badge bg-success">4 брейкпоинта</span></td></tr><tr><td><strong>Слайдер</strong></td><td>Не менее 3 слайдов, автопрокрутка, стрелки и точки индикации</td><td><span class="badge bg-success">setInterval + transform</span></td></tr><tr><td><strong>Чекбокс ОПД</strong></td><td>Обязательное согласие на обработку данных на странице регистрации</td><td><span class="badge bg-success">required checkbox</span></td></tr><tr><td><strong>Каталог</strong></td><td>Фильтр по жанрам: постоянный на десктопе, кнопка на мобилке</td><td><span class="badge bg-success">Интерактивный фильтр</span></td></tr></tbody></table></div></div></div><script>
+(function () {
+  function initSubTabs() {
+    var subTabNavs = document.querySelectorAll('#group401SubTabs, #group301SubTabs, [role="tablist"].nav-pills');
+    if (!subTabNavs.length) return;
+
+    function activateSubTab(navEl, subtabId, updateHash) {
+      if (!navEl || !subtabId) return;
+      var parent = navEl.closest('.box, .generalbox, .main-card, body') || document;
+      var buttons = navEl.querySelectorAll('[data-subtab]');
+      var targetBtn = navEl.querySelector('[data-subtab="' + subtabId + '"]');
+      if (!targetBtn) return;
+
+      // 1. Update button active states
+      buttons.forEach(function (b) {
+        if (b === targetBtn) {
+          b.classList.add('active');
+          b.setAttribute('aria-selected', 'true');
         } else {
-            btn.getStyleClass().add("symbol-o");
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
         }
+      });
 
-        // Проверяем победу
-        if (checkWin()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Победа!");
-            alert.setHeaderText(null);
-            alert.setContentText("Победил игрок: " + symbol + "!");
-            alert.showAndWait();
-
-            resetGame();
-            return;
-        }
-
-        // Передаем ход
-        if (symbol.equals("X")) {
-            symbol = "O";
+      // 2. Update pane active visibility
+      var panes = parent.querySelectorAll('.subtab-pane');
+      panes.forEach(function (p) {
+        if (p.id === 'subtab-pane-' + subtabId) {
+          p.style.display = 'block';
+          p.classList.add('active');
         } else {
-            symbol = "X";
+          p.style.display = 'none';
+          p.classList.remove('active');
         }
-    }
+      });
 
-    // Проверка 8 победных линий
-    private boolean checkWin() {
-        // Горизонтали
-        if (checkLine(btn1, btn2, btn3)) return true;
-        if (checkLine(btn4, btn5, btn6)) return true;
-        if (checkLine(btn7, btn8, btn9)) return true;
-
-        // Вертикали
-        if (checkLine(btn1, btn4, btn7)) return true;
-        if (checkLine(btn2, btn5, btn8)) return true;
-        if (checkLine(btn3, btn6, btn9)) return true;
-
-        // Диагонали
-        if (checkLine(btn1, btn5, btn9)) return true;
-        if (checkLine(btn3, btn5, btn7)) return true;
-
-        return false;
-    }
-
-    // Линия совпала, если все 3 кнопки содержат текущий символ
-    private boolean checkLine(Button b1, Button b2, Button b3) {
-        boolean isWin = b1.getText().equals(symbol) 
-                     && b2.getText().equals(symbol) 
-                     && b3.getText().equals(symbol);
-
-        if (isWin) {
-            b1.getStyleClass().add("winner-line");
-            b2.getStyleClass().add("winner-line");
-            b3.getStyleClass().add("winner-line");
-        }
-        return isWin;
-    }
-
-    // Сброс поля после раунда
-    private void resetGame() {
-        clearButton(btn1); clearButton(btn2); clearButton(btn3);
-        clearButton(btn4); clearButton(btn5); clearButton(btn6);
-        clearButton(btn7); clearButton(btn8); clearButton(btn9);
-        symbol = "X";
-    }
-
-    private void clearButton(Button btn) {
-        btn.setText("");
-        btn.getStyleClass().removeAll("symbol-x", "symbol-o", "winner-line");
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-
-public class MainController {
-
-    // 9 кнопок игрового поля FXML
-    @FXML private Button btn1, btn2, btn3;
-    @FXML private Button btn4, btn5, btn6;
-    @FXML private Button btn7, btn8, btn9;
-
-    // Текущий символ (первым ходит "X")
-    private String symbol = "X";
-
-    @FXML
-    void btnClick(ActionEvent event) {
-        Button btn = (Button) event.getSource();
-
-        // Если клетка уже занята — выходим
-        if (!btn.getText().isEmpty()) {
-            return;
-        }
-
-        // Ставим символ и применяем цветной CSS-класс
-        btn.setText(symbol);
-        if (symbol.equals("X")) {
-            btn.getStyleClass().add("symbol-x");
+      // 3. Update hash for deep linking
+      if (updateHash) {
+        if (history.replaceState) {
+          history.replaceState(null, '', '#' + subtabId);
         } else {
-            btn.getStyleClass().add("symbol-o");
+          location.hash = subtabId;
         }
+      }
+    }
 
-        // Проверяем победу
-        if (checkWin()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Победа!");
-            alert.setHeaderText(null);
-            alert.setContentText("Победил игрок: " + symbol + "!");
-            alert.showAndWait();
+    // Attach click listeners to all subtab navigation bars
+    subTabNavs.forEach(function (navEl) {
+      if (navEl.dataset.subtabsBound === 'true') return;
+      navEl.dataset.subtabsBound = 'true';
 
-            resetGame();
-            return;
+      navEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-subtab]');
+        if (btn) {
+          e.preventDefault();
+          var subtabId = btn.getAttribute('data-subtab');
+          activateSubTab(navEl, subtabId, true);
         }
+      });
+    });
 
-        // Передаем ход
-        if (symbol.equals("X")) {
-            symbol = "O";
-        } else {
-            symbol = "X";
+    // Check URL hash on initial load or on hashchange (Moodle standalone and deep linking)
+    function handleSubtabHash() {
+      var rawHash = (location.hash || '').replace(/^#/, '');
+      if (!rawHash) return;
+
+      var subtabId = rawHash;
+      if (rawHash.indexOf('-') !== -1) {
+        var parts = rawHash.split('-');
+        subtabId = parts.slice(1).join('-');
+      }
+
+      subTabNavs.forEach(function (navEl) {
+        if (navEl.querySelector('[data-subtab="' + subtabId + '"]')) {
+          activateSubTab(navEl, subtabId, false);
         }
+      });
     }
 
-    // Проверка 8 победных линий
-    private boolean checkWin() {
-        // Горизонтали
-        if (checkLine(btn1, btn2, btn3)) return true;
-        if (checkLine(btn4, btn5, btn6)) return true;
-        if (checkLine(btn7, btn8, btn9)) return true;
-
-        // Вертикали
-        if (checkLine(btn1, btn4, btn7)) return true;
-        if (checkLine(btn2, btn5, btn8)) return true;
-        if (checkLine(btn3, btn6, btn9)) return true;
-
-        // Диагонали
-        if (checkLine(btn1, btn5, btn9)) return true;
-        if (checkLine(btn3, btn5, btn7)) return true;
-
-        return false;
-    }
-
-    // Линия совпала, если все 3 кнопки содержат текущий символ
-    private boolean checkLine(Button b1, Button b2, Button b3) {
-        boolean isWin = b1.getText().equals(symbol) 
-                     && b2.getText().equals(symbol) 
-                     && b3.getText().equals(symbol);
-
-        if (isWin) {
-            b1.getStyleClass().add("winner-line");
-            b2.getStyleClass().add("winner-line");
-            b3.getStyleClass().add("winner-line");
-        }
-        return isWin;
-    }
-
-    // Сброс поля после раунда
-    private void resetGame() {
-        clearButton(btn1); clearButton(btn2); clearButton(btn3);
-        clearButton(btn4); clearButton(btn5); clearButton(btn6);
-        clearButton(btn7); clearButton(btn8); clearButton(btn9);
-        symbol = "X";
-    }
-
-    private void clearButton(Button btn) {
-        btn.setText("");
-        btn.getStyleClass().removeAll("symbol-x", "symbol-o", "winner-line");
-    }
-}</code></pre></div></div><hr/><h5>5. Творческие задания на самостоятельную работу</h5><ul><li><strong>«Битва эмодзи»:</strong> Замените <code>X</code> и <code>O</code> на эмодзи-персонажей (🔥/💧, 🐱/🐶, ⚔️/🛡️).</li><li><strong>«Ничья»:</strong> Добавьте проверку ничьей (если все 9 клеток заняты, а победителя нет — покажите `Alert: Ничья!`).</li><li><strong>«Dark Mode»:</strong> Оформите игровое поле в темном неоновом стиле через Scene Builder или <code>style.css</code>.</li></ul></div></div></div><div id="subtab-pane-task3" class="subtab-pane " style="display: none;"><div class="card mb-4 border-success shadow-sm"><div class="card-header bg-success text-white d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-gamepad me-2"></i>Практическое занятие №3. Создание 2D-игры «Раннер» на JavaFX</h4><span class="badge bg-light text-success fw-bold">Задание 3</span></div><div class="card-body"><h5>1. Цель работы</h5><p>Создать 2D аркадный раннер на JavaFX: настроить спрайты и бесшовный циклический фон, реализовать непрерывное управление с клавиатуры, физику прыжка и гравитации в игровом цикле <code>AnimationTimer</code>, движение препятствий, систему паузы и детекцию столкновений.</p><hr/><h5>2. Архитектура проекта и подготовка графических ассетов</h5><p>Игре требуются графические текстуры (спрайты фона, персонажа и врага). Разместите их в каталоге <code>src/com/example/images/</code>:</p><table class="table table-bordered table-sm bg-white mb-3"><thead class="table-light"><tr><th>Файл ассета</th><th>Назначение</th><th>Рекомендуемый размер</th></tr></thead><tbody><tr><td><code>bg.png</code></td><td>Бесшовная текстура игрового мира (небо, трава, земля)</td><td>712 × 400 px</td></tr><tr><td><code>player.png</code></td><td>Спрайт главного героя (бегущий персонаж)</td><td>110 × 120 px (прозрачный PNG)</td></tr><tr><td><code>enemy.png</code></td><td>Спрайт препятствия или монстра</td><td>65 × 65 px (прозрачный PNG)</td></tr></tbody></table><hr/><h5>3. Визуальная верстка игрового пространства в Scene Builder (<code>MainView.fxml</code>)</h5><p>Главное окно имеет фиксированный размер <strong>712 × 400 px</strong>. Для создания бесшовного эффекта бега на слой накладываются <strong>два одинаковых фона</strong> встык:</p><ol><li>Корневой контейнер: <code>AnchorPane</code> (712 × 400).</li><li><strong>Фон 1 (<code>bg1</code>):</strong> <code>ImageView</code>, Layout X: <code>0</code>, Y: <code>0</code>, Fit: <code>712 × 400</code>, Image: <code>@images/bg.png</code>.</li><li><strong>Фон 2 (<code>bg2</code>):</strong> <code>ImageView</code>, Layout X: <code>712</code>, Y: <code>0</code>, Fit: <code>712 × 400</code>, Image: <code>@images/bg.png</code>.</li><li><strong>Игрок (<code>player</code>):</strong> <code>ImageView</code>, Layout X: <code>50</code>, Y: <code>181</code>, Fit: <code>110 × 120</code>, Image: <code>@images/player.png</code>.</li><li><strong>Враг (<code>enemy</code>):</strong> <code>ImageView</code>, Layout X: <code>720</code>, Y: <code>245</code>, Fit: <code>65 × 65</code>, Image: <code>@images/enemy.png</code>.</li><li><strong>Надписи UI (<code>labelPause</code>, <code>labelLose</code>):</strong> Компоненты <code>Label</code> в центре экрана, свойство <code>Visible = false</code>.</li></ol><p><strong>Полный исходный код FXML файла разметки (<code>src/com/example/MainView.fxml</code>):</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-runner-fxml', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-runner-fxml" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 340px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="400.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
-   <children>
-      <!-- Слой 1: Бесконечный циклический фон -->
-      <ImageView fx:id="bg1" fitHeight="400.0" fitWidth="712.0" pickOnBounds="true" preserveRatio="false">
-         <image><Image url="@images/bg.png" /></image>
-      </ImageView>
-      <ImageView fx:id="bg2" fitHeight="400.0" fitWidth="712.0" layoutX="712.0" pickOnBounds="true" preserveRatio="false">
-         <image><Image url="@images/bg.png" /></image>
-      </ImageView>
-
-      <!-- Слой 2: Персонаж игрока -->
-      <ImageView fx:id="player" fitHeight="120.0" fitWidth="110.0" layoutX="50.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
-         <image><Image url="@images/player.png" /></image>
-      </ImageView>
-
-      <!-- Слой 3: Препятствие / Враг -->
-      <ImageView fx:id="enemy" fitHeight="65.0" fitWidth="65.0" layoutX="720.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-         <image><Image url="@images/enemy.png" /></image>
-      </ImageView>
-
-      <!-- Слой 4: Интерфейс и оверлеи -->
-      <Label fx:id="labelPause" alignment="CENTER" focusTraversable="false" layoutX="206.0" layoutY="140.0" prefHeight="90.0" prefWidth="300.0" text="ПАУЗА" textFill="WHITE" visible="false">
-         <font><Font name="System Bold" size="48.0" /></font>
-      </Label>
-      <Label fx:id="labelLose" alignment="CENTER" focusTraversable="false" layoutX="206.0" layoutY="140.0" prefHeight="90.0" prefWidth="300.0" text="ВЫ ПРОИГРАЛИ!" textFill="#ef4444" visible="false">
-         <font><Font name="System Bold" size="36.0" /></font>
-      </Label>
-   </children>
-</AnchorPane></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="400.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
-   <children>
-      <!-- Слой 1: Бесконечный циклический фон -->
-      <ImageView fx:id="bg1" fitHeight="400.0" fitWidth="712.0" pickOnBounds="true" preserveRatio="false">
-         <image><Image url="@images/bg.png" /></image>
-      </ImageView>
-      <ImageView fx:id="bg2" fitHeight="400.0" fitWidth="712.0" layoutX="712.0" pickOnBounds="true" preserveRatio="false">
-         <image><Image url="@images/bg.png" /></image>
-      </ImageView>
-
-      <!-- Слой 2: Персонаж игрока -->
-      <ImageView fx:id="player" fitHeight="120.0" fitWidth="110.0" layoutX="50.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
-         <image><Image url="@images/player.png" /></image>
-      </ImageView>
-
-      <!-- Слой 3: Препятствие / Враг -->
-      <ImageView fx:id="enemy" fitHeight="65.0" fitWidth="65.0" layoutX="720.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-         <image><Image url="@images/enemy.png" /></image>
-      </ImageView>
-
-      <!-- Слой 4: Интерфейс и оверлеи -->
-      <Label fx:id="labelPause" alignment="CENTER" focusTraversable="false" layoutX="206.0" layoutY="140.0" prefHeight="90.0" prefWidth="300.0" text="ПАУЗА" textFill="WHITE" visible="false">
-         <font><Font name="System Bold" size="48.0" /></font>
-      </Label>
-      <Label fx:id="labelLose" alignment="CENTER" focusTraversable="false" layoutX="206.0" layoutY="140.0" prefHeight="90.0" prefWidth="300.0" text="ВЫ ПРОИГРАЛИ!" textFill="#ef4444" visible="false">
-         <font><Font name="System Bold" size="36.0" /></font>
-      </Label>
-   </children>
-</AnchorPane></code></pre></div></div><hr/><h5>4. Запуск без рамок и непрерывный ввод с клавиатуры (<code>src/com/example/App.java</code>)</h5><p>В играх критически важно использовать флаги состояния нажатых клавиш (<code>left</code>, <code>right</code>, <code>isJump</code>, <code>isPause</code>) вместо одиночных событий, чтобы избежать системной задержки автоповтора ОС (Key Repeat Delay):</p><ul><li><strong><code>StageStyle.UNDECORATED</code>:</strong> Убирает системную рамку окна Windows.</li><li><strong><code>setOnKeyPressed</code>:</strong> Устанавливает флаг клавиши в <code>true</code> при зажатии.</li><li><strong><code>setOnKeyReleased</code>:</strong> Сбрасывает флаг в <code>false</code> при отпускании, а по клавише <code>ESC</code> инвертирует режим паузы.</li></ul><p><strong>Исходный код главного класса приложения (<code>src/com/example/App.java</code>):</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-runner-app', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-runner-app" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import java.io.IOException;
-
-public class App extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 712, 400);
-
-        // Обработка зажатия клавиш (Управление)
-        scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
-                MainController.left = true;
-            }
-            if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) {
-                MainController.right = true;
-            }
-            if ((event.getCode() == KeyCode.SPACE || event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) && !MainController.isJump) {
-                MainController.isJump = true;
-            }
-        });
-
-        // Обработка отпускания клавиш
-        scene.setOnKeyReleased(event -> {
-            if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
-                MainController.left = false;
-            }
-            if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) {
-                MainController.right = false;
-            }
-            if (event.getCode() == KeyCode.ESCAPE) {
-                MainController.isPause = !MainController.isPause;
-            }
-        });
-
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import java.io.IOException;
-
-public class App extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 712, 400);
-
-        // Обработка зажатия клавиш (Управление)
-        scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
-                MainController.left = true;
-            }
-            if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) {
-                MainController.right = true;
-            }
-            if ((event.getCode() == KeyCode.SPACE || event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) && !MainController.isJump) {
-                MainController.isJump = true;
-            }
-        });
-
-        // Обработка отпускания клавиш
-        scene.setOnKeyReleased(event -> {
-            if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
-                MainController.left = false;
-            }
-            if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) {
-                MainController.right = false;
-            }
-            if (event.getCode() == KeyCode.ESCAPE) {
-                MainController.isPause = !MainController.isPause;
-            }
-        });
-
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-}</code></pre></div></div><hr/><h5>5. Игровой контроллер: Анимации, физика и коллизии (<code>src/com/example/MainController.java</code>)</h5><p>Контроллер объединяет все ключевые игровые системы:</p><ul><li><strong>Бесконечный скроллинг фона:</strong> Два <code>TranslateTransition</code> смещают оба фона на <code>-712 px</code> за 5 секунд с <code>Interpolator.LINEAR</code>, объединенные в <code>ParallelTransition</code> с бесконечным циклом <code>Animation.INDEFINITE</code>.</li><li><strong>Движение препятствия:</strong> <code>enemyTransition</code> циклически перемещает врага справа налево за 3.5 секунды.</li><li><strong>Игровой цикл <code>AnimationTimer</code> (60 FPS):</strong><ul><li>Горизонтальное перемещение с ограничением по экрану (<code>28 < X < 100</code>);</li><li>Двухфазный прыжок: подъем до высоты <code>Y = 90</code>, затем гравитационный спуск до земли <code>Y = 181</code>;</li><li>Проверка коллизии: <code>player.getBoundsInParent().intersects(enemy.getBoundsInParent())</code> — при пересечении игра останавливается и появляется надпись поражения.</li></ul></li></ul><p><strong>Полный исходный код игрового контроллера (<code>src/com/example/MainController.java</code>):</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-runner-controller', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-runner-controller" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 500px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example;
-
-import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
-import javafx.animation.Interpolator;
-import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-
-public class MainController {
-
-    @FXML private ImageView bg1, bg2, player, enemy;
-    @FXML private Label labelPause, labelLose;
-
-    // Статические флаги управления с клавиатуры
-    public static boolean right = false;
-    public static boolean left = false;
-    public static boolean isJump = false;
-    public static boolean isPause = false;
-
-    // Скорости движения и гравитации
-    private int playerSpeed = 3;
-    private int jumpDownSpeed = 5;
-    private final int BG_WIDTH = 712;
-
-    private ParallelTransition parallelTransition;
-    private TranslateTransition enemyTransition;
-
-    // Главный игровой цикл (60 раз в секунду)
-    private AnimationTimer timer = new AnimationTimer() {
-        @Override
-        public void handle(long l) {
-            // 1. Обработка состояния паузы
-            if (isPause && !labelPause.isVisible()) {
-                playerSpeed = 0;
-                jumpDownSpeed = 0;
-                parallelTransition.pause();
-                enemyTransition.pause();
-                labelPause.setVisible(true);
-            } else if (!isPause && labelPause.isVisible()) {
-                labelPause.setVisible(false);
-                playerSpeed = 3;
-                jumpDownSpeed = 5;
-                parallelTransition.play();
-                enemyTransition.play();
-            }
-
-            // 2. Горизонтальное движение персонажа в границах экрана
-            if (right && player.getLayoutX() < 100) {
-                player.setLayoutX(player.getLayoutX() + playerSpeed);
-            }
-            if (left && player.getLayoutX() > 28) {
-                player.setLayoutX(player.getLayoutX() - playerSpeed);
-            }
-
-            // 3. Физика прыжка и гравитации
-            if (isJump && player.getLayoutY() > 90) {
-                player.setLayoutY(player.getLayoutY() - playerSpeed); // Фаза взлета
-            } else if (player.getLayoutY() <= 181) {
-                isJump = false; // Достигли пика прыжка
-                if (player.getLayoutY() < 181) {
-                    player.setLayoutY(player.getLayoutY() + jumpDownSpeed); // Падение вниз (гравитация)
-                }
-            }
-
-            // 4. Детекция столкновений (Коллизии хитбоксов)
-            if (player.getBoundsInParent().intersects(enemy.getBoundsInParent())) {
-                labelLose.setVisible(true);
-                playerSpeed = 0;
-                jumpDownSpeed = 0;
-                parallelTransition.pause();
-                enemyTransition.pause();
-            }
-        }
-    };
-
-    @FXML
-    void initialize() {
-        // 1. Запуск бесшовной циклической прокрутки фона
-        TranslateTransition bgOneTransition = new TranslateTransition(Duration.millis(5000), bg1);
-        bgOneTransition.setFromX(0);
-        bgOneTransition.setToX(-BG_WIDTH);
-        bgOneTransition.setInterpolator(Interpolator.LINEAR);
-
-        TranslateTransition bgTwoTransition = new TranslateTransition(Duration.millis(5000), bg2);
-        bgTwoTransition.setFromX(0);
-        bgTwoTransition.setToX(-BG_WIDTH);
-        bgTwoTransition.setInterpolator(Interpolator.LINEAR);
-
-        parallelTransition = new ParallelTransition(bgOneTransition, bgTwoTransition);
-        parallelTransition.setCycleCount(Animation.INDEFINITE);
-        parallelTransition.play();
-
-        // 2. Запуск движения препятствия справа налево
-        enemyTransition = new TranslateTransition(Duration.millis(3500), enemy);
-        enemyTransition.setFromX(0);
-        enemyTransition.setToX(-BG_WIDTH - 100);
-        enemyTransition.setInterpolator(Interpolator.LINEAR);
-        enemyTransition.setCycleCount(Animation.INDEFINITE);
-        enemyTransition.play();
-
-        // 3. Старт игрового цикла
-        timer.start();
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example;
-
-import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
-import javafx.animation.Interpolator;
-import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-
-public class MainController {
-
-    @FXML private ImageView bg1, bg2, player, enemy;
-    @FXML private Label labelPause, labelLose;
-
-    // Статические флаги управления с клавиатуры
-    public static boolean right = false;
-    public static boolean left = false;
-    public static boolean isJump = false;
-    public static boolean isPause = false;
-
-    // Скорости движения и гравитации
-    private int playerSpeed = 3;
-    private int jumpDownSpeed = 5;
-    private final int BG_WIDTH = 712;
-
-    private ParallelTransition parallelTransition;
-    private TranslateTransition enemyTransition;
-
-    // Главный игровой цикл (60 раз в секунду)
-    private AnimationTimer timer = new AnimationTimer() {
-        @Override
-        public void handle(long l) {
-            // 1. Обработка состояния паузы
-            if (isPause && !labelPause.isVisible()) {
-                playerSpeed = 0;
-                jumpDownSpeed = 0;
-                parallelTransition.pause();
-                enemyTransition.pause();
-                labelPause.setVisible(true);
-            } else if (!isPause && labelPause.isVisible()) {
-                labelPause.setVisible(false);
-                playerSpeed = 3;
-                jumpDownSpeed = 5;
-                parallelTransition.play();
-                enemyTransition.play();
-            }
-
-            // 2. Горизонтальное движение персонажа в границах экрана
-            if (right && player.getLayoutX() < 100) {
-                player.setLayoutX(player.getLayoutX() + playerSpeed);
-            }
-            if (left && player.getLayoutX() > 28) {
-                player.setLayoutX(player.getLayoutX() - playerSpeed);
-            }
-
-            // 3. Физика прыжка и гравитации
-            if (isJump && player.getLayoutY() > 90) {
-                player.setLayoutY(player.getLayoutY() - playerSpeed); // Фаза взлета
-            } else if (player.getLayoutY() <= 181) {
-                isJump = false; // Достигли пика прыжка
-                if (player.getLayoutY() < 181) {
-                    player.setLayoutY(player.getLayoutY() + jumpDownSpeed); // Падение вниз (гравитация)
-                }
-            }
-
-            // 4. Детекция столкновений (Коллизии хитбоксов)
-            if (player.getBoundsInParent().intersects(enemy.getBoundsInParent())) {
-                labelLose.setVisible(true);
-                playerSpeed = 0;
-                jumpDownSpeed = 0;
-                parallelTransition.pause();
-                enemyTransition.pause();
-            }
-        }
-    };
-
-    @FXML
-    void initialize() {
-        // 1. Запуск бесшовной циклической прокрутки фона
-        TranslateTransition bgOneTransition = new TranslateTransition(Duration.millis(5000), bg1);
-        bgOneTransition.setFromX(0);
-        bgOneTransition.setToX(-BG_WIDTH);
-        bgOneTransition.setInterpolator(Interpolator.LINEAR);
-
-        TranslateTransition bgTwoTransition = new TranslateTransition(Duration.millis(5000), bg2);
-        bgTwoTransition.setFromX(0);
-        bgTwoTransition.setToX(-BG_WIDTH);
-        bgTwoTransition.setInterpolator(Interpolator.LINEAR);
-
-        parallelTransition = new ParallelTransition(bgOneTransition, bgTwoTransition);
-        parallelTransition.setCycleCount(Animation.INDEFINITE);
-        parallelTransition.play();
-
-        // 2. Запуск движения препятствия справа налево
-        enemyTransition = new TranslateTransition(Duration.millis(3500), enemy);
-        enemyTransition.setFromX(0);
-        enemyTransition.setToX(-BG_WIDTH - 100);
-        enemyTransition.setInterpolator(Interpolator.LINEAR);
-        enemyTransition.setCycleCount(Animation.INDEFINITE);
-        enemyTransition.play();
-
-        // 3. Старт игрового цикла
-        timer.start();
-    }
-}</code></pre></div></div><hr/><h5>6. Сборка, запуск и творческие задания на самостоятельную работу</h5><p>Для сборки и запуска игры используйте готовые скрипты:</p><ul><li><code>build.bat</code> — компилирует исходные файлы и FXML в <code>bin/</code>;</li><li><code>run.bat</code> — запускает виртуальную машину Java с подключенным модулем JavaFX.</li></ul><h6>Творческие задания для расширения игры:</h6><div class="row mt-2"><div class="col-md-6 mb-3"><div class="card h-100 border-info"><div class="card-body"><h6 class="card-title text-primary"><i class="fa-solid fa-trophy me-2"></i>1. Счетчик очков (Score)</h6><p class="card-text small">Добавьте текстовое поле <code>Label scoreLabel</code> в верхнем углу. Каждую секунду выживания увеличивайте счет игрока на +10 очков.</p></div></div></div><div class="col-md-6 mb-3"><div class="card h-100 border-warning"><div class="card-body"><h6 class="card-title text-warning"><i class="fa-solid fa-gauge-high me-2"></i>2. Постепенное ускорение</h6><p class="card-text small">По мере роста очков уменьшайте длительность переходов (<code>Duration</code>) фона и врага, чтобы игра становилась быстрее и динамичнее.</p></div></div></div><div class="col-md-6 mb-3"><div class="card h-100 border-success"><div class="card-body"><h6 class="card-title text-success"><i class="fa-solid fa-rotate-right me-2"></i>3. Кнопка перезапуска раунда</h6><p class="card-text small">По клавише <code>R</code> или клику по кнопке сбрасывайте координаты игрока, скрывайте <code>labelLose</code> и возобновляйте движение.</p></div></div></div><div class="col-md-6 mb-3"><div class="card h-100 border-danger"><div class="card-body"><h6 class="card-title text-danger"><i class="fa-solid fa-coins me-2"></i>4. Бонусные монетки</h6><p class="card-text small">Разместите на уровне собираемые монетки (<code>ImageView coin</code>) и проверяйте их подбор через <code>player.intersects(coin)</code>.</p></div></div></div></div></div></div></div><div id="subtab-pane-task4" class="subtab-pane " style="display: none;"><div class="card mb-4 border-warning shadow-sm"><div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-book me-2"></i>Практическое занятие №4. Архитектура MVC в JavaFX: Разработка приложения «Блокнот заметок»</h4><span class="badge bg-dark text-white fw-bold">Задание 4</span></div><div class="card-body"><h5>1. Цель работы</h5><p>Освоить реализацию архитектурного паттерна <strong>MVC (Model-View-Controller)</strong> в JavaFX, научиться связывать модель данных с интерфейсом через контроллер, использовать компоненты <code>TextField</code>, многострочный <code>TextArea</code> и <code>ListView</code>, реализовать редактирование по двойному клику (<code>MouseEvent</code>) и динамическое переключение режимов добавления / обновления заметок.</p><hr/><h5>2. Архитектура MVC и структура каталогов</h5><p>Проект разделяется на 3 независимых слоя:</p><ul><li><strong>Model (<code>model/</code>):</strong> Классы <code>Note.java</code> (структура данных заметки) и <code>Notebook.java</code> (бизнес-логика хранения и редактирования списка). Не зависят от JavaFX UI.</li><li><strong>View (<code>resources/</code>, <code>view/</code>):</strong> Разметка <code>note.fxml</code>, таблица стилей <code>style.css</code> и класс запуска <code>NoteApp.java</code>.</li><li><strong>Controller (<code>controller/</code>):</strong> Класс <code>NoteController.java</code>, управляющий элементами интерфейса и обновлением списка.</li></ul><hr/><h5>3. Модель данных (<code>src/com/example/model/Note.java</code> и <code>Notebook.java</code>)</h5><p><strong>1) Класс сущности заметки (<code>Note.java</code>):</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-note-model', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-note-model" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 280px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example.model;
-
-public class Note {
-    private String title;
-    private String content;
-
-    public Note() {
-        this.title = "";
-        this.content = "";
-    }
-
-    public Note(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example.model;
-
-public class Note {
-    private String title;
-    private String content;
-
-    public Note() {
-        this.title = "";
-        this.content = "";
-    }
-
-    public Note(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-}</code></pre></div></div><p class="mt-3"><strong>2) Класс хранилища коллекции заметок (<code>Notebook.java</code>):</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-notebook-model', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-notebook-model" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 240px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example.model;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Notebook {
-    private final List<Note> notes = new ArrayList<>();
-
-    public void addNote(Note note) {
-        notes.add(note);
-    }
-
-    public List<Note> getNotes() {
-        return notes;
-    }
-
-    public void editNoteAt(int index, Note note) {
-        if (index >= 0 && index < notes.size()) {
-            notes.set(index, note);
-        }
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example.model;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Notebook {
-    private final List<Note> notes = new ArrayList<>();
-
-    public void addNote(Note note) {
-        notes.add(note);
-    }
-
-    public List<Note> getNotes() {
-        return notes;
-    }
-
-    public void editNoteAt(int index, Note note) {
-        if (index >= 0 && index < notes.size()) {
-            notes.set(index, note);
-        }
-    }
-}</code></pre></div></div><hr/><h5>4. Визуальная верстка в Scene Builder (<code>src/com/example/resources/note.fxml</code>)</h5><ol><li>Создайте корневой контейнер <strong><code>VBox</code></strong> (Pref Width: <strong>600</strong>, Pref Height: <strong>500</strong>, Alignment: <strong>CENTER</strong>, Spacing: <strong>15</strong>, Padding: <strong>20</strong>).</li><li>Добавьте компонент <strong><code>TextField</code></strong>: Prompt Text = <code>Add title here</code>, <code>fx:id = titleField</code>.</li><li>Добавьте компонент <strong><code>TextArea</code></strong>: Prompt Text = <code>Add text content</code>, Pref Height = <code>150</code>, Wrap Text = <code>true</code>, <code>fx:id = contentArea</code>.</li><li>Добавьте компонент <strong><code>Button</code></strong>: Text = <code>Add</code>, Max Width = <code>Infinity</code>, <code>fx:id = addButton</code>, On Action = <code>#handleAddButtonAction</code>.</li><li>Добавьте компонент <strong><code>ListView</code></strong>: Pref Height = <code>200</code>, <code>fx:id = noteListView</code>, On Mouse Clicked = <code>#handleNoteSelection</code>.</li><li>В панели Controller укажите класс: <code>com.example.controller.NoteController</code>.</li></ol><p><strong>Исходный код файла разметки (<code>note.fxml</code>):</strong></p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-notebook-fxml', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-notebook-fxml" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 280px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
-
-<VBox alignment="CENTER" spacing="15.0" prefWidth="600.0" prefHeight="500.0" 
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.example.controller.NoteController">
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-   <children>
-      <TextField fx:id="titleField" promptText="Add title here" />
-      <TextArea fx:id="contentArea" prefHeight="150.0" promptText="Add text content" wrapText="true" />
-      <Button fx:id="addButton" maxWidth="Infinity" onAction="#handleAddButtonAction" text="Add" />
-      <ListView fx:id="noteListView" onMouseClicked="#handleNoteSelection" prefHeight="200.0" />
-   </children>
-</VBox></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
-
-<VBox alignment="CENTER" spacing="15.0" prefWidth="600.0" prefHeight="500.0" 
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.example.controller.NoteController">
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-   <children>
-      <TextField fx:id="titleField" promptText="Add title here" />
-      <TextArea fx:id="contentArea" prefHeight="150.0" promptText="Add text content" wrapText="true" />
-      <Button fx:id="addButton" maxWidth="Infinity" onAction="#handleAddButtonAction" text="Add" />
-      <ListView fx:id="noteListView" onMouseClicked="#handleNoteSelection" prefHeight="200.0" />
-   </children>
-</VBox></code></pre></div></div><hr/><h5>5. Таблица стилей (<code>src/com/example/resources/style.css</code>)</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-notebook-css', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-notebook-css" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 240px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>/* Базовый фон окна */
-.root {
-    -fx-font-family: "Arial", sans-serif;
-    -fx-background-color: #f5f6fa;
-}
-
-/* Поля ввода */
-.text-field, .text-area {
-    -fx-font-size: 14px;
-    -fx-background-radius: 6px;
-    -fx-border-color: #dcdde1;
-    -fx-border-radius: 6px;
-}
-
-/* Стилизация кнопки */
-.button {
-    -fx-font-size: 15px;
-    -fx-font-weight: bold;
-    -fx-background-color: #2f3640;
-    -fx-text-fill: #f5f6fa;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-    -fx-padding: 8 16 8 16;
-}
-
-.button:hover {
-    -fx-background-color: #353b48;
-}
-
-.button:pressed {
-    -fx-background-color: #718093;
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">/* Базовый фон окна */
-.root {
-    -fx-font-family: "Arial", sans-serif;
-    -fx-background-color: #f5f6fa;
-}
-
-/* Поля ввода */
-.text-field, .text-area {
-    -fx-font-size: 14px;
-    -fx-background-radius: 6px;
-    -fx-border-color: #dcdde1;
-    -fx-border-radius: 6px;
-}
-
-/* Стилизация кнопки */
-.button {
-    -fx-font-size: 15px;
-    -fx-font-weight: bold;
-    -fx-background-color: #2f3640;
-    -fx-text-fill: #f5f6fa;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-    -fx-padding: 8 16 8 16;
-}
-
-.button:hover {
-    -fx-background-color: #353b48;
-}
-
-.button:pressed {
-    -fx-background-color: #718093;
-}</code></pre></div></div><hr/><h5>6. Контроллер приложения (<code>src/com/example/controller/NoteController.java</code>)</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-notebook-controller', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-notebook-controller" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 450px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example.controller;
-
-import com.example.model.Note;
-import com.example.model.Notebook;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-
-public class NoteController {
-
-    @FXML private TextField titleField;
-    @FXML private TextArea contentArea;
-    @FXML private Button addButton;
-    @FXML private ListView<String> noteListView;
-
-    private Notebook notebook = new Notebook();
-    private boolean isUpdateMode = false;
-    private int selectedIndex = -1;
-
-    @FXML
-    public void initialize() {
-        updateNoteList();
-    }
-
-    @FXML
-    void handleAddButtonAction(ActionEvent event) {
-        String title = titleField.getText().trim();
-        String content = contentArea.getText().trim();
-
-        if (!title.isEmpty() && !content.isEmpty()) {
-            if (isUpdateMode) {
-                // Обновление существующей заметки
-                if (selectedIndex >= 0 && selectedIndex < notebook.getNotes().size()) {
-                    Note updatedNote = new Note(title, content);
-                    notebook.editNoteAt(selectedIndex, updatedNote);
-                    isUpdateMode = false;
-                    addButton.setText("Add");
-                }
-            } else {
-                // Добавление новой заметки
-                Note newNote = new Note(title, content);
-                notebook.addNote(newNote);
-            }
-
-            titleField.clear();
-            contentArea.clear();
-            updateNoteList();
-        }
-    }
-
-    @FXML
-    void handleNoteSelection(MouseEvent event) {
-        // Двойной клик по элементу списка переводит форму в режим редактирования
-        if (event.getClickCount() == 2) {
-            selectedIndex = noteListView.getSelectionModel().getSelectedIndex();
-            if (selectedIndex >= 0 && selectedIndex < notebook.getNotes().size()) {
-                Note selectedNote = notebook.getNotes().get(selectedIndex);
-                titleField.setText(selectedNote.getTitle());
-                contentArea.setText(selectedNote.getContent());
-                isUpdateMode = true;
-                addButton.setText("Edit");
-            }
-        }
-    }
-
-    private void updateNoteList() {
-        noteListView.getItems().clear();
-        for (Note note : notebook.getNotes()) {
-            noteListView.getItems().add(note.getTitle());
-        }
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example.controller;
-
-import com.example.model.Note;
-import com.example.model.Notebook;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-
-public class NoteController {
-
-    @FXML private TextField titleField;
-    @FXML private TextArea contentArea;
-    @FXML private Button addButton;
-    @FXML private ListView<String> noteListView;
-
-    private Notebook notebook = new Notebook();
-    private boolean isUpdateMode = false;
-    private int selectedIndex = -1;
-
-    @FXML
-    public void initialize() {
-        updateNoteList();
-    }
-
-    @FXML
-    void handleAddButtonAction(ActionEvent event) {
-        String title = titleField.getText().trim();
-        String content = contentArea.getText().trim();
-
-        if (!title.isEmpty() && !content.isEmpty()) {
-            if (isUpdateMode) {
-                // Обновление существующей заметки
-                if (selectedIndex >= 0 && selectedIndex < notebook.getNotes().size()) {
-                    Note updatedNote = new Note(title, content);
-                    notebook.editNoteAt(selectedIndex, updatedNote);
-                    isUpdateMode = false;
-                    addButton.setText("Add");
-                }
-            } else {
-                // Добавление новой заметки
-                Note newNote = new Note(title, content);
-                notebook.addNote(newNote);
-            }
-
-            titleField.clear();
-            contentArea.clear();
-            updateNoteList();
-        }
-    }
-
-    @FXML
-    void handleNoteSelection(MouseEvent event) {
-        // Двойной клик по элементу списка переводит форму в режим редактирования
-        if (event.getClickCount() == 2) {
-            selectedIndex = noteListView.getSelectionModel().getSelectedIndex();
-            if (selectedIndex >= 0 && selectedIndex < notebook.getNotes().size()) {
-                Note selectedNote = notebook.getNotes().get(selectedIndex);
-                titleField.setText(selectedNote.getTitle());
-                contentArea.setText(selectedNote.getContent());
-                isUpdateMode = true;
-                addButton.setText("Edit");
-            }
-        }
-    }
-
-    private void updateNoteList() {
-        noteListView.getItems().clear();
-        for (Note note : notebook.getNotes()) {
-            noteListView.getItems().add(note.getTitle());
-        }
-    }
-}</code></pre></div></div><hr/><h5>7. Запуск приложения (<code>src/com/example/view/NoteApp.java</code>)</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-notebook-app', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-notebook-app" data-monokai-editor="true" data-language="java" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package com.example.view;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.io.IOException;
-
-public class NoteApp extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(NoteApp.class.getResource("/com/example/resources/note.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root, 650, 520);
-        scene.getStylesheets().add(NoteApp.class.getResource("/com/example/resources/style.css").toExternalForm());
-
-        stage.setTitle("Notebook Application");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java">package com.example.view;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.io.IOException;
-
-public class NoteApp extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(NoteApp.class.getResource("/com/example/resources/note.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root, 650, 520);
-        scene.getStylesheets().add(NoteApp.class.getResource("/com/example/resources/style.css").toExternalForm());
-
-        stage.setTitle("Notebook Application");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-}</code></pre></div></div><hr/><h5>8. Задания на самостоятельную работу</h5><ul><li><strong>Удаление заметки (Delete):</strong> Добавьте кнопку «Удалить» и метод <code>notebook.deleteNoteAt(selectedIndex)</code>.</li><li><strong>Подтверждение удаления (Alert):</strong> Выводите диалоговое окно <code>Alert.AlertType.CONFIRMATION</code> перед удалением записи.</li><li><strong>Сохранение в файл:</strong> Реализуйте сохранение списка заметок в файл при закрытии окна.</li><li><strong>Поиск (Фильтрация):</strong> Добавьте поле <code>TextField searchField</code> для фильтрации списка по ключевым словам.</li></ul></div></div></div><div class="card bg-light border-0 p-3 mt-4 mb-3"><h5 class="mb-2"><i class="fa-solid fa-cloud-arrow-up me-2 text-primary"></i>Форма контроля</h5><p class="mb-2">Запустите проект с помощью <code>run.bat</code> и продемонстрируйте на занятии. Загрузите выполненный проект в личное хранилище:</p><p class="mb-0"><a href="https://github.com/dEN5-tech/java-student-workspace" class="btn btn-primary btn-sm text-white"><i class="fa-solid fa-upload me-1"></i> Репозиторий / Личное хранилище группы 401</a></p></div><p><br/><a href="index.html">« Назад к Теме 1</a></p><script>(function(){let a=new Map,u={base:"vs-dark",inherit:!0,rules:[{background:"272822",token:""},{token:"comment",foreground:"75715e",fontStyle:"italic"},{token:"keyword",foreground:"f92672",fontStyle:"bold"},{token:"identifier",foreground:"f8f8f2"},{token:"type",foreground:"66d9ef",fontStyle:"italic"},{token:"type.identifier",foreground:"66d9ef",fontStyle:"italic"},{token:"storage",foreground:"f92672"},{token:"storage.type",foreground:"66d9ef",fontStyle:"italic"},{token:"string",foreground:"e6db74"},{token:"number",foreground:"ae81ff"},{token:"constant",foreground:"ae81ff"},{token:"function",foreground:"a6e22e"},{token:"variable",foreground:"f8f8f2"},{token:"variable.predefined",foreground:"fd971f"},{token:"operator",foreground:"f92672"},{token:"delimiter",foreground:"f8f8f2"}],colors:{"editor.background":"#272822","editor.foreground":"#f8f8f2","editorCursor.foreground":"#f8f8f0","editor.lineHighlightBackground":"#3e3d32","editorLineNumber.foreground":"#90908a","editorLineNumber.activeForeground":"#c4c4be","editor.selectionBackground":"#49483e","editor.inactiveSelectionBackground":"#383830","editorWidget.background":"#1e1f1c","editorWidget.border":"#3e3d32","scrollbarSlider.background":"#49483e80","scrollbarSlider.hoverBackground":"#75715e80","scrollbarSlider.activeBackground":"#a6a59b80"}};function w(){if(window.MonacoEnvironment)return;let o=new Blob([`
-      self.MonacoEnvironment = { baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/' };
-      importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/base/worker/workerMain.js');
-    `],{type:"application/javascript"}),e=URL.createObjectURL(o);window.MonacoEnvironment={getWorkerUrl:function(t,r){return e}}}let s=null;function y(){if(window.monaco)return Promise.resolve(window.monaco);if(s)return s;return s=new Promise((n,o)=>{if(w(),window.require&&window.require.config){window.require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs"}}),window.require(["vs/editor/editor.main"],()=>{window.monaco.editor.defineTheme("monokai",u),n(window.monaco)});return}let e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.js",e.onload=()=>{window.require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs"}}),window.require(["vs/editor/editor.main"],()=>{window.monaco.editor.defineTheme("monokai",u),n(window.monaco)})},e.onerror=o,document.head.appendChild(e)}),s}async function f(n,o={}){let e=document.getElementById(n);if(!e)return null;if(a.has(n))g(n);let t=e.querySelector(".monokai-raw-code"),r=e.querySelector("pre code"),i="";if(o.code!==void 0)i=o.code;else if(t&&t.value)i=t.value;else if(r&&r.textContent)i=r.textContent;else i=e.getAttribute("data-code")||e.textContent||"";let d=o.language||e.getAttribute("data-language")||"java",h=o.readOnly!==void 0?o.readOnly:e.getAttribute("data-readonly")==="true";e.innerHTML="";try{let k=(await y()).editor.create(e,{value:i.trim(),language:d,theme:"monokai",automaticLayout:!0,readOnly:h,fontSize:13,fontFamily:'Consolas, "Fira Code", "Courier New", monospace',minimap:{enabled:o.minimap??!1},scrollBeyondLastLine:!1,lineNumbers:"on",renderLineHighlight:"all",tabSize:4,padding:{top:10,bottom:10},scrollbar:{verticalScrollbarSize:8,horizontalScrollbarSize:8},...o});return a.set(n,{editor:k,container:e}),k}catch(m){return console.error("[MonokaiEditor] Mount failed:",m),e.innerHTML=`<pre style="background:#272822;color:#f8f8f2;padding:12px;margin:0;overflow:auto;"><code>${i}</code></pre>`,null}}function g(n){let o=a.get(n);if(o){if(o.worker)o.worker.terminate();if(o.editor&&o.editor.dispose)o.editor.dispose();a.delete(n)}}function c(n){let o=a.get(n);if(o&&o.editor)return o.editor.getValue();let e=document.getElementById(n);if(!e)return"";let t=e.querySelector(".monokai-raw-code");if(t&&t.value)return t.value;let r=e.querySelector("pre code");if(r&&r.textContent)return r.textContent;return e.getAttribute("data-code")||e.textContent||""}function p(n,o){let e=a.get(n);if(e&&e.editor)e.editor.setValue(o)}function b(n,o){let e=c(n);if(navigator.clipboard)navigator.clipboard.writeText(e).then(()=>{if(o){let t=o.innerHTML;o.innerHTML='<i class="fa fa-check text-success"></i> Скопировано!',setTimeout(()=>{o.innerHTML=t},2000)}})}function v(n){let o=c(n),e=document.getElementById(n+"-output");if(e)e.style.display="block",e.textContent="[Background Worker] Запуск вычислений в изолированном потоке...";let r=new Blob([`
-      self.onmessage = function(e) {
-        const start = performance.now();
-        // Background Task Simulation / Processing
-        let lines = (e.data.code || '').split('\\n').length;
-        let chars = (e.data.code || '').length;
-        
-        // Simulating heavy parsing
-        let count = 0;
-        for (let i = 0; i < 20000000; i++) { count += (i % 2); }
-
-        const end = performance.now();
-        self.postMessage({
-          status: 'success',
-          lines: lines,
-          chars: chars,
-          duration: (end - start).toFixed(2) + ' ms'
-        });
-      };
-    `],{type:"application/javascript"}),i=new Worker(URL.createObjectURL(r));i.onmessage=(d)=>{if(e)e.textContent=`✓ [Worker Result] Успешно обработано за ${d.data.duration} | Строк: ${d.data.lines}, Символов: ${d.data.chars}`;i.terminate()},i.postMessage({code:o})}function l(){document.querySelectorAll("[data-monokai-editor]").forEach((o)=>{let e=o.id;if(e)f(e)})}if(window.MonokaiEditor={instances:a,mount:f,unmount:g,getCode:c,setCode:p,copyCode:b,runWorkerTask:v,initAll:l},document.readyState==="loading")document.addEventListener("DOMContentLoaded",l);else setTimeout(l,50)})();
-</script></div></div>
+    window.addEventListener('hashchange', handleSubtabHash);
+    handleSubtabHash();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSubTabs);
+  } else {
+    initSubTabs();
+  }
+})();
+</script></div>
     </div>
   </div>
 
