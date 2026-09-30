@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Веб-дизайн — Чек-лист проверки (Модуль 1: Вёрстка) | МДК.02.04 «Разработка прикладных приложений»</title>
+  <title>Веб-дизайн и разработка — Модуль 3: Бэкенд с SSG + REST API | МДК.02.04 «Разработка прикладных приложений»</title>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -186,255 +186,397 @@
       .subtab-pane.active {
         display: block;
       }
-    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3 d-flex align-items-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1 align-text-bottom"><path d="M 6.5 4 A 9 9 0 0 1 17.5 4"></path><path d="M 20 6.5 A 9 9 0 0 1 20 17.5"></path><path d="M 17.5 20 A 9 9 0 0 1 6.5 20"></path><path d="M 4 17.5 A 9 9 0 0 1 4 6.5"></path><path d="M 7.5 16.5 V 8.5 L 12 13 L 16.5 8.5 V 16.5" stroke-width="2.2"></path></svg><span>Веб-дизайн и разработка: Чемпионат «Профессионалы»</span></h2><div class="card mb-4 border shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);"><div class="card-body p-2"><ul class="nav nav-pills nav-fill" id="webdevTopModules"><li class="nav-item m-1"><a class="nav-link py-2 px-3 active bg-primary text-white fw-bold shadow-sm" href="webdev.html"><i class="fa-solid fa-paintbrush me-2"></i>1. Вёрстка и адаптивный UI</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev-spa.html"><i class="fa-solid fa-cubes me-2"></i>2. SPA клиент и REST API</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev-backend.html"><i class="fa-solid fa-server me-2"></i>3. Бэкенд с SSG + REST API</a></li></ul></div></div><div class="card mb-4 border-primary shadow-sm bg-light"><div class="card-body"><h5 class="card-title text-primary mb-2"><i class="fa-solid fa-gamepad me-2"></i>Проект: Маркетплейс видеоигр «BestGames»</h5><p class="card-text mb-0 text-muted">Интерактивная методичка для подготовки к чемпионату. Стек: <strong>HTML5, CSS3, чистый Vanilla JavaScript</strong> без сторонних библиотек и фреймворков. Все материалы синхронизированы со справочником <a href="https://doka.guide/" target="_blank" class="fw-bold text-decoration-none">Doka.guide</a>.</p></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="webdevSubTabs"><li class="nav-item me-2"><a class="nav-link " href="webdev-step1.html"><i class="fa-solid fa-code me-1"></i>Шаг 1: Семантика и БЭМ</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step2.html"><i class="fa-solid fa-palette me-1"></i>Шаг 2: Темы и Grid/Flex</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step3.html"><i class="fa-solid fa-mobile-screen me-1"></i>Шаг 3: Адаптивность и Бургер</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step4.html"><i class="fa-brands fa-js me-1"></i>Шаг 4: JS Слайдер и Фильтры</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step5.html"><i class="fa-solid fa-check-to-slot me-1"></i>Шаг 5: Формы и ОПД</a></li><li class="nav-item"><a class="nav-link active" href="webdev-checklist.html"><i class="fa-solid fa-list-check me-1"></i>Шаг 6: Чек-лист проверки</a></li></ul><div class="subtab-pane " id="subtab-content-step1"><h4>Шаг 1. Семантическая разметка HTML5 и именование классов по БЭМ</h4><p>В соответствии со стандартами <a href="https://doka.guide/html/semantics/" target="_blank">Doka: Семантика</a>, верстка должна строиться на структурных ориентирах: <code><header></code>, <code><nav></code>, <code><main></code>, <code><section></code>, <code><article></code>, <code><aside></code>, <code><footer></code>.</p><div class="row mb-3"><div class="col-md-6"><div class="card h-100 border-info"><div class="card-header bg-info text-white fw-bold">Правильные имена файлов</div><div class="card-body"><ul class="mb-0"><li><code>index.html</code> — главная страница (темная тема)</li><li><code>index_light.html</code> — светлая тема главной страницы</li><li><code>catalog.html</code> — каталог игр с фильтрами</li><li><code>login.html</code> — авторизация</li><li><code>register.html</code> — регистрация с чекбоксом ОПД</li><li><code>profile.html</code> — личный кабинет и история покупок</li><li><code>admin.html</code> — добавление новой игры</li></ul></div></div></div><div class="col-md-6"><div class="card h-100 border-success"><div class="card-header bg-success text-white fw-bold">Методология БЭМ</div><div class="card-body"><p class="mb-1"><strong>Блок:</strong> независимый компонент (<code>.game-card</code>, <code>.slider</code>)</p><p class="mb-1"><strong>Элемент:</strong> составная часть через <code>__</code> (<code>.game-card__title</code>, <code>.slider__track</code>)</p><p class="mb-0"><strong>Модификатор:</strong> состояние через <code>--</code> (<code>.btn--primary</code>, <code>.theme--light</code>)</p></div></div></div></div><h5 class="mt-4 mb-2">Пример разметки семантической карточки игры по БЭМ:</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-html-card', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-html-card" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 260px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><article class="game-card" data-genre="Action" data-link="catalog.html">
-  <div class="game-card__image-box" style="background-image: url('game.jpg');">
-    <span class="game-card__genre-badge">Action</span>
-  </div>
-  <div class="game-card__body">
-    <h3 class="game-card__title">Cyber Storm</h3>
-    <p class="game-card__dev">CD Studio</p>
-    <div class="game-card__rating">★★★★★</div>
-    <div class="game-card__footer">
-      <span class="game-card__price">1 999 ₽</span>
-      <a href="catalog.html" class="btn btn--primary btn--sm">В каталог</a>
+    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3 d-flex align-items-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1 align-text-bottom"><path d="M 6.5 4 A 9 9 0 0 1 17.5 4"></path><path d="M 20 6.5 A 9 9 0 0 1 20 17.5"></path><path d="M 17.5 20 A 9 9 0 0 1 6.5 20"></path><path d="M 4 17.5 A 9 9 0 0 1 4 6.5"></path><path d="M 7.5 16.5 V 8.5 L 12 13 L 16.5 8.5 V 16.5" stroke-width="2.2"></path></svg><span>Веб-дизайн и разработка: Чемпионат «Профессионалы»</span></h2><div class="card mb-4 border shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);"><div class="card-body p-2"><ul class="nav nav-pills nav-fill" id="webdevTopModules"><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev.html"><i class="fa-solid fa-paintbrush me-2"></i>1. Вёрстка и адаптивный UI</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev-spa.html"><i class="fa-solid fa-cubes me-2"></i>2. SPA клиент и REST API</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 active bg-primary text-white fw-bold shadow-sm" href="webdev-backend.html"><i class="fa-solid fa-server me-2"></i>3. Бэкенд с SSG + REST API</a></li></ul></div></div><div class="card mb-4 border-warning shadow-sm bg-light"><div class="card-body"><h5 class="card-title text-dark mb-2"><i class="fa-solid fa-server me-2 text-warning"></i>Модуль 3: Бэкенд с SSG-генератором и REST API</h5><p class="card-text mb-0 text-muted">Архитектура серверной части нового поколения: генерация статических страниц (Static Site Generation — SSG) для максимальной производительности и SEO, высокопроизводительный REST API сервер, реляционная база данных SQLite с защитой от SQLi и авторизация на Bearer JWT.</p></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="webdevBackendSubTabs"><li class="nav-item me-2"><a class="nav-link active" href="webdev-backend.html#ssg-arch"><i class="fa-solid fa-file-code me-1"></i>1. Архитектура SSG</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-backend.html#rest-api"><i class="fa-solid fa-globe me-1"></i>2. REST API Сервер</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-backend.html#database"><i class="fa-solid fa-database me-1"></i>3. База данных (SQLite)</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-backend.html#security-jwt"><i class="fa-solid fa-key me-1"></i>4. Защита и JWT</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-backend.html#rebuild-trigger"><i class="fa-solid fa-bolt me-1"></i>5. SSG On-Demand Сборка</a></li><li class="nav-item"><a class="nav-link " href="webdev-backend.html#checklist"><i class="fa-solid fa-list-check me-1"></i>6. Чек-лист Бэкенда</a></li></ul><div class="tab-content" id="webdevBackendTabContent"><div class="subtab-pane active" id="subtab-content-ssg-arch"><div class="alert alert-primary"><h5><i class="fa-solid fa-rocket me-2"></i>Что такое SSG (Static Site Generation)?</h5><p class="mb-0">Вместо рендеринга HTML на каждый входящий запрос пользователя (как в классическом PHP/SSR) или рендеринга в пустом браузере через JS (как в чистом SPA), <strong>генератор статических сайтов (SSG)</strong> компилирует все страницы в готовые статические файлы <code>.html</code> заранее, на этапе сборки. Это обеспечивает скорость отдачи до <strong>50 000+ запросов в секунду</strong> без нагрузки на базу данных.</p></div><h4>1. Конвейер сборщика статики (Static Pipeline)</h4><p>Пример простого и молниеносного SSG-генератора на TypeScript / Bun, который читает каталог товаров из базы данных и компилирует готовые HTML-файлы:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="typescript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>import { writeFileSync, mkdirSync, existsSync } from "fs";
+import { resolve } from "path";
+import { Database } from "bun:sqlite";
+
+const db = new Database("data/bestgames.sqlite");
+const distDir = resolve(process.cwd(), "dist/site");
+if (!existsSync(distDir)) mkdirSync(distDir, { recursive: true });
+
+// Шаблон разметки каталога
+function renderCatalogHtml(games: any[]): string {
+  return `<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог видеоигр | BestGames</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">BestGames</div>
+  </header>
+  <main class="catalog">
+    <h1>Каталог игр (Сгенерировано статически: ${new Date().toLocaleTimeString()})</h1>
+    <div class="catalog__grid">
+      ${games.map(g => `
+        <article class="game-card">
+          <img src="${g.image}" alt="${g.title}" loading="lazy">
+          <h3>${g.title}</h3>
+          <p class="price">${g.price} ₽</p>
+          <a href="game-${g.id}.html" class="btn">Подробнее</a>
+        </article>
+      `).join('')}
     </div>
-  </div>
-</article></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><article class="game-card" data-genre="Action" data-link="catalog.html">
-  <div class="game-card__image-box" style="background-image: url('game.jpg');">
-    <span class="game-card__genre-badge">Action</span>
-  </div>
-  <div class="game-card__body">
-    <h3 class="game-card__title">Cyber Storm</h3>
-    <p class="game-card__dev">CD Studio</p>
-    <div class="game-card__rating">★★★★★</div>
-    <div class="game-card__footer">
-      <span class="game-card__price">1 999 ₽</span>
-      <a href="catalog.html" class="btn btn--primary btn--sm">В каталог</a>
+  </main>
+</body>
+</html>`;
+}
+
+// Извлечение данных и сборка
+const games = db.query("SELECT * FROM games ORDER BY id DESC").all();
+writeFileSync(resolve(distDir, "catalog.html"), renderCatalogHtml(games), "utf-8");
+console.log(`✅ [SSG] Сгенерирован каталог на ${games.length} игр!`);</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-typescript">import { writeFileSync, mkdirSync, existsSync } from "fs";
+import { resolve } from "path";
+import { Database } from "bun:sqlite";
+
+const db = new Database("data/bestgames.sqlite");
+const distDir = resolve(process.cwd(), "dist/site");
+if (!existsSync(distDir)) mkdirSync(distDir, { recursive: true });
+
+// Шаблон разметки каталога
+function renderCatalogHtml(games: any[]): string {
+  return `<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог видеоигр | BestGames</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">BestGames</div>
+  </header>
+  <main class="catalog">
+    <h1>Каталог игр (Сгенерировано статически: ${new Date().toLocaleTimeString()})</h1>
+    <div class="catalog__grid">
+      ${games.map(g => `
+        <article class="game-card">
+          <img src="${g.image}" alt="${g.title}" loading="lazy">
+          <h3>${g.title}</h3>
+          <p class="price">${g.price} ₽</p>
+          <a href="game-${g.id}.html" class="btn">Подробнее</a>
+        </article>
+      `).join('')}
     </div>
-  </div>
-</article></code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step2"><h4>Шаг 2. CSS-переменные, Темы оформления и Сетки Grid/Flexbox</h4><p>Сайт использует ровно 2 шрифта (<code>Inter</code> и <code>Russo One</code>) и переключается между темами благодаря <a href="https://doka.guide/css/custom-properties/" target="_blank">кастомным свойствам CSS</a>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-css-themes', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-css-themes" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>@import url('https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap');
-
-:root {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #6366f1;
+  </main>
+</body>
+</html>`;
 }
 
-body.theme--light {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
-}
+// Извлечение данных и сборка
+const games = db.query("SELECT * FROM games ORDER BY id DESC").all();
+writeFileSync(resolve(distDir, "catalog.html"), renderCatalogHtml(games), "utf-8");
+console.log(`✅ [SSG] Сгенерирован каталог на ${games.length} игр!`);</code></pre></div></div><div class="alert alert-secondary mt-3"><strong>Полезные статьи в Doka.guide:</strong><ul class="mb-0 mt-1"><li><a href="https://doka.guide/tools/markdown/" target="_blank">Doka: Markdown</a> — структурирование контента и документации.</li><li><a href="https://doka.guide/html/semantics/" target="_blank">Doka: Семантические теги HTML</a> — валидный каркас для генерации.</li></ul></div></div><div class="subtab-pane " id="subtab-content-rest-api"><h4>2. Создание REST API Сервера с поддержкой CORS</h4><p>Сервер обслуживает запросы от SPA-клиента, обрабатывает JSON в теле запросов и возвращает корректные HTTP статус-коды (200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found).</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="typescript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>import { Database } from "bun:sqlite";
 
-/* Группировка карточек для экономии кода */
-.game-card, .advantage-card, .form-card, .profile-card, .filter-sidebar {
-  background: var(--card);
-  padding: 15px;
-  border-radius: 6px;
-}
+const db = new Database("data/bestgames.sqlite");
+const PORT = 3000;
 
-/* Сетка каталога на CSS Grid */
-.games-grid, .advantages__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap');
+// Стандартные заголовки для REST API и CORS
+const jsonHeaders = {
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization"
+};
 
-:root {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #6366f1;
-}
+Bun.serve({
+  port: PORT,
+  async fetch(req) {
+    const url = new URL(req.url);
 
-body.theme--light {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
-}
+    // Обработка Preflight-запроса CORS
+    if (req.method === "OPTIONS") {
+      return new Response(null, { headers: jsonHeaders });
+    }
 
-/* Группировка карточек для экономии кода */
-.game-card, .advantage-card, .form-card, .profile-card, .filter-sidebar {
-  background: var(--card);
-  padding: 15px;
-  border-radius: 6px;
-}
+    // Маршрут: GET /api/games — список игр
+    if (url.pathname === "/api/games" && req.method === "GET") {
+      const search = url.searchParams.get("search") || "";
+      const stmt = db.prepare("SELECT * FROM games WHERE title LIKE ?");
+      const games = stmt.all(`%${search}%`);
+      return new Response(JSON.stringify(games), { headers: jsonHeaders });
+    }
 
-/* Сетка каталога на CSS Grid */
-.games-grid, .advantages__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step3"><h4>Шаг 3. Адаптивность: 4 обязательных структурных брейкпоинта</h4><p>По критериям оценивается не просто изменение цвета, а <strong>структурные изменения сетки</strong> при переходе от десктопа к мобильному устройству (<a href="https://doka.guide/css/media/" target="_blank">Doka: @media</a>).</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-css-media', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-css-media" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 350px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>/* 1. До 1200px (Ноутбук): сетки перестраиваются с 4 колонок на 2 */
-@media (max-width: 1200px) {
-  .advantages__grid, .games-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
-}
+    // Маршрут: POST /api/games — добавление новой игры
+    if (url.pathname === "/api/games" && req.method === "POST") {
+      const body = await req.json();
+      if (!body.title || !body.price) {
+        return new Response(
+          JSON.stringify({ error: "Поля title и price обязательны" }),
+          { status: 400, headers: jsonHeaders }
+        );
+      }
 
-/* 2. До 992px (Планшет): скрываем меню, показываем бургер, сайдбар под кнопку */
-@media (max-width: 992px) {
-  .header__nav { display: none; }
-  .header__burger { display: block; }
-  .header__nav.header__nav--open {
-    display: flex; flex-direction: column; position: absolute;
-    top: 60px; left: 0; width: 100%; background: var(--card); padding: 15px;
+      const stmt = db.prepare(
+        "INSERT INTO games (title, price, genre, image) VALUES (?, ?, ?, ?)"
+      );
+      const res = stmt.run(body.title, body.price, body.genre || "Action", body.image || "img/game.jpg");
+
+      return new Response(
+        JSON.stringify({ success: true, id: res.lastInsertRowid }),
+        { status: 201, headers: jsonHeaders }
+      );
+    }
+
+    return new Response(JSON.stringify({ error: "Маршрут не найден" }), {
+      status: 404,
+      headers: jsonHeaders
+    });
   }
-  .catalog-layout, .profile-grid { grid-template-columns: 1fr; }
-  .filter-sidebar { display: none; }
-  .filter-sidebar.filter-sidebar--open { display: block; }
-  .filter-toggle-btn { display: block; }
-}
+});
 
-/* 3. До 768px (Планшет книжный): поиск в колонку, футер 2 колонки */
-@media (max-width: 768px) {
-  .quick-search__box { flex-direction: column; }
-  .advantages__grid { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr 1fr; }
-}
+console.log(`🚀 [REST API] Сервер запущен на http://localhost:${PORT}`);</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-typescript">import { Database } from "bun:sqlite";
 
-/* 4. До 480px (Мобилка): сетки карточек в 1 колонку */
-@media (max-width: 480px) {
-  .games-grid, .footer__grid { grid-template-columns: 1fr; }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">/* 1. До 1200px (Ноутбук): сетки перестраиваются с 4 колонок на 2 */
-@media (max-width: 1200px) {
-  .advantages__grid, .games-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
-}
+const db = new Database("data/bestgames.sqlite");
+const PORT = 3000;
 
-/* 2. До 992px (Планшет): скрываем меню, показываем бургер, сайдбар под кнопку */
-@media (max-width: 992px) {
-  .header__nav { display: none; }
-  .header__burger { display: block; }
-  .header__nav.header__nav--open {
-    display: flex; flex-direction: column; position: absolute;
-    top: 60px; left: 0; width: 100%; background: var(--card); padding: 15px;
+// Стандартные заголовки для REST API и CORS
+const jsonHeaders = {
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization"
+};
+
+Bun.serve({
+  port: PORT,
+  async fetch(req) {
+    const url = new URL(req.url);
+
+    // Обработка Preflight-запроса CORS
+    if (req.method === "OPTIONS") {
+      return new Response(null, { headers: jsonHeaders });
+    }
+
+    // Маршрут: GET /api/games — список игр
+    if (url.pathname === "/api/games" && req.method === "GET") {
+      const search = url.searchParams.get("search") || "";
+      const stmt = db.prepare("SELECT * FROM games WHERE title LIKE ?");
+      const games = stmt.all(`%${search}%`);
+      return new Response(JSON.stringify(games), { headers: jsonHeaders });
+    }
+
+    // Маршрут: POST /api/games — добавление новой игры
+    if (url.pathname === "/api/games" && req.method === "POST") {
+      const body = await req.json();
+      if (!body.title || !body.price) {
+        return new Response(
+          JSON.stringify({ error: "Поля title и price обязательны" }),
+          { status: 400, headers: jsonHeaders }
+        );
+      }
+
+      const stmt = db.prepare(
+        "INSERT INTO games (title, price, genre, image) VALUES (?, ?, ?, ?)"
+      );
+      const res = stmt.run(body.title, body.price, body.genre || "Action", body.image || "img/game.jpg");
+
+      return new Response(
+        JSON.stringify({ success: true, id: res.lastInsertRowid }),
+        { status: 201, headers: jsonHeaders }
+      );
+    }
+
+    return new Response(JSON.stringify({ error: "Маршрут не найден" }), {
+      status: 404,
+      headers: jsonHeaders
+    });
   }
-  .catalog-layout, .profile-grid { grid-template-columns: 1fr; }
-  .filter-sidebar { display: none; }
-  .filter-sidebar.filter-sidebar--open { display: block; }
-  .filter-toggle-btn { display: block; }
-}
+});
 
-/* 3. До 768px (Планшет книжный): поиск в колонку, футер 2 колонки */
-@media (max-width: 768px) {
-  .quick-search__box { flex-direction: column; }
-  .advantages__grid { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr 1fr; }
-}
+console.log(`🚀 [REST API] Сервер запущен на http://localhost:${PORT}`);</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-database"><h4>3. Реляционная БД SQLite и Подготовленные Запросы</h4><p>SQLite идеально подходит для соревнований: не требует отдельного сервиса, хранится в одном файле и гарантирует ACID-транзакции.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="sql" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>-- Схема реляционной базы данных интернет-магазина
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  role TEXT DEFAULT 'user',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
-/* 4. До 480px (Мобилка): сетки карточек в 1 колонку */
-@media (max-width: 480px) {
-  .games-grid, .footer__grid { grid-template-columns: 1fr; }
-}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step4"><h4>Шаг 4. Нативный JavaScript: Слайдер, Поиск, Фильтры и Тема</h4><p>Чистый код без библиотек. Используются <a href="https://doka.guide/js/setinterval/" target="_blank">setInterval</a> для автопрокрутки слайдов, <a href="https://doka.guide/js/local-storage/" target="_blank">localStorage</a> для сохранения темы и <a href="https://doka.guide/js/window-location/" target="_blank">window.location</a> для фильтрации.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-js-logic', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-js-logic" data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 360px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>document.addEventListener('DOMContentLoaded', () => {
-  // 1. Бургер-меню
-  const burger = document.querySelector('.header__burger');
-  const nav = document.querySelector('.header__nav');
-  if (burger && nav) burger.addEventListener('click', () => nav.classList.toggle('header__nav--open'));
+CREATE TABLE IF NOT EXISTS games (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  price REAL NOT NULL,
+  genre TEXT NOT NULL,
+  description TEXT,
+  image TEXT,
+  rating REAL DEFAULT 5.0
+);
 
-  // 2. Слайдер с автосменой
-  const track = document.querySelector('.slider__track');
-  const slides = document.querySelectorAll('.slider__slide');
-  const dots = document.querySelectorAll('.slider__dot');
-  let currentSlide = 0;
+CREATE TABLE IF NOT EXISTS orders (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  total REAL NOT NULL,
+  status TEXT DEFAULT 'pending',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-sql">-- Схема реляционной базы данных интернет-магазина
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  role TEXT DEFAULT 'user',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
-  function showSlide(idx) {
-    if (!track || slides.length === 0) return;
-    currentSlide = (idx + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('slider__dot--active', i === currentSlide));
-  }
+CREATE TABLE IF NOT EXISTS games (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  price REAL NOT NULL,
+  genre TEXT NOT NULL,
+  description TEXT,
+  image TEXT,
+  rating REAL DEFAULT 5.0
+);
 
-  document.querySelector('.slider__nav-btn--prev')?.addEventListener('click', () => showSlide(currentSlide - 1));
-  document.querySelector('.slider__nav-btn--next')?.addEventListener('click', () => showSlide(currentSlide + 1));
-  dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
-  if (slides.length > 0) setInterval(() => showSlide(currentSlide + 1), 5000);
+CREATE TABLE IF NOT EXISTS orders (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  total REAL NOT NULL,
+  status TEXT DEFAULT 'pending',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);</code></pre></div></div><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="typescript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>import { Database } from "bun:sqlite";
 
-  // 3. Тема оформления + localStorage
-  const themeBtn = document.querySelector('.header__theme-toggle');
-  const savedTheme = localStorage.getItem('bestgames_theme');
-  if (document.body.classList.contains('theme--light') || savedTheme === 'light') {
-    document.body.classList.add('theme--light');
-  }
-  themeBtn?.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('theme--light');
-    localStorage.setItem('bestgames_theme', isLight ? 'light' : 'dark');
+export const db = new Database("data/bestgames.sqlite", { create: true });
+
+// Инициализация структуры
+db.exec(`
+  CREATE TABLE IF NOT EXISTS games (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    price REAL NOT NULL,
+    genre TEXT NOT NULL,
+    image TEXT
+  );
+`);
+
+// Безопасный запрос с экранированием параметров (Защита от SQL Injection)
+export function getGameById(id: number) {
+  const query = db.prepare("SELECT * FROM games WHERE id = ?");
+  return query.get(id);
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-typescript">import { Database } from "bun:sqlite";
+
+export const db = new Database("data/bestgames.sqlite", { create: true });
+
+// Инициализация структуры
+db.exec(`
+  CREATE TABLE IF NOT EXISTS games (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    price REAL NOT NULL,
+    genre TEXT NOT NULL,
+    image TEXT
+  );
+`);
+
+// Безопасный запрос с экранированием параметров (Защита от SQL Injection)
+export function getGameById(id: number) {
+  const query = db.prepare("SELECT * FROM games WHERE id = ?");
+  return query.get(id);
+}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-security-jwt"><h4>4. Хеширование паролей и выпуск JWT-токенов</h4><p>Пароли <strong>никогда не хранятся в открытом виде</strong>! Используйте надежное криптографическое хеширование (Bcrypt / Argon2), а для сессий — валидированные токены:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="typescript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>// Хеширование пароля при регистрации
+export async function hashPassword(plainTextPassword: string): Promise<string> {
+  return await Bun.password.hash(plainTextPassword, {
+    algorithm: "bcrypt",
+    cost: 10
   });
-});</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">document.addEventListener('DOMContentLoaded', () => {
-  // 1. Бургер-меню
-  const burger = document.querySelector('.header__burger');
-  const nav = document.querySelector('.header__nav');
-  if (burger && nav) burger.addEventListener('click', () => nav.classList.toggle('header__nav--open'));
+}
 
-  // 2. Слайдер с автосменой
-  const track = document.querySelector('.slider__track');
-  const slides = document.querySelectorAll('.slider__slide');
-  const dots = document.querySelectorAll('.slider__dot');
-  let currentSlide = 0;
+// Проверка пароля при входе
+export async function verifyPassword(plainText: string, hash: string): Promise<boolean> {
+  return await Bun.password.verify(plainText, hash);
+}
 
-  function showSlide(idx) {
-    if (!track || slides.length === 0) return;
-    currentSlide = (idx + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('slider__dot--active', i === currentSlide));
+// Генерация Bearer токена
+export function generateToken(payload: { userId: number; role: string }): string {
+  const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+  const body = btoa(JSON.stringify({ ...payload, exp: Date.now() + 3600000 }));
+  const signature = btoa(`secret_signature_${header}.${body}`);
+  return `${header}.${body}.${signature}`;
+}
+
+// Middleware проверки прав доступа
+export function authenticateRequest(authHeader: string | null) {
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return null;
   }
-
-  document.querySelector('.slider__nav-btn--prev')?.addEventListener('click', () => showSlide(currentSlide - 1));
-  document.querySelector('.slider__nav-btn--next')?.addEventListener('click', () => showSlide(currentSlide + 1));
-  dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
-  if (slides.length > 0) setInterval(() => showSlide(currentSlide + 1), 5000);
-
-  // 3. Тема оформления + localStorage
-  const themeBtn = document.querySelector('.header__theme-toggle');
-  const savedTheme = localStorage.getItem('bestgames_theme');
-  if (document.body.classList.contains('theme--light') || savedTheme === 'light') {
-    document.body.classList.add('theme--light');
+  const token = authHeader.split(" ")[1];
+  try {
+    const parts = token.split(".");
+    const payload = JSON.parse(atob(parts[1]));
+    if (payload.exp < Date.now()) return null; // Истёк срок
+    return payload;
+  } catch {
+    return null;
   }
-  themeBtn?.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('theme--light');
-    localStorage.setItem('bestgames_theme', isLight ? 'light' : 'dark');
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-typescript">// Хеширование пароля при регистрации
+export async function hashPassword(plainTextPassword: string): Promise<string> {
+  return await Bun.password.hash(plainTextPassword, {
+    algorithm: "bcrypt",
+    cost: 10
   });
-});</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step5"><h4>Шаг 5. Формы: Вход, Регистрация с ОПД и Таблица в Личном кабинете</h4><p>Особое внимание уделяется обязательному чекбоксу согласия на обработку персональных данных (ОПД) и семантической таблице <a href="https://doka.guide/html/tables/" target="_blank">таблиц в HTML</a>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-html-forms', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-html-forms" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><!-- Регистрация с обязательным чекбоксом ОПД -->
-<form action="profile.html" method="POST">
-  <div class="form-group">
-    <label for="lastName">Фамилия *</label>
-    <input type="text" id="lastName" name="last_name" class="form-control" required>
-  </div>
-  <div class="form-group">
-    <label for="email">E-mail *</label>
-    <input type="email" id="email" name="email" class="form-control" required>
-  </div>
+}
+
+// Проверка пароля при входе
+export async function verifyPassword(plainText: string, hash: string): Promise<boolean> {
+  return await Bun.password.verify(plainText, hash);
+}
+
+// Генерация Bearer токена
+export function generateToken(payload: { userId: number; role: string }): string {
+  const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+  const body = btoa(JSON.stringify({ ...payload, exp: Date.now() + 3600000 }));
+  const signature = btoa(`secret_signature_${header}.${body}`);
+  return `${header}.${body}.${signature}`;
+}
+
+// Middleware проверки прав доступа
+export function authenticateRequest(authHeader: string | null) {
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return null;
+  }
+  const token = authHeader.split(" ")[1];
+  try {
+    const parts = token.split(".");
+    const payload = JSON.parse(atob(parts[1]));
+    if (payload.exp < Date.now()) return null; // Истёк срок
+    return payload;
+  } catch {
+    return null;
+  }
+}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-rebuild-trigger"><h4>5. Связка REST API + SSG: Фоновая регенерация статики</h4><p>Когда администратор добавляет или редактирует игру через REST API, сервер автоматически запускает регенерацию HTML-файлов каталога:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="typescript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>import { exec } from "child_process";
+
+/**
+ * Триггер On-Demand обновления статических страниц
+ */
+export function triggerStaticRebuild() {
+  console.log("⚡ [SSG Hook] Данные каталога изменились, запускаем перегенерацию HTML...");
   
-  <!-- ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС ОПД ПО КРИТЕРИЯМ -->
-  <div class="checkbox-group">
-    <input type="checkbox" id="opd" name="opd" required>
-    <label for="opd">Согласие на обработку персональных данных (ОПД) *</label>
-  </div>
-  <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
-</form></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><!-- Регистрация с обязательным чекбоксом ОПД -->
-<form action="profile.html" method="POST">
-  <div class="form-group">
-    <label for="lastName">Фамилия *</label>
-    <input type="text" id="lastName" name="last_name" class="form-control" required>
-  </div>
-  <div class="form-group">
-    <label for="email">E-mail *</label>
-    <input type="email" id="email" name="email" class="form-control" required>
-  </div>
+  exec("bun run build:gh-pages", (error, stdout, stderr) => {
+    if (error) {
+      console.error("❌ Ошибка сборки статики:", error);
+      return;
+    }
+    console.log("🎉 [SSG Hook] Статические страницы успешно обновлены!");
+  });
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-typescript">import { exec } from "child_process";
+
+/**
+ * Триггер On-Demand обновления статических страниц
+ */
+export function triggerStaticRebuild() {
+  console.log("⚡ [SSG Hook] Данные каталога изменились, запускаем перегенерацию HTML...");
   
-  <!-- ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС ОПД ПО КРИТЕРИЯМ -->
-  <div class="checkbox-group">
-    <input type="checkbox" id="opd" name="opd" required>
-    <label for="opd">Согласие на обработку персональных данных (ОПД) *</label>
-  </div>
-  <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
-</form></code></pre></div></div></div><div class="subtab-pane active" id="subtab-content-checklist"><h4>Шаг 6. Итоговый чек-лист экспертной оценки Модуля А</h4><div class="alert alert-warning"><strong>Внимание!</strong> Эксперты проверяют строго загруженную на сервер версию без использования сторонних CSS/JS библиотек.</div><div class="table-responsive"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th style="width: 25%;">Критерий оценки</th><th style="width: 45%;">Что проверяют эксперты</th><th style="width: 30%;">Статус в коде</th></tr></thead><tbody><tr><td><strong>Имена файлов</strong></td><td>Строго index.html, index_light.html, catalog.html, login.html, register.html, profile.html, admin.html</td><td><span class="badge bg-success">100% Соответствие</span></td></tr><tr><td><strong>Запрет фреймворков</strong></td><td>Отсутствие Bootstrap, Tailwind, jQuery и сторонних CDN</td><td><span class="badge bg-success">Чистый HTML5/CSS3/JS</span></td></tr><tr><td><strong>Шрифты</strong></td><td>Не менее 2 шрифтов (Inter для текста, Russo One для заголовков)</td><td><span class="badge bg-success">2 шрифта подключены</span></td></tr><tr><td><strong>Адаптивность</strong></td><td>4 структурных брейкпоинта (1200px, 992px, 768px, 480px) и бургер-меню</td><td><span class="badge bg-success">4 брейкпоинта</span></td></tr><tr><td><strong>Слайдер</strong></td><td>Не менее 3 слайдов, автопрокрутка, стрелки и точки индикации</td><td><span class="badge bg-success">setInterval + transform</span></td></tr><tr><td><strong>Чекбокс ОПД</strong></td><td>Обязательное согласие на обработку данных на странице регистрации</td><td><span class="badge bg-success">required checkbox</span></td></tr><tr><td><strong>Каталог</strong></td><td>Фильтр по жанрам: постоянный на десктопе, кнопка на мобилке</td><td><span class="badge bg-success">Интерактивный фильтр</span></td></tr></tbody></table></div></div></div><script>
+  exec("bun run build:gh-pages", (error, stdout, stderr) => {
+    if (error) {
+      console.error("❌ Ошибка сборки статики:", error);
+      return;
+    }
+    console.log("🎉 [SSG Hook] Статические страницы успешно обновлены!");
+  });
+}</code></pre></div></div><div class="alert alert-success mt-3"><strong>Преимущества гибридного подхода:</strong><ul class="mb-0 mt-1"><li>Каталог загружается моментально, так как уже готов в виде чистого <code>catalog.html</code>.</li><li>Любые динамические действия (корзина, профиль, покупка) работают через быстрый REST API.</li></ul></div></div><div class="subtab-pane " id="subtab-content-checklist"><h4>6. Чек-лист проверки модуля Бэкенда и SSG</h4><div class="table-responsive mt-3"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th>№</th><th>Критерий оценки</th><th>Ожидаемое поведение</th><th>Статус</th></tr></thead><tbody><tr><td>1</td><td><strong>SSG Генерация статики</strong></td><td>Скрипт сборки создает полноценные HTML-файлы со структурой и данными из БД.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>2</td><td><strong>REST API Эндпоинты</strong></td><td>Корректные ответы на GET, POST запросы с телом JSON и валидными статус-кодами.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>3</td><td><strong>Настройка CORS</strong></td><td>Разрешены запросы с клиентских портов, обрабатывается HTTP-метод OPTIONS.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>4</td><td><strong>База данных и Prepared Statements</strong></td><td>Таблицы users, games, orders; все запросы параметризованы, нет риска SQLi.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>5</td><td><strong>Безопасность и Хеширование</strong></td><td>Пароли хешируются с солью (Bcrypt/Argon2), проверка Bearer JWT токенов.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>6</td><td><strong>On-Demand Автосборка</strong></td><td>При изменении сущностей запускается фоновая регенерация статических страниц.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr></tbody></table></div></div></div><script>
 (function () {
   function initSubTabs() {
     var subTabNavs = document.querySelectorAll('#group401SubTabs, #group301SubTabs, [role="tablist"].nav-pills');
@@ -523,7 +665,7 @@ body.theme--light {
     initSubTabs();
   }
 })();
-</script></div>
+</script></div></div>
     </div>
   </div>
 

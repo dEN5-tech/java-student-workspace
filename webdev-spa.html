@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Веб-дизайн — Чек-лист проверки (Модуль 1: Вёрстка) | МДК.02.04 «Разработка прикладных приложений»</title>
+  <title>Веб-дизайн и разработка — Модуль 2: SPA-клиент и REST API | МДК.02.04 «Разработка прикладных приложений»</title>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -186,255 +186,371 @@
       .subtab-pane.active {
         display: block;
       }
-    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3 d-flex align-items-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1 align-text-bottom"><path d="M 6.5 4 A 9 9 0 0 1 17.5 4"></path><path d="M 20 6.5 A 9 9 0 0 1 20 17.5"></path><path d="M 17.5 20 A 9 9 0 0 1 6.5 20"></path><path d="M 4 17.5 A 9 9 0 0 1 4 6.5"></path><path d="M 7.5 16.5 V 8.5 L 12 13 L 16.5 8.5 V 16.5" stroke-width="2.2"></path></svg><span>Веб-дизайн и разработка: Чемпионат «Профессионалы»</span></h2><div class="card mb-4 border shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);"><div class="card-body p-2"><ul class="nav nav-pills nav-fill" id="webdevTopModules"><li class="nav-item m-1"><a class="nav-link py-2 px-3 active bg-primary text-white fw-bold shadow-sm" href="webdev.html"><i class="fa-solid fa-paintbrush me-2"></i>1. Вёрстка и адаптивный UI</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev-spa.html"><i class="fa-solid fa-cubes me-2"></i>2. SPA клиент и REST API</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev-backend.html"><i class="fa-solid fa-server me-2"></i>3. Бэкенд с SSG + REST API</a></li></ul></div></div><div class="card mb-4 border-primary shadow-sm bg-light"><div class="card-body"><h5 class="card-title text-primary mb-2"><i class="fa-solid fa-gamepad me-2"></i>Проект: Маркетплейс видеоигр «BestGames»</h5><p class="card-text mb-0 text-muted">Интерактивная методичка для подготовки к чемпионату. Стек: <strong>HTML5, CSS3, чистый Vanilla JavaScript</strong> без сторонних библиотек и фреймворков. Все материалы синхронизированы со справочником <a href="https://doka.guide/" target="_blank" class="fw-bold text-decoration-none">Doka.guide</a>.</p></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="webdevSubTabs"><li class="nav-item me-2"><a class="nav-link " href="webdev-step1.html"><i class="fa-solid fa-code me-1"></i>Шаг 1: Семантика и БЭМ</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step2.html"><i class="fa-solid fa-palette me-1"></i>Шаг 2: Темы и Grid/Flex</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step3.html"><i class="fa-solid fa-mobile-screen me-1"></i>Шаг 3: Адаптивность и Бургер</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step4.html"><i class="fa-brands fa-js me-1"></i>Шаг 4: JS Слайдер и Фильтры</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-step5.html"><i class="fa-solid fa-check-to-slot me-1"></i>Шаг 5: Формы и ОПД</a></li><li class="nav-item"><a class="nav-link active" href="webdev-checklist.html"><i class="fa-solid fa-list-check me-1"></i>Шаг 6: Чек-лист проверки</a></li></ul><div class="subtab-pane " id="subtab-content-step1"><h4>Шаг 1. Семантическая разметка HTML5 и именование классов по БЭМ</h4><p>В соответствии со стандартами <a href="https://doka.guide/html/semantics/" target="_blank">Doka: Семантика</a>, верстка должна строиться на структурных ориентирах: <code><header></code>, <code><nav></code>, <code><main></code>, <code><section></code>, <code><article></code>, <code><aside></code>, <code><footer></code>.</p><div class="row mb-3"><div class="col-md-6"><div class="card h-100 border-info"><div class="card-header bg-info text-white fw-bold">Правильные имена файлов</div><div class="card-body"><ul class="mb-0"><li><code>index.html</code> — главная страница (темная тема)</li><li><code>index_light.html</code> — светлая тема главной страницы</li><li><code>catalog.html</code> — каталог игр с фильтрами</li><li><code>login.html</code> — авторизация</li><li><code>register.html</code> — регистрация с чекбоксом ОПД</li><li><code>profile.html</code> — личный кабинет и история покупок</li><li><code>admin.html</code> — добавление новой игры</li></ul></div></div></div><div class="col-md-6"><div class="card h-100 border-success"><div class="card-header bg-success text-white fw-bold">Методология БЭМ</div><div class="card-body"><p class="mb-1"><strong>Блок:</strong> независимый компонент (<code>.game-card</code>, <code>.slider</code>)</p><p class="mb-1"><strong>Элемент:</strong> составная часть через <code>__</code> (<code>.game-card__title</code>, <code>.slider__track</code>)</p><p class="mb-0"><strong>Модификатор:</strong> состояние через <code>--</code> (<code>.btn--primary</code>, <code>.theme--light</code>)</p></div></div></div></div><h5 class="mt-4 mb-2">Пример разметки семантической карточки игры по БЭМ:</h5><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-html-card', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-html-card" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 260px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><article class="game-card" data-genre="Action" data-link="catalog.html">
-  <div class="game-card__image-box" style="background-image: url('game.jpg');">
-    <span class="game-card__genre-badge">Action</span>
-  </div>
-  <div class="game-card__body">
-    <h3 class="game-card__title">Cyber Storm</h3>
-    <p class="game-card__dev">CD Studio</p>
-    <div class="game-card__rating">★★★★★</div>
-    <div class="game-card__footer">
-      <span class="game-card__price">1 999 ₽</span>
-      <a href="catalog.html" class="btn btn--primary btn--sm">В каталог</a>
-    </div>
-  </div>
-</article></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><article class="game-card" data-genre="Action" data-link="catalog.html">
-  <div class="game-card__image-box" style="background-image: url('game.jpg');">
-    <span class="game-card__genre-badge">Action</span>
-  </div>
-  <div class="game-card__body">
-    <h3 class="game-card__title">Cyber Storm</h3>
-    <p class="game-card__dev">CD Studio</p>
-    <div class="game-card__rating">★★★★★</div>
-    <div class="game-card__footer">
-      <span class="game-card__price">1 999 ₽</span>
-      <a href="catalog.html" class="btn btn--primary btn--sm">В каталог</a>
-    </div>
-  </div>
-</article></code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step2"><h4>Шаг 2. CSS-переменные, Темы оформления и Сетки Grid/Flexbox</h4><p>Сайт использует ровно 2 шрифта (<code>Inter</code> и <code>Russo One</code>) и переключается между темами благодаря <a href="https://doka.guide/css/custom-properties/" target="_blank">кастомным свойствам CSS</a>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-css-themes', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-css-themes" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>@import url('https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap');
+    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3 d-flex align-items-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1 align-text-bottom"><path d="M 6.5 4 A 9 9 0 0 1 17.5 4"></path><path d="M 20 6.5 A 9 9 0 0 1 20 17.5"></path><path d="M 17.5 20 A 9 9 0 0 1 6.5 20"></path><path d="M 4 17.5 A 9 9 0 0 1 4 6.5"></path><path d="M 7.5 16.5 V 8.5 L 12 13 L 16.5 8.5 V 16.5" stroke-width="2.2"></path></svg><span>Веб-дизайн и разработка: Чемпионат «Профессионалы»</span></h2><div class="card mb-4 border shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);"><div class="card-body p-2"><ul class="nav nav-pills nav-fill" id="webdevTopModules"><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev.html"><i class="fa-solid fa-paintbrush me-2"></i>1. Вёрстка и адаптивный UI</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 active bg-primary text-white fw-bold shadow-sm" href="webdev-spa.html"><i class="fa-solid fa-cubes me-2"></i>2. SPA клиент и REST API</a></li><li class="nav-item m-1"><a class="nav-link py-2 px-3 bg-white text-dark border" href="webdev-backend.html"><i class="fa-solid fa-server me-2"></i>3. Бэкенд с SSG + REST API</a></li></ul></div></div><div class="card mb-4 border-success shadow-sm bg-light"><div class="card-body"><h5 class="card-title text-success mb-2"><i class="fa-solid fa-cubes me-2"></i>Модуль 2: Клиентский SPA и интеграция с REST API</h5><p class="card-text mb-0 text-muted">Полноценная архитектура Single Page Application на чистом JavaScript (Vanilla JS): динамическая маршрутизация без перезагрузки, асинхронный слой работы с REST API, авторизация на базе Bearer JWT токенов, реактивный Store и индикаторы загрузки. Материалы синхронизированы со справочником <a href="https://doka.guide/" target="_blank" class="fw-bold text-decoration-none">Doka.guide</a>.</p></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="webdevSpaSubTabs"><li class="nav-item me-2"><a class="nav-link active" href="webdev-spa.html#router"><i class="fa-solid fa-route me-1"></i>1. SPA Роутер (Hash/History)</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-spa.html#api-client"><i class="fa-solid fa-network-wired me-1"></i>2. REST API Клиент</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-spa.html#auth"><i class="fa-solid fa-shield-halved me-1"></i>3. JWT Авторизация</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-spa.html#state-crud"><i class="fa-solid fa-database me-1"></i>4. Стейт-менеджер и CRUD</a></li><li class="nav-item me-2"><a class="nav-link " href="webdev-spa.html#ui-feedback"><i class="fa-solid fa-bell me-1"></i>5. UI: Спиннеры и Toast</a></li><li class="nav-item"><a class="nav-link " href="webdev-spa.html#checklist"><i class="fa-solid fa-list-check me-1"></i>6. Чек-лист SPA</a></li></ul><div class="tab-content" id="webdevSpaTabContent"><div class="subtab-pane active" id="subtab-content-router"><div class="alert alert-info"><h5><i class="fa-solid fa-circle-info me-2"></i>Принцип работы Single Page Application (SPA)</h5><p class="mb-0">В классическом многостраничном приложении каждый клик приводит к отправке HTTP-запроса на сервер и перезагрузке всей страницы браузером. В SPA браузер загружает каркас один раз (HTML/CSS/JS), а дальнейшие переходы выполняются клиентом на лету с динамической заменой контента в корневом контейнере <code><main id="app"></code> без мигания экрана.</p></div><h4>1. Реализация легковесного Hash-роутера</h4><p>Хеш-роутинг — самый надёжный способ организации навигации на чемпионатах: он работает при любом веб-сервере и даже при прямом открытии файлов через <code>file://</code> или статический хостинг.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>// Реестр представлений (маршрутов)
+const routes = {
+  '#catalog': renderCatalogView,
+  '#game': renderGameDetailsView,
+  '#cart': renderCartView,
+  '#login': renderLoginView,
+  '#profile': requireAuth(renderProfileView)
+};
 
-:root {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #6366f1;
+// Главная функция роутера
+export function handleLocationChange() {
+  const fullHash = window.location.hash || '#catalog';
+  const [routePath, queryString] = fullHash.split('?');
+  const params = new URLSearchParams(queryString || '');
+
+  const appContainer = document.getElementById('app');
+  const viewRenderer = routes[routePath] || render404View;
+
+  // Отрисовка представления с передачей query-параметров (?id=42)
+  appContainer.innerHTML = viewRenderer(params);
+
+  // Обновление активного класса в главном меню
+  updateActiveNavigation(routePath);
 }
 
-body.theme--light {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
+// Слушатели событий роутера
+window.addEventListener('hashchange', handleLocationChange);
+window.addEventListener('DOMContentLoaded', handleLocationChange);</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">// Реестр представлений (маршрутов)
+const routes = {
+  '#catalog': renderCatalogView,
+  '#game': renderGameDetailsView,
+  '#cart': renderCartView,
+  '#login': renderLoginView,
+  '#profile': requireAuth(renderProfileView)
+};
+
+// Главная функция роутера
+export function handleLocationChange() {
+  const fullHash = window.location.hash || '#catalog';
+  const [routePath, queryString] = fullHash.split('?');
+  const params = new URLSearchParams(queryString || '');
+
+  const appContainer = document.getElementById('app');
+  const viewRenderer = routes[routePath] || render404View;
+
+  // Отрисовка представления с передачей query-параметров (?id=42)
+  appContainer.innerHTML = viewRenderer(params);
+
+  // Обновление активного класса в главном меню
+  updateActiveNavigation(routePath);
 }
 
-/* Группировка карточек для экономии кода */
-.game-card, .advantage-card, .form-card, .profile-card, .filter-sidebar {
-  background: var(--card);
-  padding: 15px;
-  border-radius: 6px;
-}
+// Слушатели событий роутера
+window.addEventListener('hashchange', handleLocationChange);
+window.addEventListener('DOMContentLoaded', handleLocationChange);</code></pre></div></div><div class="alert alert-secondary mt-3"><strong>Полезные статьи в Doka.guide:</strong><ul class="mb-0 mt-1"><li><a href="https://doka.guide/js/window-location/" target="_blank">Doka: Объект window.location</a> — работа с URL, hash и поисковой строкой.</li><li><a href="https://doka.guide/js/modules/" target="_blank">Doka: ES-модули (import / export)</a> — структурирование логики SPA по файлам.</li></ul></div></div><div class="subtab-pane " id="subtab-content-api-client"><h4>2. Асинхронный HTTP-клиент (Fetch Wrapper)</h4><p>Выделите всю работу с сетью в единый изолированный слой <code>api.js</code>. Это гарантирует единую обработку заголовков, автоматическое добавление JWT токена и перехват сетевых сбоев.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>const BASE_URL = 'https://api.bestgames.local/v1';
 
-/* Сетка каталога на CSS Grid */
-.games-grid, .advantages__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=Inter&family=Russo+One&display=swap');
+/**
+ * Универсальная обёртка над fetch с перехватом статусов
+ */
+export async function apiRequest(endpoint, options = {}) {
+  const { method = 'GET', body = null } = options;
+  const token = localStorage.getItem('bestgames_jwt');
 
-:root {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #6366f1;
-}
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  };
 
-body.theme--light {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
-}
-
-/* Группировка карточек для экономии кода */
-.game-card, .advantage-card, .form-card, .profile-card, .filter-sidebar {
-  background: var(--card);
-  padding: 15px;
-  border-radius: 6px;
-}
-
-/* Сетка каталога на CSS Grid */
-.games-grid, .advantages__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step3"><h4>Шаг 3. Адаптивность: 4 обязательных структурных брейкпоинта</h4><p>По критериям оценивается не просто изменение цвета, а <strong>структурные изменения сетки</strong> при переходе от десктопа к мобильному устройству (<a href="https://doka.guide/css/media/" target="_blank">Doka: @media</a>).</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-css-media', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-css-media" data-monokai-editor="true" data-language="css" data-readonly="false" style="height: 350px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>/* 1. До 1200px (Ноутбук): сетки перестраиваются с 4 колонок на 2 */
-@media (max-width: 1200px) {
-  .advantages__grid, .games-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
-}
-
-/* 2. До 992px (Планшет): скрываем меню, показываем бургер, сайдбар под кнопку */
-@media (max-width: 992px) {
-  .header__nav { display: none; }
-  .header__burger { display: block; }
-  .header__nav.header__nav--open {
-    display: flex; flex-direction: column; position: absolute;
-    top: 60px; left: 0; width: 100%; background: var(--card); padding: 15px;
-  }
-  .catalog-layout, .profile-grid { grid-template-columns: 1fr; }
-  .filter-sidebar { display: none; }
-  .filter-sidebar.filter-sidebar--open { display: block; }
-  .filter-toggle-btn { display: block; }
-}
-
-/* 3. До 768px (Планшет книжный): поиск в колонку, футер 2 колонки */
-@media (max-width: 768px) {
-  .quick-search__box { flex-direction: column; }
-  .advantages__grid { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* 4. До 480px (Мобилка): сетки карточек в 1 колонку */
-@media (max-width: 480px) {
-  .games-grid, .footer__grid { grid-template-columns: 1fr; }
-}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-css">/* 1. До 1200px (Ноутбук): сетки перестраиваются с 4 колонок на 2 */
-@media (max-width: 1200px) {
-  .advantages__grid, .games-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
-}
-
-/* 2. До 992px (Планшет): скрываем меню, показываем бургер, сайдбар под кнопку */
-@media (max-width: 992px) {
-  .header__nav { display: none; }
-  .header__burger { display: block; }
-  .header__nav.header__nav--open {
-    display: flex; flex-direction: column; position: absolute;
-    top: 60px; left: 0; width: 100%; background: var(--card); padding: 15px;
-  }
-  .catalog-layout, .profile-grid { grid-template-columns: 1fr; }
-  .filter-sidebar { display: none; }
-  .filter-sidebar.filter-sidebar--open { display: block; }
-  .filter-toggle-btn { display: block; }
-}
-
-/* 3. До 768px (Планшет книжный): поиск в колонку, футер 2 колонки */
-@media (max-width: 768px) {
-  .quick-search__box { flex-direction: column; }
-  .advantages__grid { grid-template-columns: 1fr; }
-  .footer__grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* 4. До 480px (Мобилка): сетки карточек в 1 колонку */
-@media (max-width: 480px) {
-  .games-grid, .footer__grid { grid-template-columns: 1fr; }
-}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step4"><h4>Шаг 4. Нативный JavaScript: Слайдер, Поиск, Фильтры и Тема</h4><p>Чистый код без библиотек. Используются <a href="https://doka.guide/js/setinterval/" target="_blank">setInterval</a> для автопрокрутки слайдов, <a href="https://doka.guide/js/local-storage/" target="_blank">localStorage</a> для сохранения темы и <a href="https://doka.guide/js/window-location/" target="_blank">window.location</a> для фильтрации.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-js-logic', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-js-logic" data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 360px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>document.addEventListener('DOMContentLoaded', () => {
-  // 1. Бургер-меню
-  const burger = document.querySelector('.header__burger');
-  const nav = document.querySelector('.header__nav');
-  if (burger && nav) burger.addEventListener('click', () => nav.classList.toggle('header__nav--open'));
-
-  // 2. Слайдер с автосменой
-  const track = document.querySelector('.slider__track');
-  const slides = document.querySelectorAll('.slider__slide');
-  const dots = document.querySelectorAll('.slider__dot');
-  let currentSlide = 0;
-
-  function showSlide(idx) {
-    if (!track || slides.length === 0) return;
-    currentSlide = (idx + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('slider__dot--active', i === currentSlide));
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
   }
 
-  document.querySelector('.slider__nav-btn--prev')?.addEventListener('click', () => showSlide(currentSlide - 1));
-  document.querySelector('.slider__nav-btn--next')?.addEventListener('click', () => showSlide(currentSlide + 1));
-  dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
-  if (slides.length > 0) setInterval(() => showSlide(currentSlide + 1), 5000);
+  try {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : null
+    });
 
-  // 3. Тема оформления + localStorage
-  const themeBtn = document.querySelector('.header__theme-toggle');
-  const savedTheme = localStorage.getItem('bestgames_theme');
-  if (document.body.classList.contains('theme--light') || savedTheme === 'light') {
-    document.body.classList.add('theme--light');
+    // Обработка протухшей сессии (401 Unauthorized)
+    if (response.status === 401) {
+      localStorage.removeItem('bestgames_jwt');
+      window.location.hash = '#login';
+      throw new Error('Сессия истекла. Войдите снова.');
+    }
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || `Ошибка сервера: ${response.status}`);
+    }
+
+    return data;
+  } catch (error) {
+    console.error('[API Error]:', error);
+    throw error;
   }
-  themeBtn?.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('theme--light');
-    localStorage.setItem('bestgames_theme', isLight ? 'light' : 'dark');
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">const BASE_URL = 'https://api.bestgames.local/v1';
+
+/**
+ * Универсальная обёртка над fetch с перехватом статусов
+ */
+export async function apiRequest(endpoint, options = {}) {
+  const { method = 'GET', body = null } = options;
+  const token = localStorage.getItem('bestgames_jwt');
+
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  };
+
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  try {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : null
+    });
+
+    // Обработка протухшей сессии (401 Unauthorized)
+    if (response.status === 401) {
+      localStorage.removeItem('bestgames_jwt');
+      window.location.hash = '#login';
+      throw new Error('Сессия истекла. Войдите снова.');
+    }
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || `Ошибка сервера: ${response.status}`);
+    }
+
+    return data;
+  } catch (error) {
+    console.error('[API Error]:', error);
+    throw error;
+  }
+}</code></pre></div></div><div class="alert alert-secondary mt-3"><strong>Полезные статьи в Doka.guide:</strong><ul class="mb-0 mt-1"><li><a href="https://doka.guide/js/fetch/" target="_blank">Doka: fetch()</a> — отправка запросов и чтение ответов.</li><li><a href="https://doka.guide/js/async-await/" target="_blank">Doka: Async / Await</a> — чистый асинхронный код без вложенных .then().</li><li><a href="https://doka.guide/js/try-catch/" target="_blank">Doka: try...catch</a> — перехват сетевых и программных исключений.</li></ul></div></div><div class="subtab-pane " id="subtab-content-auth"><h4>3. Полноценная авторизация: Вход, Токен, Route Guards</h4><p>При успешном логине сервер возвращает JWT токен. Клиент сохраняет его в <code>localStorage</code> и использует для подтверждения личности пользователя при каждом последующем запросе.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>import { apiRequest } from './api.js';
+
+export async function loginUser(email, password) {
+  const result = await apiRequest('/auth/login', {
+    method: 'POST',
+    body: { email, password }
   });
-});</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">document.addEventListener('DOMContentLoaded', () => {
-  // 1. Бургер-меню
-  const burger = document.querySelector('.header__burger');
-  const nav = document.querySelector('.header__nav');
-  if (burger && nav) burger.addEventListener('click', () => nav.classList.toggle('header__nav--open'));
 
-  // 2. Слайдер с автосменой
-  const track = document.querySelector('.slider__track');
-  const slides = document.querySelectorAll('.slider__slide');
-  const dots = document.querySelectorAll('.slider__dot');
-  let currentSlide = 0;
+  // Сохраняем токен и профиль пользователя
+  localStorage.setItem('bestgames_jwt', result.token);
+  localStorage.setItem('bestgames_user', JSON.stringify(result.user));
 
-  function showSlide(idx) {
-    if (!track || slides.length === 0) return;
-    currentSlide = (idx + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('slider__dot--active', i === currentSlide));
-  }
+  // Оповещаем UI об успешном входе
+  window.dispatchEvent(new Event('auth_state_changed'));
+  window.location.hash = '#catalog';
+}
 
-  document.querySelector('.slider__nav-btn--prev')?.addEventListener('click', () => showSlide(currentSlide - 1));
-  document.querySelector('.slider__nav-btn--next')?.addEventListener('click', () => showSlide(currentSlide + 1));
-  dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
-  if (slides.length > 0) setInterval(() => showSlide(currentSlide + 1), 5000);
+export function logoutUser() {
+  localStorage.removeItem('bestgames_jwt');
+  localStorage.removeItem('bestgames_user');
+  window.dispatchEvent(new Event('auth_state_changed'));
+  window.location.hash = '#login';
+}
 
-  // 3. Тема оформления + localStorage
-  const themeBtn = document.querySelector('.header__theme-toggle');
-  const savedTheme = localStorage.getItem('bestgames_theme');
-  if (document.body.classList.contains('theme--light') || savedTheme === 'light') {
-    document.body.classList.add('theme--light');
-  }
-  themeBtn?.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('theme--light');
-    localStorage.setItem('bestgames_theme', isLight ? 'light' : 'dark');
+/**
+ * Route Guard (Защитник закрытых страниц)
+ */
+export function requireAuth(renderFn) {
+  return function (params) {
+    const token = localStorage.getItem('bestgames_jwt');
+    if (!token) {
+      // Запоминаем куда шёл пользователь для редиректа после логина
+      sessionStorage.setItem('redirect_after_login', window.location.hash);
+      window.location.hash = '#login';
+      return '<div class="alert alert-warning">Требуется авторизация...</div>';
+    }
+    return renderFn(params);
+  };
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">import { apiRequest } from './api.js';
+
+export async function loginUser(email, password) {
+  const result = await apiRequest('/auth/login', {
+    method: 'POST',
+    body: { email, password }
   });
-});</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-step5"><h4>Шаг 5. Формы: Вход, Регистрация с ОПД и Таблица в Личном кабинете</h4><p>Особое внимание уделяется обязательному чекбоксу согласия на обработку персональных данных (ОПД) и семантической таблице <a href="https://doka.guide/html/tables/" target="_blank">таблиц в HTML</a>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('editor-html-forms', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-html-forms" data-monokai-editor="true" data-language="xml" data-readonly="false" style="height: 320px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly><!-- Регистрация с обязательным чекбоксом ОПД -->
-<form action="profile.html" method="POST">
-  <div class="form-group">
-    <label for="lastName">Фамилия *</label>
-    <input type="text" id="lastName" name="last_name" class="form-control" required>
-  </div>
-  <div class="form-group">
-    <label for="email">E-mail *</label>
-    <input type="email" id="email" name="email" class="form-control" required>
-  </div>
-  
-  <!-- ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС ОПД ПО КРИТЕРИЯМ -->
-  <div class="checkbox-group">
-    <input type="checkbox" id="opd" name="opd" required>
-    <label for="opd">Согласие на обработку персональных данных (ОПД) *</label>
-  </div>
-  <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
-</form></textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-xml"><!-- Регистрация с обязательным чекбоксом ОПД -->
-<form action="profile.html" method="POST">
-  <div class="form-group">
-    <label for="lastName">Фамилия *</label>
-    <input type="text" id="lastName" name="last_name" class="form-control" required>
-  </div>
-  <div class="form-group">
-    <label for="email">E-mail *</label>
-    <input type="email" id="email" name="email" class="form-control" required>
-  </div>
-  
-  <!-- ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС ОПД ПО КРИТЕРИЯМ -->
-  <div class="checkbox-group">
-    <input type="checkbox" id="opd" name="opd" required>
-    <label for="opd">Согласие на обработку персональных данных (ОПД) *</label>
-  </div>
-  <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
-</form></code></pre></div></div></div><div class="subtab-pane active" id="subtab-content-checklist"><h4>Шаг 6. Итоговый чек-лист экспертной оценки Модуля А</h4><div class="alert alert-warning"><strong>Внимание!</strong> Эксперты проверяют строго загруженную на сервер версию без использования сторонних CSS/JS библиотек.</div><div class="table-responsive"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th style="width: 25%;">Критерий оценки</th><th style="width: 45%;">Что проверяют эксперты</th><th style="width: 30%;">Статус в коде</th></tr></thead><tbody><tr><td><strong>Имена файлов</strong></td><td>Строго index.html, index_light.html, catalog.html, login.html, register.html, profile.html, admin.html</td><td><span class="badge bg-success">100% Соответствие</span></td></tr><tr><td><strong>Запрет фреймворков</strong></td><td>Отсутствие Bootstrap, Tailwind, jQuery и сторонних CDN</td><td><span class="badge bg-success">Чистый HTML5/CSS3/JS</span></td></tr><tr><td><strong>Шрифты</strong></td><td>Не менее 2 шрифтов (Inter для текста, Russo One для заголовков)</td><td><span class="badge bg-success">2 шрифта подключены</span></td></tr><tr><td><strong>Адаптивность</strong></td><td>4 структурных брейкпоинта (1200px, 992px, 768px, 480px) и бургер-меню</td><td><span class="badge bg-success">4 брейкпоинта</span></td></tr><tr><td><strong>Слайдер</strong></td><td>Не менее 3 слайдов, автопрокрутка, стрелки и точки индикации</td><td><span class="badge bg-success">setInterval + transform</span></td></tr><tr><td><strong>Чекбокс ОПД</strong></td><td>Обязательное согласие на обработку данных на странице регистрации</td><td><span class="badge bg-success">required checkbox</span></td></tr><tr><td><strong>Каталог</strong></td><td>Фильтр по жанрам: постоянный на десктопе, кнопка на мобилке</td><td><span class="badge bg-success">Интерактивный фильтр</span></td></tr></tbody></table></div></div></div><script>
+
+  // Сохраняем токен и профиль пользователя
+  localStorage.setItem('bestgames_jwt', result.token);
+  localStorage.setItem('bestgames_user', JSON.stringify(result.user));
+
+  // Оповещаем UI об успешном входе
+  window.dispatchEvent(new Event('auth_state_changed'));
+  window.location.hash = '#catalog';
+}
+
+export function logoutUser() {
+  localStorage.removeItem('bestgames_jwt');
+  localStorage.removeItem('bestgames_user');
+  window.dispatchEvent(new Event('auth_state_changed'));
+  window.location.hash = '#login';
+}
+
+/**
+ * Route Guard (Защитник закрытых страниц)
+ */
+export function requireAuth(renderFn) {
+  return function (params) {
+    const token = localStorage.getItem('bestgames_jwt');
+    if (!token) {
+      // Запоминаем куда шёл пользователь для редиректа после логина
+      sessionStorage.setItem('redirect_after_login', window.location.hash);
+      window.location.hash = '#login';
+      return '<div class="alert alert-warning">Требуется авторизация...</div>';
+    }
+    return renderFn(params);
+  };
+}</code></pre></div></div><div class="alert alert-secondary mt-3"><strong>Полезные статьи в Doka.guide:</strong><ul class="mb-0 mt-1"><li><a href="https://doka.guide/js/local-storage/" target="_blank">Doka: LocalStorage</a> — безопасное хранение ключей и сериализация объектов.</li><li><a href="https://doka.guide/html/form/" target="_blank">Doka: Формы в HTML</a> — атрибуты required, email и правила сбора данных.</li></ul></div></div><div class="subtab-pane " id="subtab-content-state-crud"><h4>4. Реактивный Store и CRUD операции с корзиной</h4><p>Чтобы данные не терялись при переходах между табами SPA, состояние корзины и каталога хранится в центральном объекте <code>store</code>.</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>export const store = {
+  games: [],
+  cart: JSON.parse(localStorage.getItem('bg_cart') || '[]'),
+
+  setGames(items) {
+    this.games = items;
+    this.notify();
+  },
+
+  addToCart(gameId) {
+    const item = this.games.find(g => g.id === Number(gameId));
+    if (!item) return;
+
+    const existing = this.cart.find(c => c.id === item.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      this.cart.push({ ...item, quantity: 1 });
+    }
+    this.saveCart();
+  },
+
+  removeFromCart(gameId) {
+    this.cart = this.cart.filter(c => c.id !== Number(gameId));
+    this.saveCart();
+  },
+
+  getCartTotal() {
+    return this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  },
+
+  saveCart() {
+    localStorage.setItem('bg_cart', JSON.stringify(this.cart));
+    this.notify();
+  },
+
+  notify() {
+    window.dispatchEvent(new CustomEvent('store_updated', { detail: this }));
+  }
+};</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">export const store = {
+  games: [],
+  cart: JSON.parse(localStorage.getItem('bg_cart') || '[]'),
+
+  setGames(items) {
+    this.games = items;
+    this.notify();
+  },
+
+  addToCart(gameId) {
+    const item = this.games.find(g => g.id === Number(gameId));
+    if (!item) return;
+
+    const existing = this.cart.find(c => c.id === item.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      this.cart.push({ ...item, quantity: 1 });
+    }
+    this.saveCart();
+  },
+
+  removeFromCart(gameId) {
+    this.cart = this.cart.filter(c => c.id !== Number(gameId));
+    this.saveCart();
+  },
+
+  getCartTotal() {
+    return this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  },
+
+  saveCart() {
+    localStorage.setItem('bg_cart', JSON.stringify(this.cart));
+    this.notify();
+  },
+
+  notify() {
+    window.dispatchEvent(new CustomEvent('store_updated', { detail: this }));
+  }
+};</code></pre></div></div><div class="alert alert-secondary mt-3"><strong>Полезные статьи в Doka.guide:</strong><ul class="mb-0 mt-1"><li><a href="https://doka.guide/js/closures/" target="_blank">Doka: Замыкания</a> — инкапсуляция внутреннего состояния.</li><li><a href="https://doka.guide/js/spread/" target="_blank">Doka: Spread-оператор (...)</a> — клонирование объектов и иммутабельные апдейты.</li></ul></div></div><div class="subtab-pane " id="subtab-content-ui-feedback"><h4>5. Индикаторы загрузки и всплывающие Toast-уведомления</h4><p>Критерии чемпионата требуют, чтобы приложение никогда не «зависало» без обратной связи при медленных сетевых ответах:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="window.MonokaiEditor && window.MonokaiEditor.copyCode('undefined', this)" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div data-monokai-editor="true" data-language="javascript" data-readonly="false" style="height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>/**
+ * Показ глобального Toast-уведомления
+ */
+export function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container') || createToastContainer();
+  const toast = document.createElement('div');
+  toast.className = `alert alert-${type} shadow-sm d-flex align-items-center mb-2 animate-fade-in`;
+  toast.innerHTML = `
+    <i class="fa-solid fa-${type === 'success' ? 'check' : 'triangle-exclamation'} me-2"></i>
+    <span>${message}</span>
+  `;
+
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+/**
+ * Отрисовка скелетона загрузки для каталога
+ */
+export function renderCatalogSkeleton(count = 6) {
+  return Array.from({ length: count }).map(() => `
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 placeholder-glow">
+        <div class="card-img-top placeholder" style="height: 180px;"></div>
+        <div class="card-body">
+          <h5 class="card-title placeholder col-8"></h5>
+          <p class="card-text placeholder col-12"></p>
+          <span class="btn btn-primary disabled placeholder col-6"></span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-javascript">/**
+ * Показ глобального Toast-уведомления
+ */
+export function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container') || createToastContainer();
+  const toast = document.createElement('div');
+  toast.className = `alert alert-${type} shadow-sm d-flex align-items-center mb-2 animate-fade-in`;
+  toast.innerHTML = `
+    <i class="fa-solid fa-${type === 'success' ? 'check' : 'triangle-exclamation'} me-2"></i>
+    <span>${message}</span>
+  `;
+
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+/**
+ * Отрисовка скелетона загрузки для каталога
+ */
+export function renderCatalogSkeleton(count = 6) {
+  return Array.from({ length: count }).map(() => `
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 placeholder-glow">
+        <div class="card-img-top placeholder" style="height: 180px;"></div>
+        <div class="card-body">
+          <h5 class="card-title placeholder col-8"></h5>
+          <p class="card-text placeholder col-12"></p>
+          <span class="btn btn-primary disabled placeholder col-6"></span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}</code></pre></div></div></div><div class="subtab-pane " id="subtab-content-checklist"><h4>6. Чек-лист проверки модуля SPA экспертами чемпионата</h4><div class="table-responsive mt-3"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th>№</th><th>Критерий оценки</th><th>Ожидаемое поведение</th><th>Статус</th></tr></thead><tbody><tr><td>1</td><td><strong>Клиентский роутинг</strong></td><td>Переходы по страницам происходят мгновенно, без перезагрузки вкладки (без мерцания). Работают кнопки «Вперёд» и «Назад» в браузере.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>2</td><td><strong>Интеграция с REST API</strong></td><td>Все данные (игры, профиль, отзывы) запрашиваются асинхронно через <code>fetch()</code> с корректными HTTP-глаголами (GET, POST, PUT, DELETE).</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>3</td><td><strong>JWT Аутентификация</strong></td><td>Токен авторизации сохраняется в <code>localStorage</code> и передается в заголовке <code>Authorization: Bearer <token></code>.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>4</td><td><strong>Защита закрытых страниц</strong></td><td>Попытка открыть личный кабинет или оформление заказа без авторизации перенаправляет на страницу входа.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>5</td><td><strong>Обработка состояний загрузки</strong></td><td>При запросе данных отображаются спиннеры или скелетоны загрузки, интерфейс не блокируется.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr><tr><td>6</td><td><strong>Обработка ошибок сети</strong></td><td>При ошибках 400, 404, 500 выводятся понятные пользователю Toast-сообщения, а не пустой белый экран.</td><td><span class="badge bg-success">100% Выполнено</span></td></tr></tbody></table></div></div></div><script>
 (function () {
   function initSubTabs() {
     var subTabNavs = document.querySelectorAll('#group401SubTabs, #group301SubTabs, [role="tablist"].nav-pills');
@@ -523,7 +639,7 @@ body.theme--light {
     initSubTabs();
   }
 })();
-</script></div>
+</script></div></div>
     </div>
   </div>
 
