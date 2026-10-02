@@ -1,7 +1,7 @@
-# Compiled class file
+# Compiled class files
 *.class
 
-# Log file
+# Log files
 *.log
 
 # BlueJ files
@@ -21,7 +21,18 @@
 hs_err_pid*
 replay_pid*
 
-# Temporary build directories
+# Eclipse temporary settings
 .settings/
-bin/
+
+# Ignore compiled output bin folders (NOT javafx-sdk/bin DLLs)
+/bin/
+**/javafx-client/bin/
 .pio/
+
+# Explicitly include JavaFX SDK native binaries and libraries
+!labs/lib/javafx-sdk/bin/*.dll
+!labs/lib/javafx-sdk/lib/*.jar
+!labs/lib/unirest-*.jar
+!**/build/firmware.bin
+!**/build/firmware.elf
+!**/wokwigw.exe

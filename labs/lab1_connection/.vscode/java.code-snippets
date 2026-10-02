@@ -1,0 +1,72 @@
+{
+    "FXML Button Field": {
+        "prefix": "fxb",
+        "body": [
+            "@FXML",
+            "private Button ${1:myButton};"
+        ],
+        "description": "Generate @FXML Button field"
+    },
+    "FXML Label Field": {
+        "prefix": "fxl",
+        "body": [
+            "@FXML",
+            "private Label ${1:myLabel};"
+        ],
+        "description": "Generate @FXML Label field"
+    },
+    "FXML TextField Field": {
+        "prefix": "fxt",
+        "body": [
+            "@FXML",
+            "private TextField ${1:myTextField};"
+        ],
+        "description": "Generate @FXML TextField field"
+    },
+    "FXML TextArea Field": {
+        "prefix": "fxta",
+        "body": [
+            "@FXML",
+            "private TextArea ${1:myTextArea};"
+        ],
+        "description": "Generate @FXML TextArea field"
+    },
+    "FXML CheckBox Field": {
+        "prefix": "fxcb",
+        "body": [
+            "@FXML",
+            "private CheckBox ${1:myCheckBox};"
+        ],
+        "description": "Generate @FXML CheckBox field"
+    },
+    "FXML Action Method": {
+        "prefix": "fxm",
+        "body": [
+            "@FXML",
+            "private void ${1:onButtonClick}() {",
+            "    $0",
+            "}"
+        ],
+        "description": "Generate @FXML action event handler method"
+    },
+    "FXML Action Method with Event": {
+        "prefix": "fxme",
+        "body": [
+            "@FXML",
+            "private void ${1:onButtonClick}(ActionEvent event) {",
+            "    $0",
+            "}"
+        ],
+        "description": "Generate @FXML action event handler with ActionEvent"
+    },
+    "FXML Initialize Method": {
+        "prefix": "fxi",
+        "body": [
+            "@FXML",
+            "public void initialize() {",
+            "    $0",
+            "}"
+        ],
+        "description": "Generate @FXML initialize lifecycle method"
+    }
+}

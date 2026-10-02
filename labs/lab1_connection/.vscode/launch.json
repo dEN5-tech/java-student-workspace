@@ -1,13 +1,20 @@
-{
+﻿{
     "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
-            "name": "JavaFX: Run Launcher (Lab 1)",
+            "name": "JavaFX: Run Launcher",
             "request": "launch",
             "mainClass": "com.example.Launcher",
-            "projectName": "javafx-client",
-            "vmArgs": "--enable-native-access=javafx.graphics --module-path \"${workspaceFolder}/javafx-client/lib/javafx-sdk/lib;${workspaceFolder}/../../javafx-client/lib/javafx-sdk/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media",
+            "vmArgs": "-Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.net.useSystemProxies=false -Dhttp.nonProxyHosts=\"localhost|127.0.0.1|10.*\" --module-path \"${workspaceFolder}/../../lib/javafx-sdk/lib;${workspaceFolder}/../lib/javafx-sdk/lib;${workspaceFolder}/javafx-client/lib/javafx-sdk/lib;${workspaceFolder}/lib/javafx-sdk/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media",
+            "console": "internalConsole"
+        },
+        {
+            "type": "java",
+            "name": "JavaFX: Run App (GUI)",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "vmArgs": "-Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.net.useSystemProxies=false -Dhttp.nonProxyHosts=\"localhost|127.0.0.1|10.*\" --module-path \"${workspaceFolder}/../../lib/javafx-sdk/lib;${workspaceFolder}/../lib/javafx-sdk/lib;${workspaceFolder}/javafx-client/lib/javafx-sdk/lib;${workspaceFolder}/lib/javafx-sdk/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media",
             "console": "internalConsole"
         }
     ]
