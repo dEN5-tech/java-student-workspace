@@ -29,9 +29,6 @@ public class MainController {
     @FXML
     private Label pingResultLabel;
 
-    @FXML
-    private TextArea logArea;
-
     // =========================================================================
     //  2. Инициализация (вызывается автоматически при загрузке FXML)
     // =========================================================================
@@ -50,11 +47,6 @@ public class MainController {
 
     @FXML
     void handlePing(ActionEvent event) {
-        // TODO: Напишите ваш код обработки нажатия здесь
-    }
-
-    @FXML
-    void handleClearLog(ActionEvent event) {
         // TODO: Напишите ваш код обработки нажатия здесь
     }
 

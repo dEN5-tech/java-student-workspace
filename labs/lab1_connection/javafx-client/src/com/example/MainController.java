@@ -2,17 +2,18 @@ package com.example;
 
 import javafx.fxml.FXML;
 import javafx.application.Platform;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.*;
 import kong.unirest.Unirest;
 
 /**
- * 📘 Практическая работа №1: Шаблон для студента.
- * Задание: реализовать подключение к ESP32 и проверку связи (Ping) по МЕТОДИЧКЕ.
- */
+* 📘 Практическая работа №1: Шаблон для студента.
+* Задание: реализовать подключение к ESP32 и проверку связи (Ping) по МЕТОДИЧКЕ.
+*/
+
 public class MainController {
 
     static {
@@ -21,11 +22,11 @@ public class MainController {
         System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
 
         Unirest.config()
-               .reset()
-               .connectTimeout(3000)
-               .socketTimeout(3000)
-               .setDefaultHeader("Connection", "close")
-               .proxy((kong.unirest.Proxy) null);
+        .reset()
+        .connectTimeout(3000)
+        .socketTimeout(3000)
+        .setDefaultHeader("Connection", "close")
+        .proxy((kong.unirest.Proxy) null);
     }
 
     // Элементы интерфейса

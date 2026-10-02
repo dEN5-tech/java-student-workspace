@@ -18,19 +18,7 @@ public class MainController {
     private Button connectBtn;
 
     @FXML
-    private Circle statusIndicator;
-
-    @FXML
     private Label statusLabel;
-
-    @FXML
-    private Circle ledIndicator;
-
-    @FXML
-    private Label ledStatusLabel;
-
-    @FXML
-    private Button btnToggleLed;
 
     @FXML
     private Label servoAngleLabel;
@@ -46,9 +34,6 @@ public class MainController {
 
     @FXML
     private Button btnServo180;
-
-    @FXML
-    private TextArea logArea;
 
     // =========================================================================
     //  2. Инициализация (вызывается автоматически при загрузке FXML)
@@ -67,11 +52,6 @@ public class MainController {
     }
 
     @FXML
-    void handleToggleLed(ActionEvent event) {
-        // TODO: Напишите ваш код обработки нажатия здесь
-    }
-
-    @FXML
     void handleServo0(ActionEvent event) {
         // TODO: Напишите ваш код обработки нажатия здесь
     }
@@ -83,11 +63,6 @@ public class MainController {
 
     @FXML
     void handleServo180(ActionEvent event) {
-        // TODO: Напишите ваш код обработки нажатия здесь
-    }
-
-    @FXML
-    void handleClearLog(ActionEvent event) {
         // TODO: Напишите ваш код обработки нажатия здесь
     }
 

@@ -18,22 +18,16 @@ public class MainController {
     private Button connectBtn;
 
     @FXML
-    private Circle statusIndicator;
-
-    @FXML
     private Label statusLabel;
 
     @FXML
     private Circle ledIndicator;
 
     @FXML
-    private Button btnLedOn;
-
-    @FXML
     private Label ledStatusLabel;
 
     @FXML
-    private TextArea logArea;
+    private Button btnTurnOnLed;
 
     // =========================================================================
     //  2. Инициализация (вызывается автоматически при загрузке FXML)
@@ -52,12 +46,7 @@ public class MainController {
     }
 
     @FXML
-    void handleTurnLedOn(ActionEvent event) {
-        // TODO: Напишите ваш код обработки нажатия здесь
-    }
-
-    @FXML
-    void handleClearLog(ActionEvent event) {
+    void handleTurnOnLed(ActionEvent event) {
         // TODO: Напишите ваш код обработки нажатия здесь
     }
 

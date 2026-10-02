@@ -5,13 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 
-<VBox prefHeight="520.0" prefWidth="480.0" spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
+<VBox prefHeight="340.0" prefWidth="420.0" spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
     <padding>
         <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
     </padding>
@@ -19,7 +17,7 @@
     <!-- Заголовок работы -->
     <VBox spacing="4.0">
         <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Практическая работа №4" />
-        <Label style="-fx-text-fill: #555555;" text="Управление сервоприводом (ШИМ GPIO 18) и светодиодом (GPIO 4)" />
+        <Label style="-fx-text-fill: #555555;" text="Управление сервоприводом (GPIO 18, 0–180°)" />
     </VBox>
 
     <Separator />
@@ -28,56 +26,26 @@
     <VBox spacing="8.0">
         <Label style="-fx-font-weight: bold;" text="1. Подключение к ESP32:" />
         <HBox alignment="CENTER_LEFT" spacing="8.0">
-            <Label text="Хост:" />
-            <TextField fx:id="hostField" prefWidth="170.0" text="127.0.0.1:4000" />
+            <Label text="IP / Хост:" />
+            <TextField fx:id="hostField" prefWidth="180.0" text="127.0.0.1:4000" />
             <Button fx:id="connectBtn" onAction="#handleConnect" text="Подключиться" />
         </HBox>
-        <HBox alignment="CENTER_LEFT" spacing="10.0">
-            <Circle fx:id="statusIndicator" fill="#888888" radius="8.0" stroke="#333333" />
-            <Label fx:id="statusLabel" style="-fx-font-weight: bold;" text="СТАТУС: НЕ ПОДКЛЮЧЕНО" />
-        </HBox>
+        <Label fx:id="statusLabel" style="-fx-font-weight: bold;" text="СТАТУС: НЕ ПОДКЛЮЧЕНО" />
     </VBox>
 
     <Separator />
 
-    <!-- 2. Блок светодиода -->
-    <VBox spacing="8.0">
-        <Label style="-fx-font-weight: bold;" text="2. Дискретный вывод: Светодиод (GPIO 4):" />
-        <HBox alignment="CENTER_LEFT" spacing="12.0">
-            <Circle fx:id="ledIndicator" fill="#888888" radius="10.0" stroke="#333333" />
-            <Label fx:id="ledStatusLabel" text="ВЫКЛЮЧЕН" />
-            <Button fx:id="btnToggleLed" disable="true" onAction="#handleToggleLed" text="Включить LED" />
-        </HBox>
-    </VBox>
-
-    <Separator />
-
-    <!-- 3. Блок сервопривода (ШИМ) -->
+    <!-- 2. Блок сервопривода -->
     <VBox spacing="8.0">
         <HBox alignment="CENTER_LEFT" spacing="8.0">
-            <Label style="-fx-font-weight: bold;" text="3. ШИМ привод: Сервопривод (GPIO 18):" />
-            <Label fx:id="servoAngleLabel" style="-fx-font-weight: bold; -fx-text-fill: #007acc; -fx-font-size: 14px;" text="90°" />
+            <Label style="-fx-font-weight: bold;" text="2. Угол поворота сервопривода (Пин 18):" />
+            <Label fx:id="servoAngleLabel" text="90°" />
         </HBox>
-
-        <!-- Слайдер угла поворота -->
         <Slider fx:id="servoSlider" disable="true" majorTickUnit="45.0" max="180.0" min="0.0" minorTickCount="3" showTickLabels="true" showTickMarks="true" value="90.0" />
-
-        <!-- Быстрые кнопки предустановленных углов -->
         <HBox alignment="CENTER" spacing="10.0">
-            <Button fx:id="btnServo0" disable="true" onAction="#handleServo0" text="0° (Минимум)" />
+            <Button fx:id="btnServo0" disable="true" onAction="#handleServo0" text="0°" />
             <Button fx:id="btnServo90" disable="true" onAction="#handleServo90" text="90° (Центр)" />
-            <Button fx:id="btnServo180" disable="true" onAction="#handleServo180" text="180° (Максимум)" />
+            <Button fx:id="btnServo180" disable="true" onAction="#handleServo180" text="180°" />
         </HBox>
-    </VBox>
-
-    <Separator />
-
-    <!-- 4. Лог сообщений -->
-    <VBox spacing="6.0" VBox.vgrow="ALWAYS">
-        <HBox alignment="CENTER_LEFT" spacing="8.0">
-            <Label style="-fx-font-weight: bold;" text="Журнал сетевых запросов:" />
-            <Button onAction="#handleClearLog" style="-fx-font-size: 11px;" text="Очистить" />
-        </HBox>
-        <TextArea fx:id="logArea" editable="false" prefRowCount="4" wrapText="true" VBox.vgrow="ALWAYS" />
     </VBox>
 </VBox>
