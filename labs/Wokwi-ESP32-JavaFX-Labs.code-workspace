@@ -1,0 +1,99 @@
+{
+    "folders": [
+        {
+            "name": "📘 1. Практическая №1 (Подключение и Ping)",
+            "path": "lab1_connection"
+        },
+        {
+            "name": "💡 2. Практическая №2 (Включение LED)",
+            "path": "lab2_led_on"
+        },
+        {
+            "name": "💡 3. Практическая №3 (Переключение LED)",
+            "path": "lab3_led_toggle"
+        },
+        {
+            "name": "⚙️ 4. Практическая №4 (Сервопривод)",
+            "path": "lab4_servo"
+        }
+    ],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.debug.settings.enableRunDebugCodeLens": true,
+        "java.debug.settings.forceBuildBeforeLaunch": true,
+        "java.project.referencedLibraries": [
+            "lib/*.jar",
+            "lib/javafx-sdk/lib/*.jar",
+            "javafx-client/lib/*.jar",
+            "../lib/*.jar",
+            "../lib/javafx-sdk/lib/*.jar"
+        ],
+        "java.format.enabled": true,
+        "files.encoding": "utf8",
+        "editor.tabSize": 4
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "🚀 [Лаб 1] Запустить JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab1_connection\\javafx-client && run.bat\"",
+                "problemMatcher": []
+            },
+            {
+                "label": "🔨 [Лаб 1] Скомпилировать JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab1_connection\\javafx-client && build.bat\"",
+                "group": "build",
+                "problemMatcher": ["$javac"]
+            },
+            {
+                "label": "🚀 [Лаб 2] Запустить JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab2_led_on\\javafx-client && run.bat\"",
+                "problemMatcher": []
+            },
+            {
+                "label": "🔨 [Лаб 2] Скомпилировать JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab2_led_on\\javafx-client && build.bat\"",
+                "group": "build",
+                "problemMatcher": ["$javac"]
+            },
+            {
+                "label": "🚀 [Лаб 3] Запустить JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab3_led_toggle\\javafx-client && run.bat\"",
+                "problemMatcher": []
+            },
+            {
+                "label": "🔨 [Лаб 3] Скомпилировать JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab3_led_toggle\\javafx-client && build.bat\"",
+                "group": "build",
+                "problemMatcher": ["$javac"]
+            },
+            {
+                "label": "🚀 [Лаб 4] Запустить JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab4_servo\\javafx-client && run.bat\"",
+                "problemMatcher": []
+            },
+            {
+                "label": "🔨 [Лаб 4] Скомпилировать JavaFX клиент",
+                "type": "shell",
+                "command": "cmd /c \"cd /d lab4_servo\\javafx-client && build.bat\"",
+                "group": "build",
+                "problemMatcher": ["$javac"]
+            }
+        ]
+    },
+    "extensions": {
+        "recommendations": [
+            "vscjava.vscode-java-pack",
+            "wokwi.wokwi-vscode"
+        ]
+    }
+}

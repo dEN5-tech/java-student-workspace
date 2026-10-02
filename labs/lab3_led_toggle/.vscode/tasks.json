@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1. Собрать прошивку ESP32 (PlatformIO)",
+            "type": "shell",
+            "command": "${workspaceFolder}/build_firmware.bat",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "2. Запустить Wokwi Gateway",
+            "type": "shell",
+            "command": "${workspaceFolder}/run_gateway.bat",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "3. Запустить JavaFX Клиент",
+            "type": "shell",
+            "command": "${workspaceFolder}/run_client.bat",
+            "problemMatcher": []
+        }
+    ]
+}

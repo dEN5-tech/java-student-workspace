@@ -1,0 +1,9 @@
+﻿{
+    "platformio-ide.customPATH": "%USERPROFILE%\\.platformio\\penv\\Scripts",
+    "java.project.sourcePaths": ["javafx-client/src"],
+    "java.project.outputPath": "javafx-client/bin",
+    "java.project.referencedLibraries": [
+        "javafx-client/lib/**/*.jar",
+        "../../javafx-client/lib/**/*.jar"
+    ]
+}

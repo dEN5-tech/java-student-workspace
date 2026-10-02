@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "JavaFX: Run Launcher (Lab 3)",
+            "request": "launch",
+            "mainClass": "com.example.Launcher",
+            "projectName": "javafx-client",
+            "vmArgs": "--enable-native-access=javafx.graphics --module-path \"${workspaceFolder}/javafx-client/lib/javafx-sdk/lib;${workspaceFolder}/../../javafx-client/lib/javafx-sdk/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media",
+            "console": "internalConsole"
+        }
+    ]
+}
