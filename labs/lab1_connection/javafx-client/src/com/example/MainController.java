@@ -15,6 +15,19 @@ import kong.unirest.Unirest;
  */
 public class MainController {
 
+    static {
+        System.setProperty("java.net.preferIPv4Stack", "true");
+        System.setProperty("java.net.useSystemProxies", "false");
+        System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
+
+        Unirest.config()
+               .reset()
+               .connectTimeout(3000)
+               .socketTimeout(3000)
+               .setDefaultHeader("Connection", "close")
+               .proxy((kong.unirest.Proxy) null);
+    }
+
     // Элементы интерфейса
     @FXML private TextField hostField;
     @FXML private Button connectBtn;
@@ -25,18 +38,32 @@ public class MainController {
 
     private boolean isConnected = false;
 
-    // Вспомогательный метод получения хоста (порт 4000 для Wokwi)
-    private String getHost() {
-        String host = hostField.getText().trim();
-        if (!host.contains(":")) {
-            return String.format("%s:4000", host);
+    /**
+     * Универсальный метод построения URL (с защитой от опечаток и IPv6)
+     */
+    public String makeUrl(String endpoint) {
+        String input = hostField.getText().trim();
+        if (input.startsWith("http://")) input = input.substring(7);
+        if (input.startsWith("https://")) input = input.substring(8);
+        while (input.endsWith("/")) input = input.substring(0, input.length() - 1);
+
+        if (input.startsWith("localhost")) {
+            input = "127.0.0.1" + input.substring(9);
         }
-        return host;
+
+        if (!input.contains(":")) {
+            input = input + ":4000";
+        }
+
+        if (!endpoint.startsWith("/")) {
+            endpoint = "/" + endpoint;
+        }
+
+        return "http://" + input + endpoint;
     }
 
     @FXML
     public void initialize() {
-        // Начальное состояние при запуске
         statusLabel.setText("СТАТУС: НЕ ПОДКЛЮЧЕНО");
         statusIndicator.setFill(Color.GRAY);
         pingBtn.setDisable(true);
@@ -44,8 +71,8 @@ public class MainController {
 
     /**
      * TODO: Задание 1. Подключение к плате ESP32
-     * 1. Сформируйте URL: "http://" + getHost() + "/status"
-     * 2. Выполните асинхронный GET-запрос через Unirest.get(url).asStringAsync(...)
+     * 1. Сформируйте URL через makeUrl("/status")
+     * 2. Выполните асинхронный GET-запрос: Unirest.get(url).asStringAsync(...)
      * 3. Внутри Platform.runLater() проверьте response.isSuccess():
      *    - Установите isConnected = true, текст кнопки "Отключиться"
      *    - Покрасьте statusIndicator в Color.LIMEGREEN, статус "ПОДКЛЮЧЕНО"
@@ -56,16 +83,13 @@ public class MainController {
         if (!isConnected) {
             statusLabel.setText("ПОДКЛЮЧЕНИЕ...");
 
-            // ВАШ КОД ЗДЕСЬ (см. Раздел 5.1 в МЕТОДИЧКА.md)
-            
+            // ВАШ КОД ЗДЕСЬ (см. Раздел 6 в МЕТОДИЧКА.md)
+
         } else {
             disconnect();
         }
     }
 
-    /**
-     * Отключение от платы
-     */
     public void disconnect() {
         isConnected = false;
         connectBtn.setText("Подключиться");
@@ -78,7 +102,7 @@ public class MainController {
     /**
      * TODO: Задание 2. Проверка задержки связи (Ping)
      * 1. Засеките время старта: long startTime = System.currentTimeMillis();
-     * 2. Сформируйте URL: "http://" + getHost() + "/ping"
+     * 2. Сформируйте URL: makeUrl("/ping")
      * 3. Выполните Unirest.get(url).asStringAsync(...)
      * 4. В Platform.runLater() посчитайте задержку: long rtt = System.currentTimeMillis() - startTime;
      * 5. Выведите результат в pingResultLabel
@@ -87,7 +111,7 @@ public class MainController {
     void handlePing() {
         pingResultLabel.setText("Измерение...");
 
-        // ВАШ КОД ЗДЕСЬ (см. Раздел 5.2 в МЕТОДИЧКА.md)
+        // ВАШ КОД ЗДЕСЬ (см. Раздел 6 в МЕТОДИЧКА.md)
 
     }
 }

@@ -28,15 +28,11 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 set "SDK_PATH=%ROOT%lib\javafx-sdk\lib"
+if not exist "%SDK_PATH%" set "SDK_PATH=%ROOT%..\..\lib\javafx-sdk\lib"
 if not exist "%SDK_PATH%" set "SDK_PATH=%ROOT%..\..\..\javafx-client\lib\javafx-sdk\lib"
-if not exist "%SDK_PATH%" set "SDK_PATH=%ROOT%..\..\javafx-client\lib\javafx-sdk\lib"
 
-set "UNIREST_JAR=%ROOT%lib\unirest-java-3.14.5-standalone.jar"
-if not exist "%UNIREST_JAR%" set "UNIREST_JAR=%ROOT%..\..\..\javafx-client\lib\unirest-java-3.14.5-standalone.jar"
-if not exist "%UNIREST_JAR%" set "UNIREST_JAR=%ROOT%..\..\javafx-client\lib\unirest-java-3.14.5-standalone.jar"
-
-echo [RUN] Launching JavaFX Client (Lab 4)...
-"%JAVA_CMD%" --enable-native-access=javafx.graphics --module-path "%SDK_PATH%" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media -cp "%ROOT%bin;%ROOT%lib\*;%UNIREST_JAR%" com.example.Launcher
+echo [RUN] Launching JavaFX application...
+"%JAVA_CMD%" -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.net.useSystemProxies=false -Dhttp.nonProxyHosts="localhost|127.0.0.1|10.*" --enable-native-access=javafx.graphics --module-path "%SDK_PATH%" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media -cp "%ROOT%bin;%ROOT%lib\*" com.example.Launcher
 
 if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] Application exited with code %ERRORLEVEL%.

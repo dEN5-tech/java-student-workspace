@@ -14,6 +14,19 @@ import kong.unirest.Unirest;
  */
 public class MainController {
 
+    static {
+        System.setProperty("java.net.preferIPv4Stack", "true");
+        System.setProperty("java.net.useSystemProxies", "false");
+        System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
+
+        Unirest.config()
+               .reset()
+               .connectTimeout(3000)
+               .socketTimeout(3000)
+               .setDefaultHeader("Connection", "close")
+               .proxy((kong.unirest.Proxy) null);
+    }
+
     @FXML private TextField hostField;
     @FXML private Button connectBtn;
     @FXML private Label statusLabel;
@@ -26,12 +39,25 @@ public class MainController {
 
     private boolean isConnected = false;
 
-    private String getHost() {
-        String host = hostField.getText().trim();
-        if (!host.contains(":")) {
-            return String.format("%s:4000", host);
+    public String makeUrl(String endpoint) {
+        String input = hostField.getText().trim();
+        if (input.startsWith("http://")) input = input.substring(7);
+        if (input.startsWith("https://")) input = input.substring(8);
+        while (input.endsWith("/")) input = input.substring(0, input.length() - 1);
+
+        if (input.startsWith("localhost")) {
+            input = "127.0.0.1" + input.substring(9);
         }
-        return host;
+
+        if (!input.contains(":")) {
+            input = input + ":4000";
+        }
+
+        if (!endpoint.startsWith("/")) {
+            endpoint = "/" + endpoint;
+        }
+
+        return "http://" + input + endpoint;
     }
 
     @FXML
@@ -52,8 +78,8 @@ public class MainController {
         if (!isConnected) {
             statusLabel.setText("ПОДКЛЮЧЕНИЕ...");
 
-            String url = String.format("http://%s/status", getHost());
-            Unirest.get(url).connectTimeout(2000).asStringAsync(response -> {
+            String url = makeUrl("/status");
+            Unirest.get(url).asStringAsync(response -> {
                 Platform.runLater(() -> {
                     if (response != null && response.isSuccess()) {
                         isConnected = true;
@@ -79,7 +105,7 @@ public class MainController {
 
     /**
      * TODO: Задание 2. Реализуйте метод отправки угла на ESP32
-     * 1. Сформируйте URL: String.format("http://%s/servo?angle=%d", getHost(), angle)
+     * 1. Сформируйте URL: makeUrl(String.format("/servo?angle=%d", angle))
      * 2. Выполните асинхронный GET запрос Unirest.get(url).asStringAsync()
      */
     private void setServoAngle(int angle) {
