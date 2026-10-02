@@ -5,26 +5,17 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import kong.unirest.Unirest;
 
 /**
-* ⚙️ Практическая работа №4: Шаблон для студента.
-* Задание: реализовать управление углом сервопривода (0-180°) по МЕТОДИЧКЕ.
-*/
-
+ * ⚙️ Практическая работа №4: Шаблон для студента.
+ * Задание: реализовать управление углом сервопривода (0-180°) по МЕТОДИЧКЕ.
+ */
 public class MainController {
 
     static {
         System.setProperty("java.net.preferIPv4Stack", "true");
         System.setProperty("java.net.useSystemProxies", "false");
         System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
-
-        Unirest.config()
-        .reset()
-        .connectTimeout(3000)
-        .socketTimeout(3000)
-        .setDefaultHeader("Connection", "close")
-        .proxy((kong.unirest.Proxy) null);
     }
 
     @FXML private TextField hostField;
@@ -79,17 +70,15 @@ public class MainController {
             statusLabel.setText("ПОДКЛЮЧЕНИЕ...");
 
             String url = makeUrl("/status");
-            Unirest.get(url).asStringAsync(response -> {
-                Platform.runLater(() -> {
-                    if (response != null && response.isSuccess()) {
-                        isConnected = true;
-                        connectBtn.setText("Отключиться");
-                        statusLabel.setText("ПОДКЛЮЧЕНО");
-                        setControlsDisabled(false);
-                    } else {
-                        statusLabel.setText("НЕТ СВЯЗИ");
-                    }
-                });
+            Client.get(url, response -> {
+                if (response.isSuccess()) {
+                    isConnected = true;
+                    connectBtn.setText("Отключиться");
+                    statusLabel.setText("ПОДКЛЮЧЕНО");
+                    setControlsDisabled(false);
+                } else {
+                    statusLabel.setText("НЕТ СВЯЗИ");
+                }
             });
         } else {
             disconnect();
@@ -105,8 +94,8 @@ public class MainController {
 
     /**
      * TODO: Задание 2. Реализуйте метод отправки угла на ESP32
-     * 1. Сформируйте URL: makeUrl(String.format("/servo?angle=%d", angle))
-     * 2. Выполните асинхронный GET запрос Unirest.get(url).asStringAsync()
+     * 1. Сформируйте URL: String url = makeUrl(String.format("/servo?angle=%d", angle));
+     * 2. Выполните асинхронный GET запрос: Client.get(url, null);
      */
     private void setServoAngle(int angle) {
         // ВАШ КОД ЗДЕСЬ (см. Раздел 5 в МЕТОДИЧКА.md)

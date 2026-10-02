@@ -7,26 +7,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import kong.unirest.Unirest;
 
 /**
-* 💡 Практическая работа №3: Шаблон для студента.
-* Задание: реализовать двустороннее переключение светодиода (ВКЛ / ВЫКЛ) по МЕТОДИЧКЕ.
-*/
-
+ * 💡 Практическая работа №3: Шаблон для студента.
+ * Задание: реализовать двустороннее переключение светодиода (ВКЛ / ВЫКЛ) по МЕТОДИЧКЕ.
+ */
 public class MainController {
 
     static {
         System.setProperty("java.net.preferIPv4Stack", "true");
         System.setProperty("java.net.useSystemProxies", "false");
         System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
-
-        Unirest.config()
-        .reset()
-        .connectTimeout(3000)
-        .socketTimeout(3000)
-        .setDefaultHeader("Connection", "close")
-        .proxy((kong.unirest.Proxy) null);
     }
 
     @FXML private TextField hostField;
@@ -74,17 +65,15 @@ public class MainController {
             statusLabel.setText("ПОДКЛЮЧЕНИЕ...");
 
             String url = makeUrl("/status");
-            Unirest.get(url).asStringAsync(response -> {
-                Platform.runLater(() -> {
-                    if (response != null && response.isSuccess()) {
-                        isConnected = true;
-                        connectBtn.setText("Отключиться");
-                        statusLabel.setText("ПОДКЛЮЧЕНО");
-                        btnToggleLed.setDisable(false);
-                    } else {
-                        statusLabel.setText("НЕТ СВЯЗИ");
-                    }
-                });
+            Client.get(url, response -> {
+                if (response.isSuccess()) {
+                    isConnected = true;
+                    connectBtn.setText("Отключиться");
+                    statusLabel.setText("ПОДКЛЮЧЕНО");
+                    btnToggleLed.setDisable(false);
+                } else {
+                    statusLabel.setText("НЕТ СВЯЗИ");
+                }
             });
         } else {
             disconnect();
@@ -102,10 +91,10 @@ public class MainController {
     /**
      * TODO: Задание лабораторной работы №3.
      * 1. Проверьте текущее состояние флага isLedOn.
-     * 2. Если isLedOn == true -> сформируйте URL для выключения makeUrl("/led/off"), отправьте Unirest GET,
-     *    и в callback обновите UI через updateLedUI(false).
-     * 3. Если isLedOn == false -> сформируйте URL для включения makeUrl("/led/on"), отправьте Unirest GET,
-     *    и в callback обновите UI через updateLedUI(true).
+     * 2. Если isLedOn == true -> сформируйте URL для выключения makeUrl("/led/off"), отправьте Client.get,
+     *    и в ответе обновите UI через updateLedUI(false).
+     * 3. Если isLedOn == false -> сформируйте URL для включения makeUrl("/led/on"), отправьте Client.get,
+     *    и в ответе обновите UI через updateLedUI(true).
      * (см. подробнее в МЕТОДИЧКА.md)
      */
     @FXML

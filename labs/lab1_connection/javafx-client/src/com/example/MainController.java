@@ -7,26 +7,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import kong.unirest.Unirest;
 
 /**
-* 📘 Практическая работа №1: Шаблон для студента.
-* Задание: реализовать подключение к ESP32 и проверку связи (Ping) по МЕТОДИЧКЕ.
-*/
-
+ * 📘 Практическая работа №1: Шаблон для студента.
+ * Задание: реализовать подключение к ESP32 и проверку связи (Ping) по МЕТОДИЧКЕ.
+ */
 public class MainController {
 
     static {
         System.setProperty("java.net.preferIPv4Stack", "true");
         System.setProperty("java.net.useSystemProxies", "false");
         System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
-
-        Unirest.config()
-        .reset()
-        .connectTimeout(3000)
-        .socketTimeout(3000)
-        .setDefaultHeader("Connection", "close")
-        .proxy((kong.unirest.Proxy) null);
     }
 
     // Элементы интерфейса
@@ -40,7 +31,7 @@ public class MainController {
     private boolean isConnected = false;
 
     /**
-     * Универсальный метод построения URL (с защитой от опечаток и IPv6)
+     * Универсальный метод построения URL (с защитой от опечаток и авто-портом 4000)
      */
     public String makeUrl(String endpoint) {
         String input = hostField.getText().trim();
@@ -72,12 +63,20 @@ public class MainController {
 
     /**
      * TODO: Задание 1. Подключение к плате ESP32
-     * 1. Сформируйте URL через makeUrl("/status")
-     * 2. Выполните асинхронный GET-запрос: Unirest.get(url).asStringAsync(...)
-     * 3. Внутри Platform.runLater() проверьте response.isSuccess():
-     *    - Установите isConnected = true, текст кнопки "Отключиться"
-     *    - Покрасьте statusIndicator в Color.LIMEGREEN, статус "ПОДКЛЮЧЕНО"
-     *    - Разблокируйте pingBtn.setDisable(false)
+     * 1. Сформируйте URL: String url = makeUrl("/status");
+     * 2. Выполните асинхронный GET-запрос:
+     *    Client.get(url, response -> {
+     *        if (response.isSuccess()) {
+     *            isConnected = true;
+     *            connectBtn.setText("Отключиться");
+     *            statusLabel.setText("ПОДКЛЮЧЕНО (" + response.getBody() + ")");
+     *            statusIndicator.setFill(Color.LIMEGREEN);
+     *            pingBtn.setDisable(false);
+     *        } else {
+     *            statusLabel.setText("НЕТ СВЯЗИ");
+     *            statusIndicator.setFill(Color.RED);
+     *        }
+     *    });
      */
     @FXML
     void handleConnect() {
@@ -103,10 +102,16 @@ public class MainController {
     /**
      * TODO: Задание 2. Проверка задержки связи (Ping)
      * 1. Засеките время старта: long startTime = System.currentTimeMillis();
-     * 2. Сформируйте URL: makeUrl("/ping")
-     * 3. Выполните Unirest.get(url).asStringAsync(...)
-     * 4. В Platform.runLater() посчитайте задержку: long rtt = System.currentTimeMillis() - startTime;
-     * 5. Выведите результат в pingResultLabel
+     * 2. Сформируйте URL: String url = makeUrl("/ping");
+     * 3. Выполните:
+     *    Client.get(url, response -> {
+     *        long latency = System.currentTimeMillis() - startTime;
+     *        if (response.isSuccess()) {
+     *            pingResultLabel.setText(String.format("%s (%d ms)", response.getBody(), latency));
+     *        } else {
+     *            pingResultLabel.setText("Таймаут пинга");
+     *        }
+     *    });
      */
     @FXML
     void handlePing() {

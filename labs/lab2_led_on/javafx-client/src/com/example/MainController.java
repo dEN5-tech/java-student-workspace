@@ -7,26 +7,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import kong.unirest.Unirest;
 
 /**
-* 💡 Практическая работа №2: Шаблон для студента.
-* Задание: реализовать включение светодиода (GPIO 4) по МЕТОДИЧКЕ.
-*/
-
+ * 💡 Практическая работа №2: Шаблон для студента.
+ * Задание: реализовать включение светодиода (GPIO 4) по МЕТОДИЧКЕ.
+ */
 public class MainController {
 
     static {
         System.setProperty("java.net.preferIPv4Stack", "true");
         System.setProperty("java.net.useSystemProxies", "false");
         System.setProperty("http.nonProxyHosts", "localhost|127.0.0.1|10.*");
-
-        Unirest.config()
-        .reset()
-        .connectTimeout(3000)
-        .socketTimeout(3000)
-        .setDefaultHeader("Connection", "close")
-        .proxy((kong.unirest.Proxy) null);
     }
 
     // Элементы подключения
@@ -76,17 +67,15 @@ public class MainController {
             statusLabel.setText("ПОДКЛЮЧЕНИЕ...");
 
             String url = makeUrl("/status");
-            Unirest.get(url).asStringAsync(response -> {
-                Platform.runLater(() -> {
-                    if (response != null && response.isSuccess()) {
-                        isConnected = true;
-                        connectBtn.setText("Отключиться");
-                        statusLabel.setText("ПОДКЛЮЧЕНО");
-                        btnTurnOnLed.setDisable(false);
-                    } else {
-                        statusLabel.setText("НЕТ СВЯЗИ");
-                    }
-                });
+            Client.get(url, response -> {
+                if (response.isSuccess()) {
+                    isConnected = true;
+                    connectBtn.setText("Отключиться");
+                    statusLabel.setText("ПОДКЛЮЧЕНО");
+                    btnTurnOnLed.setDisable(false);
+                } else {
+                    statusLabel.setText("НЕТ СВЯЗИ");
+                }
             });
         } else {
             disconnect();
@@ -105,11 +94,14 @@ public class MainController {
     /**
      * TODO: Задание лабораторной работы №2.
      * 1. Сформируйте URL через makeUrl("/led/on")
-     * 2. Отправьте асинхронный GET-запрос через Unirest.get(url).asStringAsync(...)
-     * 3. В Platform.runLater() обновите интерфейс:
-     *    - ledIndicator.setFill(Color.LIMEGREEN);
-     *    - ledStatusLabel.setText("СВЕТОДИОД ВКЛЮЧЕН");
-     *    (см. подробнее в МЕТОДИЧКА.md)
+     * 2. Отправьте асинхронный GET-запрос через:
+     *    Client.get(url, response -> {
+     *        if (response.isSuccess()) {
+     *            ledIndicator.setFill(Color.LIMEGREEN);
+     *            ledStatusLabel.setText("СВЕТОДИОД ВКЛЮЧЕН");
+     *        }
+     *    });
+     * (см. подробнее в МЕТОДИЧКА.md)
      */
     @FXML
     void handleTurnOnLed() {
