@@ -1,8 +1,19 @@
-{
-    "java.project.sourcePaths": ["src"],
+﻿{
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "../../javafx-client/lib/**/*.jar"
-    ]
+        "../../lib/*.jar",
+        "../../lib/javafx-sdk/lib/*.jar",
+        "../../../javafx-client/lib/*.jar",
+        "../../../javafx-client/lib/javafx-sdk/lib/*.jar",
+        "lib/*.jar",
+        "lib/javafx-sdk/lib/*.jar"
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.debug.settings.enableRunDebugCodeLens": true,
+    "java.debug.settings.forceBuildBeforeLaunch": true,
+    "java.format.enabled": true
 }

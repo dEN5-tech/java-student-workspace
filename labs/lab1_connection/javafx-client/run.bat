@@ -27,12 +27,16 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
-set "SDK_PATH=%ROOT%lib\javafx-sdk\lib"
-if not exist "%SDK_PATH%" set "SDK_PATH=%ROOT%..\..\lib\javafx-sdk\lib"
+set "SDK_PATH=%ROOT%..\..\lib\javafx-sdk\lib"
 if not exist "%SDK_PATH%" set "SDK_PATH=%ROOT%..\..\..\javafx-client\lib\javafx-sdk\lib"
+if not exist "%SDK_PATH%" set "SDK_PATH=%ROOT%lib\javafx-sdk\lib"
+
+set "SHARED_LIB=%ROOT%..\..\lib"
+if not exist "%SHARED_LIB%" set "SHARED_LIB=%ROOT%..\..\..\javafx-client\lib"
+if not exist "%SHARED_LIB%" set "SHARED_LIB=%ROOT%lib"
 
 echo [RUN] Launching JavaFX application...
-"%JAVA_CMD%" -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.net.useSystemProxies=false -Dhttp.nonProxyHosts="localhost|127.0.0.1|10.*" --enable-native-access=javafx.graphics --module-path "%SDK_PATH%" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media -cp "%ROOT%bin;%ROOT%lib\*" com.example.Launcher
+"%JAVA_CMD%" -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djava.net.useSystemProxies=false -Dhttp.nonProxyHosts="localhost|127.0.0.1|10.*" --enable-native-access=javafx.graphics --module-path "%SDK_PATH%" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media -cp "%ROOT%bin;%SHARED_LIB%\*;%ROOT%lib\*" com.example.Launcher
 
 if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] Application exited with code %ERRORLEVEL%.
