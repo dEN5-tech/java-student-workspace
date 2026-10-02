@@ -23,6 +23,10 @@ void setup() {
   Serial.println("  [ЛАБ 3] ESP32: Включение/Выключение LED (GPIO 4)");
   Serial.println("==========================================");
 
+  // Настройка заголовков: закрывать сокеты сразу (защита от зависания браузеров)
+  DefaultHeaders::Instance().addHeader("Connection", "close");
+  DefaultHeaders::Instance().addHeader("Access-Control-Allow-Origin", "*");
+
   // Шаг 1: Конфигурация пина светодиода
   pinMode(LED_PIN, OUTPUT);
   setLed(false);
@@ -69,6 +73,11 @@ void setup() {
   server.on("/led/toggle", HTTP_GET, [](AsyncWebServerRequest *request) {
     setLed(!isLedOn);
     request->send(200, "text/plain", isLedOn ? "STATUS:LED_IS_ON" : "STATUS:LED_IS_OFF");
+  });
+
+  // Обработчик 404
+  server.onNotFound([](AsyncWebServerRequest *request) {
+    request->send(404, "text/plain", "NOT_FOUND");
   });
 
   // Шаг 4: Запуск сервера

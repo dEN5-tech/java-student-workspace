@@ -16,6 +16,10 @@ void setup() {
   Serial.println("  [ЛАБ 1] ESP32: Проверка связи и Ping");
   Serial.println("==========================================");
 
+  // Настройка заголовков: закрывать сокеты сразу (защита от зависания браузеров)
+  DefaultHeaders::Instance().addHeader("Connection", "close");
+  DefaultHeaders::Instance().addHeader("Access-Control-Allow-Origin", "*");
+
   // Шаг 1: Подключение к виртуальной Wi-Fi сети Wokwi
   WiFi.mode(WIFI_STA);
   WiFi.begin("Wokwi-GUEST", "", 6);
@@ -48,6 +52,11 @@ void setup() {
     unsigned long uptimeSec = millis() / 1000;
     snprintf(response, sizeof(response), "STATUS:ONLINE;UPTIME=%lus", uptimeSec);
     request->send(200, "text/plain", response);
+  });
+
+  // Обработчик 404 (закрывает сокеты от /favicon.ico и левых запросов браузера)
+  server.onNotFound([](AsyncWebServerRequest *request) {
+    request->send(404, "text/plain", "NOT_FOUND");
   });
 
   // Шаг 3: Запуск сервера

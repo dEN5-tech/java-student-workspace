@@ -38,6 +38,10 @@ void setup() {
   Serial.println("  [ЛАБ 4] ESP32: Сервопривод (GPIO 18) + LED (GPIO 4)");
   Serial.println("==========================================");
 
+  // Настройка заголовков: закрывать сокеты сразу (защита от зависания браузеров)
+  DefaultHeaders::Instance().addHeader("Connection", "close");
+  DefaultHeaders::Instance().addHeader("Access-Control-Allow-Origin", "*");
+
   // Шаг 1: Настройка оборудования
   pinMode(LED_PIN, OUTPUT);
   setLed(false);
@@ -91,6 +95,11 @@ void setup() {
     char response[32];
     snprintf(response, sizeof(response), "STATUS:SERVO=%d", currentAngle);
     request->send(200, "text/plain", response);
+  });
+
+  // Обработчик 404
+  server.onNotFound([](AsyncWebServerRequest *request) {
+    request->send(404, "text/plain", "NOT_FOUND");
   });
 
   // Шаг 4: Запуск сервера
