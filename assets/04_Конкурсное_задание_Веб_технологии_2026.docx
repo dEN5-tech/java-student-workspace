@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+<title>Страница входа - Цифровая Платформа Чемпионата</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+
+
+
+
+<link href="/css/all.css?v2" rel="stylesheet" type="text/css" media="all" />
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="/img/favicons/site.webmanifest">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#4ecc0a">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+</head>
+
+<body>
+
+<div class="main-container fullscreen">
+    <div class="container login-container">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-7">
+                <div class="text-center">
+                                        <div class="logo-block d-none" >
+                        <img alt="" src="/img/pro-logo-green.svg"/>
+                    </div>
+
+                    <h5 class="h5 mt-3">Добро пожаловать в<br>цифровую платформу всероссийских чемпионатных движений<br><span>"Профессионалы"</span>, <span>"Абилимпикс"</span> <br>и <span>"Мастер Года"</span></h5>
+                    <p class="lead"></p>
+                    <form method="post" action="https://esim.firpo.ru/login">
+                        <input type="hidden" name="_token" value="cIWv8w46m5Avk8UOzbEdhU7IUZRi56mUBdxdVBUA">                                                                        <div class="form-group">
+                            <input class="form-control" type="email" placeholder="Email" name="email"/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" placeholder="Пароль" name="password"/>
+                            <div class="text-right  ">
+                                <small><a href="https://esim.firpo.ru/forgot-password">Забыли пароль?</a>
+                                </small>
+                            </div>
+                        </div>
+                        <input type="hidden" name="remember" value="1">
+                        <button class="btn btn-lg btn-block btn-primary" role="button" type="submit">
+                            Войти
+                        </button>
+                    </form>
+
+                        <a href="https://esim.firpo.ru/signup" class="d-block link mt-4" role="button">
+                            Зарегистрироваться
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/all.js"></script>
+
+</body>
+
+</html>
