@@ -1,0 +1,495 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Кафе «Tortotoro» — API Модуля Б (Демоэкзамен / Профессионалы)",
+    "description": "Полная коллекция Postman для тестирования и отладки REST API кафе «Tortotoro» (Django REST Backend, порт 8080).\n\n### Инструкция:\n1. Запустите бэкенд (`tortotoro_backend.exe` на `http://127.0.0.1:8080`).\n2. Выполните запрос **Авторизация -> Логин (Администратор)**.\n3. Скрипт автоматически сохранит полученный токен в переменную `{{token}}`.\n4. Все последующие запросы будут автоматически отправлять заголовок `Authorization: Bearer {{token}}`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8080/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Авторизация и профиль",
+      "item": [
+        {
+          "name": "Вход: Администратор (admin)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.data && jsonData.data.token) {",
+                  "        pm.collectionVariables.set('token', jsonData.data.token);",
+                  "        console.log('Токен успешно сохранен:', jsonData.data.token);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["login"]
+            },
+            "description": "Авторизация под учетной записью Администратора (роль 1)"
+          }
+        },
+        {
+          "name": "Вход: Официант (waiter1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.data && jsonData.data.token) {",
+                  "        pm.collectionVariables.set('token', jsonData.data.token);",
+                  "        console.log('Токен сохранен:', jsonData.data.token);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"waiter1\",\n  \"password\": \"waiter123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["login"]
+            },
+            "description": "Авторизация под учетной записью Официанта (роль 2)"
+          }
+        },
+        {
+          "name": "Вход: Повар (cook1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.data && jsonData.data.token) {",
+                  "        pm.collectionVariables.set('token', jsonData.data.token);",
+                  "        console.log('Токен сохранен:', jsonData.data.token);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"cook1\",\n  \"password\": \"cook123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["login"]
+            },
+            "description": "Авторизация под учетной записью Повара (роль 3)"
+          }
+        },
+        {
+          "name": "Получить текущего пользователя",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": ["{{baseUrl}}"],
+              "path": ["user"]
+            },
+            "description": "Возвращает информацию об авторизованном сотруднике"
+          }
+        },
+        {
+          "name": "Выход из системы (Logout)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["logout"]
+            },
+            "description": "Инвалидация текущей сессии пользователя"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Администратор — Сотрудники",
+      "item": [
+        {
+          "name": "Получить список сотрудников",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["users"]
+            },
+            "description": "Возвращает список всех сотрудников (активных и уволенных)"
+          }
+        },
+        {
+          "name": "Создать сотрудника",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Сергей Волков\",\n  \"login\": \"sergey_waiter\",\n  \"password\": \"pass12345\",\n  \"role_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["users"]
+            },
+            "description": "Регистрация нового сотрудника (role_id: 1 - Админ, 2 - Официант, 3 - Повар)"
+          }
+        },
+        {
+          "name": "Уволить сотрудника",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "2"]
+            },
+            "description": "Переводит статус сотрудника в 'dismissed'"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Администратор — Рабочие смены",
+      "item": [
+        {
+          "name": "Получить список смен",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/work-shifts",
+              "host": ["{{baseUrl}}"],
+              "path": ["work-shifts"]
+            },
+            "description": "Возвращает все рабочие смены с назначенными сотрудниками и статусами"
+          }
+        },
+        {
+          "name": "Создать смену",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"08:00\",\n  \"end\": \"20:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/work-shifts",
+              "host": ["{{baseUrl}}"],
+              "path": ["work-shifts"]
+            },
+            "description": "Создает новую рабочую смену"
+          }
+        },
+        {
+          "name": "Открыть смену",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/work-shifts/1/open",
+              "host": ["{{baseUrl}}"],
+              "path": ["work-shifts", "1", "open"]
+            },
+            "description": "Открывает смену для работы (active = true)"
+          }
+        },
+        {
+          "name": "Закрыть смену",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/work-shifts/1/close",
+              "host": ["{{baseUrl}}"],
+              "path": ["work-shifts", "1", "close"]
+            },
+            "description": "Закрывает смену (active = false, closed = true). Закрытую смену повторно открыть нельзя."
+          }
+        },
+        {
+          "name": "Назначить сотрудника на смену",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/work-shifts/1/user",
+              "host": ["{{baseUrl}}"],
+              "path": ["work-shifts", "1", "user"]
+            },
+            "description": "Прикрепляет сотрудника к конкретной смене"
+          }
+        },
+        {
+          "name": "Снять сотрудника со смены",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/work-shifts/1/user/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["work-shifts", "1", "user", "2"]
+            },
+            "description": "Удаляет сотрудника из списка смены"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Заказы (Официант / Повар / Админ)",
+      "item": [
+        {
+          "name": "Получить список заказов",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            },
+            "description": "Возвращает все заказы со списком позиций и статусами"
+          }
+        },
+        {
+          "name": "Создать новый заказ (Официант)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"table\": \"Столик №3\",\n  \"items\": [\n    {\n      \"name\": \"Капучино Большой\",\n      \"price\": 220,\n      \"count\": 1\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            },
+            "description": "Создание заказа в открытой смене официанта со статусом 1 (Принят)"
+          }
+        },
+        {
+          "name": "Добавить блюдо в существующий заказ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Круассан с шоколадом\",\n  \"price\": 160,\n  \"count\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/1/position",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "1", "position"]
+            },
+            "description": "Добавление дополнительной позиции в заказ"
+          }
+        },
+        {
+          "name": "Удалить блюдо из заказа",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders/1/position/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "1", "position", "1"]
+            },
+            "description": "Удаление конкретной позиции из заказа"
+          }
+        },
+        {
+          "name": "Сменить статус заказа (Готовится / Готов / Оплачен / Отменен)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "1", "status"]
+            },
+            "description": "Коды статусов:\n1 — Принят\n2 — Готовится (Повар)\n3 — Готов (Повар)\n4 — Оплачен (Официант, только если статус 3)\n5 — Отменен (Официант/Админ)"
+          }
+        }
+      ]
+    }
+  ]
+}
