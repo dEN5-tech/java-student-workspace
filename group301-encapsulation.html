@@ -180,7 +180,7 @@
       .subtab-pane.active {
         display: block;
       }
-    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3">Дисциплина: Разработка прикладных приложений (Группа 301, 3 курс)</h2><div class="card mb-4 border-info shadow-sm bg-light"><div class="card-body d-flex flex-wrap align-items-center justify-content-between"><div class="me-3 mb-2 mb-md-0"><h5 class="card-title text-primary mb-0"><i class="fa-solid fa-gamepad me-2"></i>Шаблон игрового проекта для VS Code (СПО)</h5></div><div><span><a href="assets/college-game-vsc-starter.zip" class="btn btn-primary text-white text-nowrap fw-bold shadow-sm"><i class="fa-solid fa-download me-2"></i>Скачать стартер (.zip)</a></span></div></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="group301SubTabs"><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-calc" href="group301-calc.html"><i class="fa-solid fa-calculator me-2"></i>Задание 1: Калькулятор (switch)</a></li><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-fighter" href="group301-fighter.html"><i class="fa-solid fa-shield-halved me-2"></i>Задание 2: Fighter (Межобъектное взаимодействие)</a></li><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-oop" href="group301-oop.html"><i class="fa-solid fa-cubes me-2"></i>Задание 3: Тема 4.5. ООП (Классы и объекты)</a></li><li class="nav-item"><a class="nav-link active" id="subtab-btn-encapsulation" href="group301-encapsulation.html"><i class="fa-solid fa-lock me-2"></i>Задание 4: Лаб. №10–11 (Конструкторы, this, Инкапсуляция)</a></li></ul><div id="subtab-pane-calc" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-calculator me-2 text-primary"></i>Лабораторная работа: Консольный калькулятор с оператором switch</h4><span class="badge bg-primary">Группа 301</span></div><div class="card-body"><h5>🎯 Цель работы</h5><p>Освоить синтаксис и логику оператора множественного выбора <code>switch</code> в Java, реализовать интерактивный консольный ввод данных (класс <code>Scanner</code>) и корректную обработку краевых случаев (деление на ноль, неизвестные символы).</p><hr/><h5>📖 1. Теоретические требования к реализации</h5><ul><li><strong>Оператор switch:</strong> передает управление в одну из веток <code>case</code> в зависимости от выбранного символа операции (<code>char</code> или <code>String</code>).</li><li><strong>Оператор break:</strong> обязателен в конце каждого блока <code>case</code> для предотвращения сквозного выполнения последующих веток.</li><li><strong>Блок default:</strong> обязателен для отлова некорректных или неподдерживаемых знаков операций.</li></ul><div class="alert alert-warning"><strong>⚠️ Внимание:</strong> Код программы студенты пишут самостоятельно в своем воркспейсе. Изучите требования и тестовые сценарии ниже.</div><hr/><h5>📋 2. Техническое задание</h5><ol><li><strong>Входные данные:</strong><ul><li>Первое вещественное число (тип <code>double</code>).</li><li>Знак математической операции (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>).</li><li>Второе вещественное число (тип <code>double</code>).</li></ul></li><li><strong>Логика вычислений:</strong><ul><li>Выбор операции должен быть реализован строго через конструкцию <code>switch</code>.</li><li>Поддерживаемые операции: сложение, вычитание, умножение, деление.</li></ul></li><li><strong>Обработка исключений и ошибок:</strong><ul><li><strong>Деление на ноль:</strong> программа не должна аварийно падать. Перед делением выполните проверку делителя и выведите предупреждение: <em>«Ошибка: деление на ноль невозможно»</em>.</li><li><strong>Неверная операция:</strong> если символ не поддерживается, блок <code>default</code> выводит: <em>«Ошибка: неизвестная операция»</em>.</li></ul></li><li><strong>Вывод:</strong> понятное сообщение с результатом вычисления (например: <code>15.0 + 27.0 = 42.0</code>).</li></ol><hr/><h5>🧪 3. Таблица тестовых сценариев для проверки</h5><div class="table-responsive"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th>№</th><th>Число 1</th><th>Операция</th><th>Число 2</th><th>Ожидаемый результат</th></tr></thead><tbody><tr><td><strong>1</strong></td><td><code>15</code></td><td><code>+</code></td><td><code>27</code></td><td><code>42.0</code></td></tr><tr><td><strong>2</strong></td><td><code>100</code></td><td><code>-</code></td><td><code>45.5</code></td><td><code>54.5</code></td></tr><tr><td><strong>3</strong></td><td><code>-4</code></td><td><code>*</code></td><td><code>8</code></td><td><code>-32.0</code></td></tr><tr><td><strong>4</strong></td><td><code>15</code></td><td><code>/</code></td><td><code>4</code></td><td><code>3.75</code></td></tr><tr><td><strong>5</strong></td><td><code>10</code></td><td><code>/</code></td><td><code>0</code></td><td><span class="text-danger">Ошибка: деление на ноль невозможно</span></td></tr><tr><td><strong>6</strong></td><td><code>5</code></td><td><code>%</code></td><td><code>2</code></td><td><span class="text-danger">Ошибка: неизвестный оператор</span></td></tr></tbody></table></div><hr/><h5>🌟 4. Дополнительные задания (на оценку «5»)</h5><ul><li><strong>Цикл повторения:</strong> обернуть расчет в цикл с запросом повторного вычисления (<code>y/n</code>).</li><li><strong>Дополнительные операции:</strong> возведение в степень (<code>^</code>) или расчет остатка от деления (<code>%</code>).</li></ul></div></div></div><div id="subtab-pane-fighter" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-shield-halved me-2 text-primary"></i>Практическое занятие: Объекты как параметры методов. Межобъектное взаимодействие</h4><span class="badge bg-secondary">Группа 301</span></div><div class="card-body"><h4>1. Теоретические сведения: Как объекты передаются в методы</h4><p>В языке Java все параметры передаются в методы <strong>по значению</strong>:</p><ul><li><strong>Примитивные типы (int, double, boolean):</strong> передается <em>копия значения</em> переменной.</li><li><strong>Объекты классов (ссылочные типы):</strong> передается <em>копия ссылки</em> на область в куче (Heap), указывающая на <strong>тот же самый объект</strong>.</li></ul><div class="alert alert-info"><strong>Ключевой вывод:</strong> Когда мы передаем один объект в метод другого объекта (например, <code>hero.attack(monster)</code>), метод получает доступ к реальному объекту <code>monster</code> и может вызывать его методы или изменять его поля.</div><hr/><h4>2. Практический пример: Моделирование боя персонажей</h4><p>Рассмотрим программу из класса <code>Fighter</code> и главного класса <code>BattleDemo</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('editor-fighter-battle', this); } else { const el = document.getElementById('editor-fighter-battle'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-fighter-battle" data-monokai-editor="true" data-language="java" data-readonly="false" style="min-height: 120px; height: 450px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>// 1. Класс персонажа
+    </style><div class="no-overflow"><p><a href="index.html">« Назад к Теме 1</a></p><h2 class="mb-3">Дисциплина: Разработка прикладных приложений (Группа 301, 3 курс)</h2><div class="card mb-4 border-info shadow-sm bg-light"><div class="card-body d-flex flex-wrap align-items-center justify-content-between"><div class="me-3 mb-2 mb-md-0"><h5 class="card-title text-primary mb-0"><i class="fa-solid fa-gamepad me-2"></i>Шаблон игрового проекта для VS Code (СПО)</h5></div><div><span><a href="assets/college-game-vsc-starter.zip" class="btn btn-primary text-white text-nowrap fw-bold shadow-sm"><i class="fa-solid fa-download me-2"></i>Скачать стартер (.zip)</a></span></div></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3" id="group301SubTabs"><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-calc" href="group301-calc.html"><i class="fa-solid fa-calculator me-2"></i>Задание 1: Калькулятор (switch)</a></li><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-fighter" href="group301-fighter.html"><i class="fa-solid fa-shield-halved me-2"></i>Задание 2: Fighter (Межобъектное взаимодействие)</a></li><li class="nav-item me-2"><a class="nav-link " id="subtab-btn-oop" href="group301-oop.html"><i class="fa-solid fa-cubes me-2"></i>Задание 3: Тема 4.5. ООП (Классы и объекты)</a></li><li class="nav-item me-2"><a class="nav-link active" id="subtab-btn-encapsulation" href="group301-encapsulation.html"><i class="fa-solid fa-lock me-2"></i>Задание 4: Лаб. №10–11 (Конструкторы, this, Инкапсуляция)</a></li><li class="nav-item"><a class="nav-link " id="subtab-btn-static" href="group301-static.html"><i class="fa-solid fa-box-archive me-2"></i>Задание 5: Лаб. №12 (static, final, Пакеты)</a></li></ul><div id="subtab-pane-calc" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-calculator me-2 text-primary"></i>Лабораторная работа: Консольный калькулятор с оператором switch</h4><span class="badge bg-primary">Группа 301</span></div><div class="card-body"><h5>🎯 Цель работы</h5><p>Освоить синтаксис и логику оператора множественного выбора <code>switch</code> в Java, реализовать интерактивный консольный ввод данных (класс <code>Scanner</code>) и корректную обработку краевых случаев (деление на ноль, неизвестные символы).</p><hr/><h5>📖 1. Теоретические требования к реализации</h5><ul><li><strong>Оператор switch:</strong> передает управление в одну из веток <code>case</code> в зависимости от выбранного символа операции (<code>char</code> или <code>String</code>).</li><li><strong>Оператор break:</strong> обязателен в конце каждого блока <code>case</code> для предотвращения сквозного выполнения последующих веток.</li><li><strong>Блок default:</strong> обязателен для отлова некорректных или неподдерживаемых знаков операций.</li></ul><div class="alert alert-warning"><strong>⚠️ Внимание:</strong> Код программы студенты пишут самостоятельно в своем воркспейсе. Изучите требования и тестовые сценарии ниже.</div><hr/><h5>📋 2. Техническое задание</h5><ol><li><strong>Входные данные:</strong><ul><li>Первое вещественное число (тип <code>double</code>).</li><li>Знак математической операции (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>).</li><li>Второе вещественное число (тип <code>double</code>).</li></ul></li><li><strong>Логика вычислений:</strong><ul><li>Выбор операции должен быть реализован строго через конструкцию <code>switch</code>.</li><li>Поддерживаемые операции: сложение, вычитание, умножение, деление.</li></ul></li><li><strong>Обработка исключений и ошибок:</strong><ul><li><strong>Деление на ноль:</strong> программа не должна аварийно падать. Перед делением выполните проверку делителя и выведите предупреждение: <em>«Ошибка: деление на ноль невозможно»</em>.</li><li><strong>Неверная операция:</strong> если символ не поддерживается, блок <code>default</code> выводит: <em>«Ошибка: неизвестная операция»</em>.</li></ul></li><li><strong>Вывод:</strong> понятное сообщение с результатом вычисления (например: <code>15.0 + 27.0 = 42.0</code>).</li></ol><hr/><h5>🧪 3. Таблица тестовых сценариев для проверки</h5><div class="table-responsive"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th>№</th><th>Число 1</th><th>Операция</th><th>Число 2</th><th>Ожидаемый результат</th></tr></thead><tbody><tr><td><strong>1</strong></td><td><code>15</code></td><td><code>+</code></td><td><code>27</code></td><td><code>42.0</code></td></tr><tr><td><strong>2</strong></td><td><code>100</code></td><td><code>-</code></td><td><code>45.5</code></td><td><code>54.5</code></td></tr><tr><td><strong>3</strong></td><td><code>-4</code></td><td><code>*</code></td><td><code>8</code></td><td><code>-32.0</code></td></tr><tr><td><strong>4</strong></td><td><code>15</code></td><td><code>/</code></td><td><code>4</code></td><td><code>3.75</code></td></tr><tr><td><strong>5</strong></td><td><code>10</code></td><td><code>/</code></td><td><code>0</code></td><td><span class="text-danger">Ошибка: деление на ноль невозможно</span></td></tr><tr><td><strong>6</strong></td><td><code>5</code></td><td><code>%</code></td><td><code>2</code></td><td><span class="text-danger">Ошибка: неизвестный оператор</span></td></tr></tbody></table></div><hr/><h5>🌟 4. Дополнительные задания (на оценку «5»)</h5><ul><li><strong>Цикл повторения:</strong> обернуть расчет в цикл с запросом повторного вычисления (<code>y/n</code>).</li><li><strong>Дополнительные операции:</strong> возведение в степень (<code>^</code>) или расчет остатка от деления (<code>%</code>).</li></ul></div></div></div><div id="subtab-pane-fighter" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-shield-halved me-2 text-primary"></i>Практическое занятие: Объекты как параметры методов. Межобъектное взаимодействие</h4><span class="badge bg-secondary">Группа 301</span></div><div class="card-body"><h4>1. Теоретические сведения: Как объекты передаются в методы</h4><p>В языке Java все параметры передаются в методы <strong>по значению</strong>:</p><ul><li><strong>Примитивные типы (int, double, boolean):</strong> передается <em>копия значения</em> переменной.</li><li><strong>Объекты классов (ссылочные типы):</strong> передается <em>копия ссылки</em> на область в куче (Heap), указывающая на <strong>тот же самый объект</strong>.</li></ul><div class="alert alert-info"><strong>Ключевой вывод:</strong> Когда мы передаем один объект в метод другого объекта (например, <code>hero.attack(monster)</code>), метод получает доступ к реальному объекту <code>monster</code> и может вызывать его методы или изменять его поля.</div><hr/><h4>2. Практический пример: Моделирование боя персонажей</h4><p>Рассмотрим программу из класса <code>Fighter</code> и главного класса <code>BattleDemo</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('editor-fighter-battle', this); } else { const el = document.getElementById('editor-fighter-battle'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-fighter-battle" data-monokai-editor="true" data-language="java" data-readonly="false" style="min-height: 120px; height: 450px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>// 1. Класс персонажа
 class Fighter {
     String name;
     int hp;
@@ -1053,7 +1053,333 @@ public class Shield extends GameObject {
         }
 
         g.drawText("Очки: " + player.getScore(), 30, 98, 18, Color.YELLOW);
-    }</code></pre></div></div><hr/><h4>4. 🧪 Таблица тестовых сценариев проверки инкапсуляции (QA)</h4><p>Для успешной сдачи работы преподавателю ваша реализация должна корректно проходить следующие тесты валидации:</p><div class="table-responsive mb-4"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th>№</th><th>Тестовое действие</th><th>Передаваемые параметры</th><th>Ожидаемый результат валидации</th><th>Статус защиты</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>Попытка установить отрицательную прочность</td><td><code>shield.setDurability(-40)</code></td><td>Поле <code>durability</code> становится <code>0</code>, флаг <code>active</code> переходит в <code>false</code>.</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>2</strong></td><td>Попытка превысить максимальную емкость</td><td><code>shield.setDurability(9999)</code></td><td>Поле <code>durability</code> ограничивается значением <code>maxDurability</code> (100).</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>3</strong></td><td>Создание щита через конструктор по умолчанию</td><td><code>new Shield(player)</code></td><td>Срабатывает цепочка <code>this(...)</code>, прочность устанавливается в 100.</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>4</strong></td><td>Столкновение с врагом при активном щите</td><td>Враг наносит <code>1</code> урон</td><td>Урон списывается со щита, жизни игрока <code>lives</code> остаются равны 3!</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>5</strong></td><td>Урон превосходит запас щита</td><td>У щита 10 HP, урон врага 25</td><td>Щит поглощает 10 HP и отключается, остаток 15 урона снимает здоровье игрока.</td><td><span class="badge bg-success">Успешно</span></td></tr></tbody></table></div><hr/><h4>5. 🌟 Задания для самостоятельной работы</h4><div class="row g-3 mb-4"><div class="col-md-6"><div class="card h-100 border-info"><div class="card-header bg-info text-white fw-bold"><i class="fa-solid fa-star me-2"></i>Задание на оценку «4» (Авторегенерация щита)</div><div class="card-body"><p>В классе <code>Shield.java</code> добавьте переменную таймера:<br/><code>private double regenTimer = 0.0;</code></p><p>В методе <code>update(double delta)</code> реализуйте постепенное восстановление щита: если щит включен и его прочность меньше максимальной, каждую секунду восстанавливать <strong>+5 единиц прочности</strong>.</p></div></div></div><div class="col-md-6"><div class="card h-100 border-warning"><div class="card-header bg-warning text-dark fw-bold"><i class="fa-solid fa-trophy me-2"></i>Задание на оценку «5» (Новый класс Battery.java)</div><div class="card-body"><p>Спроектируйте с нуля новый пользовательский класс <strong><code>Battery.java</code></strong>:</p><ul><li>Наследует <code>GameObject</code> (желто-зеленый прямоугольник 20x20).</li><li>Инкапсулированное поле <code>private int energyBonus = 50;</code>.</li><li>Перегруженные конструкторы: по умолчанию и с указанием бонуса.</li><li>При подборе игроком мгновенно перезаряжает щит через <code>shield.recharge(...)</code> и удаляется через <code>destroy()</code>.</li></ul></div></div></div></div><hr/><h4>6. ❓ Контрольные вопросы для защиты лабораторных работ № 10 и № 11</h4><ol class="mb-0"><li>В чем фундаментальное отличие модификатора <code>private</code> от <code>public</code>?</li><li>Зачем объявлять поля класса закрытыми (<code>private</code>), если для них все равно пишутся геттеры и сеттеры?</li><li>Почему вызов перегруженного конструктора через <code>this(...)</code> обязан быть строго первой строкой в конструкторе?</li><li>Как ключевое слово <code>this</code> позволяет разрешить коллизию одинаковых имен поля объекта и параметра метода?</li><li>Что произойдет, если программист не создаст в классе ни одного конструктора? Какой конструктор сгенерирует компилятор?</li><li>В каком порядке выполняются статический блок инициализации, нестатический блок инициализации и конструктор класса?</li><li>Что такое защитное программирование (defensive programming) в контексте сеттеров?</li><li>Может ли один конструктор класса вызывать другой конструктор через имя класса вместо <code>this</code>?</li><li>Какое ключевое слово используется для обращения к конструктору базового класса-родителя?</li><li>В чем разница между передачей по значению примитивного типа (<code>int</code>) и объекта (<code>Shield</code>) в аргумент метода?</li></ol></div></div></div><hr/><h4>Личное хранилище работы (Группа 301)</h4><p><a href="https://github.com/dEN5-tech/java-student-workspace" class="btn btn-primary text-white"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Репозиторий / Личное хранилище группы 301</a></p><p><br/><a href="index.html">« Назад к Теме 1</a></p><script>(function(){let a=new Map,u={base:"vs-dark",inherit:!0,rules:[{background:"272822",token:""},{token:"comment",foreground:"75715e",fontStyle:"italic"},{token:"keyword",foreground:"f92672",fontStyle:"bold"},{token:"identifier",foreground:"f8f8f2"},{token:"type",foreground:"66d9ef",fontStyle:"italic"},{token:"type.identifier",foreground:"66d9ef",fontStyle:"italic"},{token:"storage",foreground:"f92672"},{token:"storage.type",foreground:"66d9ef",fontStyle:"italic"},{token:"string",foreground:"e6db74"},{token:"number",foreground:"ae81ff"},{token:"constant",foreground:"ae81ff"},{token:"function",foreground:"a6e22e"},{token:"variable",foreground:"f8f8f2"},{token:"variable.predefined",foreground:"fd971f"},{token:"operator",foreground:"f92672"},{token:"delimiter",foreground:"f8f8f2"}],colors:{"editor.background":"#272822","editor.foreground":"#f8f8f2","editorCursor.foreground":"#f8f8f0","editor.lineHighlightBackground":"#3e3d32","editorLineNumber.foreground":"#90908a","editorLineNumber.activeForeground":"#c4c4be","editor.selectionBackground":"#49483e","editor.inactiveSelectionBackground":"#383830","editorWidget.background":"#1e1f1c","editorWidget.border":"#3e3d32","scrollbarSlider.background":"#49483e80","scrollbarSlider.hoverBackground":"#75715e80","scrollbarSlider.activeBackground":"#a6a59b80"}};function w(){if(window.MonacoEnvironment)return;let o=new Blob([`
+    }</code></pre></div></div><hr/><h4>4. 🧪 Таблица тестовых сценариев проверки инкапсуляции (QA)</h4><p>Для успешной сдачи работы преподавателю ваша реализация должна корректно проходить следующие тесты валидации:</p><div class="table-responsive mb-4"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th>№</th><th>Тестовое действие</th><th>Передаваемые параметры</th><th>Ожидаемый результат валидации</th><th>Статус защиты</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>Попытка установить отрицательную прочность</td><td><code>shield.setDurability(-40)</code></td><td>Поле <code>durability</code> становится <code>0</code>, флаг <code>active</code> переходит в <code>false</code>.</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>2</strong></td><td>Попытка превысить максимальную емкость</td><td><code>shield.setDurability(9999)</code></td><td>Поле <code>durability</code> ограничивается значением <code>maxDurability</code> (100).</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>3</strong></td><td>Создание щита через конструктор по умолчанию</td><td><code>new Shield(player)</code></td><td>Срабатывает цепочка <code>this(...)</code>, прочность устанавливается в 100.</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>4</strong></td><td>Столкновение с врагом при активном щите</td><td>Враг наносит <code>1</code> урон</td><td>Урон списывается со щита, жизни игрока <code>lives</code> остаются равны 3!</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>5</strong></td><td>Урон превосходит запас щита</td><td>У щита 10 HP, урон врага 25</td><td>Щит поглощает 10 HP и отключается, остаток 15 урона снимает здоровье игрока.</td><td><span class="badge bg-success">Успешно</span></td></tr></tbody></table></div><hr/><h4>5. 🌟 Задания для самостоятельной работы</h4><div class="row g-3 mb-4"><div class="col-md-6"><div class="card h-100 border-info"><div class="card-header bg-info text-white fw-bold"><i class="fa-solid fa-star me-2"></i>Задание на оценку «4» (Авторегенерация щита)</div><div class="card-body"><p>В классе <code>Shield.java</code> добавьте переменную таймера:<br/><code>private double regenTimer = 0.0;</code></p><p>В методе <code>update(double delta)</code> реализуйте постепенное восстановление щита: если щит включен и его прочность меньше максимальной, каждую секунду восстанавливать <strong>+5 единиц прочности</strong>.</p></div></div></div><div class="col-md-6"><div class="card h-100 border-warning"><div class="card-header bg-warning text-dark fw-bold"><i class="fa-solid fa-trophy me-2"></i>Задание на оценку «5» (Новый класс Battery.java)</div><div class="card-body"><p>Спроектируйте с нуля новый пользовательский класс <strong><code>Battery.java</code></strong>:</p><ul><li>Наследует <code>GameObject</code> (желто-зеленый прямоугольник 20x20).</li><li>Инкапсулированное поле <code>private int energyBonus = 50;</code>.</li><li>Перегруженные конструкторы: по умолчанию и с указанием бонуса.</li><li>При подборе игроком мгновенно перезаряжает щит через <code>shield.recharge(...)</code> и удаляется через <code>destroy()</code>.</li></ul></div></div></div></div><hr/><h4>6. ❓ Контрольные вопросы для защиты лабораторных работ № 10 и № 11</h4><ol class="mb-0"><li>В чем фундаментальное отличие модификатора <code>private</code> от <code>public</code>?</li><li>Зачем объявлять поля класса закрытыми (<code>private</code>), если для них все равно пишутся геттеры и сеттеры?</li><li>Почему вызов перегруженного конструктора через <code>this(...)</code> обязан быть строго первой строкой в конструкторе?</li><li>Как ключевое слово <code>this</code> позволяет разрешить коллизию одинаковых имен поля объекта и параметра метода?</li><li>Что произойдет, если программист не создаст в классе ни одного конструктора? Какой конструктор сгенерирует компилятор?</li><li>В каком порядке выполняются статический блок инициализации, нестатический блок инициализации и конструктор класса?</li><li>Что такое защитное программирование (defensive programming) в контексте сеттеров?</li><li>Может ли один конструктор класса вызывать другой конструктор через имя класса вместо <code>this</code>?</li><li>Какое ключевое слово используется для обращения к конструктору базового класса-родителя?</li><li>В чем разница между передачей по значению примитивного типа (<code>int</code>) и объекта (<code>Shield</code>) в аргумент метода?</li></ol></div></div></div><div id="subtab-pane-static" class="subtab-pane " style="display: none;"><div class="card mb-4 border-secondary shadow-sm"><div class="card-header bg-light d-flex justify-content-between align-items-center"><h4 class="mb-0"><i class="fa-solid fa-box-archive me-2 text-primary"></i>Тема 4.5: Лабораторная работа № 12 (Статические члены static, константы final, организация пакетов package и import)</h4><span class="badge bg-primary">Задание 5</span></div><div class="card-body"><div class="alert alert-primary d-flex align-items-center justify-content-between mb-4 shadow-sm"><div><h5 class="alert-heading mb-1"><i class="fa-solid fa-download me-2"></i>Шаг 0. Скачайте проект и откройте в VS Code</h5><p class="mb-0">Работа выполняется в учебном шаблоне <strong>college-game-vsc-starter</strong>. Распакуйте архив, откройте воркспейс в VS Code и запускайте проект по клавише <strong>F5</strong>.</p></div><div class="ms-3"><span><a href="assets/college-game-vsc-starter.zip" class="btn btn-primary text-white text-nowrap fw-bold shadow-sm"><i class="fa-solid fa-file-zipper me-2"></i>Скачать стартер (.zip)</a></span></div></div><h4>1. 📖 Лекция-визуализация: Статические члены, Константы и Пакеты</h4><p>По мере роста проекта хранить весь исходный код в одном месте становится невозможно. В этой лабораторной работе мы изучим три фундаментальные концепции промышленной разработки на Java:</p><div class="row g-3 mb-4"><div class="col-md-4"><div class="card h-100 border-primary"><div class="card-header bg-primary text-white fw-bold"><i class="fa-solid fa-layer-group me-2"></i>1. Пакеты (package)</div><div class="card-body"><p class="card-text small"><strong>Пакет (package)</strong> — это пространство имен и физическая папка на диске. Он предотвращает конфликты имен и группирует классы по назначению: <code>config</code>, <code>entities</code>, <code>utils</code>.</p><code>package ru.college.game.config;</code></div></div></div><div class="col-md-4"><div class="card h-100 border-success"><div class="card-header bg-success text-white fw-bold"><i class="fa-solid fa-microchip me-2"></i>2. Статические члены (static)</div><div class="card-body"><p class="card-text small">Слово <code>static</code> означает, что поле или метод принадлежат <strong>самому классу</strong>, а не отдельному объекту. Статическое поле существует в единственном экземпляре в памяти для всех объектов.</p><code>Enemy.getTotalEnemiesCount()</code></div></div></div><div class="col-md-4"><div class="card h-100 border-warning"><div class="card-header bg-warning text-dark fw-bold"><i class="fa-solid fa-lock me-2"></i>3. Константы (final)</div><div class="card-body"><p class="card-text small">Комбинация <code>public static final</code> объявляет глобальную неизменяемую константу. По общепринятому соглашению Java константы именуются заглавными буквами через подчеркивание.</p><code>GameConfig.SCREEN_WIDTH = 800;</code></div></div></div></div><h5 class="text-primary mt-4"><i class="fa-solid fa-code-compare me-2"></i>1.1. Сравнение обычных полей и статических полей (static)</h5><div class="table-responsive mb-4"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th style="width: 25%;">Критерий</th><th style="width: 35%;">Обычное поле экземпляра (Instance Field)</th><th style="width: 40%;">Статическое поле класса (Static Field)</th></tr></thead><tbody><tr><td><strong>Где хранится в памяти?</strong></td><td>В куче (Heap) внутри каждого отдельного объекта.</td><td>В специальной области классов (Metaspace / PermGen) в <strong>единственном экземпляре</strong>.</td></tr><tr><td><strong>Количество копий</strong></td><td>Сколько создано объектов через <code>new</code> — столько и копий полей.</td><td><strong>Ровно 1 копия</strong> на всю работающую программу.</td></tr><tr><td><strong>Как обращаться?</strong></td><td>Через переменную конкретного объекта: <code>hero.hp</code>.</td><td>Напрямую через имя класса: <code>Enemy.totalCount</code>.</td></tr><tr><td><strong>Пример в игре</strong></td><td>Координаты <code>x, y</code> и здоровье конкретного врага.</td><td>Общий счетчик созданных врагов, суммарный банк очков.</td></tr></tbody></table></div><hr/><h4>2. 🛠️ Пошаговое руководство по выполнению лабораторной работы</h4><p>Создайте в папке <code>src/ru/college/game/</code> три подпапки: <code>config/</code>, <code>entities/</code> и <code>utils/</code>.</p><h5 class="text-primary mt-3"><i class="fa-solid fa-file-code me-2"></i>Шаг 1: Создаем класс глобальной конфигурации <code>GameConfig.java</code></h5><p>Создайте файл <code>src/ru/college/game/config/GameConfig.java</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('editor-lab12-config', this); } else { const el = document.getElementById('editor-lab12-config'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-lab12-config" data-monokai-editor="true" data-language="java" data-readonly="false" style="min-height: 120px; height: 340px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game.config;
+
+/**
+ * ⚙️ Пакет конфигурации: Глобальные константы игры
+ */
+public class GameConfig {
+
+    // Приватный конструктор защищает от случайного создания экземпляров через new GameConfig()
+    private GameConfig() {}
+
+    // Константы размеров окна
+    public static final int SCREEN_WIDTH = 800;
+    public static final int SCREEN_HEIGHT = 600;
+
+    // Константы игрового баланса
+    public static final int PLAYER_MAX_LIVES = 3;
+    public static final double PLAYER_DEFAULT_SPEED = 220.0;
+    public static final int COIN_POINTS = 10;
+    public static final String GAME_TITLE = "College 2D Arcade [Lab 12: Packages & Static]";
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java hljs">package ru.college.game.config;
+
+/**
+ * ⚙️ Пакет конфигурации: Глобальные константы игры
+ */
+public class GameConfig {
+
+    // Приватный конструктор защищает от случайного создания экземпляров через new GameConfig()
+    private GameConfig() {}
+
+    // Константы размеров окна
+    public static final int SCREEN_WIDTH = 800;
+    public static final int SCREEN_HEIGHT = 600;
+
+    // Константы игрового баланса
+    public static final int PLAYER_MAX_LIVES = 3;
+    public static final double PLAYER_DEFAULT_SPEED = 220.0;
+    public static final int COIN_POINTS = 10;
+    public static final String GAME_TITLE = "College 2D Arcade [Lab 12: Packages & Static]";
+}</code></pre></div></div><h5 class="text-primary mt-4"><i class="fa-solid fa-file-code me-2"></i>Шаг 2: Создаем класс врага со статическим счетчиком <code>Enemy.java</code></h5><p>Создайте файл <code>src/ru/college/game/entities/Enemy.java</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('editor-lab12-enemy', this); } else { const el = document.getElementById('editor-lab12-enemy'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-lab12-enemy" data-monokai-editor="true" data-language="java" data-readonly="false" style="min-height: 120px; height: 450px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game.entities;
+
+import ru.college.engine.Color;
+import ru.college.engine.GameObject;
+
+/**
+ * 👾 Класс Противника со статическим счетчиком популяции (Пакет entities)
+ */
+public class Enemy extends GameObject {
+
+    // 1. СТАТИЧЕСКОЕ ПОЛЕ: общий счетчик для всех врагов в игре
+    private static int totalEnemiesCount = 0;
+
+    // Обычные поля отдельного врага
+    private String name;
+    private double speed = 130.0;
+    private int direction = 1;
+
+    public Enemy(String name, double startX, double startY) {
+        super(startX, startY, 36, 36, Color.RED);
+        this.name = name;
+
+        // При каждом вызове new Enemy увеличиваем статический счетчик на 1!
+        totalEnemiesCount++;
+        System.out.println("[Spawn] Создан " + name + ". Всего врагов в памяти: " + totalEnemiesCount);
+    }
+
+    @Override
+    public void update(double delta) {
+        // Автономное патрулирование влево-вправо
+        this.x += direction * speed * delta;
+        if (this.x > 700) {
+            direction = -1;
+        } else if (this.x < 100) {
+            direction = 1;
+        }
+    }
+
+    // 2. СТАТИЧЕСКИЙ МЕТОД для безопасного чтения закрытого статического поля
+    public static int getTotalEnemiesCount() {
+        return totalEnemiesCount;
+    }
+
+    // 3. СТАТИЧЕСКИЙ МЕТОД для сброса счетчика при перезапуске уровня
+    public static void resetCount() {
+        totalEnemiesCount = 0;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java hljs">package ru.college.game.entities;
+
+import ru.college.engine.Color;
+import ru.college.engine.GameObject;
+
+/**
+ * 👾 Класс Противника со статическим счетчиком популяции (Пакет entities)
+ */
+public class Enemy extends GameObject {
+
+    // 1. СТАТИЧЕСКОЕ ПОЛЕ: общий счетчик для всех врагов в игре
+    private static int totalEnemiesCount = 0;
+
+    // Обычные поля отдельного врага
+    private String name;
+    private double speed = 130.0;
+    private int direction = 1;
+
+    public Enemy(String name, double startX, double startY) {
+        super(startX, startY, 36, 36, Color.RED);
+        this.name = name;
+
+        // При каждом вызове new Enemy увеличиваем статический счетчик на 1!
+        totalEnemiesCount++;
+        System.out.println("[Spawn] Создан " + name + ". Всего врагов в памяти: " + totalEnemiesCount);
+    }
+
+    @Override
+    public void update(double delta) {
+        // Автономное патрулирование влево-вправо
+        this.x += direction * speed * delta;
+        if (this.x > 700) {
+            direction = -1;
+        } else if (this.x < 100) {
+            direction = 1;
+        }
+    }
+
+    // 2. СТАТИЧЕСКИЙ МЕТОД для безопасного чтения закрытого статического поля
+    public static int getTotalEnemiesCount() {
+        return totalEnemiesCount;
+    }
+
+    // 3. СТАТИЧЕСКИЙ МЕТОД для сброса счетчика при перезапуске уровня
+    public static void resetCount() {
+        totalEnemiesCount = 0;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}</code></pre></div></div><h5 class="text-primary mt-4"><i class="fa-solid fa-file-code me-2"></i>Шаг 3: Создаем утилитный класс расчетов <code>GameUtils.java</code></h5><p>Создайте файл <code>src/ru/college/game/utils/GameUtils.java</code>:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('editor-lab12-utils', this); } else { const el = document.getElementById('editor-lab12-utils'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-lab12-utils" data-monokai-editor="true" data-language="java" data-readonly="false" style="min-height: 120px; height: 340px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game.utils;
+
+/**
+ * 🧮 Утилитный класс со статическими математическими методами (Пакет utils)
+ */
+public class GameUtils {
+
+    private GameUtils() {}
+
+    /**
+     * Статический расчет бонусных очков с учетом комбо-множителя
+     */
+    public static int calculateBonus(int basePoints, int comboMultiplier) {
+        if (comboMultiplier <= 1) {
+            return basePoints;
+        }
+        return basePoints * comboMultiplier;
+    }
+
+    /**
+     * Статическое ограничение значения числовой переменной в диапазоне [min, max]
+     */
+    public static double clamp(double value, double min, double max) {
+        if (value < min) return min;
+        if (value > max) return max;
+        return value;
+    }
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java hljs">package ru.college.game.utils;
+
+/**
+ * 🧮 Утилитный класс со статическими математическими методами (Пакет utils)
+ */
+public class GameUtils {
+
+    private GameUtils() {}
+
+    /**
+     * Статический расчет бонусных очков с учетом комбо-множителя
+     */
+    public static int calculateBonus(int basePoints, int comboMultiplier) {
+        if (comboMultiplier <= 1) {
+            return basePoints;
+        }
+        return basePoints * comboMultiplier;
+    }
+
+    /**
+     * Статическое ограничение значения числовой переменной в диапазоне [min, max]
+     */
+    public static double clamp(double value, double min, double max) {
+        if (value < min) return min;
+        if (value > max) return max;
+        return value;
+    }
+}</code></pre></div></div><h5 class="text-primary mt-4"><i class="fa-solid fa-file-code me-2"></i>Шаг 4: Объединяем все пакеты через <code>import</code> в <code>MyGame.java</code></h5><p>Откройте <code>src/ru/college/game/MyGame.java</code> и подключите созданные классы:</p><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('editor-lab12-mygame', this); } else { const el = document.getElementById('editor-lab12-mygame'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="editor-lab12-mygame" data-monokai-editor="true" data-language="java" data-readonly="false" style="min-height: 120px; height: 520px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>package ru.college.game;
+
+// 1. ИМПОРТ классов из созданных пакетов
+import ru.college.engine.*;
+import ru.college.game.config.GameConfig;
+import ru.college.game.entities.Enemy;
+import ru.college.game.utils.GameUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyGame extends Game {
+
+    private List<Enemy> enemies = new ArrayList<>();
+    private int score = 0;
+
+    public MyGame() {
+        // Используем статические константы из пакета config
+        super(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
+    }
+
+    @Override
+    public void init() {
+        setBackgroundColor(new Color(20, 24, 34));
+
+        // Сбрасываем статический счетчик врагов
+        Enemy.resetCount();
+
+        // Создаем 4 врагов в цикле
+        for (int i = 0; i < 4; i++) {
+            Enemy enemy = new Enemy("Гоблин #" + (i + 1), 120 + (i * 140), 200 + (i * 45));
+            enemies.add(enemy);
+            add(enemy);
+        }
+
+        // Вызов статического утилитного метода расчета очков
+        score = GameUtils.calculateBonus(100, 3);
+    }
+
+    @Override
+    public void update(double delta) {
+        // Динамический спавн врага по нажатию клавиши E
+        if (isKeyPressed(Key.E)) {
+            Enemy extraEnemy = new Enemy("Орк-Подкрепление", 400, 300);
+            enemies.add(extraEnemy);
+            add(extraEnemy);
+        }
+    }
+
+    @Override
+    public void render(Graphics g) {
+        // Отрисовка названия игры из глобальной константы
+        g.drawText(GameConfig.GAME_TITLE, 20, 35, 18, Color.YELLOW);
+
+        // Информационная плашка HUD
+        g.drawRect(20, 60, 360, 95, new Color(0, 0, 0, 0.8));
+        
+        // Отображение значения СТАТИЧЕСКОГО счетчика
+        g.drawText("Всего врагов в игре (static): " + Enemy.getTotalEnemiesCount(), 35, 90, 16, Color.RED);
+        g.drawText("Очки (с бонусом utils): " + score, 35, 118, 16, Color.GREEN);
+        g.drawText("[E] - Заспавнить нового врага", 35, 142, 13, Color.CYAN);
+    }
+
+    public static void main(String[] args) {
+        launch(new MyGame());
+    }
+}</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-java hljs">package ru.college.game;
+
+// 1. ИМПОРТ классов из созданных пакетов
+import ru.college.engine.*;
+import ru.college.game.config.GameConfig;
+import ru.college.game.entities.Enemy;
+import ru.college.game.utils.GameUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyGame extends Game {
+
+    private List<Enemy> enemies = new ArrayList<>();
+    private int score = 0;
+
+    public MyGame() {
+        // Используем статические константы из пакета config
+        super(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
+    }
+
+    @Override
+    public void init() {
+        setBackgroundColor(new Color(20, 24, 34));
+
+        // Сбрасываем статический счетчик врагов
+        Enemy.resetCount();
+
+        // Создаем 4 врагов в цикле
+        for (int i = 0; i < 4; i++) {
+            Enemy enemy = new Enemy("Гоблин #" + (i + 1), 120 + (i * 140), 200 + (i * 45));
+            enemies.add(enemy);
+            add(enemy);
+        }
+
+        // Вызов статического утилитного метода расчета очков
+        score = GameUtils.calculateBonus(100, 3);
+    }
+
+    @Override
+    public void update(double delta) {
+        // Динамический спавн врага по нажатию клавиши E
+        if (isKeyPressed(Key.E)) {
+            Enemy extraEnemy = new Enemy("Орк-Подкрепление", 400, 300);
+            enemies.add(extraEnemy);
+            add(extraEnemy);
+        }
+    }
+
+    @Override
+    public void render(Graphics g) {
+        // Отрисовка названия игры из глобальной константы
+        g.drawText(GameConfig.GAME_TITLE, 20, 35, 18, Color.YELLOW);
+
+        // Информационная плашка HUD
+        g.drawRect(20, 60, 360, 95, new Color(0, 0, 0, 0.8));
+        
+        // Отображение значения СТАТИЧЕСКОГО счетчика
+        g.drawText("Всего врагов в игре (static): " + Enemy.getTotalEnemiesCount(), 35, 90, 16, Color.RED);
+        g.drawText("Очки (с бонусом utils): " + score, 35, 118, 16, Color.GREEN);
+        g.drawText("[E] - Заспавнить нового врага", 35, 142, 13, Color.CYAN);
+    }
+
+    public static void main(String[] args) {
+        launch(new MyGame());
+    }
+}</code></pre></div></div><hr/><h4>3. 🧪 Таблица тестовых сценариев проверки лабораторной работы (QA)</h4><div class="table-responsive mb-4"><table class="table table-bordered table-striped"><thead class="table-dark"><tr><th>№</th><th>Тестовое действие</th><th>Код проверки</th><th>Ожидаемый результат</th><th>Статус</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>Чтение статической константы</td><td><code>GameConfig.SCREEN_WIDTH</code></td><td>Возвращает <code>800</code> без создания объекта через <code>new</code>.</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>2</strong></td><td>Попытка изменить константу final</td><td><code>GameConfig.SCREEN_WIDTH = 1024;</code></td><td>Ошибка компиляции: <em>cannot assign a value to final variable</em>.</td><td><span class="badge bg-success">Защищено</span></td></tr><tr><td><strong>3</strong></td><td>Инициализация 4 врагов на старте</td><td><code>Enemy.getTotalEnemiesCount()</code></td><td>Значение счетчика равно <code>4</code>.</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>4</strong></td><td>Динамический спавн по клавише <code>[E]</code></td><td>Нажатие клавиши <code>E</code></td><td>Создается новый враг, счетчик увеличивается до 5, 6, 7...</td><td><span class="badge bg-success">Успешно</span></td></tr><tr><td><strong>5</strong></td><td>Вызов утилитного метода расчета бонуса</td><td><code>GameUtils.calculateBonus(100, 3)</code></td><td>Возвращает <code>300</code>.</td><td><span class="badge bg-success">Успешно</span></td></tr></tbody></table></div><hr/><h4>4. 🌟 Задания для самостоятельной работы</h4><div class="row g-3 mb-4"><div class="col-md-6"><div class="card h-100 border-info"><div class="card-header bg-info text-white fw-bold"><i class="fa-solid fa-star me-2"></i>Задание на оценку «4» (Константа урона и сброс)</div><div class="card-body"><ol class="small mb-0"><li>В класс <code>GameConfig.java</code> добавьте константу урона: <code>public static final int ENEMY_DEFAULT_DAMAGE = 20;</code>.</li><li>В <code>MyGame.java</code> добавьте обработку нажатия клавиши <strong>R (Reset)</strong>: при нажатии вызывается <code>Enemy.resetCount()</code> и список врагов очищается.</li></ol></div></div></div><div class="col-md-6"><div class="card h-100 border-warning"><div class="card-header bg-warning text-dark fw-bold"><i class="fa-solid fa-trophy me-2"></i>Задание на оценку «5» (Статический таймер и утилита)</div><div class="card-body"><ol class="small mb-0"><li>В класс <code>GameUtils.java</code> добавьте статический метод форматирования времени:<br/><code>public static String formatTime(int totalSeconds)</code> (возвращает строку вида <code>"02:45"</code>).</li><li>В главном классе <code>MyGame.java</code> создайте счетчик игрового времени и выведите форматированный таймер в правый верхний угол экрана.</li></ol></div></div></div></div><hr/><h4>5. ❓ Контрольные вопросы для защиты лабораторной работы № 12</h4><ol class="mb-0"><li>Что означает ключевое слово <code>package</code> в первой строке Java-файла?</li><li>Каким образом директории на жестком диске связаны с именами пакетов в Java?</li><li>Для чего используется оператор <code>import</code> и в каких случаях его можно не писать?</li><li>Чем статическая переменная класса (<code>static</code>) принципиально отличается от обычной переменной объекта?</li><li>Где в оперативной памяти (JVM) хранятся статические члены класса?</li><li>Что произойдет, если попытаться изменить значение переменной, объявленной со словом <code>final</code>?</li><li>Почему в утилитных классах (подобных <code>Math</code> или <code>GameUtils</code>) объявляют приватный конструктор?</li><li>Можно ли внутри статического метода обратиться к переменной через ключевое слово <code>this</code>? Почему?</li><li>Может ли нестатический метод класса обращаться к статическим полям своего класса?</li><li>Какое соглашение об именовании (Code Style) принято в Java для констант <code>public static final</code>?</li></ol></div></div></div><hr/><h4>Личное хранилище работы (Группа 301)</h4><p><a href="https://github.com/dEN5-tech/java-student-workspace" class="btn btn-primary text-white"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Репозиторий / Личное хранилище группы 301</a></p><p><br/><a href="index.html">« Назад к Теме 1</a></p><script>(function(){let a=new Map,u={base:"vs-dark",inherit:!0,rules:[{background:"272822",token:""},{token:"comment",foreground:"75715e",fontStyle:"italic"},{token:"keyword",foreground:"f92672",fontStyle:"bold"},{token:"identifier",foreground:"f8f8f2"},{token:"type",foreground:"66d9ef",fontStyle:"italic"},{token:"type.identifier",foreground:"66d9ef",fontStyle:"italic"},{token:"storage",foreground:"f92672"},{token:"storage.type",foreground:"66d9ef",fontStyle:"italic"},{token:"string",foreground:"e6db74"},{token:"number",foreground:"ae81ff"},{token:"constant",foreground:"ae81ff"},{token:"function",foreground:"a6e22e"},{token:"variable",foreground:"f8f8f2"},{token:"variable.predefined",foreground:"fd971f"},{token:"operator",foreground:"f92672"},{token:"delimiter",foreground:"f8f8f2"}],colors:{"editor.background":"#272822","editor.foreground":"#f8f8f2","editorCursor.foreground":"#f8f8f0","editor.lineHighlightBackground":"#3e3d32","editorLineNumber.foreground":"#90908a","editorLineNumber.activeForeground":"#c4c4be","editor.selectionBackground":"#49483e","editor.inactiveSelectionBackground":"#383830","editorWidget.background":"#1e1f1c","editorWidget.border":"#3e3d32","scrollbarSlider.background":"#49483e80","scrollbarSlider.hoverBackground":"#75715e80","scrollbarSlider.activeBackground":"#a6a59b80"}};function w(){if(window.MonacoEnvironment)return;let o=new Blob([`
       self.MonacoEnvironment = { baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/' };
       importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/base/worker/workerMain.js');
     `],{type:"application/javascript"}),e=URL.createObjectURL(o);window.MonacoEnvironment={getWorkerUrl:function(t,r){return e}}}let s=null;function y(){if(window.monaco)return Promise.resolve(window.monaco);if(s)return s;return s=new Promise((n,o)=>{if(w(),window.require&&window.require.config){window.require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs"}}),window.require(["vs/editor/editor.main"],()=>{window.monaco.editor.defineTheme("monokai",u),n(window.monaco)});return}let e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.js",e.onload=()=>{window.require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs"}}),window.require(["vs/editor/editor.main"],()=>{window.monaco.editor.defineTheme("monokai",u),n(window.monaco)})},e.onerror=o,document.head.appendChild(e)}),s}async function f(n,o={}){let e=document.getElementById(n);if(!e)return null;if(a.has(n))g(n);let t=e.querySelector(".monokai-raw-code"),r=e.querySelector("pre code"),i="";if(o.code!==void 0)i=o.code;else if(t&&t.value)i=t.value;else if(r&&r.textContent)i=r.textContent;else i=e.getAttribute("data-code")||e.textContent||"";let d=o.language||e.getAttribute("data-language")||"java",h=o.readOnly!==void 0?o.readOnly:e.getAttribute("data-readonly")==="true";e.innerHTML="";try{let k=(await y()).editor.create(e,{value:i.trim(),language:d,theme:"monokai",automaticLayout:!0,readOnly:h,fontSize:13,fontFamily:'Consolas, "Fira Code", "Courier New", monospace',minimap:{enabled:o.minimap??!1},scrollBeyondLastLine:!1,lineNumbers:"on",renderLineHighlight:"all",tabSize:4,padding:{top:10,bottom:10},scrollbar:{verticalScrollbarSize:8,horizontalScrollbarSize:8},...o});return a.set(n,{editor:k,container:e}),k}catch(m){return console.error("[MonokaiEditor] Mount failed:",m),e.innerHTML=`<pre style="background:#272822;color:#f8f8f2;padding:12px;margin:0;overflow:auto;"><code>${i}</code></pre>`,null}}function g(n){let o=a.get(n);if(o){if(o.worker)o.worker.terminate();if(o.editor&&o.editor.dispose)o.editor.dispose();a.delete(n)}}function c(n){let o=a.get(n);if(o&&o.editor)return o.editor.getValue();let e=document.getElementById(n);if(!e)return"";let t=e.querySelector(".monokai-raw-code");if(t&&t.value)return t.value;let r=e.querySelector("pre code");if(r&&r.textContent)return r.textContent;return e.getAttribute("data-code")||e.textContent||""}function p(n,o){let e=a.get(n);if(e&&e.editor)e.editor.setValue(o)}function b(n,o){let e=c(n);if(navigator.clipboard)navigator.clipboard.writeText(e).then(()=>{if(o){let t=o.innerHTML;o.innerHTML='<i class="fa fa-check text-success"></i> Скопировано!',setTimeout(()=>{o.innerHTML=t},2000)}})}function v(n){let o=c(n),e=document.getElementById(n+"-output");if(e)e.style.display="block",e.textContent="[Background Worker] Запуск вычислений в изолированном потоке...";let r=new Blob([`
