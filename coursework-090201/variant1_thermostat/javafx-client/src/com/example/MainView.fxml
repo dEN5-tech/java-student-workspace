@@ -32,7 +32,7 @@
             <Label fx:id="limitLabel" text="---" style="-fx-text-fill: #1a73e8; -fx-font-weight: bold;" />
         </HBox>
         <HBox spacing="10.0" alignment="CENTER_LEFT">
-            <Label text="Режим (> или <):" style="-fx-font-weight: bold; -fx-min-width: 140px;" />
+            <Label text="Режим (&gt; или &lt;):" style="-fx-font-weight: bold; -fx-min-width: 140px;" />
             <Label fx:id="modeLabel" text="---" style="-fx-text-fill: #1a73e8; -fx-font-weight: bold;" />
         </HBox>
         <HBox spacing="10.0" alignment="CENTER_LEFT">
