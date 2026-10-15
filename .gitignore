@@ -40,5 +40,8 @@ replay_pid*
 
 # Coursework dependencies
 !**/jSerialComm*.jar
+!coursework-090201/**/*.hex
+!coursework-090201/**/*.elf
 **/coursework-090201/**/javafx-sdk/
 coursework-090201/lib/javafx-sdk/
+
