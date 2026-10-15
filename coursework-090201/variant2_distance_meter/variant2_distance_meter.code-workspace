@@ -1,0 +1,20 @@
+{
+    "folders": [
+        {
+            "name": "📋 Задание (Вариант 2: Ультразвуковой дальномер с сигнализацией)",
+            "path": "."
+        },
+        {
+            "name": "⚡ Прошивка (Wokwi / C++)",
+            "path": "wokwi"
+        },
+        {
+            "name": "☕ АРМ Оператора (JavaFX Шаблон)",
+            "path": "javafx-client"
+        }
+    ],
+    "settings": {
+        "files.encoding": "utf8",
+        "java.jdt.ls.vmargs": "-Dfile.encoding=UTF-8"
+    }
+}

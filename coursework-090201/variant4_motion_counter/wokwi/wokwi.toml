@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "Project4_MotionCounter.ino.hex"
+elf = "Project4_MotionCounter.ino.elf"
+rfc2217ServerPort = 4000

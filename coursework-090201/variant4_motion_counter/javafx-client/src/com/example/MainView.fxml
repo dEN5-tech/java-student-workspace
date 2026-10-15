@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+
+    <!-- 1. ПАНЕЛЬ ПОДКЛЮЧЕНИЯ К ПОРТУ -->
+    <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #dddddd; -fx-border-radius: 6;">
+        <Label style="-fx-font-weight: bold;" text="COM-порт:" />
+        <TextField fx:id="portField" prefWidth="85.0" text="COM3" />
+        <Button fx:id="connectButton" onAction="#handleConnectToggle" style="-fx-cursor: hand;" text="Подключиться" />
+        <Separator orientation="VERTICAL" />
+        <Label fx:id="connectionStatusLabel" style="-fx-text-fill: gray;" text="Отключено" />
+    </HBox>
+
+    <!-- 2. БЛОК ТЕЛЕМЕТРИИ (ЗАГОТОВКА ДЛЯ СТУДЕНТА) -->
+    <VBox spacing="8.0" style="-fx-background-color: #ffffff; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8;">
+        <Label text="Вариант 4: Счётчик проходов на датчике движения PIR" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+        <Label text="Показания с платы Arduino Uno:" style="-fx-text-fill: #666666;" />
+        <Separator />
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <Label text="Число проходов:" style="-fx-font-weight: bold; -fx-min-width: 140px;" />
+            <Label fx:id="countLabel" text="---" style="-fx-text-fill: #1a73e8; -fx-font-weight: bold;" />
+        </HBox>
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <Label text="Лимит помещения:" style="-fx-font-weight: bold; -fx-min-width: 140px;" />
+            <Label fx:id="limitLabel" text="---" style="-fx-text-fill: #1a73e8; -fx-font-weight: bold;" />
+        </HBox>
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <Label text="Статус (NORMAL/ALERT):" style="-fx-font-weight: bold; -fx-min-width: 140px;" />
+            <Label fx:id="statusLabel" text="---" style="-fx-text-fill: #1a73e8; -fx-font-weight: bold;" />
+        </HBox>
+    </VBox>
+
+    <!-- 3. ПАНЕЛЬ УДАЛЕННОГО УПРАВЛЕНИЯ -->
+    <VBox spacing="8.0" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8;">
+        <Label text="Удаленные команды:" style="-fx-font-weight: bold;" />
+        <HBox spacing="10.0">
+            <Button text="Команда: RESET" onAction="#handleCmd1" style="-fx-cursor: hand;" />
+            <Button text="Команда: SET:25" onAction="#handleCmd2" style="-fx-cursor: hand;" />
+        </HBox>
+    </VBox>
+
+    <!-- 4. ЖУРНАЛ СЫРЫХ СООБЩЕНИЙ -->
+    <VBox spacing="6.0" VBox.vgrow="ALWAYS">
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <Label text="Журнал обмена данными (COM-порт):" style="-fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Очистить журнал" onAction="#handleClearLog" />
+        </HBox>
+        <TextArea fx:id="logArea" editable="false" promptText="Здесь будут отображаться поступающие пакеты..." VBox.vgrow="ALWAYS" style="-fx-font-family: 'Consolas', monospace;" />
+    </VBox>
+
+</VBox>

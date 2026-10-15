@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Преподаватель",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 100 },
+    { "type": "wokwi-ntc-temperature-sensor", "id": "ntc", "top": 80, "left": -120 },
+    { "type": "wokwi-pushbutton", "id": "btn_plus", "top": 320, "left": -80, "attrs": { "color": "green", "label": "+" } },
+    { "type": "wokwi-pushbutton", "id": "btn_minus", "top": 320, "left": -10, "attrs": { "color": "red", "label": "-" } },
+    { "type": "wokwi-pushbutton", "id": "btn_mode", "top": 320, "left": 60, "attrs": { "color": "blue", "label": "MODE" } },
+    { "type": "wokwi-led", "id": "led_green", "top": 120, "left": 400, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "led_red", "top": 180, "left": 400, "attrs": { "color": "red" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 250, "left": 400 }
+  ],
+  "connections": [
+    [ "lcd:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "lcd:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "lcd:SCL", "uno:A5", "blue", [ "v0" ] ],
+    [ "ntc:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "ntc:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "ntc:OUT", "uno:A0", "orange", [ "v0" ] ],
+    [ "btn_plus:1.l", "uno:2", "green", [ "v0" ] ],
+    [ "btn_plus:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_minus:1.l", "uno:3", "red", [ "v0" ] ],
+    [ "btn_minus:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_mode:1.l", "uno:4", "blue", [ "v0" ] ],
+    [ "btn_mode:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "led_green:A", "uno:5", "green", [ "v0" ] ],
+    [ "led_green:C", "uno:GND.3", "black", [ "v0" ] ],
+    [ "led_red:A", "uno:6", "red", [ "v0" ] ],
+    [ "led_red:C", "uno:GND.3", "black", [ "v0" ] ],
+    [ "buzzer:1", "uno:7", "orange", [ "v0" ] ],
+    [ "buzzer:2", "uno:GND.3", "black", [ "v0" ] ]
+  ]
+}

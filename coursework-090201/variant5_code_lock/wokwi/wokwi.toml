@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "Project5_CodeLock.ino.hex"
+elf = "Project5_CodeLock.ino.elf"
+rfc2217ServerPort = 4000

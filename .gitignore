@@ -17,7 +17,7 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs
+# Virtual machine crash logs
 hs_err_pid*
 replay_pid*
 
@@ -26,6 +26,7 @@ replay_pid*
 
 # Ignore compiled output bin folders (NOT javafx-sdk/bin DLLs)
 /bin/
+**/bin/
 **/javafx-client/bin/
 .pio/
 
@@ -36,3 +37,8 @@ replay_pid*
 !**/build/firmware.bin
 !**/build/firmware.elf
 !**/wokwigw.exe
+
+# Coursework dependencies
+!**/jSerialComm*.jar
+**/coursework-090201/**/javafx-sdk/
+coursework-090201/lib/javafx-sdk/

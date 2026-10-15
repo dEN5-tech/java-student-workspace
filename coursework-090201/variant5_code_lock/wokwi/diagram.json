@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Преподаватель",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 100 },
+    { "type": "wokwi-ir-receiver", "id": "ir", "top": 80, "left": -80 },
+    { "type": "wokwi-ir-remote", "id": "remote", "top": 180, "left": -180 },
+    { "type": "wokwi-led", "id": "led_green", "top": 100, "left": 400, "attrs": { "color": "green", "label": "ACCESS" } },
+    { "type": "wokwi-led", "id": "led_red", "top": 170, "left": 400, "attrs": { "color": "red", "label": "DENIED" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 250, "left": 400 }
+  ],
+  "connections": [
+    [ "lcd:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "lcd:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "lcd:SCL", "uno:A5", "blue", [ "v0" ] ],
+    [ "ir:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "ir:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "ir:DAT", "uno:2", "purple", [ "v0" ] ],
+    [ "led_green:A", "uno:3", "green", [ "v0" ] ],
+    [ "led_green:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "led_red:A", "uno:4", "red", [ "v0" ] ],
+    [ "led_red:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "buzzer:1", "uno:5", "orange", [ "v0" ] ],
+    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ]
+  ]
+}
