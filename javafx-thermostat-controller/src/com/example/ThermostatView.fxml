@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="700.0" prefWidth="900.0" spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ThermostatController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+
+    <!-- 1. ВЕРХНЯЯ ПАНЕЛЬ ПОДКЛЮЧЕНИЯ К COM-ПОРТУ -->
+    <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #dddddd; -fx-border-radius: 6;">
+        <Label style="-fx-font-weight: bold;" text="COM-порт:" />
+        <TextField fx:id="portField" prefWidth="85.0" text="COM3" />
+        <Button fx:id="connectButton" onAction="#handleConnectToggle" style="-fx-cursor: hand;" text="Подключиться" />
+        <Separator orientation="VERTICAL" />
+        <Label fx:id="connectionStatusLabel" style="-fx-text-fill: gray;" text="Отключено" />
+    </HBox>
+
+    <!-- 2. СРЕДНЯЯ ЧАСТЬ: ДАШБОРД ТЕЛЕМЕТРИИ + ГРАФИК -->
+    <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+
+        <!-- ЛЕВАЯ КОЛОНКА: ВИДЖЕТЫ ПОКАЗАНИЙ И ПУЛЬТ УПРАВЛЕНИЯ -->
+        <VBox prefWidth="300.0" spacing="12.0">
+
+            <!-- Карточка текущей температуры -->
+            <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #ffffff; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8;">
+                <Label style="-fx-text-fill: #666666; -fx-font-size: 13px;" text="ТЕКУЩАЯ ТЕМПЕРАТУРА" />
+                <Label fx:id="tempDisplayLabel" style="-fx-font-size: 38px; -fx-font-weight: bold; -fx-text-fill: #1a73e8;" text="24.0 °C" />
+                <Label fx:id="statusBadgeLabel" style="-fx-background-color: #33cc33; -fx-text-fill: white; -fx-padding: 4 12; -fx-background-radius: 6; -fx-font-weight: bold;" text="НОРМА" />
+            </VBox>
+
+            <!-- Карточка настроек термостата -->
+            <VBox spacing="6.0" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8;">
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #444444;" text="Параметры термостата:" />
+                <Label fx:id="limitDisplayLabel" style="-fx-font-size: 14px;" text="Порог: 25.0 °C" />
+                <Label fx:id="modeDisplayLabel" style="-fx-font-size: 14px;" text="Режим: Выше порога" />
+            </VBox>
+
+            <!-- Пульт удаленного управления платой -->
+            <VBox spacing="8.0" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8;">
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #444444;" text="Удаленное управление (COM):" />
+                <HBox spacing="8.0">
+                    <TextField fx:id="newLimitField" promptText="Новый порог..." prefWidth="120.0" />
+                    <Button fx:id="setLimitButton" onAction="#handleSetLimit" text="Задать" />
+                </HBox>
+                <Button fx:id="toggleModeButton" maxWidth="Infinity" onAction="#handleToggleMode" text="Сменить режим (Выше / Ниже)" />
+            </VBox>
+
+        </VBox>
+
+        <!-- ПРАВАЯ КОЛОНКА: ГРАФИК В РЕАЛЬНОМ ВРЕМЕНИ -->
+        <VBox style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8;" HBox.hgrow="ALWAYS">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #333333;" text="График температуры и порога:" />
+            <LineChart fx:id="tempChart" legendSide="TOP" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <CategoryAxis fx:id="xAxis" label="Время" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis" autoRanging="true" label="°C" />
+                </yAxis>
+            </LineChart>
+        </VBox>
+
+    </HBox>
+
+    <!-- 3. НИЖНЯЯ ЧАСТЬ: ТАБЛИЦА ЖУРНАЛА И КНОПКИ ЭКСПОРТА -->
+    <VBox prefHeight="220.0" spacing="6.0">
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 13px;" text="Журнал телеметрии:" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#handleClearData" text="Очистить" />
+            <Button onAction="#handleExportCsv" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold;" text="Экспорт в CSV" />
+        </HBox>
+
+        <TableView fx:id="logTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colTime" prefWidth="110.0" text="Время" />
+                <TableColumn fx:id="colTemp" prefWidth="140.0" text="Температура (°C)" />
+                <TableColumn fx:id="colLimit" prefWidth="130.0" text="Порог (°C)" />
+                <TableColumn fx:id="colMode" prefWidth="130.0" text="Режим" />
+                <TableColumn fx:id="colStatus" prefWidth="160.0" text="Статус" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+    </VBox>
+
+</VBox>

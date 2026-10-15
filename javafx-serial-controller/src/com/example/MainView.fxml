@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.MainController"
+      spacing="12.0" alignment="CENTER" prefWidth="380.0" prefHeight="420.0">
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <!-- Заголовок -->
+    <Label text="Управление Arduino Uno" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <!-- Блок ввода порта -->
+    <HBox spacing="10.0" alignment="CENTER">
+        <Label text="Порт:"/>
+        <TextField fx:id="portField" text="COM3" prefWidth="90.0"/>
+        <Button text="Подключиться" onAction="#handleConnect"/>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Статус: Не подключено" style="-fx-text-fill: #555555;"/>
+
+    <Separator/>
+
+    <!-- Кнопки управления -->
+    <HBox spacing="15.0" alignment="CENTER">
+        <Button text="ВКЛЮЧИТЬ (1)" onAction="#handleTurnOn" prefWidth="130.0" prefHeight="35.0"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button text="ВЫКЛЮЧИТЬ (0)" onAction="#handleTurnOff" prefWidth="130.0" prefHeight="35.0"
+                style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Лог сообщений -->
+    <VBox spacing="5.0" alignment="CENTER_LEFT">
+        <Label text="Лог работы:"/>
+        <TextArea fx:id="logArea" prefHeight="130.0" editable="false"/>
+    </VBox>
+
+</VBox>
