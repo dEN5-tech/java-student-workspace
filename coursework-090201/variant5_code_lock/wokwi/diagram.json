@@ -24,6 +24,8 @@
     [ "led_red:A", "uno:4", "red", [ "v0" ] ],
     [ "led_red:C", "uno:GND.2", "black", [ "v0" ] ],
     [ "buzzer:1", "uno:5", "orange", [ "v0" ] ],
-    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ]
+    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ],
+    [ "uno:TX", "$serialMonitor:RX", "", [] ],
+    [ "uno:RX", "$serialMonitor:TX", "", [] ]
   ]
 }

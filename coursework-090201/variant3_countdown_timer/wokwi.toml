@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "Project3_CountdownTimer.hex"
+elf = "wokwi/Project3_CountdownTimer.ino.elf"
+rfc2217ServerPort = 4000

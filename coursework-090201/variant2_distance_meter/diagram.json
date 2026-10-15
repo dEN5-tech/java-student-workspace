@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Преподаватель",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 100 },
+    { "type": "wokwi-hc-sr04", "id": "sonar", "top": 80, "left": -120 },
+    { "type": "wokwi-led", "id": "led_red", "top": 80, "left": 400, "attrs": { "color": "red", "label": "<20cm" } },
+    { "type": "wokwi-led", "id": "led_yellow", "top": 140, "left": 400, "attrs": { "color": "yellow", "label": "20-100cm" } },
+    { "type": "wokwi-led", "id": "led_green", "top": 200, "left": 400, "attrs": { "color": "green", "label": ">100cm" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 270, "left": 400 }
+  ],
+  "connections": [
+    [ "lcd:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "lcd:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "lcd:SCL", "uno:A5", "blue", [ "v0" ] ],
+    [ "sonar:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "sonar:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "sonar:TRIG", "uno:2", "blue", [ "v0" ] ],
+    [ "sonar:ECHO", "uno:3", "orange", [ "v0" ] ],
+    [ "led_red:A", "uno:4", "red", [ "v0" ] ],
+    [ "led_red:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "led_yellow:A", "uno:5", "yellow", [ "v0" ] ],
+    [ "led_yellow:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "led_green:A", "uno:6", "green", [ "v0" ] ],
+    [ "led_green:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "buzzer:1", "uno:7", "purple", [ "v0" ] ],
+    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ],
+    [ "uno:TX", "$serialMonitor:RX", "", [] ],
+    [ "uno:RX", "$serialMonitor:TX", "", [] ]
+  ]
+}

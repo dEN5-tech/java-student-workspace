@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Преподаватель",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 0 },
+    { "type": "wokwi-tm1637-7segment", "id": "sevseg", "top": -120, "left": 280 },
+    { "type": "wokwi-pushbutton", "id": "btn_plus", "top": 320, "left": -80, "attrs": { "color": "green", "label": "+" } },
+    { "type": "wokwi-pushbutton", "id": "btn_minus", "top": 320, "left": -10, "attrs": { "color": "yellow", "label": "-" } },
+    { "type": "wokwi-pushbutton", "id": "btn_start", "top": 320, "left": 60, "attrs": { "color": "blue", "label": "START" } },
+    { "type": "wokwi-pushbutton", "id": "btn_stop", "top": 320, "left": 130, "attrs": { "color": "red", "label": "STOP" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 120, "left": 400 },
+    { "type": "wokwi-led", "id": "led", "top": 200, "left": 400, "attrs": { "color": "red", "label": "ALARM" } }
+  ],
+  "connections": [
+    [ "lcd:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "lcd:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "lcd:SCL", "uno:A5", "blue", [ "v0" ] ],
+    [ "sevseg:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "sevseg:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "sevseg:CLK", "uno:6", "orange", [ "v0" ] ],
+    [ "sevseg:DIO", "uno:7", "yellow", [ "v0" ] ],
+    [ "btn_plus:1.l", "uno:2", "green", [ "v0" ] ],
+    [ "btn_plus:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_minus:1.l", "uno:3", "yellow", [ "v0" ] ],
+    [ "btn_minus:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_start:1.l", "uno:4", "blue", [ "v0" ] ],
+    [ "btn_start:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_stop:1.l", "uno:5", "red", [ "v0" ] ],
+    [ "btn_stop:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "buzzer:1", "uno:8", "purple", [ "v0" ] ],
+    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ],
+    [ "led:A", "uno:9", "red", [ "v0" ] ],
+    [ "led:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "uno:TX", "$serialMonitor:RX", "", [] ],
+    [ "uno:RX", "$serialMonitor:TX", "", [] ]
+  ]
+}

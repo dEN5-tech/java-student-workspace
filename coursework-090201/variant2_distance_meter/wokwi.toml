@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "Project2_DistanceMeter.hex"
+elf = "wokwi/Project2_DistanceMeter.ino.elf"
+rfc2217ServerPort = 4000

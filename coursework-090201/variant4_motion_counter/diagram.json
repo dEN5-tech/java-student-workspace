@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Преподаватель",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 100 },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir", "top": 80, "left": -140 },
+    { "type": "wokwi-pushbutton", "id": "btn_plus", "top": 320, "left": -80, "attrs": { "color": "green", "label": "+" } },
+    { "type": "wokwi-pushbutton", "id": "btn_minus", "top": 320, "left": -10, "attrs": { "color": "yellow", "label": "-" } },
+    { "type": "wokwi-pushbutton", "id": "btn_reset", "top": 320, "left": 60, "attrs": { "color": "red", "label": "RESET" } },
+    { "type": "wokwi-led", "id": "led_red", "top": 120, "left": 400, "attrs": { "color": "red", "label": "ALARM" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 200, "left": 400 }
+  ],
+  "connections": [
+    [ "lcd:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "lcd:SDA", "uno:A4", "green", [ "v0" ] ],
+    [ "lcd:SCL", "uno:A5", "blue", [ "v0" ] ],
+    [ "pir:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "pir:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "pir:OUT", "uno:2", "purple", [ "v0" ] ],
+    [ "btn_plus:1.l", "uno:3", "green", [ "v0" ] ],
+    [ "btn_plus:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_minus:1.l", "uno:4", "yellow", [ "v0" ] ],
+    [ "btn_minus:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "btn_reset:1.l", "uno:5", "red", [ "v0" ] ],
+    [ "btn_reset:2.l", "uno:GND.2", "black", [ "v0" ] ],
+    [ "led_red:A", "uno:6", "red", [ "v0" ] ],
+    [ "led_red:C", "uno:GND.2", "black", [ "v0" ] ],
+    [ "buzzer:1", "uno:7", "orange", [ "v0" ] ],
+    [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ],
+    [ "uno:TX", "$serialMonitor:RX", "", [] ],
+    [ "uno:RX", "$serialMonitor:TX", "", [] ]
+  ]
+}
