@@ -28,6 +28,12 @@ void setup() {
   Serial.begin(9600);
   Serial.setTimeout(50); // Минимальный таймаут ожидания для быстрой работы
 
+  // Защита от зависания шины I2C
+  Wire.begin();
+  #if defined(WIRE_HAS_TIMEOUT)
+  Wire.setWireTimeout(3000, true);
+  #endif
+
   // Настройка цифровых входов для кнопок (с внутренней подтяжкой к +5V)
   pinMode(PIN_BTN_PLUS,  INPUT_PULLUP);
   pinMode(PIN_BTN_MINUS, INPUT_PULLUP);
@@ -42,6 +48,17 @@ void setup() {
   lcd.init();
   lcd.backlight();
   lcd.clear();
+
+  // Приветственный статус и стартовый пакет телеметрии
+  Serial.println(F("SYSTEM_INIT_OK"));
+  Serial.print(F("TEMP:"));
+  Serial.print(25.0, 1);
+  Serial.print(F(";LIMIT:"));
+  Serial.print(porog, 1);
+  Serial.print(F(";MODE:"));
+  Serial.print(modeAbove ? F("ABOVE") : F("BELOW"));
+  Serial.print(F(";STATUS:"));
+  Serial.println(F("NORMAL"));
 }
 
 void loop() {

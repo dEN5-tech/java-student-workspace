@@ -4,7 +4,7 @@
   "editor": "wokwi",
   "parts": [
     { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
-    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 100 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 100, "attrs": { "pins": "i2c" } },
     { "type": "wokwi-ntc-temperature-sensor", "id": "ntc", "top": 80, "left": -120 },
     { "type": "wokwi-pushbutton", "id": "btn_plus", "top": 320, "left": -80, "attrs": { "color": "green", "label": "+" } },
     { "type": "wokwi-pushbutton", "id": "btn_minus", "top": 320, "left": -10, "attrs": { "color": "red", "label": "-" } },
@@ -33,7 +33,7 @@
     [ "led_red:C", "uno:GND.3", "black", [ "v0" ] ],
     [ "buzzer:1", "uno:7", "orange", [ "v0" ] ],
     [ "buzzer:2", "uno:GND.3", "black", [ "v0" ] ],
-    [ "uno:TX", "$serialMonitor:RX", "", [] ],
-    [ "uno:RX", "$serialMonitor:TX", "", [] ]
+    [ "uno:1", "$serialMonitor:RX", "", [] ],
+    [ "uno:0", "$serialMonitor:TX", "", [] ]
   ]
 }
