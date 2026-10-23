@@ -68,6 +68,13 @@ void resetTimer();
 
 void setup() {
   Serial.begin(9600);
+  Serial.setTimeout(50);
+
+  // Защита от зависания шины I2C
+  Wire.begin();
+  #if defined(WIRE_HAS_TIMEOUT)
+  Wire.setWireTimeout(3000, true);
+  #endif
 
   pinMode(PIN_BTN_PLUS,  INPUT_PULLUP);
   pinMode(PIN_BTN_MINUS, INPUT_PULLUP);
@@ -93,9 +100,13 @@ void setup() {
   lcd.setCursor(3, 1);
   lcd.print("READY 01:00");
 
-  delay(1000);
+  delay(500);
   lcd.clear();
   updateDisplays();
+
+  // Приветственный статус и стартовый пакет телеметрии
+  Serial.println(F("SYSTEM_INIT_OK"));
+  Serial.println(F("TIME:01:00;STATE:SETTING;REMAINING:60"));
 }
 
 void loop() {
@@ -146,7 +157,7 @@ void loop() {
     if (currentState == PAUSED)  stStr = "PAUSED";
     if (currentState == ALARM)   stStr = "TIME_OVER";
 
-    // Формат для Java: TIME:00:59;STATE:RUN;TARGET:60
+    // Формат для Java: TIME:00:59;STATE:RUN;REMAINING:59
     Serial.print("TIME:");
     Serial.print(timeBuf);
     Serial.print(";STATE:");
@@ -163,7 +174,12 @@ void loop() {
       if (currentState == SETTING || currentState == PAUSED) {
         currentState = RUNNING;
         updateDisplays();
-        Serial.println("ACK:TIMER_STARTED");
+        Serial.println(F("ACK:TIMER_STARTED"));
+      } else if (currentState == ALARM) {
+        resetTimer();
+        currentState = RUNNING;
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_STARTED"));
       }
     } else if (cmd == "STOP" || cmd == "CMD:STOP") {
       if (currentState == RUNNING) {
@@ -171,11 +187,11 @@ void loop() {
         noTone(PIN_BUZZER);
         digitalWrite(PIN_LED, LOW);
         updateDisplays();
-        Serial.println("ACK:TIMER_PAUSED");
+        Serial.println(F("ACK:TIMER_PAUSED"));
       }
     } else if (cmd == "RESET" || cmd == "CMD:RESET") {
       resetTimer();
-      Serial.println("ACK:TIMER_RESET");
+      Serial.println(F("ACK:TIMER_RESET"));
     } else if (cmd.startsWith("SET:")) {
       long newSec = cmd.substring(4).toInt();
       if (newSec > 0 && newSec <= 3599) {
@@ -183,7 +199,7 @@ void loop() {
         remainingSeconds = targetSeconds;
         currentState = SETTING;
         updateDisplays();
-        Serial.print("ACK:TIME_SET=");
+        Serial.print(F("ACK:TIME_SET="));
         Serial.println(newSec);
       }
     }

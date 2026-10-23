@@ -4,7 +4,7 @@
   "editor": "wokwi",
   "parts": [
     { "type": "wokwi-arduino-uno", "id": "uno", "top": 100, "left": 100 },
-    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 0 },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -120, "left": 0, "attrs": { "pins": "i2c" } },
     { "type": "wokwi-tm1637-7segment", "id": "sevseg", "top": -120, "left": 280 },
     { "type": "wokwi-pushbutton", "id": "btn_plus", "top": 320, "left": -80, "attrs": { "color": "green", "label": "+" } },
     { "type": "wokwi-pushbutton", "id": "btn_minus", "top": 320, "left": -10, "attrs": { "color": "yellow", "label": "-" } },
@@ -34,7 +34,7 @@
     [ "buzzer:2", "uno:GND.2", "black", [ "v0" ] ],
     [ "led:A", "uno:9", "red", [ "v0" ] ],
     [ "led:C", "uno:GND.2", "black", [ "v0" ] ],
-    [ "uno:TX", "$serialMonitor:RX", "", [] ],
-    [ "uno:RX", "$serialMonitor:TX", "", [] ]
+    [ "uno:1", "$serialMonitor:RX", "", [] ],
+    [ "uno:0", "$serialMonitor:TX", "", [] ]
   ]
 }
