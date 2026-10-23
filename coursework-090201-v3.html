@@ -154,164 +154,620 @@
 
     <!-- Page Content -->
     <div class="main-card">
-      <div class="box py-3 generalbox"><div class="no-overflow"><div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3"><div><div class="d-flex align-items-center gap-2 mb-1"><span class="badge bg-dark text-white px-2 py-1">09.02.01</span><span class="badge bg-primary text-white px-2 py-1">Компьютерные системы и комплексы</span><span class="badge bg-secondary text-white px-2 py-1">Курсовое проектирование</span></div><h2 class="mb-1 text-primary"><i class="fa-solid fa-microchip me-2"></i>Курсовое проектирование: Аппаратно-программные комплексы</h2><p class="text-muted mb-0">МДК.02.04 «Разработка прикладных приложений» | Стек: Arduino Uno (Wokwi C++), UART 9600 бод, JavaFX АРМ оператора, jSerialComm</p></div><div class="d-none d-md-block text-end"><a href="https://github.com/dEN5-tech/java-student-workspace/releases/tag/v2.0.0-coursework-090201" target="_blank" class="btn btn-success btn-sm text-white me-2"><i class="fa-solid fa-box-archive me-1"></i> Скачать Релиз (.ZIP)</a><a href="https://github.com/dEN5-tech/java-student-workspace/tree/main/coursework-090201" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fa-brands fa-github me-1"></i> Репозиторий заданий</a></div></div><div class="alert alert-success border shadow-sm p-3 mb-4 d-flex flex-wrap gap-3 align-items-center justify-content-between"><div class="d-flex align-items-center gap-3"><span class="badge bg-success text-white p-3 fs-5"><i class="fa-solid fa-box-archive"></i></span><div><h5 class="alert-heading mb-1 text-dark fw-bold">Полный автономный комплект курсового проекта со всеми зависимостями (Release v2.0.0)</h5><div class="small text-muted">Включает: автономный JavaFX SDK (DLL + JAR), расширение Wokwi .vsix, инсталлятор моста COM-порта HW VSP3s, все прошивки .HEX/.ELF и шаблоны 5 проектов.</div></div></div><div class="d-flex gap-2"><a href="https://github.com/dEN5-tech/java-student-workspace/releases/download/v2.0.0-coursework-090201/coursework-090201-full-bundle.zip" target="_blank" class="btn btn-success text-white fw-semibold"><i class="fa-solid fa-download me-1"></i> Скачать полный архив (.ZIP 57 MB)</a><a href="https://github.com/dEN5-tech/java-student-workspace/releases/tag/v2.0.0-coursework-090201" target="_blank" class="btn btn-outline-dark"><i class="fa-brands fa-github me-1"></i> Страница релиза</a></div></div><div class="card bg-light border-0 shadow-sm mb-4"><div class="card-body"><h5 class="card-title text-dark mb-3"><i class="fa-solid fa-rocket text-primary me-2"></i>Быстрый старт: Как выполнять курсовую работу</h5><div class="row g-3"><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">1. Клонирование репозитория</div><div class="small text-muted mb-2">Получите все 5 вариантов и готовые воркспейсы одной командой:</div><code class="d-block p-2 bg-light rounded text-dark small" style="font-size: 11px;">git clone https://github.com/dEN5-tech/java-student-workspace.git</code></div></div><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">2. Открытие в VS Code</div><div class="small text-muted">В VS Code выберите меню <strong>Файл → Открыть рабочую область из файла...</strong> и укажите файл <code>.code-workspace</code> своего варианта.</div></div></div><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">3. Запуск Wokwi симулятора</div><div class="small text-muted">Откройте <code>wokwi/diagram.json</code> и нажмите <kbd>F1</kbd> → <strong>Wokwi: Start Simulator</strong>. Прошивка сразу оживет и запустит мост RFC2217 на порту 4000.</div></div></div><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">4. Запуск JavaFX АРМ</div><div class="small text-muted">Запустите <code>run.bat</code> (или соберите <code>build.bat</code>) в папке <code>javafx-client/</code>. Шаблон уже содержит подключение к COM-порту!</div></div></div></div></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3"><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201.html"><i class="fa-solid fa-temperature-half me-2"></i>Вариант 1 (Термостат)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201-v2.html"><i class="fa-solid fa-ruler-horizontal me-2"></i>Вариант 2 (Парктроник)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link active" href="coursework-090201-v3.html"><i class="fa-solid fa-stopwatch me-2"></i>Вариант 3 (Таймер)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201-v4.html"><i class="fa-solid fa-person-walking me-2"></i>Вариант 4 (Счетчик)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201-v5.html"><i class="fa-solid fa-lock me-2"></i>Вариант 5 (Кодовый замок)</a></li></ul><div class="main-variant-card"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3 p-3 bg-white border rounded shadow-sm"><div><span class="badge bg-primary mb-2 px-2 py-1"><i class="fa-solid fa-stopwatch me-1"></i> Вариант 3 (Таймер)</span><h3 class="mb-1 text-dark">Вариант 3: Лабораторный таймер обратного отсчета</h3><p class="text-muted mb-0">Аппаратно-программный комплекс лабораторного таймера с 4-разрядным семисегментным индикатором TM1637, LCD1602, кнопочным управлением (Старт, Пауза, Сброс) и управлением с ПК.</p></div><div class="d-flex flex-wrap gap-2"><a href="https://raw.githubusercontent.com/dEN5-tech/java-student-workspace/main/coursework-090201/variant3_countdown_timer/Project3_CountdownTimer.hex" target="_blank" class="btn btn-success btn-sm text-white"><i class="fa-solid fa-microchip me-1"></i> Скачать .HEX</a><a href="https://raw.githubusercontent.com/dEN5-tech/java-student-workspace/main/coursework-090201/variant3_countdown_timer/Project3_CountdownTimer.ino" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-file-code me-1"></i> Исходник .INO</a><a href="https://github.com/dEN5-tech/java-student-workspace/tree/main/coursework-090201/variant3_countdown_timer" target="_blank" class="btn btn-primary btn-sm"><i class="fa-brands fa-github me-1"></i> Папка варианта в Git</a><a href="https://raw.githubusercontent.com/dEN5-tech/java-student-workspace/main/coursework-090201/variant3_countdown_timer/TASK.md" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-file-lines me-1"></i> ТЗ (TASK.md)</a></div></div><div class="row g-4 mb-4"><div class="col-lg-6"><div class="card h-100 border shadow-sm"><div class="card-header bg-light fw-bold text-dark"><i class="fa-solid fa-plug me-2 text-primary"></i>Аппаратная конфигурация стенда (Arduino Uno)</div><div class="card-body p-0"><table class="table table-hover table-striped mb-0 small"><tbody><tr><th class="ps-3" style="width: 35%;">Датчики:</th><td class="text-primary fw-semibold">4 аппаратные тактовые кнопки</td></tr><tr><th class="ps-3">Исполнители:</th><td>Семисегментный TM1637 (CLK: D6, DIO: D5), Зеленый LED (D8), Зуммер (D9)</td></tr><tr><th class="ps-3">Органы ввода:</th><td>Кнопки: +Мин (D2), +Сек (D3), Старт/Стоп (D4), Сброс (D7)</td></tr><tr><th class="ps-3">Индикация стенда:</th><td>Семисегментный TM1637 + LCD1602 I2C (0x27)</td></tr><tr><th class="ps-3">Интерфейс связи:</th><td>UART (Serial) @ 9600 baud, 8-N-1 (RFC2217 port 4000)</td></tr></tbody></table></div></div></div><div class="col-lg-6"><div class="card h-100 border shadow-sm"><div class="card-header bg-light fw-bold text-dark"><i class="fa-solid fa-network-wired me-2 text-success"></i>Спецификация протокола UART (Serial)</div><div class="card-body"><div class="mb-3"><div class="fw-semibold small text-muted mb-1">Формат телеметрии (Arduino → ПК):</div><code class="d-block p-2 bg-dark text-warning rounded small mb-1">M:04;S:59;ST:RUNNING\n</code><div class="small text-muted">M — минуты, S — секунды, ST — статус (STOPPED / RUNNING / FINISHED). Отправка каждую секунду.</div></div><div><div class="fw-semibold small text-muted mb-1">Команды управления (ПК → Arduino):</div><ul class="list-group list-group-flush small"><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">START</code><span class="text-muted text-end ms-2">Запустить обратный отсчет таймера</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">STOP</code><span class="text-muted text-end ms-2">Приостановить обратный отсчет (пауза)</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">RESET</code><span class="text-muted text-end ms-2">Сбросить таймер на 00:00 или исходное время</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">SET:<sec></code><span class="text-muted text-end ms-2">Установить длительность таймера в секундах (например, SET:180)</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">STATUS</code><span class="text-muted text-end ms-2">Запросить текущее состояние и остаток времени</span></li></ul></div></div></div></div></div><div class="card border shadow-sm mb-4"><div class="card-header bg-light fw-bold text-dark"><i class="fa-brands fa-java me-2 text-danger"></i>Задачи студента по разработке АРМ оператора (JavaFX)</div><div class="card-body"><div class="alert alert-info border-0 mb-3 small"><i class="fa-solid fa-circle-info me-2"></i>В репозитории для каждого варианта в папке <code>javafx-client/</code> подготовлен <strong>стартовый шаблон</strong>. В нем уже настроено подключение по COM-порту через <code>jSerialComm</code>. Ваша задача — реализовать элементы интерфейса и логику обработки телеметрии согласно требованиям ниже.</div><ul class="list-group list-group-numbered mb-0"><li class="list-group-item d-flex align-items-center"><span class="ms-2">Большое цифровое табло таймера в формате MM:SS.</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Индикатор состояния (Готов / Идет отсчет / Пауза / Финиш).</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Кнопки Старт, Стоп, Сброс, синхронизированные с кнопками на стенде.</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Быстрые пресеты времени (1 мин, 3 мин, 5 мин, 10 мин, 15 мин).</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Звуковой сигнал на ПК при завершении отсчета таймера.</span></li></ul></div></div><div class="card border shadow-sm mb-4"><div class="card-header bg-light d-flex justify-content-between align-items-center"><span class="fw-bold text-dark"><i class="fa-solid fa-code me-2 text-primary"></i>Исходный код прошивки Wokwi (variant3_countdown_timer.ino)</span><span class="badge bg-secondary">C++ / Arduino Uno</span></div><div class="card-body p-0"><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('code-v3', this); } else { const el = document.getElementById('code-v3'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="code-v3" data-monokai-editor="true" data-language="cpp" data-readonly="false" style="min-height: 120px; height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>// Прошивка C++ для Wokwi (Arduino Uno)
+      <div class="box py-3 generalbox"><div class="no-overflow"><div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-3"><div><div class="d-flex align-items-center gap-2 mb-1"><span class="badge bg-dark text-white px-2 py-1">09.02.01</span><span class="badge bg-primary text-white px-2 py-1">Компьютерные системы и комплексы</span><span class="badge bg-secondary text-white px-2 py-1">Курсовое проектирование</span></div><h2 class="mb-1 text-primary"><i class="fa-solid fa-microchip me-2"></i>Курсовое проектирование: Аппаратно-программные комплексы</h2><p class="text-muted mb-0">МДК.02.04 «Разработка прикладных приложений» | Стек: Arduino Uno (Wokwi C++), UART 9600 бод, JavaFX АРМ оператора, jSerialComm</p></div><div class="d-none d-md-block text-end"><a href="https://github.com/dEN5-tech/java-student-workspace/releases/tag/v2.0.0-coursework-090201" target="_blank" class="btn btn-success btn-sm text-white me-2"><i class="fa-solid fa-box-archive me-1"></i> Скачать Релиз (.ZIP)</a><a href="https://github.com/dEN5-tech/java-student-workspace/tree/main/coursework-090201" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fa-brands fa-github me-1"></i> Репозиторий заданий</a></div></div><div class="alert alert-success border shadow-sm p-3 mb-4 d-flex flex-wrap gap-3 align-items-center justify-content-between"><div class="d-flex align-items-center gap-3"><span class="badge bg-success text-white p-3 fs-5"><i class="fa-solid fa-box-archive"></i></span><div><h5 class="alert-heading mb-1 text-dark fw-bold">Полный автономный комплект курсового проекта со всеми зависимостями (Release v2.0.0)</h5><div class="small text-muted">Включает: автономный JavaFX SDK (DLL + JAR), расширение Wokwi .vsix, инсталлятор моста COM-порта HW VSP3s, все прошивки .HEX/.ELF и шаблоны 5 проектов.</div></div></div><div class="d-flex gap-2"><a href="https://github.com/dEN5-tech/java-student-workspace/releases/download/v2.0.0-coursework-090201/coursework-090201-full-bundle.zip" target="_blank" class="btn btn-success text-white fw-semibold"><i class="fa-solid fa-download me-1"></i> Скачать полный архив (.ZIP 57 MB)</a><a href="https://github.com/dEN5-tech/java-student-workspace/releases/tag/v2.0.0-coursework-090201" target="_blank" class="btn btn-outline-dark"><i class="fa-brands fa-github me-1"></i> Страница релиза</a></div></div><div class="card bg-light border-0 shadow-sm mb-4"><div class="card-body"><h5 class="card-title text-dark mb-3"><i class="fa-solid fa-rocket text-primary me-2"></i>Быстрый старт: Как выполнять курсовую работу</h5><div class="row g-3"><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">1. Клонирование репозитория</div><div class="small text-muted mb-2">Получите все 5 вариантов и готовые воркспейсы одной командой:</div><code class="d-block p-2 bg-light rounded text-dark small" style="font-size: 11px;">git clone https://github.com/dEN5-tech/java-student-workspace.git</code></div></div><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">2. Открытие в VS Code</div><div class="small text-muted">В VS Code выберите меню <strong>Файл → Открыть рабочую область из файла...</strong> и укажите файл <code>.code-workspace</code> своего варианта.</div></div></div><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">3. Запуск Wokwi симулятора</div><div class="small text-muted">Откройте <code>wokwi/diagram.json</code> и нажмите <kbd>F1</kbd> → <strong>Wokwi: Start Simulator</strong>. Прошивка сразу оживет и запустит мост RFC2217 на порту 4000.</div></div></div><div class="col-md-3"><div class="p-3 bg-white rounded border h-100"><div class="fw-bold text-primary mb-1">4. Запуск JavaFX АРМ</div><div class="small text-muted">Запустите <code>run.bat</code> (или соберите <code>build.bat</code>) в папке <code>javafx-client/</code>. Шаблон уже содержит подключение к COM-порту!</div></div></div></div></div></div><ul class="nav nav-pills mb-4 border-bottom pb-3"><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201.html"><i class="fa-solid fa-temperature-half me-2"></i>Вариант 1 (Термостат)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201-v2.html"><i class="fa-solid fa-ruler-horizontal me-2"></i>Вариант 2 (Парктроник)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link active" href="coursework-090201-v3.html"><i class="fa-solid fa-stopwatch me-2"></i>Вариант 3 (Таймер)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201-v4.html"><i class="fa-solid fa-person-walking me-2"></i>Вариант 4 (Счетчик)</a></li><li class="nav-item me-2 mb-2"><a class="nav-link " href="coursework-090201-v5.html"><i class="fa-solid fa-lock me-2"></i>Вариант 5 (Кодовый замок)</a></li></ul><div class="main-variant-card"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3 p-3 bg-white border rounded shadow-sm"><div><span class="badge bg-primary mb-2 px-2 py-1"><i class="fa-solid fa-stopwatch me-1"></i> Вариант 3 (Таймер)</span><h3 class="mb-1 text-dark">Вариант 3: Лабораторный таймер обратного отсчета</h3><p class="text-muted mb-0">Аппаратно-программный комплекс лабораторного таймера с 4-разрядным семисегментным индикатором TM1637, LCD1602, кнопочным управлением (Старт, Пауза, Сброс) и управлением с ПК.</p></div><div class="d-flex flex-wrap gap-2"><a href="https://raw.githubusercontent.com/dEN5-tech/java-student-workspace/main/coursework-090201/variant3_countdown_timer/Project3_CountdownTimer.hex" target="_blank" class="btn btn-success btn-sm text-white"><i class="fa-solid fa-microchip me-1"></i> Скачать .HEX</a><a href="https://raw.githubusercontent.com/dEN5-tech/java-student-workspace/main/coursework-090201/variant3_countdown_timer/Project3_CountdownTimer.ino" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-file-code me-1"></i> Исходник .INO</a><a href="https://github.com/dEN5-tech/java-student-workspace/tree/main/coursework-090201/variant3_countdown_timer" target="_blank" class="btn btn-primary btn-sm"><i class="fa-brands fa-github me-1"></i> Папка варианта в Git</a><a href="https://raw.githubusercontent.com/dEN5-tech/java-student-workspace/main/coursework-090201/variant3_countdown_timer/TASK.md" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-file-lines me-1"></i> ТЗ (TASK.md)</a></div></div><div class="row g-4 mb-4"><div class="col-lg-6"><div class="card h-100 border shadow-sm"><div class="card-header bg-light fw-bold text-dark"><i class="fa-solid fa-plug me-2 text-primary"></i>Аппаратная конфигурация стенда (Arduino Uno)</div><div class="card-body p-0"><table class="table table-hover table-striped mb-0 small"><tbody><tr><th class="ps-3" style="width: 35%;">Датчики:</th><td class="text-primary fw-semibold">4 аппаратные тактовые кнопки</td></tr><tr><th class="ps-3">Исполнители:</th><td>Семисегментный TM1637 (CLK: D6, DIO: D7), Красный LED Аварии (D9), Зуммер (D8)</td></tr><tr><th class="ps-3">Органы ввода:</th><td>Кнопки: [+] (D2), [-] (D3), [СТАРТ] (D4), [СТОП/СБРОС] (D5)</td></tr><tr><th class="ps-3">Индикация стенда:</th><td>Семисегментный TM1637 + LCD1602 I2C (0x27)</td></tr><tr><th class="ps-3">Интерфейс связи:</th><td>UART (Serial) @ 9600 baud, 8-N-1 (RFC2217 port 4000)</td></tr></tbody></table></div></div></div><div class="col-lg-6"><div class="card h-100 border shadow-sm"><div class="card-header bg-light fw-bold text-dark"><i class="fa-solid fa-network-wired me-2 text-success"></i>Спецификация протокола UART (Serial)</div><div class="card-body"><div class="mb-3"><div class="fw-semibold small text-muted mb-1">Формат телеметрии (Arduino → ПК):</div><code class="d-block p-2 bg-dark text-warning rounded small mb-1">TIME:01:25;STATE:RUN;REMAINING:85\n</code><div class="small text-muted">TIME — время таймера (ММ:СС), STATE — состояние (SETTING / RUN / PAUSED / TIME_OVER), REMAINING — остаток секунд. Отправка каждую 1 сек.</div></div><div><div class="fw-semibold small text-muted mb-1">Команды управления (ПК → Arduino):</div><ul class="list-group list-group-flush small"><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">START</code><span class="text-muted text-end ms-2">Запустить обратный отсчет таймера</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">STOP</code><span class="text-muted text-end ms-2">Приостановить обратный отсчет (пауза)</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">RESET</code><span class="text-muted text-end ms-2">Сбросить таймер на исходное время</span></li><li class="list-group-item px-0 py-1 d-flex justify-content-between align-items-center"><code class="text-primary fw-bold">SET:<sec></code><span class="text-muted text-end ms-2">Установить длительность таймера в секундах (например, SET:120)</span></li></ul></div></div></div></div></div><div class="card border shadow-sm mb-4"><div class="card-header bg-light fw-bold text-dark"><i class="fa-brands fa-java me-2 text-danger"></i>Задачи студента по разработке АРМ оператора (JavaFX)</div><div class="card-body"><div class="alert alert-info border-0 mb-3 small"><i class="fa-solid fa-circle-info me-2"></i>В репозитории для каждого варианта в папке <code>javafx-client/</code> подготовлен <strong>стартовый шаблон</strong>. В нем уже настроено подключение по COM-порту через <code>jSerialComm</code>. Ваша задача — реализовать элементы интерфейса и логику обработки телеметрии согласно требованиям ниже.</div><ul class="list-group list-group-numbered mb-0"><li class="list-group-item d-flex align-items-center"><span class="ms-2">Большое цифровое табло таймера в формате MM:SS.</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Индикатор состояния (SETTING / RUN / PAUSED / TIME_OVER) с цветовым выделением.</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Кнопки управления: START, STOP, RESET и поле быстрой установки времени SET:<sec>.</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Текстовый журнал входящих пакетов телеметрии от COM-порта (TextArea).</span></li><li class="list-group-item d-flex align-items-center"><span class="ms-2">Шкала прогресса обратного отсчета (ProgressBar) или журнал событий.</span></li></ul></div></div><div class="card border shadow-sm mb-4"><div class="card-header bg-light d-flex justify-content-between align-items-center"><span class="fw-bold text-dark"><i class="fa-solid fa-code me-2 text-primary"></i>Исходный код прошивки Wokwi (variant3_countdown_timer.ino)</span><span class="badge bg-secondary">C++ / Arduino Uno</span></div><div class="card-body p-0"><div class="mb-3 position-relative shadow-sm" style="border-radius: 6px; overflow: hidden; border: 1px solid #3e3d32; background: #272822;"><button type="button" class="btn btn-dark btn-sm position-absolute py-1 px-2 text-muted" style="top: 8px; right: 12px; z-index: 10; font-size: 11px; background: rgba(39, 40, 34, 0.85); border: 1px solid #49483e; backdrop-filter: blur(4px); transition: all 0.2s; cursor: pointer;" onmouseover="this.style.color='#f8f8f2'; this.style.borderColor='#75715e';" onmouseout="this.style.color='#90908a'; this.style.borderColor='#49483e';" onclick="if (window.MonokaiEditor && window.MonokaiEditor.copyCode) { window.MonokaiEditor.copyCode('code-v3', this); } else { const el = document.getElementById('code-v3'); const t = el ? (el.querySelector('.monokai-raw-code') || el.querySelector('code')) : null; if (t) { navigator.clipboard.writeText(t.value || t.innerText).then(() => { this.innerHTML = '<i class=&#34;fa fa-check text-success mr-1&#34;></i> Скопировано!'; setTimeout(() => { this.innerHTML = '<i class=&#34;fa fa-clone mr-1&#34;></i> Скопировать'; }, 2000); }); } }" title="Копировать код"><i class="fa fa-clone mr-1"></i> Скопировать</button><div id="code-v3" data-monokai-editor="true" data-language="cpp" data-readonly="false" style="min-height: 120px; height: 380px; width: 100%; background: #272822; position: relative;"><textarea class="monokai-raw-code" style="display:none;" aria-hidden="true" readOnly>// Прошивка C++ для Wokwi (Arduino Uno)
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include <TM1637Display.h>
-#include "SimpleArduinoComm.h"
 
+// Дисплей LCD 1602 с адаптером I2C (адрес 0x27)
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-TM1637Display tm(6, 5); // CLK=6, DIO=5
-SimpleArduinoComm comm(9600);
 
-const int PIN_BTN_MIN = 2;
-const int PIN_BTN_SEC = 3;
-const int PIN_BTN_START = 4;
-const int PIN_BTN_RESET = 7;
-const int PIN_LED_DONE = 8;
-const int PIN_BUZZER = 9;
+// Назначение пинов кнопок (INPUT_PULLUP)
+const int PIN_BTN_PLUS   = 2; // Кнопка [+]
+const int PIN_BTN_MINUS  = 3; // Кнопка [-]
+const int PIN_BTN_START  = 4; // Кнопка [СТАРТ]
+const int PIN_BTN_STOP   = 5; // Кнопка [СТОП/СБРОС]
 
-int remainingSeconds = 60;
-bool isRunning = false;
-unsigned long lastTick = 0;
-unsigned long lastSend = 0;
+// 4-разрядный семисегментный дисплей TM1637
+const int PIN_DISP_CLK   = 6;
+const int PIN_DISP_DIO   = 7;
+
+// Индикация тревоги
+const int PIN_BUZZER     = 8; // Пьезо-зуммер
+const int PIN_LED        = 9; // Красный светодиод окончания отсчета
+
+const uint8_t digitPatterns[] = {
+  0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f
+};
+
+enum State { SETTING, RUNNING, PAUSED, ALARM };
+State currentState = SETTING;
+long targetSeconds = 60;
+long remainingSeconds = 60;
+
+unsigned long lastTickTime   = 0;
+unsigned long lastBtnCheck   = 0;
+unsigned long lastSerialSend = 0;
+unsigned long lastAlarmBlink = 0;
+bool alarmLedState = false;
+
+bool lastPlusState  = HIGH;
+bool lastMinusState = HIGH;
+bool lastStartState = HIGH;
+bool lastStopState  = HIGH;
+
+void updateDisplays();
+void tmDisplayTime(int mins, int secs);
+void handleButtons(unsigned long now);
+void resetTimer();
 
 void setup() {
-  pinMode(PIN_BTN_MIN, INPUT_PULLUP);
-  pinMode(PIN_BTN_SEC, INPUT_PULLUP);
-  pinMode(PIN_BTN_START, INPUT_PULLUP);
-  pinMode(PIN_BTN_RESET, INPUT_PULLUP);
-  pinMode(PIN_LED_DONE, OUTPUT);
-  pinMode(PIN_BUZZER, OUTPUT);
+  Serial.begin(9600);
+  Serial.setTimeout(50);
 
-  tm.setBrightness(7);
+  Wire.begin();
+  #if defined(WIRE_HAS_TIMEOUT)
+  Wire.setWireTimeout(3000, true);
+  #endif
+
+  pinMode(PIN_BTN_PLUS,  INPUT_PULLUP);
+  pinMode(PIN_BTN_MINUS, INPUT_PULLUP);
+  pinMode(PIN_BTN_START, INPUT_PULLUP);
+  pinMode(PIN_BTN_STOP,  INPUT_PULLUP);
+
+  pinMode(PIN_DISP_CLK, OUTPUT);
+  pinMode(PIN_DISP_DIO, OUTPUT);
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  digitalWrite(PIN_DISP_DIO, HIGH);
+
+  pinMode(PIN_BUZZER, OUTPUT);
+  pinMode(PIN_LED,    OUTPUT);
+  digitalWrite(PIN_BUZZER, LOW);
+  digitalWrite(PIN_LED,    LOW);
+
   lcd.init();
   lcd.backlight();
-  comm.begin();
+  lcd.clear();
+  lcd.setCursor(2, 0);
+  lcd.print("TIMER SYSTEM");
+  lcd.setCursor(3, 1);
+  lcd.print("READY 01:00");
+
+  delay(500);
+  lcd.clear();
+  updateDisplays();
+
+  Serial.println(F("SYSTEM_INIT_OK"));
+  Serial.println(F("TIME:01:00;STATE:SETTING;REMAINING:60"));
 }
 
 void loop() {
-  // Кнопки
-  if (digitalRead(PIN_BTN_START) == LOW) { isRunning = !isRunning; delay(250); }
-  if (digitalRead(PIN_BTN_RESET) == LOW) { isRunning = false; remainingSeconds = 0; delay(250); }
-  if (!isRunning) {
-    if (digitalRead(PIN_BTN_MIN) == LOW) { remainingSeconds += 60; delay(200); }
-    if (digitalRead(PIN_BTN_SEC) == LOW) { remainingSeconds += 1; delay(200); }
-  }
+  unsigned long now = millis();
+  handleButtons(now);
 
-  // Тик обратного отсчета раз в 1 сек
-  if (isRunning && millis() - lastTick >= 1000) {
-    lastTick = millis();
-    if (remainingSeconds > 0) {
-      remainingSeconds--;
-    } else {
-      isRunning = false;
-      digitalWrite(PIN_LED_DONE, HIGH);
-      tone(PIN_BUZZER, 1000, 500);
+  if (now - lastTickTime >= 1000) {
+    lastTickTime = now;
+    if (currentState == RUNNING) {
+      if (remainingSeconds > 0) {
+        remainingSeconds--;
+        digitalWrite(PIN_LED, !digitalRead(PIN_LED));
+        updateDisplays();
+      } else {
+        currentState = ALARM;
+        digitalWrite(PIN_LED, HIGH);
+        updateDisplays();
+      }
     }
   }
 
-  // Обновление индикатора TM1637
-  int m = remainingSeconds / 60;
-  int s = remainingSeconds % 60;
-  tm.showNumberDecEx(m * 100 + s, 0b01000000, true);
-
-  // Команды от ПК
-  if (comm.available()) {
-    String cmd = comm.readCommand();
-    if (cmd == "START") isRunning = true;
-    else if (cmd == "STOP") isRunning = false;
-    else if (cmd == "RESET") { isRunning = false; remainingSeconds = 0; }
-    else if (cmd.startsWith("SET:")) { remainingSeconds = cmd.substring(4).toInt(); }
+  if (currentState == ALARM) {
+    if (now - lastAlarmBlink >= 250) {
+      lastAlarmBlink = now;
+      alarmLedState = !alarmLedState;
+      digitalWrite(PIN_LED, alarmLedState ? HIGH : LOW);
+      if (alarmLedState) tone(PIN_BUZZER, 1500, 150);
+    }
   }
 
-  // Телеметрия
-  if (millis() - lastSend >= 1000) {
-    lastSend = millis();
-    comm.sendParam("M", String(m));
-    comm.sendParam("S", String(s));
-    comm.sendParam("ST", isRunning ? "RUNNING" : (remainingSeconds == 0 ? "FINISHED" : "STOPPED"));
-    comm.sendEnd();
+  // Телеметрия раз в секунду
+  if (now - lastSerialSend >= 1000) {
+    lastSerialSend = now;
+    int mins = remainingSeconds / 60;
+    int secs = remainingSeconds % 60;
+    char timeBuf[10];
+    sprintf(timeBuf, "%02d:%02d", mins, secs);
+
+    String stStr = "SETTING";
+    if (currentState == RUNNING) stStr = "RUN";
+    if (currentState == PAUSED)  stStr = "PAUSED";
+    if (currentState == ALARM)   stStr = "TIME_OVER";
+
+    Serial.print("TIME:");
+    Serial.print(timeBuf);
+    Serial.print(";STATE:");
+    Serial.print(stStr);
+    Serial.print(";REMAINING:");
+    Serial.println(remainingSeconds);
   }
+
+  // Прием команд от ПК
+  if (Serial.available() > 0) {
+    String cmd = Serial.readStringUntil('\n');
+    cmd.trim();
+    if (cmd == "START" || cmd == "CMD:START") {
+      if (currentState == SETTING || currentState == PAUSED) {
+        currentState = RUNNING;
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_STARTED"));
+      } else if (currentState == ALARM) {
+        resetTimer();
+        currentState = RUNNING;
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_STARTED"));
+      }
+    } else if (cmd == "STOP" || cmd == "CMD:STOP") {
+      if (currentState == RUNNING) {
+        currentState = PAUSED;
+        noTone(PIN_BUZZER);
+        digitalWrite(PIN_LED, LOW);
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_PAUSED"));
+      }
+    } else if (cmd == "RESET" || cmd == "CMD:RESET") {
+      resetTimer();
+      Serial.println(F("ACK:TIMER_RESET"));
+    } else if (cmd.startsWith("SET:")) {
+      long newSec = cmd.substring(4).toInt();
+      if (newSec > 0 && newSec <= 3599) {
+        targetSeconds = newSec;
+        remainingSeconds = targetSeconds;
+        currentState = SETTING;
+        updateDisplays();
+        Serial.print(F("ACK:TIME_SET="));
+        Serial.println(newSec);
+      }
+    }
+  }
+}
+
+void handleButtons(unsigned long now) {
+  if (now - lastBtnCheck < 50) return;
+  lastBtnCheck = now;
+  bool btnPlus  = digitalRead(PIN_BTN_PLUS);
+  bool btnMinus = digitalRead(PIN_BTN_MINUS);
+  bool btnStart = digitalRead(PIN_BTN_START);
+  bool btnStop  = digitalRead(PIN_BTN_STOP);
+
+  if (btnPlus == LOW && lastPlusState == HIGH) {
+    if (currentState == SETTING || currentState == PAUSED) {
+      targetSeconds += 10;
+      if (targetSeconds > 3599) targetSeconds = 3599;
+      remainingSeconds = targetSeconds;
+      updateDisplays();
+    }
+  }
+  lastPlusState = btnPlus;
+
+  if (btnMinus == LOW && lastMinusState == HIGH) {
+    if (currentState == SETTING || currentState == PAUSED) {
+      targetSeconds -= 10;
+      if (targetSeconds < 10) targetSeconds = 10;
+      remainingSeconds = targetSeconds;
+      updateDisplays();
+    }
+  }
+  lastMinusState = btnMinus;
+
+  if (btnStart == LOW && lastStartState == HIGH) {
+    if (currentState == SETTING || currentState == PAUSED) {
+      currentState = RUNNING;
+      updateDisplays();
+    } else if (currentState == ALARM) {
+      resetTimer();
+    }
+  }
+  lastStartState = btnStart;
+
+  if (btnStop == LOW && lastStopState == HIGH) {
+    if (currentState == RUNNING) {
+      currentState = PAUSED;
+      digitalWrite(PIN_LED, LOW);
+      updateDisplays();
+    } else {
+      resetTimer();
+    }
+  }
+  lastStopState = btnStop;
+}
+
+void resetTimer() {
+  currentState = SETTING;
+  remainingSeconds = targetSeconds;
+  noTone(PIN_BUZZER);
+  digitalWrite(PIN_LED, LOW);
+  updateDisplays();
+}
+
+void tmStart() {
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  digitalWrite(PIN_DISP_DIO, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(PIN_DISP_DIO, LOW);
+}
+
+void tmStop() {
+  digitalWrite(PIN_DISP_CLK, LOW);
+  digitalWrite(PIN_DISP_DIO, LOW);
+  delayMicroseconds(5);
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  digitalWrite(PIN_DISP_DIO, HIGH);
+}
+
+void tmWriteByte(uint8_t b) {
+  for (int i = 0; i < 8; i++) {
+    digitalWrite(PIN_DISP_CLK, LOW);
+    digitalWrite(PIN_DISP_DIO, (b & 0x01) ? HIGH : LOW);
+    delayMicroseconds(5);
+    digitalWrite(PIN_DISP_CLK, HIGH);
+    delayMicroseconds(5);
+    b >>= 1;
+  }
+  digitalWrite(PIN_DISP_CLK, LOW);
+  pinMode(PIN_DISP_DIO, INPUT);
+  delayMicroseconds(5);
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  delayMicroseconds(5);
+  pinMode(PIN_DISP_DIO, OUTPUT);
+}
+
+void tmDisplayTime(int mins, int secs) {
+  uint8_t d1 = digitPatterns[(mins / 10) % 10];
+  uint8_t d2 = digitPatterns[mins % 10] | 0x80;
+  uint8_t d3 = digitPatterns[(secs / 10) % 10];
+  uint8_t d4 = digitPatterns[secs % 10];
+
+  tmStart();
+  tmWriteByte(0x40);
+  tmStop();
+
+  tmStart();
+  tmWriteByte(0xC0);
+  tmWriteByte(d1);
+  tmWriteByte(d2);
+  tmWriteByte(d3);
+  tmWriteByte(d4);
+  tmStop();
+
+  tmStart();
+  tmWriteByte(0x88 | 0x07);
+  tmStop();
+}
+
+void updateDisplays() {
+  int mins = remainingSeconds / 60;
+  int secs = remainingSeconds % 60;
+  tmDisplayTime(mins, secs);
+
+  lcd.setCursor(0, 0);
+  lcd.print("TIME: ");
+  if (mins < 10) lcd.print("0");
+  lcd.print(mins);
+  lcd.print(":");
+  if (secs < 10) lcd.print("0");
+  lcd.print(secs);
+  lcd.print("      ");
+
+  lcd.setCursor(0, 1);
+  if (currentState == SETTING) lcd.print("STATUS: SETTING ");
+  if (currentState == RUNNING) lcd.print("STATUS: RUNNING ");
+  if (currentState == PAUSED)  lcd.print("STATUS: PAUSED  ");
+  if (currentState == ALARM)   lcd.print("!! TIME OVER! !!");
 }</textarea><pre style="margin: 0; padding: 14px; height: 100%; overflow: auto; background: #272822; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 13px; line-height: 1.5;"><code class="language-cpp hljs">// Прошивка C++ для Wokwi (Arduino Uno)
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include <TM1637Display.h>
-#include "SimpleArduinoComm.h"
 
+// Дисплей LCD 1602 с адаптером I2C (адрес 0x27)
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-TM1637Display tm(6, 5); // CLK=6, DIO=5
-SimpleArduinoComm comm(9600);
 
-const int PIN_BTN_MIN = 2;
-const int PIN_BTN_SEC = 3;
-const int PIN_BTN_START = 4;
-const int PIN_BTN_RESET = 7;
-const int PIN_LED_DONE = 8;
-const int PIN_BUZZER = 9;
+// Назначение пинов кнопок (INPUT_PULLUP)
+const int PIN_BTN_PLUS   = 2; // Кнопка [+]
+const int PIN_BTN_MINUS  = 3; // Кнопка [-]
+const int PIN_BTN_START  = 4; // Кнопка [СТАРТ]
+const int PIN_BTN_STOP   = 5; // Кнопка [СТОП/СБРОС]
 
-int remainingSeconds = 60;
-bool isRunning = false;
-unsigned long lastTick = 0;
-unsigned long lastSend = 0;
+// 4-разрядный семисегментный дисплей TM1637
+const int PIN_DISP_CLK   = 6;
+const int PIN_DISP_DIO   = 7;
+
+// Индикация тревоги
+const int PIN_BUZZER     = 8; // Пьезо-зуммер
+const int PIN_LED        = 9; // Красный светодиод окончания отсчета
+
+const uint8_t digitPatterns[] = {
+  0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f
+};
+
+enum State { SETTING, RUNNING, PAUSED, ALARM };
+State currentState = SETTING;
+long targetSeconds = 60;
+long remainingSeconds = 60;
+
+unsigned long lastTickTime   = 0;
+unsigned long lastBtnCheck   = 0;
+unsigned long lastSerialSend = 0;
+unsigned long lastAlarmBlink = 0;
+bool alarmLedState = false;
+
+bool lastPlusState  = HIGH;
+bool lastMinusState = HIGH;
+bool lastStartState = HIGH;
+bool lastStopState  = HIGH;
+
+void updateDisplays();
+void tmDisplayTime(int mins, int secs);
+void handleButtons(unsigned long now);
+void resetTimer();
 
 void setup() {
-  pinMode(PIN_BTN_MIN, INPUT_PULLUP);
-  pinMode(PIN_BTN_SEC, INPUT_PULLUP);
-  pinMode(PIN_BTN_START, INPUT_PULLUP);
-  pinMode(PIN_BTN_RESET, INPUT_PULLUP);
-  pinMode(PIN_LED_DONE, OUTPUT);
-  pinMode(PIN_BUZZER, OUTPUT);
+  Serial.begin(9600);
+  Serial.setTimeout(50);
 
-  tm.setBrightness(7);
+  Wire.begin();
+  #if defined(WIRE_HAS_TIMEOUT)
+  Wire.setWireTimeout(3000, true);
+  #endif
+
+  pinMode(PIN_BTN_PLUS,  INPUT_PULLUP);
+  pinMode(PIN_BTN_MINUS, INPUT_PULLUP);
+  pinMode(PIN_BTN_START, INPUT_PULLUP);
+  pinMode(PIN_BTN_STOP,  INPUT_PULLUP);
+
+  pinMode(PIN_DISP_CLK, OUTPUT);
+  pinMode(PIN_DISP_DIO, OUTPUT);
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  digitalWrite(PIN_DISP_DIO, HIGH);
+
+  pinMode(PIN_BUZZER, OUTPUT);
+  pinMode(PIN_LED,    OUTPUT);
+  digitalWrite(PIN_BUZZER, LOW);
+  digitalWrite(PIN_LED,    LOW);
+
   lcd.init();
   lcd.backlight();
-  comm.begin();
+  lcd.clear();
+  lcd.setCursor(2, 0);
+  lcd.print("TIMER SYSTEM");
+  lcd.setCursor(3, 1);
+  lcd.print("READY 01:00");
+
+  delay(500);
+  lcd.clear();
+  updateDisplays();
+
+  Serial.println(F("SYSTEM_INIT_OK"));
+  Serial.println(F("TIME:01:00;STATE:SETTING;REMAINING:60"));
 }
 
 void loop() {
-  // Кнопки
-  if (digitalRead(PIN_BTN_START) == LOW) { isRunning = !isRunning; delay(250); }
-  if (digitalRead(PIN_BTN_RESET) == LOW) { isRunning = false; remainingSeconds = 0; delay(250); }
-  if (!isRunning) {
-    if (digitalRead(PIN_BTN_MIN) == LOW) { remainingSeconds += 60; delay(200); }
-    if (digitalRead(PIN_BTN_SEC) == LOW) { remainingSeconds += 1; delay(200); }
-  }
+  unsigned long now = millis();
+  handleButtons(now);
 
-  // Тик обратного отсчета раз в 1 сек
-  if (isRunning && millis() - lastTick >= 1000) {
-    lastTick = millis();
-    if (remainingSeconds > 0) {
-      remainingSeconds--;
-    } else {
-      isRunning = false;
-      digitalWrite(PIN_LED_DONE, HIGH);
-      tone(PIN_BUZZER, 1000, 500);
+  if (now - lastTickTime >= 1000) {
+    lastTickTime = now;
+    if (currentState == RUNNING) {
+      if (remainingSeconds > 0) {
+        remainingSeconds--;
+        digitalWrite(PIN_LED, !digitalRead(PIN_LED));
+        updateDisplays();
+      } else {
+        currentState = ALARM;
+        digitalWrite(PIN_LED, HIGH);
+        updateDisplays();
+      }
     }
   }
 
-  // Обновление индикатора TM1637
-  int m = remainingSeconds / 60;
-  int s = remainingSeconds % 60;
-  tm.showNumberDecEx(m * 100 + s, 0b01000000, true);
-
-  // Команды от ПК
-  if (comm.available()) {
-    String cmd = comm.readCommand();
-    if (cmd == "START") isRunning = true;
-    else if (cmd == "STOP") isRunning = false;
-    else if (cmd == "RESET") { isRunning = false; remainingSeconds = 0; }
-    else if (cmd.startsWith("SET:")) { remainingSeconds = cmd.substring(4).toInt(); }
+  if (currentState == ALARM) {
+    if (now - lastAlarmBlink >= 250) {
+      lastAlarmBlink = now;
+      alarmLedState = !alarmLedState;
+      digitalWrite(PIN_LED, alarmLedState ? HIGH : LOW);
+      if (alarmLedState) tone(PIN_BUZZER, 1500, 150);
+    }
   }
 
-  // Телеметрия
-  if (millis() - lastSend >= 1000) {
-    lastSend = millis();
-    comm.sendParam("M", String(m));
-    comm.sendParam("S", String(s));
-    comm.sendParam("ST", isRunning ? "RUNNING" : (remainingSeconds == 0 ? "FINISHED" : "STOPPED"));
-    comm.sendEnd();
+  // Телеметрия раз в секунду
+  if (now - lastSerialSend >= 1000) {
+    lastSerialSend = now;
+    int mins = remainingSeconds / 60;
+    int secs = remainingSeconds % 60;
+    char timeBuf[10];
+    sprintf(timeBuf, "%02d:%02d", mins, secs);
+
+    String stStr = "SETTING";
+    if (currentState == RUNNING) stStr = "RUN";
+    if (currentState == PAUSED)  stStr = "PAUSED";
+    if (currentState == ALARM)   stStr = "TIME_OVER";
+
+    Serial.print("TIME:");
+    Serial.print(timeBuf);
+    Serial.print(";STATE:");
+    Serial.print(stStr);
+    Serial.print(";REMAINING:");
+    Serial.println(remainingSeconds);
   }
+
+  // Прием команд от ПК
+  if (Serial.available() > 0) {
+    String cmd = Serial.readStringUntil('\n');
+    cmd.trim();
+    if (cmd == "START" || cmd == "CMD:START") {
+      if (currentState == SETTING || currentState == PAUSED) {
+        currentState = RUNNING;
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_STARTED"));
+      } else if (currentState == ALARM) {
+        resetTimer();
+        currentState = RUNNING;
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_STARTED"));
+      }
+    } else if (cmd == "STOP" || cmd == "CMD:STOP") {
+      if (currentState == RUNNING) {
+        currentState = PAUSED;
+        noTone(PIN_BUZZER);
+        digitalWrite(PIN_LED, LOW);
+        updateDisplays();
+        Serial.println(F("ACK:TIMER_PAUSED"));
+      }
+    } else if (cmd == "RESET" || cmd == "CMD:RESET") {
+      resetTimer();
+      Serial.println(F("ACK:TIMER_RESET"));
+    } else if (cmd.startsWith("SET:")) {
+      long newSec = cmd.substring(4).toInt();
+      if (newSec > 0 && newSec <= 3599) {
+        targetSeconds = newSec;
+        remainingSeconds = targetSeconds;
+        currentState = SETTING;
+        updateDisplays();
+        Serial.print(F("ACK:TIME_SET="));
+        Serial.println(newSec);
+      }
+    }
+  }
+}
+
+void handleButtons(unsigned long now) {
+  if (now - lastBtnCheck < 50) return;
+  lastBtnCheck = now;
+  bool btnPlus  = digitalRead(PIN_BTN_PLUS);
+  bool btnMinus = digitalRead(PIN_BTN_MINUS);
+  bool btnStart = digitalRead(PIN_BTN_START);
+  bool btnStop  = digitalRead(PIN_BTN_STOP);
+
+  if (btnPlus == LOW && lastPlusState == HIGH) {
+    if (currentState == SETTING || currentState == PAUSED) {
+      targetSeconds += 10;
+      if (targetSeconds > 3599) targetSeconds = 3599;
+      remainingSeconds = targetSeconds;
+      updateDisplays();
+    }
+  }
+  lastPlusState = btnPlus;
+
+  if (btnMinus == LOW && lastMinusState == HIGH) {
+    if (currentState == SETTING || currentState == PAUSED) {
+      targetSeconds -= 10;
+      if (targetSeconds < 10) targetSeconds = 10;
+      remainingSeconds = targetSeconds;
+      updateDisplays();
+    }
+  }
+  lastMinusState = btnMinus;
+
+  if (btnStart == LOW && lastStartState == HIGH) {
+    if (currentState == SETTING || currentState == PAUSED) {
+      currentState = RUNNING;
+      updateDisplays();
+    } else if (currentState == ALARM) {
+      resetTimer();
+    }
+  }
+  lastStartState = btnStart;
+
+  if (btnStop == LOW && lastStopState == HIGH) {
+    if (currentState == RUNNING) {
+      currentState = PAUSED;
+      digitalWrite(PIN_LED, LOW);
+      updateDisplays();
+    } else {
+      resetTimer();
+    }
+  }
+  lastStopState = btnStop;
+}
+
+void resetTimer() {
+  currentState = SETTING;
+  remainingSeconds = targetSeconds;
+  noTone(PIN_BUZZER);
+  digitalWrite(PIN_LED, LOW);
+  updateDisplays();
+}
+
+void tmStart() {
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  digitalWrite(PIN_DISP_DIO, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(PIN_DISP_DIO, LOW);
+}
+
+void tmStop() {
+  digitalWrite(PIN_DISP_CLK, LOW);
+  digitalWrite(PIN_DISP_DIO, LOW);
+  delayMicroseconds(5);
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  digitalWrite(PIN_DISP_DIO, HIGH);
+}
+
+void tmWriteByte(uint8_t b) {
+  for (int i = 0; i < 8; i++) {
+    digitalWrite(PIN_DISP_CLK, LOW);
+    digitalWrite(PIN_DISP_DIO, (b & 0x01) ? HIGH : LOW);
+    delayMicroseconds(5);
+    digitalWrite(PIN_DISP_CLK, HIGH);
+    delayMicroseconds(5);
+    b >>= 1;
+  }
+  digitalWrite(PIN_DISP_CLK, LOW);
+  pinMode(PIN_DISP_DIO, INPUT);
+  delayMicroseconds(5);
+  digitalWrite(PIN_DISP_CLK, HIGH);
+  delayMicroseconds(5);
+  pinMode(PIN_DISP_DIO, OUTPUT);
+}
+
+void tmDisplayTime(int mins, int secs) {
+  uint8_t d1 = digitPatterns[(mins / 10) % 10];
+  uint8_t d2 = digitPatterns[mins % 10] | 0x80;
+  uint8_t d3 = digitPatterns[(secs / 10) % 10];
+  uint8_t d4 = digitPatterns[secs % 10];
+
+  tmStart();
+  tmWriteByte(0x40);
+  tmStop();
+
+  tmStart();
+  tmWriteByte(0xC0);
+  tmWriteByte(d1);
+  tmWriteByte(d2);
+  tmWriteByte(d3);
+  tmWriteByte(d4);
+  tmStop();
+
+  tmStart();
+  tmWriteByte(0x88 | 0x07);
+  tmStop();
+}
+
+void updateDisplays() {
+  int mins = remainingSeconds / 60;
+  int secs = remainingSeconds % 60;
+  tmDisplayTime(mins, secs);
+
+  lcd.setCursor(0, 0);
+  lcd.print("TIME: ");
+  if (mins < 10) lcd.print("0");
+  lcd.print(mins);
+  lcd.print(":");
+  if (secs < 10) lcd.print("0");
+  lcd.print(secs);
+  lcd.print("      ");
+
+  lcd.setCursor(0, 1);
+  if (currentState == SETTING) lcd.print("STATUS: SETTING ");
+  if (currentState == RUNNING) lcd.print("STATUS: RUNNING ");
+  if (currentState == PAUSED)  lcd.print("STATUS: PAUSED  ");
+  if (currentState == ALARM)   lcd.print("!! TIME OVER! !!");
 }</code></pre></div></div></div></div><div class="card border shadow-sm"><div class="card-header bg-light fw-bold text-dark"><i class="fa-regular fa-folder-open me-2 text-warning"></i>Файловая структура проекта варианта</div><div class="card-body"><pre class="bg-light p-3 rounded small mb-0 font-monospace text-dark">coursework-090201/variant3_countdown_timer/
 ├── variant3_countdown_timer.code-workspace       # Файл рабочей области VS Code
 ├── TASK.md                                    # Техническое задание, схема и протокол
