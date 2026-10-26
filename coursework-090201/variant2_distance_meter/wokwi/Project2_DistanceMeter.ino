@@ -26,6 +26,7 @@ void setup() {
   // Инициализация последовательного порта (9600 бод)
   Serial.begin(9600);
   Serial.setTimeout(50); // Минимальный таймаут чтения команд
+  Serial.println(F("SYSTEM:READY;DIST:INIT"));
 
   // Настройка выводов ультразвукового датчика
   pinMode(PIN_TRIG, OUTPUT);

@@ -36,6 +36,8 @@ void updateLcd();
 
 void setup() {
   Serial.begin(9600);
+  Serial.setTimeout(50);
+  Serial.println(F("SYSTEM:READY;COUNTER:0"));
 
   pinMode(PIN_PIR, INPUT);
   pinMode(PIN_BTN_PLUS,  INPUT_PULLUP);

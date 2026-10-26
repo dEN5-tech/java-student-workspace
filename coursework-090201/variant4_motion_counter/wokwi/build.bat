@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 echo ========================================================
-echo  Сборка прошивки Arduino Uno (Вариант 4: Счетчик проходов)
+echo  Сборка прошивки Arduino Uno (Вариант 4: Счетчик движений)
 echo ========================================================
 set CURRENT_DIR=%~dp0
 set SKETCH_NAME=Project4_MotionCounter
@@ -15,7 +15,10 @@ if errorlevel 1 (
     echo [ОШИБКА] Сборка прошивки не удалась. Убедитесь, что установлен arduino-cli.
 ) else (
     copy "%CURRENT_DIR%%SKETCH_NAME%.ino.hex" "%CURRENT_DIR%firmware.hex" >nul 2>&1
+    copy "%CURRENT_DIR%%SKETCH_NAME%.ino.hex" "%CURRENT_DIR%..\%SKETCH_NAME%.hex" >nul 2>&1
     echo [УСПЕХ] Файлы прошивки .hex и .elf успешно собраны!
 )
 rmdir /s /q "%CURRENT_DIR%temp_build" >nul 2>&1
+if "%1"=="--no-pause" goto end
 pause
+:end

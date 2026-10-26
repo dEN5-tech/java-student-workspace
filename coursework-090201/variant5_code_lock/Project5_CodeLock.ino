@@ -28,6 +28,8 @@ char mapIrCommand(uint32_t cmd);
 
 void setup() {
   Serial.begin(9600);
+  Serial.setTimeout(50);
+  Serial.println(F("SYSTEM:READY;DOOR:LOCKED"));
 
   // Инициализация ИК-приемника
   IrReceiver.begin(PIN_IR, false);
@@ -148,6 +150,17 @@ void loop() {
     } else if (cmd == "STATUS") {
       Serial.print("SYSTEM:READY;DOOR:LOCKED;CODE_LEN:4\n");
     }
+  }
+
+  // 4. Периодический отчет о состоянии системы в Serial (раз в секунду)
+  static unsigned long timerSerial = 0;
+  if (now - timerSerial >= 1000) {
+    timerSerial = now;
+    Serial.print(F("STATUS:"));
+    Serial.print(showingResult ? (inputCode == secretCode ? F("GRANTED") : F("DENIED")) : F("LOCKED"));
+    Serial.print(F(";CODE_LEN:"));
+    Serial.print(inputCode.length());
+    Serial.println(F(";DOOR:SECURE"));
   }
 }
 

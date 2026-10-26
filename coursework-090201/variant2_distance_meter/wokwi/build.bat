@@ -15,7 +15,10 @@ if errorlevel 1 (
     echo [ОШИБКА] Сборка прошивки не удалась. Убедитесь, что установлен arduino-cli.
 ) else (
     copy "%CURRENT_DIR%%SKETCH_NAME%.ino.hex" "%CURRENT_DIR%firmware.hex" >nul 2>&1
+    copy "%CURRENT_DIR%%SKETCH_NAME%.ino.hex" "%CURRENT_DIR%..\Project2_DistanceMeter.hex" >nul 2>&1
     echo [УСПЕХ] Файлы прошивки .hex и .elf успешно собраны!
 )
 rmdir /s /q "%CURRENT_DIR%temp_build" >nul 2>&1
+if "%1"=="--no-pause" goto end
 pause
+:end
