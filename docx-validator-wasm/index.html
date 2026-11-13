@@ -6,8 +6,8 @@
   <title>DOCX Validator (WASM + Trunk)</title>
   
 <script type="module">
-import init, * as bindings from './docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725.js';
-const wasm = await init({ module_or_path: './docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725_bg.wasm' });
+import init, * as bindings from './docx-validator-wasm/docx-validator-wasm-33e0f061a665a1c3.js';
+const wasm = await init({ module_or_path: './docx-validator-wasm/docx-validator-wasm-33e0f061a665a1c3_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -26,7 +26,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
     button:hover { background: #1d4ed8; }
     pre { background: #020617; padding: 1rem; border-radius: 8px; overflow-x: auto; border: 1px solid #1e293b; margin-top: 1rem; }
   </style>
-<link rel="modulepreload" href="./docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725.js" crossorigin="anonymous" integrity="sha384-e6AkkDGOnvJF6yHjOsYNvs6uMROtKBC+h8ukHJY9F9vOHZin7VJwXf+CMTAYlR0B"><link rel="preload" href="./docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725_bg.wasm" crossorigin="anonymous" integrity="sha384-teXFRRq4qD1O8BhJa0C4tYaxJQM+ajDI1PLobilzHJnTwJKuX+f6jWrtf2JOquyJ" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="./docx-validator-wasm/docx-validator-wasm-33e0f061a665a1c3.js" crossorigin="anonymous" integrity="sha384-uqD+r4T+sU1IF+6NZVc5Td4bmFKhCmLOTI/dHmsA4VK0iABbGzhxS8t1Aavot2xb"><link rel="preload" href="./docx-validator-wasm/docx-validator-wasm-33e0f061a665a1c3_bg.wasm" crossorigin="anonymous" integrity="sha384-gF0mzlReBFBsO5Ii4yrvnqUdHbFjt/USoUv9vyAXvmlKbgV8O0cTOW+grnP3Z6yF" as="fetch" type="application/wasm"></head>
 <body>
   <h1>DOCX Validator (YAML + Jinja2 в браузере через WASM)</h1>
 
