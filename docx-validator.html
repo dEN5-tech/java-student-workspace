@@ -159,7 +159,7 @@
 
     <!-- Page Content -->
     <div class="main-card">
-      <div id="docx-validator-root" class="py-2"><div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2"><div><h4 class="mb-1 text-primary fw-bold"><i class="fa-solid fa-file-circle-check me-2"></i>Валидатор Word (.docx) по контрактам YAML + Jinja2 (WASM)</h4><div class="text-muted small">Проверка полей, стилей, наследования, выравнивания, отступов и обязательных разделов прямо в браузере без отправки файла на сервер.</div></div><span id="wasm-status-badge" class="badge bg-secondary p-2"><i class="fa-solid fa-spinner fa-spin me-1"></i> Загрузка WASM...</span></div><div class="row g-3"><div class="col-lg-6"><div class="card border shadow-sm h-100"><div class="card-header bg-light fw-bold"><i class="fa-solid fa-sliders me-1"></i> 1. Файл и контракт (.yaml.j2)</div><div class="card-body"><div class="mb-3"><label class="form-label fw-bold small" for="wasm-docx-file">Документ Word (.docx):</label><input id="wasm-docx-file" type="file" accept=".docx" class="form-control"/></div><div class="mb-3"><label class="form-label fw-bold small" for="wasm-contract">Контракт валидации (YAML + Jinja2):</label><textarea id="wasm-contract" class="form-control font-monospace" rows="14" style="font-size: 12px;">version: 1
+      <div id="docx-validator-root" class="py-2"><div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2"><div><h4 class="mb-1 text-primary fw-bold"><i class="fa-solid fa-file-circle-check me-2"></i>Валидатор Word (.docx) по контрактам YAML + Jinja2 (WASM)</h4><div class="text-muted small">Проверка полей, стилей, выравнивания, отступов и обязательных разделов прямо в браузере без отправки файла на сервер.</div></div><span id="wasm-status-badge" class="badge bg-secondary p-2"><i class="fa-solid fa-spinner fa-spin me-1"></i> Загрузка WASM...</span></div><div class="row g-3"><div class="col-lg-6"><div class="card border shadow-sm h-100"><div class="card-header bg-light fw-bold"><i class="fa-solid fa-sliders me-1"></i> 1. Файл и контракт (.yaml.j2)</div><div class="card-body"><div class="mb-3"><label class="form-label fw-bold small" for="wasm-docx-file">Документ Word (.docx):</label><input id="wasm-docx-file" type="file" accept=".docx" class="form-control"/><div class="d-flex flex-wrap gap-2 mt-2"><button id="wasm-sample-bad-btn" type="button" class="btn btn-sm btn-outline-danger" disabled><i class="fa-solid fa-bug me-1"></i> Пример с ошибками (.docx)</button><button id="wasm-sample-good-btn" type="button" class="btn btn-sm btn-outline-success" disabled><i class="fa-solid fa-check-double me-1"></i> Эталонный пример (ГОСТ OK)</button><button id="wasm-download-sample-btn" type="button" class="btn btn-sm btn-outline-secondary" style="display: none;"><i class="fa-solid fa-download me-1"></i> Скачать .docx</button></div></div><div class="mb-3"><label class="form-label fw-bold small" for="wasm-contract">Контракт валидации (YAML + Jinja2):</label><textarea id="wasm-contract" class="form-control font-monospace" rows="14" style="font-size: 12px;">version: 1
 
 document:
   page_margins_mm:
@@ -202,14 +202,120 @@ assertions:
       ignore_empty: true
     property: "pPr.jc"
     op: eq
-    value: "both"</textarea></div><div class="mb-3"><label class="form-label fw-bold small" for="wasm-vars">Переменные --vars (JSON):</label><input id="wasm-vars" type="text" class="form-control font-monospace" value="{&#34;body_font&#34;:&#34;Times New Roman&#34;,&#34;body_size&#34;:14.0,&#34;require_conclusion&#34;:true}" style="font-size: 12px;"/></div><button id="wasm-run-btn" type="button" class="btn btn-primary w-100" disabled><i class="fa-solid fa-play me-1"></i> Проверить документ</button></div></div></div><div class="col-lg-6"><div class="card border shadow-sm h-100"><div class="card-header bg-light fw-bold"><i class="fa-solid fa-clipboard-check me-1"></i> 2. Результат проверки</div><div class="card-body d-flex flex-column"><div id="wasm-summary" class="alert alert-info" style="display: none;"></div><pre id="wasm-output" class="bg-dark text-light p-3 rounded flex-grow-1 mb-0" style="font-size: 12px; max-height: 520px; overflow: auto;">{"Ожидание": "Выберите .docx и нажмите «Проверить документ»"}</pre></div></div></div></div><script type="module">
+    value: "both"</textarea></div><div class="mb-3"><label class="form-label fw-bold small" for="wasm-vars">Переменные --vars (JSON):</label><input id="wasm-vars" type="text" class="form-control font-monospace" value="{&#34;body_font&#34;:&#34;Times New Roman&#34;,&#34;body_size&#34;:14.0,&#34;require_conclusion&#34;:true}" style="font-size: 12px;"/></div><button id="wasm-run-btn" type="button" class="btn btn-primary w-100" disabled><i class="fa-solid fa-play me-1"></i> Проверить документ</button></div></div></div><div class="col-lg-6"><div class="card border shadow-sm h-100"><div class="card-header bg-light fw-bold"><i class="fa-solid fa-clipboard-check me-1"></i> 2. Результат проверки</div><div class="card-body d-flex flex-column"><div id="wasm-summary" class="alert alert-info" style="display: none;"></div><div id="wasm-errors-table-wrap" class="table-responsive mb-3" style="display: none;"><table class="table table-sm table-bordered table-striped mb-0" style="font-size: 12px;"><thead class="table-dark"><tr><th>Код</th><th>Где</th><th>Ожидалось</th><th>Фактически</th></tr></thead><tbody id="wasm-errors-tbody"></tbody></table></div><pre id="wasm-output" class="bg-dark text-light p-3 rounded flex-grow-1 mb-0" style="font-size: 12px; max-height: 460px; overflow: auto;">{"Ожидание": "Выберите .docx или нажмите «Пример с ошибками»"}</pre></div></div></div></div><script type="module">
     import init, { validate_docx } from "./docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725.js";
 
     const statusBadge = document.getElementById("wasm-status-badge");
     const runBtn = document.getElementById("wasm-run-btn");
+    const sampleBadBtn = document.getElementById("wasm-sample-bad-btn");
+    const sampleGoodBtn = document.getElementById("wasm-sample-good-btn");
+    const downloadSampleBtn = document.getElementById("wasm-download-sample-btn");
     const outputEl = document.getElementById("wasm-output");
     const summaryEl = document.getElementById("wasm-summary");
+    const errorsTableWrap = document.getElementById("wasm-errors-table-wrap");
+    const errorsTbody = document.getElementById("wasm-errors-tbody");
+
     let wasmReady = false;
+    let lastBytes = null;
+    let lastFileName = "sample.docx";
+
+    const STYLES_XML = `<?xml version="1.0" encoding="UTF-8"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:style w:type="paragraph" w:styleId="Normal">
+    <w:name w:val="Normal"/>
+    <w:pPr><w:jc w:val="both"/><w:spacing w:line="360"/></w:pPr>
+    <w:rPr><w:rFonts w:ascii="Times New Roman"/><w:sz w:val="28"/></w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Heading1">
+    <w:name w:val="Heading 1"/>
+    <w:rPr><w:rFonts w:ascii="Times New Roman"/><w:sz w:val="32"/><w:b/></w:rPr>
+  </w:style>
+</w:styles>`;
+
+    const GOOD_DOC_XML = `<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>ВВЕДЕНИЕ</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Normal"/></w:pPr><w:r><w:t>Основной текст курсовой работы, оформленный строго по ГОСТ.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>ЗАКЛЮЧЕНИЕ</w:t></w:r></w:p>
+    <w:sectPr><w:pgMar w:left="1701" w:right="850" w:top="1134" w:bottom="1134"/></w:sectPr>
+  </w:body>
+</w:document>`;
+
+    const BAD_DOC_XML = `<?xml version="1.0" encoding="UTF-8"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>
+    <w:p><w:pPr><w:pStyle w:val="Normal"/></w:pPr><w:r><w:t>ВВЕДЕНИЕ</w:t></w:r></w:p>
+    <w:p>
+      <w:pPr><w:pStyle w:val="Normal"/><w:jc w:val="left"/></w:pPr>
+      <w:r><w:rPr><w:rFonts w:ascii="Arial"/><w:sz w:val="24"/></w:rPr><w:t>Текст с ручным шрифтом Arial 12pt и выравниванием по левому краю.</w:t></w:r>
+    </w:p>
+    <w:sectPr><w:pgMar w:left="1134" w:right="850" w:top="1134" w:bottom="1134"/></w:sectPr>
+  </w:body>
+</w:document>`;
+
+    async function buildSampleDocx(docXml) {
+      const zip = new window.JSZip();
+      zip.file("word/styles.xml", STYLES_XML);
+      zip.file("word/document.xml", docXml);
+      const u8 = await zip.generateAsync({ type: "uint8array" });
+      return u8;
+    }
+
+    function renderErrorsTable(errors) {
+      errorsTbody.innerHTML = "";
+      if (!errors || errors.length === 0) {
+        errorsTableWrap.style.display = "none";
+        return;
+      }
+      errorsTableWrap.style.display = "block";
+      for (const err of errors) {
+        const tr = document.createElement("tr");
+        const target = err.block
+          ? "Блок: " + err.block
+          : err.side
+            ? "Поле: " + err.side
+            : err.block_index !== undefined
+              ? "Абзац #" + err.block_index + (err.style ? " (" + err.style + ")" : "")
+              : "-";
+        const expected = err.expected ?? err.expected_mm ?? err.anchor ?? "-";
+        const actual = err.actual ?? err.actual_mm ?? (err.code === "DIRECT_FORMAT_OVERRIDE" ? "ручное форматирование" : "-");
+        tr.innerHTML =
+          '<td><span class="badge bg-danger">' + err.code + "</span></td>" +
+          "<td>" + target + "</td>" +
+          "<td><code>" + JSON.stringify(expected) + "</code></td>" +
+          "<td><code>" + JSON.stringify(actual) + "</code></td>";
+        errorsTbody.appendChild(tr);
+      }
+    }
+
+    function runValidation(bytes, label) {
+      if (!wasmReady || !bytes) return;
+      const contract = document.getElementById("wasm-contract").value;
+      const varsJson = document.getElementById("wasm-vars").value;
+
+      try {
+        const rawJson = validate_docx(bytes, contract, varsJson);
+        const parsed = JSON.parse(rawJson);
+        const errs = Array.isArray(parsed._errors) ? parsed._errors : [];
+
+        summaryEl.style.display = "block";
+        if (parsed.valid) {
+          summaryEl.className = "alert alert-success";
+          summaryEl.innerHTML = '<strong><i class="fa-solid fa-circle-check me-1"></i> ' + label + ': документ прошёл проверку!</strong> Ошибок: 0.';
+        } else {
+          summaryEl.className = "alert alert-danger";
+          summaryEl.innerHTML = '<strong><i class="fa-solid fa-triangle-exclamation me-1"></i> ' + label + ': найдены нарушения (' + errs.length + ')</strong>';
+        }
+        renderErrorsTable(errs);
+        outputEl.textContent = JSON.stringify(parsed, null, 2);
+      } catch (err) {
+        errorsTableWrap.style.display = "none";
+        summaryEl.className = "alert alert-danger";
+        summaryEl.style.display = "block";
+        summaryEl.textContent = "Ошибка валидации: " + err;
+      }
+    }
 
     init("./docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725_bg.wasm")
       .then(() => {
@@ -217,6 +323,8 @@ assertions:
         statusBadge.className = "badge bg-success p-2";
         statusBadge.innerHTML = '<i class="fa-solid fa-check me-1"></i> WASM готов (офлайн в браузере)';
         runBtn.disabled = false;
+        sampleBadBtn.disabled = false;
+        sampleGoodBtn.disabled = false;
       })
       .catch((err) => {
         statusBadge.className = "badge bg-danger p-2";
@@ -224,38 +332,44 @@ assertions:
       });
 
     runBtn.addEventListener("click", async () => {
-      if (!wasmReady) return;
       const file = document.getElementById("wasm-docx-file").files[0];
       if (!file) {
         summaryEl.className = "alert alert-warning";
         summaryEl.style.display = "block";
-        summaryEl.textContent = "Выберите .docx файл для проверки.";
+        summaryEl.textContent = "Выберите .docx файл или нажмите на один из готовых примеров ниже.";
         return;
       }
+      lastBytes = new Uint8Array(await file.arrayBuffer());
+      lastFileName = file.name;
+      downloadSampleBtn.style.display = "none";
+      runValidation(lastBytes, file.name);
+    });
 
-      const bytes = new Uint8Array(await file.arrayBuffer());
-      const contract = document.getElementById("wasm-contract").value;
-      const varsJson = document.getElementById("wasm-vars").value;
+    sampleBadBtn.addEventListener("click", async () => {
+      lastBytes = await buildSampleDocx(BAD_DOC_XML);
+      lastFileName = "coursework_with_errors.docx";
+      downloadSampleBtn.style.display = "inline-block";
+      runValidation(lastBytes, "Пример с ошибками");
+    });
 
-      try {
-        const rawJson = validate_docx(bytes, contract, varsJson);
-        const parsed = JSON.parse(rawJson);
-        const errCount = Array.isArray(parsed._errors) ? parsed._errors.length : 0;
+    sampleGoodBtn.addEventListener("click", async () => {
+      lastBytes = await buildSampleDocx(GOOD_DOC_XML);
+      lastFileName = "coursework_valid_gost.docx";
+      downloadSampleBtn.style.display = "inline-block";
+      runValidation(lastBytes, "Эталон ГОСТ");
+    });
 
-        summaryEl.style.display = "block";
-        if (parsed.valid) {
-          summaryEl.className = "alert alert-success";
-          summaryEl.innerHTML = '<strong><i class="fa-solid fa-circle-check me-1"></i> Документ прошёл проверку!</strong> Ошибок: 0.';
-        } else {
-          summaryEl.className = "alert alert-danger";
-          summaryEl.innerHTML = '<strong><i class="fa-solid fa-triangle-exclamation me-1"></i> Найдены нарушения: ' + errCount + '</strong>';
-        }
-        outputEl.textContent = JSON.stringify(parsed, null, 2);
-      } catch (err) {
-        summaryEl.className = "alert alert-danger";
-        summaryEl.style.display = "block";
-        summaryEl.textContent = "Ошибка валидации: " + err;
-      }
+    downloadSampleBtn.addEventListener("click", () => {
+      if (!lastBytes) return;
+      const blob = new Blob([lastBytes], {
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = lastFileName;
+      a.click();
+      URL.revokeObjectURL(url);
     });
   </script></div>
     </div>
