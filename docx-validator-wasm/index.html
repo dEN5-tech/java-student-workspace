@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOCX Validator (WASM + Trunk)</title>
+  
+<script type="module">
+import init, * as bindings from './docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725.js';
+const wasm = await init({ module_or_path: './docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 920px; margin: 2rem auto; padding: 0 1rem; background: #0f172a; color: #e2e8f0; }
+    h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: 600; font-size: 0.9rem; }
+    textarea, input[type="file"], button { width: 100%; margin-top: 0.4rem; padding: 0.6rem; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: #f8fafc; box-sizing: border-box; }
+    textarea { font-family: ui-monospace, monospace; font-size: 0.85rem; }
+    button { background: #2563eb; border: none; font-weight: 600; cursor: pointer; margin-top: 1.2rem; }
+    button:hover { background: #1d4ed8; }
+    pre { background: #020617; padding: 1rem; border-radius: 8px; overflow-x: auto; border: 1px solid #1e293b; margin-top: 1rem; }
+  </style>
+<link rel="modulepreload" href="./docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725.js" crossorigin="anonymous" integrity="sha384-e6AkkDGOnvJF6yHjOsYNvs6uMROtKBC+h8ukHJY9F9vOHZin7VJwXf+CMTAYlR0B"><link rel="preload" href="./docx-validator-wasm/docx-validator-wasm-7f2ec47ee312725_bg.wasm" crossorigin="anonymous" integrity="sha384-teXFRRq4qD1O8BhJa0C4tYaxJQM+ajDI1PLobilzHJnTwJKuX+f6jWrtf2JOquyJ" as="fetch" type="application/wasm"></head>
+<body>
+  <h1>DOCX Validator (YAML + Jinja2 в браузере через WASM)</h1>
+
+  <label for="docxFile">1. Выберите .docx файл:</label>
+  <input id="docxFile" type="file" accept=".docx" />
+
+  <label for="contractInput">2. Контракт (.yaml.j2):</label>
+  <textarea id="contractInput" rows="12">version: 1
+document:
+  page_margins_mm:
+    left: {{ margin_left | default(30) }}
+    right: {{ margin_right | default(15) }}
+    top: 20
+    bottom: 20
+style_rules:
+  - style_name: "Normal"
+    font_family: "{{ body_font | default('Times New Roman') }}"
+    font_size_pt: {{ body_size | default(14.0) }}
+    line_spacing: 1.5
+blocks:
+  - name: intro
+    anchor_text: "ВВЕДЕНИЕ"
+    match_mode: exact
+    expected_style: "Heading 1"
+    required: true</textarea>
+
+  <label for="varsInput">3. Переменные --vars (JSON):</label>
+  <textarea id="varsInput" rows="2">{"body_font":"Times New Roman","body_size":14.0}</textarea>
+
+  <button id="runBtn" type="button">Проверить документ</button>
+  <pre id="output">Ожидание файла...</pre>
+
+  <script type="module">
+    const out = document.getElementById("output");
+    document.getElementById("runBtn").addEventListener("click", async () => {
+      const file = document.getElementById("docxFile").files[0];
+      if (!file) { out.textContent = "Выберите .docx файл!"; return; }
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const contract = document.getElementById("contractInput").value;
+      const vars = document.getElementById("varsInput").value;
+      try {
+        const result = window.wasmBindings.validate_docx(bytes, contract, vars);
+        out.textContent = JSON.stringify(JSON.parse(result), null, 2);
+      } catch (e) {
+        out.textContent = "Ошибка: " + e;
+      }
+    });
+  </script>
+</body>
+</html>
